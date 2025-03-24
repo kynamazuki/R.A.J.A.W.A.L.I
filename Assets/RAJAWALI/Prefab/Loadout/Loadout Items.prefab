@@ -1,0 +1,56 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &631174577738799373
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5683955179236356076}
+  - component: {fileID: 8847646001290686924}
+  m_Layer: 0
+  m_Name: Loadout Items
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5683955179236356076
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 631174577738799373}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8847646001290686924
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 631174577738799373}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31b8d36a7fff20145a05d99df16844d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  vehicles:
+  - {fileID: 701774983004693622, guid: 7f52879bfcab28c44879d0a895411a26, type: 3}
+  - {fileID: 701774983004693622, guid: 44dc6808a86862c40b43832f19a3bdb0, type: 3}
+  - {fileID: 3558731961340264767, guid: 8bcb0f456b739e2459f676e987d8f688, type: 3}
+  modules:
+  - {fileID: 331220912393201343, guid: 7fe745175f9f6b447a6880e834c8a2fc, type: 3}
+  - {fileID: 331220912393201343, guid: 2fb4ea0dec60c1d4098c083c47806c15, type: 3}
+  - {fileID: 331220912393201343, guid: 5cb103fd87fd20b458cbdeef0c0343bd, type: 3}
+  - {fileID: 331220912393201343, guid: c12008ffb1be22847b5017e5af679722, type: 3}
+  - {fileID: 331220912393201343, guid: 73ff50e2a9ccc4b43b811cd32718d5d0, type: 3}
