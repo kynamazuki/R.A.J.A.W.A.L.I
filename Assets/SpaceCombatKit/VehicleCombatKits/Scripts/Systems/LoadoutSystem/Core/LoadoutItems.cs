@@ -11,5 +11,8 @@ namespace VSX.UniversalVehicleCombat.Loadout
 
         [Tooltip("The modules available in the loadout.")]
         public List<LoadoutModuleItem> modules = new List<LoadoutModuleItem>();
+
+        //[Tooltip("The modules available in the loadout.")]
+        //public List<LoadoutMissionItem> missions = new List<LoadoutMissionItem>();
     }
 }

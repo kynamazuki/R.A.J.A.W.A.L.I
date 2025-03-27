@@ -25,17 +25,21 @@ namespace VSX.UniversalVehicleCombat.Loadout
         [SerializeField]
         protected GameObject vehicleSelectionModeUIHandle;
 
+        [Tooltip("The gameobject to toggle to enable/disable the module options list.")]
+        [SerializeField]
+        protected ButtonsListController vehiclesButtonListController;
+
         [Tooltip("The gameobject to toggle to enable/disable the vehicle info UI.")]
         [SerializeField]
         protected GameObject vehicleInfoUIHandle;
 
-        [Tooltip("The button to select the previous vehicle in the loadout.")]
+      /*  [Tooltip("The button to select the previous vehicle in the loadout.")]
         [SerializeField]
         protected GameObject selectPreviousVehicleButton;
 
         [Tooltip("The button to select the next vehicle in the loadout.")]
         [SerializeField]
-        protected GameObject selectNextVehicleButton;
+        protected GameObject selectNextVehicleButton; */
 
         [Tooltip("Whether to wrap through the vehicle selection (go back to beginning when cycle past the end, go to the end when cycling back past beginning).")]
         [SerializeField]
@@ -64,13 +68,13 @@ namespace VSX.UniversalVehicleCombat.Loadout
         [SerializeField]
         protected ButtonsListController moduleButtonsListController;
 
-        [Tooltip("The gameobject to toggle to enable/disable the module info UI.")]
+        /*[Tooltip("The gameobject to toggle to enable/disable the module info UI.")]
         [SerializeField]
-        protected GameObject moduleInfoUIHandle;
+        protected GameObject moduleInfoUIHandle; 
 
         [Tooltip("The button to equip (select) the highlighted module.")]
         [SerializeField]
-        protected GameObject equipModuleButton;
+        protected GameObject equipModuleButton; */
 
 
         [Header("Module Mount Selection")]
@@ -83,10 +87,10 @@ namespace VSX.UniversalVehicleCombat.Loadout
         [SerializeField]
         protected GameObject moduleMountOptionsUIHandle;
 
-        [Tooltip("The gameobject to toggle to enable/disable the module mount info.")]
+        /*[Tooltip("The gameobject to toggle to enable/disable the module mount info.")]
         [SerializeField]
         protected GameObject moduleMountInfoUIHandle;
-
+        */
 
         [Header("Slot Selection")]
 
@@ -169,8 +173,7 @@ namespace VSX.UniversalVehicleCombat.Loadout
             loadoutManager.RevertWorkingToActiveSlot();
             loadoutManager.SelectFirstModuleMount();
 
-            vehicleSelectionModeUIHandle.SetActive(true);
-            moduleSelectionModeUIHandle.SetActive(true);
+            moduleButtonsListController.gameObject.SetActive(false);
 
             state = UIState.VehicleSelection;
 
@@ -181,14 +184,14 @@ namespace VSX.UniversalVehicleCombat.Loadout
         /// <summary>
         /// Enter module selection mode.
         /// </summary>
-        public virtual void EnterModuleSelection()
+        /*public virtual void EnterModuleSelection()
         {
             vehicleSelectionModeUIHandle.SetActive(false);
             moduleSelectionModeUIHandle.SetActive(true);
             state = UIState.ModuleSelection;
 
             onModuleSelectionMode.Invoke();
-        }
+        }*/
 
 
         /// <summary>
@@ -276,6 +279,17 @@ namespace VSX.UniversalVehicleCombat.Loadout
         protected virtual void OnModuleClicked(int ID)
         {
             loadoutManager.SelectModule(loadoutManager.SelectableModuleIndexes[ID]);
+
+            if (loadoutManager.LoadoutData.SelectedSlot != null &&
+                loadoutManager.LoadoutData.SelectedSlot.selectedVehicleIndex != -1 &&
+                loadoutManager.SelectedModuleMountIndex != -1)
+            {
+                loadoutManager.LoadoutData.SelectedSlot.selectedModules[loadoutManager.SelectedModuleMountIndex] =
+                loadoutManager.WorkingSlot.selectedModules[loadoutManager.SelectedModuleMountIndex];
+
+                UpdateModuleMountSelectionUI();
+            }
+            moduleButtonsListController.gameObject.SetActive(false);
         }
 
 
@@ -318,7 +332,9 @@ namespace VSX.UniversalVehicleCombat.Loadout
         /// <param name="ID">The index of the module mount in the vehicle's Module Mounts list.</param>
         protected virtual void OnModuleMountClicked(int ID)
         {
+            moduleButtonsListController.gameObject.SetActive(true);
             loadoutManager.SelectModuleMount(ID);
+
         }
 
 
@@ -403,19 +419,10 @@ namespace VSX.UniversalVehicleCombat.Loadout
             }
 
 
-            // Activate/deactivate the equip module button
-
-            if (equipModuleButton != null)
-            {
-                equipModuleButton.SetActive(loadoutManager.LoadoutData.SelectedSlot != null && loadoutManager.LoadoutData.SelectedSlot.selectedVehicleIndex != -1 && loadoutManager.SelectedModuleMountIndex != -1 &&
-                                        loadoutManager.LoadoutData.SelectedSlot.selectedModules[loadoutManager.SelectedModuleMountIndex] !=
-                                        loadoutManager.WorkingSlot.selectedModules[loadoutManager.SelectedModuleMountIndex]);
-            }
-
 
             // Activate/deactivate the next vehicle selection button
 
-            if (selectNextVehicleButton != null)
+        /*    if (selectNextVehicleButton != null)
             {
                 if (loadoutManager.SlotPerVehicle)
                 {
@@ -429,7 +436,7 @@ namespace VSX.UniversalVehicleCombat.Loadout
                                                         (wrapVehicles || loadoutManager.SelectableVehicleIndexes.IndexOf(loadoutManager.WorkingSlot.selectedVehicleIndex) < loadoutManager.SelectableVehicleIndexes.Count - 1));
 
                 }
-            }
+            } 
 
 
             // Activate/deactivate the previous vehicle selection button
@@ -447,7 +454,7 @@ namespace VSX.UniversalVehicleCombat.Loadout
                                                         (wrapVehicles || loadoutManager.SelectableVehicleIndexes.IndexOf(loadoutManager.WorkingSlot.selectedVehicleIndex) > 0));
 
                 }
-            }
+            }*/
 
 
             // Activate/deactivate the vehicle info
@@ -459,11 +466,11 @@ namespace VSX.UniversalVehicleCombat.Loadout
 
 
             // Activate/deactivate the module info
-
+            /*
             if (moduleInfoUIHandle != null)
             {
                 moduleInfoUIHandle.SetActive(loadoutManager.WorkingSlot.selectedVehicleIndex != -1);
-            }
+            } */
         }
 
 

@@ -42,7 +42,7 @@ namespace VSX.UniversalVehicleCombat.Loadout
 
             input.LoadoutControls.Start.performed += ctx => StartAction();
 
-            input.LoadoutControls.Accept.performed += ctx => Accept();
+            //input.LoadoutControls.Accept.performed += ctx => Accept();
 
             input.LoadoutControls.Delete.performed += ctx => Delete();
 
@@ -90,7 +90,7 @@ namespace VSX.UniversalVehicleCombat.Loadout
             loadoutUIController.StartMission(0);
         }
 
-        public virtual void Accept()
+       /* public virtual void Accept()
         {
             if (loadoutUIController.State == LoadoutUIController.UIState.VehicleSelection)
             {
@@ -100,7 +100,7 @@ namespace VSX.UniversalVehicleCombat.Loadout
             {
                 loadoutUIController.EquipModule();
             }
-        }
+        }*/
 
 
         protected virtual void CycleVehicleSelection(float val)

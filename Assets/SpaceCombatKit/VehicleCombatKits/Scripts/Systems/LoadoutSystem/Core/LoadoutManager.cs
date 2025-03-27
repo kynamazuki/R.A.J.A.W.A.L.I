@@ -467,7 +467,7 @@ namespace VSX.UniversalVehicleCombat.Loadout
 
 
         // Update the list of vehicles that can be selected at the current slot
-        protected virtual void UpdateSelectableVehicles()
+        public virtual void UpdateSelectableVehicles()
         {
 
             selectableVehicleIndexes.Clear();
