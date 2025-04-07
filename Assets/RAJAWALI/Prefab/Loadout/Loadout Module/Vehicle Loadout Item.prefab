@@ -49,9 +49,10 @@ MonoBehaviour:
   overrideVehicleLabel: 1
   overrideLabel: Keris
   description: Strike Fighter
-  sprites: []
+  sprites:
+  - {fileID: 21300000, guid: 8f22e6d4801e60f4ea381e7d888dc5fc, type: 3}
   defaultLoadout:
-  - {fileID: 3799691527014472684, guid: 6fa040d7eca94e8469b8c976ed50f778, type: 3}
+  - {fileID: 1325631859568036413, guid: b3156ba23cbc08348b9931aacbb3c3b1, type: 3}
   - {fileID: 3799691527014472684, guid: 6fa040d7eca94e8469b8c976ed50f778, type: 3}
   - {fileID: 9065839429239037063, guid: e030c1405df72174a803f0527f31c243, type: 3}
   locked: 0

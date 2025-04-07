@@ -157,7 +157,7 @@ namespace VSX.UniversalVehicleCombat.Loadout
 
         protected virtual void Awake()
         {
-            loadoutUIController.onVehicleSelectionMode.AddListener(OnVehicleSelectionMode);
+            //loadoutUIController.onVehicleSelectionMode.AddListener(OnVehicleSelectionMode);
             loadoutUIController.onModuleSelectionMode.AddListener(OnModuleSelectionMode);
 
             raycastHitComparer = new RaycastHitComparer();

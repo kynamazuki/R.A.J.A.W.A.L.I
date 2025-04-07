@@ -25,10 +25,6 @@ namespace VSX.UniversalVehicleCombat.Loadout
         [SerializeField]
         protected GameObject vehicleSelectionModeUIHandle;
 
-        [Tooltip("The gameobject to toggle to enable/disable the module options list.")]
-        [SerializeField]
-        protected ButtonsListController vehiclesButtonListController;
-
         [Tooltip("The gameobject to toggle to enable/disable the vehicle info UI.")]
         [SerializeField]
         protected GameObject vehicleInfoUIHandle;
@@ -129,8 +125,8 @@ namespace VSX.UniversalVehicleCombat.Loadout
         [SerializeField]
         protected List<string> missionSceneNames = new List<string>();
 
-        [Tooltip("Event called when the loadout menu goes into the vehicle selection mode.")]
-        public UnityEvent onVehicleSelectionMode;
+      /*  [Tooltip("Event called when the loadout menu goes into the vehicle selection mode.")]
+        public UnityEvent onVehicleSelectionMode; */
 
         [Tooltip("Event called when the loadout menu goes into the module selection mode.")]
         public UnityEvent onModuleSelectionMode;
@@ -177,7 +173,7 @@ namespace VSX.UniversalVehicleCombat.Loadout
 
             state = UIState.VehicleSelection;
 
-            onVehicleSelectionMode.Invoke();
+            //onVehicleSelectionMode.Invoke();
         }
 
 
