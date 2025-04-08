@@ -108,6 +108,8 @@ namespace VSX.UniversalVehicleCombat.Loadout
         protected virtual void Start()
         {
             if (items == null) SetItems(startingItems);
+
+
         }
 
 
@@ -123,6 +125,7 @@ namespace VSX.UniversalVehicleCombat.Loadout
         protected virtual void OnDataLoad()
         {
             onDataLoad.Invoke();
+
         }
 
 

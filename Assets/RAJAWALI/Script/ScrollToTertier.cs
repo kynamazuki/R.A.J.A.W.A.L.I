@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class ScrollToTertier : MonoBehaviour
 {
@@ -13,6 +14,8 @@ public class ScrollToTertier : MonoBehaviour
 
     private void Awake()
     {
+
+
         SecondWeapon.SetActive(false); // Ensure the tertiary weapon is inactive initially
 
         defaultControl = new GeneralInputAsset();
@@ -30,7 +33,6 @@ public class ScrollToTertier : MonoBehaviour
                 SecondWeapon.SetActive(true);
             }
 
-            Debug.Log("scrolled Up");
             mouseScrollY = 0; // Reset to prevent multiple logs
         }
         else if (mouseScrollY > 0)
@@ -41,7 +43,6 @@ public class ScrollToTertier : MonoBehaviour
                 SecondWeapon.SetActive(false);
             }
 
-            Debug.Log("scrolled Down");
             mouseScrollY = 0; // Reset to prevent multiple logs
         }
     }
