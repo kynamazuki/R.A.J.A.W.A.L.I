@@ -27,7 +27,7 @@ namespace VSX.Utilities.UI
 
         [Tooltip("The texts on this button, can be accessed/set externally by index.")]
         [SerializeField]
-        protected List<UVCText> texts = new List<UVCText>();
+        public List<UVCText> texts = new List<UVCText>();
 
         [Tooltip("Whether the button should be selected manually (via script), rather than being selected by pointer events.")]
         [SerializeField]

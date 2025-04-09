@@ -453,7 +453,7 @@ GameObject:
   - component: {fileID: 3714361798490031714}
   - component: {fileID: 7107489445111818583}
   m_Layer: 5
-  m_Name: ModuleItem
+  m_Name: ModuleItemRW
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -499,7 +499,7 @@ MonoBehaviour:
   m_MinWidth: -1
   m_MinHeight: -1
   m_PreferredWidth: 200
-  m_PreferredHeight: 60
+  m_PreferredHeight: 55
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
   m_LayoutPriority: 1
@@ -585,7 +585,7 @@ MonoBehaviour:
     imageSettings:
     - image: {fileID: 2160881422363642738}
       modifyColor: 1
-      color: {r: 0.29803923, g: 0.6738562, b: 0.7490196, a: 0.050980393}
+      color: {r: 0, g: 0, b: 0, a: 1}
       modifySprite: 0
       sprite: {fileID: 0}
     textSettings: []
@@ -601,7 +601,7 @@ MonoBehaviour:
     imageSettings:
     - image: {fileID: 2160881422363642738}
       modifyColor: 1
-      color: {r: 0.29803923, g: 0.6738562, b: 0.7490196, a: 0.7490196}
+      color: {r: 1, g: 0.4392157, b: 0.2627451, a: 0.54901963}
       modifySprite: 0
       sprite: {fileID: 0}
     textSettings: []
@@ -617,7 +617,7 @@ MonoBehaviour:
     imageSettings:
     - image: {fileID: 2160881422363642738}
       modifyColor: 1
-      color: {r: 0.29803923, g: 0.6738562, b: 0.7490196, a: 1}
+      color: {r: 0.9254902, g: 0.24313726, b: 0.101960786, a: 1}
       modifySprite: 0
       sprite: {fileID: 0}
     textSettings: []
