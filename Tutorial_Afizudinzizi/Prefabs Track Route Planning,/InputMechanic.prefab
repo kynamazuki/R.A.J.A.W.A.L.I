@@ -1,0 +1,91 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3161222083213000589
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3161222083213000591}
+  - component: {fileID: 3161222083213000588}
+  - component: {fileID: 3161222083455224601}
+  m_Layer: 0
+  m_Name: InputMechanic
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &3161222083213000591
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3161222083213000589}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 981.18964, y: 1306, z: -0.0046539307}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3161222083213000588
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3161222083213000589}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5cbc7fee3428af47bba7fcfc7017b1e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputBoxLegacy: {fileID: 0}
+  maxMessage: 5
+  chatPanel: {fileID: 0}
+  textObject: {fileID: 7533529521687543734, guid: 1962a3d0f497ed6468849b6265739771,
+    type: 3}
+  inputBox: {fileID: 0}
+  playerMessage: {r: 1, g: 0, b: 0, a: 1}
+  info: {r: 0, g: 1, b: 1, a: 1}
+  messageList: []
+  SpawnBoxOne: {fileID: 0}
+--- !u!114 &3161222083455224601
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3161222083213000589}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d28b6dd072bb77141a16f07610ed567e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startTimerOnEnable: 0
+  duration: 5
+  delay: 0
+  timerEvents: []
+  randomizedDuration: 0
+  minRandomDuration: 1
+  maxRandomDuration: 5
+  displayText: {fileID: 0}
+  fillBar: {fileID: 0}
+  displayType: 0
+  countDown: 1
+  displayPrefix: 
+  displaySuffix: 
+  onTimerStarted:
+    m_PersistentCalls:
+      m_Calls: []
+  onTimerFinished:
+    m_PersistentCalls:
+      m_Calls: []
+  onTimerDisplayUpdated:
+    m_PersistentCalls:
+      m_Calls: []
