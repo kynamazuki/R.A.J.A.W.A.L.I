@@ -21,51 +21,80 @@ public class MissionDropDown : MonoBehaviour
 
     public OptionSelectedEvent onOptionSelected;
 
-    private ButtonController currentSelectedOption;
+    private ButtonController currentlySelectedOption;
+
+    // Static list to track all dropdowns
+    private static List<MissionDropDown> allDropdowns = new List<MissionDropDown>();
+
 
     private void Start()
     {
+        // Register this dropdown
+        allDropdowns.Add(this);
+
         optionsContainer.SetActive(false);
 
-        // Header button click sound
+        // Toggle dropdown on header click
         headerButton.onClick.AddListener(() =>
         {
             PlayClickSound();
+
+            // Close all other dropdowns
+            foreach (var dropdown in allDropdowns)
+            {
+                if (dropdown != this)
+                {
+                    dropdown.CloseDropdown();
+                }
+            }
+
+            // Toggle this dropdown
             optionsContainer.SetActive(!optionsContainer.activeSelf);
         });
 
         AddSoundEvents(headerButton);
 
-        foreach (var option in optionButtons)
+        for (int i = 0; i < optionButtons.Count; i++)
         {
-            var thisOption = option; // Proper closure
-            var optionValue = thisOption.texts[0].text;
+            int capturedIndex = i;
+            var option = optionButtons[capturedIndex];
+            string value = option.texts[0].text;
 
-            thisOption.onClick.AddListener(() =>
+            AddSoundEvents(option);
+
+            option.onClick.AddListener(() =>
             {
                 PlayClickSound();
 
-                // Deselect previous selected option
-                if (currentSelectedOption != null)
+                // Deselect previous
+                if (currentlySelectedOption != null)
                 {
-                    currentSelectedOption.SetSelected(false);
-                    currentSelectedOption.SetDeepSelected(false);
+                    currentlySelectedOption.SetSelected(false);
+                    currentlySelectedOption.SetDeepSelected(false);
                 }
 
-                // Select this option
-                thisOption.Select();
-                thisOption.SetDeepSelected(true);
-                currentSelectedOption = thisOption;
+                // Select new
+                option.SetSelected(true);
+                option.SetDeepSelected(true);
+                currentlySelectedOption = option;
 
-                // Update header text and notify listeners
-                headerButton.SetText(1, optionValue);
-                onOptionSelected.Invoke(optionValue);
-
+                // Invoke selection logic
+                onOptionSelected.Invoke(value);
+                headerButton.SetText(1, value);
                 optionsContainer.SetActive(false);
             });
-
-            AddSoundEvents(thisOption);
         }
+    }
+
+    public void CloseDropdown()
+    {
+        optionsContainer.SetActive(false);
+    }
+
+    private void OnDestroy()
+    {
+        // Clean up
+        allDropdowns.Remove(this);
     }
 
     private void AddSoundEvents(ButtonController button)
@@ -76,10 +105,8 @@ public class MissionDropDown : MonoBehaviour
             trigger = button.gameObject.AddComponent<EventTrigger>();
         }
 
-        EventTrigger.Entry entry = new EventTrigger.Entry
-        {
-            eventID = EventTriggerType.PointerEnter
-        };
+        EventTrigger.Entry entry = new EventTrigger.Entry();
+        entry.eventID = EventTriggerType.PointerEnter;
         entry.callback.AddListener((data) => { PlayHoverSound(); });
         trigger.triggers.Add(entry);
     }
