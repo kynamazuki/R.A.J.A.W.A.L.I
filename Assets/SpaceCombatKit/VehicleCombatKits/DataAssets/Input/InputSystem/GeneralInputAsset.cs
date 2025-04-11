@@ -363,7 +363,7 @@ public partial class @GeneralInputAsset: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""4f039296-9aa9-40a8-8eda-0a28611dc3ab"",
-                    ""path"": ""<Keyboard>/rightBracket"",
+                    ""path"": ""<Keyboard>/c"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""MouseKeyboard"",
@@ -385,7 +385,7 @@ public partial class @GeneralInputAsset: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""b1522403-512c-4699-98f4-695bee30cd36"",
-                    ""path"": ""<Keyboard>/leftBracket"",
+                    ""path"": ""<Keyboard>/rightBracket"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""MouseKeyboard"",

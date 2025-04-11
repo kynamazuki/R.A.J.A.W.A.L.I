@@ -39,18 +39,24 @@ public class MissionDropDown : MonoBehaviour
         {
             PlayClickSound();
 
-            // Close all other dropdowns
+            // Close all other dropdowns and deselect their headers
             foreach (var dropdown in allDropdowns)
             {
                 if (dropdown != this)
                 {
                     dropdown.CloseDropdown();
+                    dropdown.headerButton.SetSelected(false); // Deselect other headers
                 }
             }
 
-            // Toggle this dropdown
-            optionsContainer.SetActive(!optionsContainer.activeSelf);
+            // Toggle this dropdown visibility
+            bool isActive = !optionsContainer.activeSelf;
+            optionsContainer.SetActive(isActive);
+
+            // Set selected state based on visibility
+            headerButton.SetSelected(isActive);
         });
+
 
         AddSoundEvents(headerButton);
 
