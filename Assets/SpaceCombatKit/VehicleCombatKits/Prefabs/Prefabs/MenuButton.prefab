@@ -231,8 +231,9 @@ MonoBehaviour:
       m_Calls: []
   m_text: Button
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 2f4ee3895c2586644a1dbacf4f704bdd, type: 2}
+  m_sharedMaterial: {fileID: 8514689293215180755, guid: 2f4ee3895c2586644a1dbacf4f704bdd,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -292,7 +293,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 1
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: -9.405518, y: 0, z: -6.832947, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -651,7 +652,7 @@ MonoBehaviour:
     imageSettings:
     - image: {fileID: 5171205947151942622}
       modifyColor: 1
-      color: {r: 0.4509804, g: 0.8235294, b: 0.9019608, a: 0.7490196}
+      color: {r: 1, g: 0.4392157, b: 0.2627451, a: 0.7490196}
       modifySprite: 0
       sprite: {fileID: 0}
     textSettings:
@@ -672,7 +673,7 @@ MonoBehaviour:
     imageSettings:
     - image: {fileID: 5171205947151942622}
       modifyColor: 1
-      color: {r: 0.4509804, g: 0.8235294, b: 0.9019608, a: 1}
+      color: {r: 1, g: 0.4392157, b: 0.2627451, a: 1}
       modifySprite: 0
       sprite: {fileID: 0}
     textSettings:
