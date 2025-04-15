@@ -26,6 +26,10 @@ public class MissionDropDown : MonoBehaviour
     // Static list to track all dropdowns
     private static List<MissionDropDown> allDropdowns = new List<MissionDropDown>();
 
+    public enum MissionParameterType { MissionType, MissionTime, EnemyType, Ammo, Location }
+    public MissionParameterType parameterType;
+
+    public MissionParameters missionParameters;
 
     private void Start()
     {
@@ -88,7 +92,31 @@ public class MissionDropDown : MonoBehaviour
                 onOptionSelected.Invoke(value);
                 headerButton.SetText(1, value);
                 optionsContainer.SetActive(false);
+
+                switch (parameterType)
+                {
+                    case MissionParameterType.MissionType:
+                        missionParameters.missionType = value;
+                        break;
+                    case MissionParameterType.MissionTime:
+                        if (value == "Hardcore") missionParameters.missionTime = 60f;
+                        else if (value == "Normal") missionParameters.missionTime = 180f;
+                        else if (value == "Easy") missionParameters.missionTime = 300f;
+                        break;
+                    case MissionParameterType.EnemyType:
+                        missionParameters.enemyType = value;
+                        break;
+                    case MissionParameterType.Ammo:
+                        missionParameters.ammoType = value;
+                        break;
+                    case MissionParameterType.Location:
+                        missionParameters.location = value;
+                        break;
+                }
+
+                onOptionSelected.Invoke(value);
             });
+       
         }
     }
 
