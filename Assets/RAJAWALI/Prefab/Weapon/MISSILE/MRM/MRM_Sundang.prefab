@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 3799691527014472686}
   - component: {fileID: 2126168893883483272}
   m_Layer: 0
-  m_Name: MRM
+  m_Name: MRM_Sundang
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -251,9 +251,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   resourceType: {fileID: 11400000, guid: 731b4804bae22a64bbdbb02fa3b343e8, type: 2}
-  capacity: 26
+  capacity: 45
   changeRate: 0
-  startAmount: 26
+  startAmount: 45
   emptiedPause: 5
   fillToCapacityAfterEmptiedPause: 1
   filledPause: 0

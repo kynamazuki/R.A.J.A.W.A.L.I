@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &4454459520761318394
+--- !u!1 &5008012138539858126
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,51 +8,46 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 5888501071990516678}
-  - component: {fileID: 701774983004693622}
+  - component: {fileID: 3884726595949782792}
+  - component: {fileID: 331220912393201343}
   m_Layer: 0
-  m_Name: SCKLoadoutItem_FighterHeavy
+  m_Name: Module Loadout Item_MRM_Kerambit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &5888501071990516678
+--- !u!4 &3884726595949782792
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4454459520761318394}
+  m_GameObject: {fileID: 5008012138539858126}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 960, y: 540, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &701774983004693622
+--- !u!114 &331220912393201343
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4454459520761318394}
+  m_GameObject: {fileID: 5008012138539858126}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e72ed0136e4a8dd4c8264d2b6f704dbb, type: 3}
+  m_Script: {fileID: 11500000, guid: 5e2464cc0fb5b0b43b3452dfd2753547, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vehiclePrefab: {fileID: 2378030215333013681, guid: 9398898c2e689404b8fbf79879cc068f,
+  modulePrefab: {fileID: 3799691527014472684, guid: 79a82538b1d79cc41b97358b714d6276,
     type: 3}
-  overrideVehicleLabel: 1
-  overrideLabel: Fighter Heavy
-  description: Heavy space fighter.
+  overrideModuleLabel: 1
+  overrideLabel: MRM_15
+  description: Mid Ranged Missile
   sprites:
-  - {fileID: 21300000, guid: 26bf7518f8d84354188b2b57e1c64a1a, type: 3}
-  defaultLoadout:
-  - {fileID: 1325631859568036413, guid: 58c4bb084a0f1f14c9ae8ef3619b06ff, type: 3}
-  - {fileID: 3799691527014472684, guid: 79a82538b1d79cc41b97358b714d6276, type: 3}
-  locked: 0
-  moduleMountViewAlignmentOffset: {x: 0, y: 0, z: 0}
+  - {fileID: 21300000, guid: 7d8476e3767de9445a6aaa036e0299a7, type: 3}
