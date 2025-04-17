@@ -1173,6 +1173,57 @@ RectTransform:
   m_AnchoredPosition: {x: 284, y: -81.69}
   m_SizeDelta: {x: 300, y: 164.29005}
   m_Pivot: {x: 0, y: 0}
+--- !u!1 &1198882502520813417
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2718545233641848246}
+  - component: {fileID: 2016750980747281584}
+  m_Layer: 5
+  m_Name: MissionManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &2718545233641848246
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1198882502520813417}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1497530473048289779}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 261, y: 251}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2016750980747281584
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1198882502520813417}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fdcbe6d4fef783b46b3e022ac6b28b39, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  loadoutManager: {fileID: 1497530473048289778}
+  currentMission: {fileID: 11400000, guid: 368cbad6d54c76a429526c5676d305c9, type: 2}
 --- !u!1 &1330155845091078832
 GameObject:
   m_ObjectHideFlags: 0
@@ -6804,7 +6855,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1497530473048289779}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1497530472796767606
 MonoBehaviour:
@@ -6986,11 +7037,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1497530473048289776}
-        m_TargetAssemblyTypeName: VSX.UniversalVehicleCombat.Loadout.LoadoutUIController,
-          Assembly-CSharp
+      - m_Target: {fileID: 2016750980747281584}
+        m_TargetAssemblyTypeName: MissionManager, Assembly-CSharp
         m_MethodName: StartMission
-        m_Mode: 3
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -7414,7 +7464,7 @@ RectTransform:
   - {fileID: 1497530471929086158}
   - {fileID: 1497530473090494229}
   m_Father: {fileID: 1497530473048289779}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -7758,7 +7808,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1497530473048289779}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1497530473000300553
 MonoBehaviour:
@@ -7939,7 +7989,7 @@ Transform:
   - {fileID: 1497530472134313549}
   - {fileID: 1497530472951248459}
   m_Father: {fileID: 1497530473048289779}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1497530473030611639
 MonoBehaviour:
@@ -8028,6 +8078,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 2718545233641848246}
   - {fileID: 1497530472796767603}
   - {fileID: 1497530473000300552}
   - {fileID: 1497530473030611637}
@@ -9559,7 +9610,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1497530473048289779}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1497530473170429383
 MonoBehaviour:
@@ -9810,7 +9861,7 @@ RectTransform:
   - {fileID: 1497530472849500435}
   - {fileID: 1497530472230504072}
   m_Father: {fileID: 1497530473048289779}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}

@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using VSX.Utilities.UI;
 using UnityEngine.EventSystems;
+using VSX.UniversalVehicleCombat;
 
 public class MissionDropDown : MonoBehaviour
 {
@@ -30,6 +31,7 @@ public class MissionDropDown : MonoBehaviour
     public MissionParameterType parameterType;
 
     public MissionParameters missionParameters;
+
 
     private void Start()
     {
@@ -60,7 +62,6 @@ public class MissionDropDown : MonoBehaviour
             // Set selected state based on visibility
             headerButton.SetSelected(isActive);
         });
-
 
         AddSoundEvents(headerButton);
 
@@ -93,21 +94,20 @@ public class MissionDropDown : MonoBehaviour
                 headerButton.SetText(1, value);
                 optionsContainer.SetActive(false);
 
+                // Update mission parameters based on selection
                 switch (parameterType)
                 {
                     case MissionParameterType.MissionType:
                         missionParameters.missionType = value;
                         break;
                     case MissionParameterType.MissionTime:
-                        if (value == "Hardcore") missionParameters.missionTime = 60f;
-                        else if (value == "Normal") missionParameters.missionTime = 180f;
-                        else if (value == "Easy") missionParameters.missionTime = 300f;
+                        SetMissionTime(value);
                         break;
                     case MissionParameterType.EnemyType:
                         missionParameters.enemyType = value;
                         break;
                     case MissionParameterType.Ammo:
-                        missionParameters.ammoType = value;
+                        missionParameters.ammo = value;
                         break;
                     case MissionParameterType.Location:
                         missionParameters.location = value;
@@ -116,9 +116,17 @@ public class MissionDropDown : MonoBehaviour
 
                 onOptionSelected.Invoke(value);
             });
-       
         }
     }
+
+    // Sets the mission time based on selected value
+    private void SetMissionTime(string value)
+    {
+        if (value == "Hardcore") missionParameters.missionTime = 60f;
+        else if (value == "Normal") missionParameters.missionTime = 180f;
+        else if (value == "Easy") missionParameters.missionTime = 300f;
+    }
+
 
     public void CloseDropdown()
     {

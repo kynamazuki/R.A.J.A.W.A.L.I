@@ -51,7 +51,7 @@ namespace VSX.UniversalVehicleCombat
         protected bool finished = false;
         public bool Finished { get { return finished; } }
 
-
+        public Vehicle spawnableVehiclePrefab;
 
         public override void Spawn()
         {

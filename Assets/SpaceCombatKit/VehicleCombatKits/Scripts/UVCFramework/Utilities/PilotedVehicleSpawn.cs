@@ -80,7 +80,7 @@ namespace VSX.UniversalVehicleCombat
         [SerializeField]
         protected bool parentVehicleToSpawnTransform = true;
 
-        protected Vehicle spawnedVehicle;
+        public Vehicle spawnedVehicle;
         public Vehicle Vehicle { get { return spawnedVehicle; } }
 
         protected bool spawned = false;
