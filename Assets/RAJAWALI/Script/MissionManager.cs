@@ -1,32 +1,52 @@
-using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine;
 using VSX.UniversalVehicleCombat.Loadout;
-using VSX.UniversalVehicleCombat;
-
 public class MissionManager : MonoBehaviour
 {
     public static MissionManager Instance;
-    public LoadoutManager loadoutManager;
 
-    [Header("Reference to the current mission parameters")]
+    public LoadoutManager loadoutManager;
+    public LoadoutUIController loadoutUIController;
+
     public MissionParameters currentMission;
 
-    private void Awake()
+    protected LoadoutData loadoutData;
+    public LoadoutData LoadoutData { get { return loadoutData; } }
+
+    void Awake()
     {
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject); // optional, if you want it to persist
+            DontDestroyOnLoad(gameObject);
         }
         else
         {
-            Destroy(gameObject); // to prevent duplicates
+            Destroy(gameObject);
         }
     }
 
+
+    private void Start()
+    {
+        // Find and assign the LoadoutDataManager to LoadoutManager
+        LoadoutDataManager foundDataManager = FindObjectOfType<LoadoutDataManager>();
+        
+        loadoutUIController.EnterVehicleSelection();
+        loadoutUIController.OnLoadoutChanged();
+
+        
+    }
+
+
     public void StartMission()
     {
-        loadoutManager.SavePersistentData();
+        if (currentMission == null)
+        {
+            Debug.LogError("Mission not set! Cannot start mission.");
+            return;
+        }
+
         switch (currentMission.location)
         {
             case "Deep Space":
@@ -38,16 +58,21 @@ public class MissionManager : MonoBehaviour
             case "Capital Ship Battle":
                 SceneManager.LoadScene("CapitalShip");
                 break;
-            default:
-                Debug.LogWarning("Unknown location. Loading default scene.");
-                SceneManager.LoadScene("DefaultScene");
-                break;
         }
-
-
     }
 
 
+    public void ResetMission()
+    {
+        currentMission = MissionParameters.Instance;
 
+        if (currentMission != null)
+        {
+            currentMission.enemyType = null;
+            currentMission.ammo = null;
+            currentMission.location = null;
+            currentMission.missionType = null;
+            currentMission.missionTime = 0;
+        }
+    }
 }
-

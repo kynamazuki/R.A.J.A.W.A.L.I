@@ -49,6 +49,17 @@ namespace VSX.UniversalVehicleCombat
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
 
+
+        public void ResetMission()
+        {
+            if (MissionManager.Instance != null)
+            {
+                MissionManager.Instance.currentMission = null;
+            }
+        }
+
+
+
         /// <summary>
         /// Quits the application.
         /// </summary>

@@ -68,7 +68,7 @@ namespace VSX.UniversalVehicleCombat.Loadout
 
         [Tooltip("The component that handles loadout data saving. Can be changed at runtime.")]
         [SerializeField]
-        protected LoadoutDataManager loadoutDataManager;
+        public LoadoutDataManager loadoutDataManager;
         public LoadoutDataManager LoadoutDataManager
         {
             get { return loadoutDataManager; }
@@ -109,7 +109,23 @@ namespace VSX.UniversalVehicleCombat.Loadout
         {
             if (items == null) SetItems(startingItems);
 
+            if (MissionManager.Instance != null)
+            {
+                MissionManager.Instance.ResetMission();
+            }
 
+            if (loadoutDataManager == null)
+            {
+                loadoutDataManager = FindObjectOfType<LoadoutDataManagerJSON>();
+                if (loadoutDataManager == null)
+                {
+                    Debug.LogError("No LoadoutDataManager found in scene.");
+                }
+                else
+                {
+                    Debug.Log("LoadoutDataManager assigned at runtime.");
+                }
+            }
         }
 
 
@@ -746,6 +762,13 @@ namespace VSX.UniversalVehicleCombat.Loadout
             {
                 Debug.LogWarning("Failed to save data. Please set the Loadout Data component in the inspector.");
             }
+
+            if (loadoutDataManager == null)
+            {
+                Debug.LogError("LoadoutDataManager is not assigned before attempting to save!");
+                return;
+            }
+
         }
 
         /// <summary>

@@ -136,6 +136,8 @@ namespace VSX.UniversalVehicleCombat.Loadout
         [Tooltip("Event called when the loadout menu goes into the module selection mode.")]
         public UnityEvent onModuleSelectionMode;
 
+        public ButtonController launchButton;
+
         public enum UIState
         {
             VehicleSelection,
@@ -163,6 +165,19 @@ namespace VSX.UniversalVehicleCombat.Loadout
         {
             EnterVehicleSelection();
             OnLoadoutChanged();
+
+            launchButton.onClick.RemoveAllListeners(); // Clear old ones
+            launchButton.onClick.AddListener(() =>
+            {
+                if (MissionManager.Instance != null)
+                {
+                    MissionManager.Instance.StartMission();
+                }
+                else
+                {
+                    Debug.LogError("MissionManager.Instance is null!");
+                }
+            });
         }
 
 
@@ -383,7 +398,7 @@ namespace VSX.UniversalVehicleCombat.Loadout
 
 
         // Called when something changes on the loadout, to update the UI
-        protected virtual void OnLoadoutChanged()
+        public virtual void OnLoadoutChanged()
         {
 
             // Update the slots menu

@@ -98,21 +98,22 @@ public class MissionDropDown : MonoBehaviour
                 switch (parameterType)
                 {
                     case MissionParameterType.MissionType:
-                        missionParameters.missionType = value;
+                        MissionParameters.Instance.missionType = value;
                         break;
                     case MissionParameterType.MissionTime:
                         SetMissionTime(value);
                         break;
                     case MissionParameterType.EnemyType:
-                        missionParameters.enemyType = value;
+                        MissionParameters.Instance.enemyType = value;
                         break;
                     case MissionParameterType.Ammo:
-                        missionParameters.ammo = value;
+                        MissionParameters.Instance.ammo = value;
                         break;
                     case MissionParameterType.Location:
-                        missionParameters.location = value;
+                        MissionParameters.Instance.location = value;
                         break;
                 }
+
 
                 onOptionSelected.Invoke(value);
             });
@@ -122,10 +123,11 @@ public class MissionDropDown : MonoBehaviour
     // Sets the mission time based on selected value
     private void SetMissionTime(string value)
     {
-        if (value == "Hardcore") missionParameters.missionTime = 60f;
-        else if (value == "Normal") missionParameters.missionTime = 180f;
-        else if (value == "Easy") missionParameters.missionTime = 300f;
+        if (value == "Hardcore (1 Minutes)") MissionParameters.Instance.missionTime = 60f;
+        else if (value == "Normal (3 Minutes)") MissionParameters.Instance.missionTime = 180f;
+        else if (value == "Easy (5 Minutes)") MissionParameters.Instance.missionTime = 300f;
     }
+
 
 
     public void CloseDropdown()

@@ -77,8 +77,10 @@ namespace VSX.UniversalVehicleCombat.Loadout
 
         protected virtual void Start()
         {
+            Debug.Log("LoadoutVehicleSpawner started.");
             if (spawnOnStart)
             {
+                Debug.Log("Calling Spawn on Start.");
                 Spawn();
             }
         }
@@ -188,12 +190,21 @@ namespace VSX.UniversalVehicleCombat.Loadout
 
         protected virtual void LoadData()
         {
-            if (loadoutDataManager != null) data = loadoutDataManager.LoadData();
+            if (loadoutDataManager != null)
+            {
+                data = loadoutDataManager.LoadData();
+                Debug.Log("Loaded LoadoutData: " + (data != null ? "Yes" : "No"));
+            }
+            else
+            {
+                Debug.LogWarning("LoadoutDataManager not assigned.");
+            }
 
             VerifyLoadoutData();
 
             onDataLoaded.Invoke();
         }
+
 
         protected virtual void VerifyLoadoutData()
         {

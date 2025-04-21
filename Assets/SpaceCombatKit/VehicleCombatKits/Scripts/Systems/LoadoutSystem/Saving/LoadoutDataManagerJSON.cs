@@ -18,10 +18,13 @@ namespace VSX.UniversalVehicleCombat.Loadout
         [SerializeField]
         protected bool debug = false;
 
+
+
         /// <summary>
         /// Save the loadout data.
         /// </summary>
         /// <param name="data">The loadout data.</param>
+        /// 
         public override void SaveData(LoadoutData data)
         {
             string dataString = JsonUtility.ToJson(data);
