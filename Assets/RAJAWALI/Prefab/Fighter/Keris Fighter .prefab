@@ -5612,7 +5612,6 @@ GameObject:
   - component: {fileID: 152507264384895820}
   - component: {fileID: 152507264384895811}
   - component: {fileID: 152507264384895810}
-  - component: {fileID: 152507264384895809}
   m_Layer: 0
   m_Name: BoostFuel
   m_TagString: Untagged
@@ -5759,39 +5758,6 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &152507264384895809
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 152507264384895815}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 44d7cbbba37a5d44a9c4b57a6fb16155, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  engines: {fileID: 152507264578723665}
-  controlType: 1
-  axis: 2
-  threshold: 0.5
-  positiveCrossing: 0
-  biDirectional: 0
-  onTriggered:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 152507264384895820}
-        m_TargetAssemblyTypeName: VSX.Utilities.AnimationController, Assembly-CSharp
-        m_MethodName: StopAnimation
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
         m_CallState: 2
 --- !u!1 &152507264394993156
 GameObject:
@@ -47329,7 +47295,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: PRIMARY
+  m_text: Secondary
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -53265,7 +53231,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c265e5574296b02428629f87b5a27928, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetSelector: {fileID: 0}
+  targetSelector: {fileID: 152507265733865251}
   handle: {fileID: 152507265183251516}
   colorManager: {fileID: 152507265529899027}
   defaultColor: {r: 1, g: 1, b: 1, a: 1}
@@ -53273,7 +53239,7 @@ MonoBehaviour:
   targetFactionText: {fileID: 0}
   distanceText: {fileID: 152507264990240878}
   speedText: {fileID: 152507265410283296}
-  rootTransform: {fileID: 0}
+  rootTransform: {fileID: 152507264578723676}
   healthDisplays:
   - handle: {fileID: 152507265455873830}
     healthType: {fileID: 11400000, guid: bce233b00f3b8cf46bcbec887b28cd04, type: 2}
@@ -77722,7 +77688,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: PRIMARY
+  m_text: Tertiery
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
