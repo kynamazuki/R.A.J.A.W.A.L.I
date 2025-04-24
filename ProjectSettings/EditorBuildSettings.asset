@@ -6,13 +6,16 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/RAJAWALI/Scenes/TestMainMenu.unity
+    path: Assets/RAJAWALI/Scenes/MainMenu.unity
     guid: 1f1ae6cf8f8c48140ad2bfa431c36744
   - enabled: 1
-    path: Assets/RAJAWALI/Scenes/TestLoadout.unity
+    path: Assets/RAJAWALI/Scenes/LoadoutInstantAction.unity
     guid: 08a5a533426229d44bb7eb8c24505ec5
   - enabled: 1
-    path: Assets/RAJAWALI/Scenes/TestSpaceCombat.unity
+    path: Assets/RAJAWALI/Scenes/LoadoutTutorial.unity
+    guid: f3a1c92f7680efe4891ac4912f427a7c
+  - enabled: 1
+    path: Assets/RAJAWALI/Scenes/TestTutorial.unity
     guid: c934c9ab3e71d7a4ab7f66a1090353a0
   - enabled: 1
     path: Assets/RAJAWALI/Scenes/AsteroidField.unity

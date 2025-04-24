@@ -14,6 +14,7 @@ namespace VSX.ObjectivesSystem
         [Tooltip("The targets that must be destroyed to complete this objective.")]
         [SerializeField]
         protected List<Damageable> targets = new List<Damageable>();
+
         public List<Damageable> Targets
         {
             get { return targets; }

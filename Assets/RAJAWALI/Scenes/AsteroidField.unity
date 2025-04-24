@@ -2514,6 +2514,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waveControllers:
   - {fileID: 908207250}
+  - {fileID: 908207250}
+  - {fileID: 908207250}
   loopWaves: 1
   onWavesDestroyed:
     m_PersistentCalls:
@@ -2996,8 +2998,7 @@ MonoBehaviour:
   onReset:
     m_PersistentCalls:
       m_Calls: []
-  targets:
-  - {fileID: 0}
+  targets: []
 --- !u!4 &466309403
 Transform:
   m_ObjectHideFlags: 0
@@ -10803,7 +10804,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1025272941
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12268,8 +12269,9 @@ MonoBehaviour:
       m_Calls: []
   m_text: 00:30
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 2f4ee3895c2586644a1dbacf4f704bdd, type: 2}
+  m_sharedMaterial: {fileID: 8514689293215180755, guid: 2f4ee3895c2586644a1dbacf4f704bdd,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -12329,7 +12331,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 1
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: 0, z: -30.826172, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -12751,7 +12753,7 @@ MonoBehaviour:
   waveController: {fileID: 908207250}
   gunSpawnerPrefab: {fileID: 369400266}
   jianSpawnerPrefab: {fileID: 1494163762}
-  spawnerParent: {fileID: 908207251}
+  spawnerParent: {fileID: 370899534}
 --- !u!1 &1154131003
 GameObject:
   m_ObjectHideFlags: 0
@@ -18887,7 +18889,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 240, y: 0}
+  m_SizeDelta: {x: 319.6737, y: 0}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1797680332
 MonoBehaviour:
@@ -19529,7 +19531,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.9}
   m_AnchorMax: {x: 0.5, y: 0.9}
   m_AnchoredPosition: {x: 0, y: -82}
-  m_SizeDelta: {x: 400, y: 50}
+  m_SizeDelta: {x: 547.3233, y: 50}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1871391780
 MonoBehaviour:
@@ -19615,7 +19617,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: SUCCESS!
+  m_text: MISSION COMPLETE!
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2f4ee3895c2586644a1dbacf4f704bdd, type: 2}
   m_sharedMaterial: {fileID: 8514689293215180755, guid: 2f4ee3895c2586644a1dbacf4f704bdd,
@@ -19880,7 +19882,7 @@ MonoBehaviour:
     m_Top: 0
     m_Bottom: 0
   m_ChildAlignment: 0
-  m_Spacing: 0
+  m_Spacing: 37.18
   m_ChildForceExpandWidth: 1
   m_ChildForceExpandHeight: 1
   m_ChildControlWidth: 0
@@ -20996,6 +20998,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1269196811831446993, guid: 69e4f02c805f4264b8a6a00af5eca06f,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 73
+      objectReference: {fileID: 0}
     - target: {fileID: 1269196813272611568, guid: 69e4f02c805f4264b8a6a00af5eca06f,
         type: 3}
       propertyPath: m_Pivot.x

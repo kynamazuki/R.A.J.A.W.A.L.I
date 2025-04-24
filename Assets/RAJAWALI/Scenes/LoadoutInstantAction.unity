@@ -2077,6 +2077,16 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: VSX.UniversalVehicleCombat.Loadout.LoadoutUIController, Assembly-CSharp
       objectReference: {fileID: 0}
+    - target: {fileID: 5275257841231053977, guid: f53f1559e5a7c3f43a3136605b8f2b89,
+        type: 3}
+      propertyPath: m_CellSize.x
+      value: 310
+      objectReference: {fileID: 0}
+    - target: {fileID: 5275257841231053983, guid: f53f1559e5a7c3f43a3136605b8f2b89,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5275257841449491655, guid: f53f1559e5a7c3f43a3136605b8f2b89,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -2211,6 +2221,46 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5275257841838640071, guid: f53f1559e5a7c3f43a3136605b8f2b89,
+        type: 3}
+      propertyPath: m_Pivot.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5275257841838640071, guid: f53f1559e5a7c3f43a3136605b8f2b89,
+        type: 3}
+      propertyPath: m_Pivot.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5275257841838640071, guid: f53f1559e5a7c3f43a3136605b8f2b89,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5275257841838640071, guid: f53f1559e5a7c3f43a3136605b8f2b89,
+        type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5275257841838640071, guid: f53f1559e5a7c3f43a3136605b8f2b89,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5275257841838640071, guid: f53f1559e5a7c3f43a3136605b8f2b89,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 391
+      objectReference: {fileID: 0}
+    - target: {fileID: 5275257841838640071, guid: f53f1559e5a7c3f43a3136605b8f2b89,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 105.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5275257841838640071, guid: f53f1559e5a7c3f43a3136605b8f2b89,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -380
       objectReference: {fileID: 0}
     - target: {fileID: 5275257842080857173, guid: f53f1559e5a7c3f43a3136605b8f2b89,
         type: 3}
