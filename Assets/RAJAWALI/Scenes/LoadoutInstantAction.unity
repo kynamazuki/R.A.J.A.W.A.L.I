@@ -1709,10 +1709,10 @@ Light:
   m_GameObject: {fileID: 2037450830}
   m_Enabled: 1
   serializedVersion: 10
-  m_Type: 0
+  m_Type: 1
   m_Shape: 0
-  m_Color: {r: 1, g: 0.892, b: 0.73, a: 1}
-  m_Intensity: 1.5
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Intensity: 1
   m_Range: 200
   m_SpotAngle: 66.2
   m_InnerSpotAngle: 21.80208
@@ -2255,7 +2255,7 @@ PrefabInstance:
     - target: {fileID: 5275257841838640071, guid: f53f1559e5a7c3f43a3136605b8f2b89,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 105.1
+      value: 105.1001
       objectReference: {fileID: 0}
     - target: {fileID: 5275257841838640071, guid: f53f1559e5a7c3f43a3136605b8f2b89,
         type: 3}
