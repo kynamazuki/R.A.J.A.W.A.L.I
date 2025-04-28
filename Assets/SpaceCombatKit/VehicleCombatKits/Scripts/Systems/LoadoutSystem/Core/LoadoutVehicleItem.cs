@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using VSX.UniversalVehicleCombat;
+using VSX.ResourceSystem;
 
 namespace VSX.UniversalVehicleCombat.Loadout
 {
@@ -36,6 +37,10 @@ namespace VSX.UniversalVehicleCombat.Loadout
 
         [Tooltip("The offset for the camera from the module mount position when focusing on a module on this vehicle.")]
         public Vector3 moduleMountViewAlignmentOffset = Vector3.zero;
+
+
+
+
     }
 
 }

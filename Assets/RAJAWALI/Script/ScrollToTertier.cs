@@ -14,36 +14,29 @@ public class ScrollToTertier : MonoBehaviour
 
     private void Awake()
     {
-
-
-        SecondWeapon.SetActive(false); // Ensure the tertiary weapon is inactive initially
-
         defaultControl = new GeneralInputAsset();
-
         defaultControl.WeaponControls.ScrollToTertier.performed += ctx => mouseScrollY = ctx.ReadValue<float>();
     }
 
     private void Update()
     {
-        if (mouseScrollY < 0)
+        if (mouseScrollY < 0) // Scroll Down
         {
-            if (FirstWeapon.activeSelf)
-            {
-                FirstWeapon.SetActive(false);
-                SecondWeapon.SetActive(true);
-            }
+            // Swap positions of the first and second weapon
+            Vector3 tempPosition = FirstWeapon.transform.position;
+            FirstWeapon.transform.position = SecondWeapon.transform.position;
+            SecondWeapon.transform.position = tempPosition;
 
-            mouseScrollY = 0; // Reset to prevent multiple logs
+            mouseScrollY = 0; // Reset to prevent multiple swaps
         }
-        else if (mouseScrollY > 0)
+        else if (mouseScrollY > 0) // Scroll Up
         {
-            if (!FirstWeapon.activeSelf)
-            {
-                FirstWeapon.SetActive(true);
-                SecondWeapon.SetActive(false);
-            }
+            // Swap positions of the first and second weapon
+            Vector3 tempPosition = FirstWeapon.transform.position;
+            FirstWeapon.transform.position = SecondWeapon.transform.position;
+            SecondWeapon.transform.position = tempPosition;
 
-            mouseScrollY = 0; // Reset to prevent multiple logs
+            mouseScrollY = 0; // Reset to prevent multiple swaps
         }
     }
 

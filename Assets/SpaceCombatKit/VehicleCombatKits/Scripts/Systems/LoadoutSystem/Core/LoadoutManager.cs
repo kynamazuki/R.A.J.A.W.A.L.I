@@ -102,6 +102,8 @@ namespace VSX.UniversalVehicleCombat.Loadout
             loadoutData = new LoadoutData();
 
             InitializeWorkingSlot();
+
+
         }
 
 
@@ -511,6 +513,9 @@ namespace VSX.UniversalVehicleCombat.Loadout
 
                 if (!used) selectableVehicleIndexes.Add(i);
             }
+
+
+
         }
 
 

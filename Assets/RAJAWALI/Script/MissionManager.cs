@@ -1,6 +1,7 @@
 using UnityEngine.SceneManagement;
 using UnityEngine;
 using VSX.UniversalVehicleCombat.Loadout;
+using TMPro;
 public class MissionManager : MonoBehaviour
 {
     public static MissionManager Instance;
@@ -9,6 +10,7 @@ public class MissionManager : MonoBehaviour
     public LoadoutUIController loadoutUIController;
 
     public MissionParameters currentMission;
+
 
     protected LoadoutData loadoutData;
     public LoadoutData LoadoutData { get { return loadoutData; } }
@@ -47,6 +49,9 @@ public class MissionManager : MonoBehaviour
             return;
         }
 
+        PlayerPrefs.SetFloat("MissionTime", currentMission.missionTime);
+
+
         switch (currentMission.location)
         {
             case "Deep Space":
@@ -60,6 +65,9 @@ public class MissionManager : MonoBehaviour
                 break;
         }
     }
+
+    
+
 
 
     public void ResetMission()
