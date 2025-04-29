@@ -14,12 +14,13 @@ public class EnemySpawnController : MonoBehaviour
 
     public Transform spawnerParent;
 
+    private List<PilotedVehicleSpawn> selectedSpawners;
+
     private void Start()
     {
+        selectedSpawners = new List<PilotedVehicleSpawn>();
+        // Select the spawner prefab based on enemy type
         string enemyType = MissionManager.Instance.currentMission.enemyType;
-
-        List<PilotedVehicleSpawn> selectedSpawners = new List<PilotedVehicleSpawn>();
-
         PilotedVehicleSpawn prefabToSpawn = null;
 
         switch (enemyType)
@@ -33,20 +34,36 @@ public class EnemySpawnController : MonoBehaviour
             /*case "Qiang":
                 prefabToSpawn = qiangSpawnerPrefab;
                 break;
-            case "Guandao":
+             case "Guandao":
                 prefabToSpawn = guandaoSpawnerPrefab;
                 break; */
+
+
         }
 
-        // Optional: spawn 3 enemies of selected type
+        SpawnWaveEnemies(prefabToSpawn);
+    }
+
+    public void SpawnWaveEnemies(PilotedVehicleSpawn prefabToSpawn)
+    {
+        // Clear previous spawners if necessary
+        foreach (var spawner in selectedSpawners)
+        {
+            Destroy(spawner.gameObject);
+        }
+        selectedSpawners.Clear();
+
+        // Spawn 3 enemies for the wave
         for (int i = 0; i < 3; i++)
         {
             PilotedVehicleSpawn spawner = Instantiate(prefabToSpawn, spawnerParent);
             selectedSpawners.Add(spawner);
         }
 
-        waveController.Spawners.Clear(); // Clear any inspector-assigned spawners
+        // Add spawners to the wave controller
+        waveController.Spawners.Clear();
         waveController.Spawners.AddRange(selectedSpawners);
         waveController.Spawn();
     }
+
 }

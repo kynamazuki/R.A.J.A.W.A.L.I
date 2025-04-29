@@ -4,6 +4,7 @@ using UnityEngine.Events;
 using VSX.Utilities.UI;
 using UnityEngine.EventSystems;
 using VSX.UniversalVehicleCombat;
+using UnityEngine.SceneManagement;
 
 public class MissionDropDown : MonoBehaviour
 {
@@ -114,21 +115,17 @@ public class MissionDropDown : MonoBehaviour
                         break;
                 }
 
-
                 onOptionSelected.Invoke(value);
             });
         }
     }
 
-    // Sets the mission time based on selected value
     private void SetMissionTime(string value)
     {
         if (value == "Hardcore (1 Minutes)") MissionParameters.Instance.missionTime = 60f;
         else if (value == "Normal (3 Minutes)") MissionParameters.Instance.missionTime = 180f;
         else if (value == "Easy (5 Minutes)") MissionParameters.Instance.missionTime = 300f;
     }
-
-
 
     public void CloseDropdown()
     {

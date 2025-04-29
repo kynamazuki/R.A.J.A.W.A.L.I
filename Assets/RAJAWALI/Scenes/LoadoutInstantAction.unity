@@ -255,7 +255,6 @@ MonoBehaviour:
   loadoutManager: {fileID: 2093558493}
   loadoutUIController: {fileID: 289169085}
   currentMission: {fileID: 11400000, guid: 368cbad6d54c76a429526c5676d305c9, type: 2}
-  missionTimeText: {fileID: 0}
 --- !u!224 &236536503
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2028,6 +2027,11 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5275257841016369990, guid: f53f1559e5a7c3f43a3136605b8f2b89,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 67.9
+      objectReference: {fileID: 0}
     - target: {fileID: 5275257841121727848, guid: f53f1559e5a7c3f43a3136605b8f2b89,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -2051,7 +2055,7 @@ PrefabInstance:
     - target: {fileID: 5275257841121727848, guid: f53f1559e5a7c3f43a3136605b8f2b89,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -63.820877
+      value: -72.2
       objectReference: {fileID: 0}
     - target: {fileID: 5275257841121727851, guid: f53f1559e5a7c3f43a3136605b8f2b89,
         type: 3}
@@ -2196,7 +2200,7 @@ PrefabInstance:
     - target: {fileID: 5275257841657270997, guid: f53f1559e5a7c3f43a3136605b8f2b89,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 129.8
+      value: 118.6
       objectReference: {fileID: 0}
     - target: {fileID: 5275257841736792651, guid: f53f1559e5a7c3f43a3136605b8f2b89,
         type: 3}
