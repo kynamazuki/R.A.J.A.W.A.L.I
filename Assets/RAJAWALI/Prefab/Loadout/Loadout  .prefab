@@ -10621,7 +10621,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5275257841740449305}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b3b79ed9c6f2ec24481505c114a77dae, type: 3}
   m_Name: 
@@ -25244,6 +25244,11 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 5275257842160916817}
+    - target: {fileID: 349124669931965382, guid: f75450619fa2e6b459ac4daad83fc64e,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 349124670380873044, guid: f75450619fa2e6b459ac4daad83fc64e,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -25409,6 +25414,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 349124671192217147, guid: f75450619fa2e6b459ac4daad83fc64e,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 349124671192217148, guid: f75450619fa2e6b459ac4daad83fc64e,
         type: 3}
       propertyPath: m_Name
@@ -25439,6 +25449,11 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 5275257842160916817}
+    - target: {fileID: 8491852682034866382, guid: f75450619fa2e6b459ac4daad83fc64e,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f75450619fa2e6b459ac4daad83fc64e, type: 3}
 --- !u!114 &5615192720943183473 stripped
@@ -25448,7 +25463,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 5275257841237737546}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 62127c034182e654ea279e93c2f80213, type: 3}
   m_Name: 
