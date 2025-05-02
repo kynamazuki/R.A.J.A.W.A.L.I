@@ -1,4 +1,4 @@
-﻿ using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
@@ -115,6 +115,7 @@ namespace VSX.UniversalVehicleCombat
                 if (wavesDestroyed)
                 {
                     onWavesDestroyed.Invoke();
+                    SpawnNextWave();
                 }
             }
         }

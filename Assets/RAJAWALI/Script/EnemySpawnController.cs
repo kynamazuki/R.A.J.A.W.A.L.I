@@ -4,22 +4,20 @@ using VSX.UniversalVehicleCombat;
 
 public class EnemySpawnController : MonoBehaviour
 {
-    public WaveController waveController;
+    public WavesController wavesController;
 
     [Header("Enemy Spawner Prefabs")]
     public PilotedVehicleSpawn gunSpawnerPrefab;
     public PilotedVehicleSpawn jianSpawnerPrefab;
-    //public PilotedVehicleSpawn qiangSpawnerPrefab;
-    //public PilotedVehicleSpawn guandaoSpawnerPrefab;
+    // public PilotedVehicleSpawn qiangSpawnerPrefab;
+    // public PilotedVehicleSpawn guandaoSpawnerPrefab;
 
     public Transform spawnerParent;
 
-    private List<PilotedVehicleSpawn> selectedSpawners;
+    private List<PilotedVehicleSpawn> selectedSpawners = new List<PilotedVehicleSpawn>();
 
     private void Start()
     {
-        selectedSpawners = new List<PilotedVehicleSpawn>();
-        // Select the spawner prefab based on enemy type
         string enemyType = MissionManager.Instance.currentMission.enemyType;
         PilotedVehicleSpawn prefabToSpawn = null;
 
@@ -31,39 +29,43 @@ public class EnemySpawnController : MonoBehaviour
             case "Jian":
                 prefabToSpawn = jianSpawnerPrefab;
                 break;
-            /*case "Qiang":
-                prefabToSpawn = qiangSpawnerPrefab;
-                break;
-             case "Guandao":
-                prefabToSpawn = guandaoSpawnerPrefab;
-                break; */
-
-
+                // case "Qiang":
+                //     prefabToSpawn = qiangSpawnerPrefab;
+                //     break;
+                // case "Guandao":
+                //     prefabToSpawn = guandaoSpawnerPrefab;
+                //     break;
         }
 
-        SpawnWaveEnemies(prefabToSpawn);
+        if (prefabToSpawn == null)
+        {
+            Debug.LogError("Enemy prefab not assigned for selected type.");
+            return;
+        }
+
+        // Spawn for all waves
+        foreach (WaveController wave in wavesController.WaveControllers)
+        {
+            SpawnWaveEnemies(prefabToSpawn, wave);
+        }
     }
 
-    public void SpawnWaveEnemies(PilotedVehicleSpawn prefabToSpawn)
+    public void SpawnWaveEnemies(PilotedVehicleSpawn prefabToSpawn, WaveController wave)
     {
-        // Clear previous spawners if necessary
-        foreach (var spawner in selectedSpawners)
-        {
-            Destroy(spawner.gameObject);
-        }
-        selectedSpawners.Clear();
+        List<PilotedVehicleSpawn> spawnersForThisWave = new List<PilotedVehicleSpawn>();
 
-        // Spawn 3 enemies for the wave
         for (int i = 0; i < 3; i++)
         {
             PilotedVehicleSpawn spawner = Instantiate(prefabToSpawn, spawnerParent);
-            selectedSpawners.Add(spawner);
+            spawnersForThisWave.Add(spawner);
         }
 
-        // Add spawners to the wave controller
-        waveController.Spawners.Clear();
-        waveController.Spawners.AddRange(selectedSpawners);
-        waveController.Spawn();
-    }
+        wave.Spawners.Clear();
+        wave.Spawners.AddRange(spawnersForThisWave);
 
+        foreach (PilotedVehicleSpawn s in spawnersForThisWave)
+        {
+            s.onDestroyed.AddListener(wave.OnWaveMemberDestroyed);
+        }
+    }
 }

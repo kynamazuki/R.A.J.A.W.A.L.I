@@ -51,22 +51,47 @@ public class MissionManager : MonoBehaviour
 
         PlayerPrefs.SetFloat("MissionTime", currentMission.missionTime);
 
+        // Format: Location_MissionType
+        string sceneName = "";
 
         switch (currentMission.location)
         {
             case "Deep Space":
-                SceneManager.LoadScene("DeepSpace");
+                sceneName += "DeepSpace_";
                 break;
             case "Asteroid Field":
-                SceneManager.LoadScene("AsteroidField");
+                sceneName += "AsteroidField_";
                 break;
             case "Capital Ship Battle":
-                SceneManager.LoadScene("CapitalShip");
+                sceneName += "CapitalShip_";
                 break;
+            default:
+                Debug.LogError("Unknown location: " + currentMission.location);
+                return;
         }
+
+        switch (currentMission.missionType)
+        {
+            case "Supremacy":
+                sceneName += "Supreme";
+                break;
+            case "Strike":
+                sceneName += "Strike";
+                break;
+            case "Defend":
+                sceneName += "Defend";
+                break;
+            default:
+                Debug.LogError("Unknown mission type: " + currentMission.missionType);
+                return;
+        }
+
+        Debug.Log("Loading scene: " + sceneName);
+        SceneManager.LoadScene(sceneName);
     }
 
-    
+
+
 
 
 

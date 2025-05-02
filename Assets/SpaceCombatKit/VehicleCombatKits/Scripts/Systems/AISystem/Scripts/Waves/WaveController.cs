@@ -143,7 +143,7 @@ namespace VSX.UniversalVehicleCombat
         }
 
 
-        protected void OnWaveMemberDestroyed()
+        public void OnWaveMemberDestroyed()
         {
             // Check if all the wave members have been destroyed to call the event.
             if (!destroyed)

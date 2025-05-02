@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.SceneManagement;
 
 public class ScrollToTertier : MonoBehaviour
 {
@@ -14,29 +13,36 @@ public class ScrollToTertier : MonoBehaviour
 
     private void Awake()
     {
+        SecondWeapon.SetActive(false); // Ensure the tertiary weapon is inactive initially
+
         defaultControl = new GeneralInputAsset();
+
         defaultControl.WeaponControls.ScrollToTertier.performed += ctx => mouseScrollY = ctx.ReadValue<float>();
     }
 
     private void Update()
     {
-        if (mouseScrollY < 0) // Scroll Down
+        if (mouseScrollY < 0)
         {
-            // Swap positions of the first and second weapon
-            Vector3 tempPosition = FirstWeapon.transform.position;
-            FirstWeapon.transform.position = SecondWeapon.transform.position;
-            SecondWeapon.transform.position = tempPosition;
+            if (FirstWeapon.activeSelf)
+            {
+                FirstWeapon.SetActive(false);
+                SecondWeapon.SetActive(true);
+            }
 
-            mouseScrollY = 0; // Reset to prevent multiple swaps
+            Debug.Log("scrolled Up");
+            mouseScrollY = 0; // Reset to prevent multiple logs
         }
-        else if (mouseScrollY > 0) // Scroll Up
+        else if (mouseScrollY > 0)
         {
-            // Swap positions of the first and second weapon
-            Vector3 tempPosition = FirstWeapon.transform.position;
-            FirstWeapon.transform.position = SecondWeapon.transform.position;
-            SecondWeapon.transform.position = tempPosition;
+            if (!FirstWeapon.activeSelf)
+            {
+                FirstWeapon.SetActive(true);
+                SecondWeapon.SetActive(false);
+            }
 
-            mouseScrollY = 0; // Reset to prevent multiple swaps
+            Debug.Log("scrolled Down");
+            mouseScrollY = 0; // Reset to prevent multiple logs
         }
     }
 
