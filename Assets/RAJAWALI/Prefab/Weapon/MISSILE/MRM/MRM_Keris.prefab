@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3799691527014472684}
   - component: {fileID: 3799691527014472685}
   - component: {fileID: 3799691527014472686}
-  - component: {fileID: 2126168893883483272}
+  - component: {fileID: 4090183568083385589}
   m_Layer: 0
   m_Name: MRM_Keris
   m_TagString: Untagged
@@ -68,7 +68,7 @@ MonoBehaviour:
   sequentialFiringStartIndex: 0
   applyResourceUsagePerWeaponUnit: 1
   resourceHandlers:
-  - resourceContainer: {fileID: 2126168893883483272}
+  - resourceContainer: {fileID: 4090183568083385589}
     unitResourceChange: -1
     perSecond: 0
   onFiringFail:
@@ -217,7 +217,7 @@ MonoBehaviour:
   onTargetChanged:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &2126168893883483272
+--- !u!114 &4090183568083385589
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

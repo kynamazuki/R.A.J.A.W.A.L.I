@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8115246058976666833}
   - component: {fileID: 3558731961340264767}
   m_Layer: 0
-  m_Name: Vehicle Loadout Item
+  m_Name: Vehicle Loadout Item_Kerambit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -44,18 +44,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e72ed0136e4a8dd4c8264d2b6f704dbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vehiclePrefab: {fileID: 152507264578723667, guid: 5b084759cedabbb44a1f87e17f29b77c,
+  vehiclePrefab: {fileID: 152507264578723667, guid: 8c076712cc9eb4646a3bea69a6b12885,
     type: 3}
   overrideVehicleLabel: 1
-  overrideLabel: Keris
-  description: "Type: Strike Fighter\t\t\t   Armor: 6000\nPower: 75 ON1-K\t\t\t\t  
-    Shield: 6000\nAgility: 4 \t\t\t\t\t   Speed: 600\nAfterburner/Cooldown: 03s/06s\nLoadout
-    Default : 2 CQC\r  \n\t\t\t  26 MISSILE \n\t\t\t   1 SHIPKILLER"
+  overrideLabel: Kerambit
+  description: "Type: Interceptor\t\t\t   Armor: 3000\nPower: 35 VLK-QA\t\t\t   Shield:
+    3000\nAfterburner/Cooldown: 03s/03s\t   Speed: 900\nLoadout Default : 2 CQC\r  
+    \t\t\t\t\t          Agility: 6\n\t\t\t  15 MISSILE \n\t\t\t   1 SHIPKILLER"
   sprites:
   - {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
   defaultLoadout:
-  - {fileID: 1325631859568036413, guid: b3156ba23cbc08348b9931aacbb3c3b1, type: 3}
-  - {fileID: 3799691527014472684, guid: 6fa040d7eca94e8469b8c976ed50f778, type: 3}
-  - {fileID: 9065839429239037063, guid: e030c1405df72174a803f0527f31c243, type: 3}
+  - {fileID: 8717463101626388588, guid: 99f6098ecd2fcff4e868da7b438828e6, type: 3}
+  - {fileID: 3799691527014472684, guid: 79a82538b1d79cc41b97358b714d6276, type: 3}
   locked: 0
   moduleMountViewAlignmentOffset: {x: 0, y: 0, z: 0}

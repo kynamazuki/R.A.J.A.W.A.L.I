@@ -4962,7 +4962,7 @@ MonoBehaviour:
   moduleLayer: Default
   loadExistingChildModules: 1
   defaultModulePrefabs:
-  - {fileID: 3799691527014472684, guid: 6fa040d7eca94e8469b8c976ed50f778, type: 3}
+  - {fileID: 3799691527014472684, guid: 79a82538b1d79cc41b97358b714d6276, type: 3}
   createDefaultModulesAtStart: 1
   onModuleMounted:
     m_PersistentCalls:
@@ -11575,8 +11575,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damageableID: 
   healthType: {fileID: 11400000, guid: 716de87c03e835a46bc33f430efeae91, type: 2}
-  healthCapacity: 6000
-  startingHealth: 6000
+  healthCapacity: 3000
+  startingHealth: 3000
   isDamageable: 1
   isHealable: 1
   canHealAfterDestroyed: 0
@@ -12743,7 +12743,7 @@ GameObject:
   - component: {fileID: 152507264578723648}
   - component: {fileID: 152507264578723655}
   m_Layer: 0
-  m_Name: 'Keris Fighter '
+  m_Name: Kerambit Fighter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12877,9 +12877,9 @@ MonoBehaviour:
   - {fileID: 152507266092337190}
   boostModulators: []
   m_rigidbody: {fileID: 152507264578723666}
-  maxMovementForces: {x: 600, y: 600, z: 600}
-  maxSteeringForces: {x: 4, y: 4, z: 4}
-  maxBoostForces: {x: 0.6, y: 0.6, z: 0.6}
+  maxMovementForces: {x: 900, y: 900, z: 900}
+  maxSteeringForces: {x: 6, y: 6, z: 6}
+  maxBoostForces: {x: 0.3, y: 0.3, z: 0.3}
   movementInputResponseSpeed: 6
   steeringBySpeedCurve:
     serializedVersion: 2
@@ -75958,7 +75958,7 @@ MonoBehaviour:
   moduleLayer: Default
   loadExistingChildModules: 1
   defaultModulePrefabs:
-  - {fileID: 1325631859568036413, guid: b3156ba23cbc08348b9931aacbb3c3b1, type: 3}
+  - {fileID: 8717463101626388588, guid: 99f6098ecd2fcff4e868da7b438828e6, type: 3}
   createDefaultModulesAtStart: 1
   onModuleMounted:
     m_PersistentCalls:
@@ -76109,8 +76109,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damageableID: 
   healthType: {fileID: 11400000, guid: bce233b00f3b8cf46bcbec887b28cd04, type: 2}
-  healthCapacity: 6000
-  startingHealth: 6000
+  healthCapacity: 3000
+  startingHealth: 3000
   isDamageable: 1
   isHealable: 1
   canHealAfterDestroyed: 0
