@@ -16,6 +16,8 @@ public class EnemySpawnController : MonoBehaviour
 
     private List<PilotedVehicleSpawn> selectedSpawners = new List<PilotedVehicleSpawn>();
 
+    public int enemiesPerWave = 3;
+
     private void Start()
     {
         string enemyType = MissionManager.Instance.currentMission.enemyType;
@@ -54,7 +56,7 @@ public class EnemySpawnController : MonoBehaviour
     {
         List<PilotedVehicleSpawn> spawnersForThisWave = new List<PilotedVehicleSpawn>();
 
-        for (int i = 0; i < 3; i++)
+        for (int i = 0; i < enemiesPerWave; i++)  // Use the adjustable enemiesPerWave value
         {
             PilotedVehicleSpawn spawner = Instantiate(prefabToSpawn, spawnerParent);
             spawnersForThisWave.Add(spawner);
