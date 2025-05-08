@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using VSX.ObjectivesSystem;
 
 namespace VSX.UniversalVehicleCombat
 {
@@ -145,6 +146,8 @@ namespace VSX.UniversalVehicleCombat
 
             finished = true;
             onAnimationFinished.Invoke();
+
+
 
         }
 

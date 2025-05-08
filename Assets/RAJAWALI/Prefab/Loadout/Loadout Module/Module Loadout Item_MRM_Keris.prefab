@@ -48,6 +48,11 @@ MonoBehaviour:
     type: 3}
   overrideModuleLabel: 1
   overrideLabel: MRM_26
+  weaponPrefab: {fileID: 4090183568083385589, guid: 6fa040d7eca94e8469b8c976ed50f778,
+    type: 3}
+  overrideResourceAmmo: 1
+  overrideCapacityFloat: 15
+  overrideCurrentAmountFloat: 15
   description: Mid Ranged Missile
   sprites:
   - {fileID: 21300000, guid: 7d8476e3767de9445a6aaa036e0299a7, type: 3}

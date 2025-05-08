@@ -44,6 +44,41 @@ namespace VSX.UniversalVehicleCombat.Loadout
         [Tooltip("The default module loadout for the vehicle (displayed when no saved data is found).")]
         public List<Module> defaultLoadout = new List<Module>();
 
+       /* [Header("Resource Container")]
+        [Tooltip("The prefab for this resource container (e.g. ammo, fuel).")]
+        public ResourceContainer weaponPrefab;
+
+        [Tooltip("Whether to override the capacity and start amount of the resource container.")]
+        public bool overrideResourceAmmo = false;
+
+        [Tooltip("The overridden capacity value.")]
+        public float overrideCapacityFloat = 15f;
+
+        [Tooltip("The overridden current amount value.")]
+        public float overrideCurrentAmountFloat = 15f;
+
+        public virtual float Capacity
+        {
+            get
+            {
+                if (overrideResourceAmmo)
+                    return overrideCapacityFloat;
+                else
+                    return weaponPrefab != null ? weaponPrefab.CapacityFloat : 0f;
+            }
+        }
+
+        public virtual float StartAmount
+        {
+            get
+            {
+                if (overrideResourceAmmo)
+                    return overrideCurrentAmountFloat;
+                else
+                    return weaponPrefab != null ? weaponPrefab.CurrentAmountFloat : 0f;
+            }
+        } */
+
         [Tooltip("Whether this vehicle is currently locked and unavailable, or is unlocked and available in the loadout.")]
         public bool locked = false;
 

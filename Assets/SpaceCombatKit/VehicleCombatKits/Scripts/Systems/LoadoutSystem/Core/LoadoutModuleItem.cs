@@ -1,11 +1,12 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
+
 
 namespace VSX.UniversalVehicleCombat.Loadout
 {
     public class LoadoutModuleItem : MonoBehaviour
     {
+        [Header("Module")]
         [Tooltip("The prefab for this loadout module.")]
         public Module modulePrefab;
 
@@ -17,15 +18,18 @@ namespace VSX.UniversalVehicleCombat.Loadout
 
         public virtual string Label
         {
-            get 
+            get
             {
-                if (overrideModuleLabel) 
+                if (overrideModuleLabel)
                     return overrideLabel;
                 else
-                    return (modulePrefab != null && modulePrefab.Labels.Count > 0) ? modulePrefab.Labels[0] : ""; 
+                    return (modulePrefab != null && modulePrefab.Labels.Count > 0) ? modulePrefab.Labels[0] : "";
             }
         }
 
+ 
+
+        [Header("UI")]
         [Tooltip("The description to display in the loadout menu for this module.")]
         [TextArea]
         public string description;
@@ -33,5 +37,5 @@ namespace VSX.UniversalVehicleCombat.Loadout
         [Tooltip("All the sprites associated with this module.")]
         public List<Sprite> sprites = new List<Sprite>();
     }
-
 }
+
