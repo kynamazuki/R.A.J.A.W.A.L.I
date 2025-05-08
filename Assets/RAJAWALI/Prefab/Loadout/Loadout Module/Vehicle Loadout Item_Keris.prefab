@@ -48,9 +48,13 @@ MonoBehaviour:
     type: 3}
   overrideVehicleLabel: 1
   overrideLabel: Keris
-  description: "Type: Strike Fighter\t\t\t   Armor: 6000\nPower: 75 ON1-K\t\t\t\t  
-    Shield: 6000\nAfterburner/Cooldown: 03s/06s\t   Speed: 600\nLoadout Default :
-    2 CQC\r   \t\t\t\t\t          Agility: 4\n\t\t\t  26 MISSILE \n\t\t\t   1 SHIPKILLER"
+  description: "Type: Strike Fighter\t\t\t   Armor: \nPower: 75 ON1-K\t\t\t\t   Shield:
+    \nAfterburner/Cooldown: 03s/06s\t   Speed: \nLoadout Default : 2 CQC\r   \t\t\t\t\t         
+    Agility: \n\t\t\t  26 MISSILE \n\t\t\t   1 SHIPKILLER"
+  armor: 6000
+  shield: 6000
+  speed: 600
+  agility: 4
   sprites:
   - {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
   defaultLoadout:

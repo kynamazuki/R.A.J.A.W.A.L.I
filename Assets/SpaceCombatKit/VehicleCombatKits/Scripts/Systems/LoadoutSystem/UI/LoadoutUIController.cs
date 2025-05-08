@@ -29,13 +29,16 @@ namespace VSX.UniversalVehicleCombat.Loadout
         [SerializeField]
         protected GameObject vehicleInfoUIHandle;
 
-      /*  [Tooltip("The button to select the previous vehicle in the loadout.")]
         [SerializeField]
-        protected GameObject selectPreviousVehicleButton;
+        protected FighterStatUI fighterStatUI;
 
-        [Tooltip("The button to select the next vehicle in the loadout.")]
-        [SerializeField]
-        protected GameObject selectNextVehicleButton; */
+        /*  [Tooltip("The button to select the previous vehicle in the loadout.")]
+          [SerializeField]
+          protected GameObject selectPreviousVehicleButton;
+
+          [Tooltip("The button to select the next vehicle in the loadout.")]
+          [SerializeField]
+          protected GameObject selectNextVehicleButton; */
 
         [Tooltip("Whether to wrap through the vehicle selection (go back to beginning when cycle past the end, go to the end when cycling back past beginning).")]
         [SerializeField]
@@ -479,6 +482,21 @@ namespace VSX.UniversalVehicleCombat.Loadout
             if (vehicleInfoUIHandle != null)
             {
                 vehicleInfoUIHandle.SetActive(loadoutManager.WorkingSlot.selectedVehicleIndex != -1);
+            }
+
+            if (loadoutManager.LoadoutData != null && loadoutManager.LoadoutData.SelectedSlot != null)
+            {
+                int selectedIndex = loadoutManager.LoadoutData.SelectedSlot.selectedVehicleIndex;
+
+                if (selectedIndex >= 0 && selectedIndex < loadoutManager.Items.vehicles.Count)
+                {
+                    LoadoutVehicleItem selectedVehicle = loadoutManager.Items.vehicles[selectedIndex];
+
+                    if (fighterStatUI != null)
+                    {
+                        fighterStatUI.DisplayStats(selectedVehicle);
+                    }
+                }
             }
 
 

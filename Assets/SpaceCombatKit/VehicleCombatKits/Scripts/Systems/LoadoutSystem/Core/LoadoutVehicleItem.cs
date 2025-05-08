@@ -26,6 +26,18 @@ namespace VSX.UniversalVehicleCombat.Loadout
         [TextArea]
         public string description;
 
+        [Range(0, 10000)]
+        public float armor = 50;
+
+        [Range(0, 10000)]
+        public float shield = 60;
+
+        [Range(0, 1000)]
+        public float speed = 70;
+
+        [Range(0, 10)]
+        public float agility = 5;
+
         [Tooltip("All the sprites associated with this vehicle (can be looked up by index).")]
         public List<Sprite> sprites = new List<Sprite>();
 

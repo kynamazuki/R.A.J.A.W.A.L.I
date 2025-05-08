@@ -48,7 +48,13 @@ MonoBehaviour:
     type: 3}
   overrideVehicleLabel: 1
   overrideLabel: Fighter Light
-  description: Well rounded space fighter.
+  description: "Type: ----------\t\t\t   Armor: \nPower: ----------\t\t\t   Shield:
+    \nAfterburner/Cooldown: \t   Speed: \nLoadout Default : 2 CQC\r   \t\t\t\t\t  
+    Agility: \n\t\t\t  26 MISSILE \n\t\t\t   1 SHIPKILLER"
+  armor: 2500
+  shield: 2500
+  speed: 400
+  agility: 8
   sprites:
   - {fileID: 21300000, guid: e105eadceb385214cb1613a2dab0d209, type: 3}
   defaultLoadout:
@@ -56,8 +62,3 @@ MonoBehaviour:
   - {fileID: 3799691527014472684, guid: 6fa040d7eca94e8469b8c976ed50f778, type: 3}
   locked: 0
   moduleMountViewAlignmentOffset: {x: 0, y: 0, z: 0}
-  missilePrefab: {fileID: 2126168893883483272, guid: 6fa040d7eca94e8469b8c976ed50f778,
-    type: 3}
-  overrideResourceContainer: 1
-  overrideCapacity: 30
-  overrideStartAmount: 30

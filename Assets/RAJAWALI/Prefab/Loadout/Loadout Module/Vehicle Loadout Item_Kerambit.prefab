@@ -48,9 +48,13 @@ MonoBehaviour:
     type: 3}
   overrideVehicleLabel: 1
   overrideLabel: Kerambit
-  description: "Type: Interceptor\t\t\t   Armor: 3000\nPower: 35 VLK-QA\t\t\t   Shield:
-    3000\nAfterburner/Cooldown: 03s/03s\t   Speed: 900\nLoadout Default : 2 CQC\r  
-    \t\t\t\t\t          Agility: 6\n\t\t\t  15 MISSILE \n\t\t\t   1 SHIPKILLER"
+  description: "Type: Interceptor\t\t\t   Armor: \nPower: 35 VLK-QA\t\t\t   Shield:
+    \nAfterburner/Cooldown: 03s/03s\t   Speed: \nLoadout Default : 2 CQC\r   \t\t\t\t\t         
+    Agility: \n\t\t\t  15 MISSILE \n\t\t\t   1 SHIPKILLER"
+  armor: 3000
+  shield: 3000
+  speed: 900
+  agility: 6
   sprites:
   - {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
   defaultLoadout:

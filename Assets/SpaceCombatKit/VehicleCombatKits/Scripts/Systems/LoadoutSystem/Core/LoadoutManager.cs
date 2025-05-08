@@ -89,8 +89,6 @@ namespace VSX.UniversalVehicleCombat.Loadout
         public LoadoutData LoadoutData { get { return loadoutData; } }
 
 
-
-
         protected virtual void Reset()
         {
             loadoutDataManager = FindObjectOfType<LoadoutDataManager>();
@@ -427,6 +425,8 @@ namespace VSX.UniversalVehicleCombat.Loadout
             SelectModuleMount(0);
             
             OnLoadoutChanged();
+
+            
 
         }
 
