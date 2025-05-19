@@ -86,7 +86,9 @@ namespace VSX.UniversalVehicleCombat
                 // Set missile parameters
                 missile.SetTarget(targetLocker.Target);
                 missile.SetLockState(targetLocker.LockState == LockState.Locked ? LockState.Locked : LockState.NoLock);
+                missile.EnableTracking();
             }
+
         }
     }
 }

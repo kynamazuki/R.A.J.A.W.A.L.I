@@ -110,6 +110,9 @@ namespace VSX.UniversalVehicleCombat.Radar
 
         public UnityEvent onTargetChanged;
 
+        protected bool lockConfirmed = false;
+        public bool LockConfirmed => lockConfirmed;
+
 
         protected virtual void Reset()
         {
@@ -135,6 +138,7 @@ namespace VSX.UniversalVehicleCombat.Radar
         public virtual void SetTarget(Trackable newTarget, LockState lockState)
         {
             target = newTarget;
+            this.lockConfirmed = false;
             SetLockState(lockState);
 
             onTargetChanged.Invoke();
@@ -272,10 +276,17 @@ namespace VSX.UniversalVehicleCombat.Radar
                     break;
 
                 case LockState.Locked:
-
                     if (!TargetInLockZone())
                     {
                         SetLockState(LockState.NoLock);
+                        lockConfirmed = false; // Reset if lock is lost
+                    }
+
+                    // Check for confirm input
+                    if (!lockConfirmed && Input.GetKeyDown(KeyCode.R))
+                    {
+                        lockConfirmed = true;
+                        Debug.Log("Lock confirmed! Missile will follow target.");
                     }
 
                     break;
@@ -286,5 +297,6 @@ namespace VSX.UniversalVehicleCombat.Radar
                 lockingFillBar.SetFillAmount(currentLockAmount);
             }
         }
+
     }
 }

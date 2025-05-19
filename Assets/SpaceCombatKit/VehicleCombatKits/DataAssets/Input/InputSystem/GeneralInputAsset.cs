@@ -267,6 +267,15 @@ public partial class @GeneralInputAsset: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Target Lock"",
+                    ""type"": ""Button"",
+                    ""id"": ""30cc476b-b1bb-49f1-a6f3-8069de7fe387"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -322,6 +331,17 @@ public partial class @GeneralInputAsset: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": ""MouseKeyboard"",
                     ""action"": ""Target Under Cursor"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""37cc32eb-5ccf-424e-9c7d-828403ce6dc7"",
+                    ""path"": ""<Keyboard>/r"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""MouseKeyboard"",
+                    ""action"": ""Target Lock"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -541,6 +561,7 @@ public partial class @GeneralInputAsset: IInputActionCollection2, IDisposable
         m_TargetingControls_TargetNearest = m_TargetingControls.FindAction("Target Nearest", throwIfNotFound: true);
         m_TargetingControls_TargetFront = m_TargetingControls.FindAction("Target Front", throwIfNotFound: true);
         m_TargetingControls_TargetUnderCursor = m_TargetingControls.FindAction("Target Under Cursor", throwIfNotFound: true);
+        m_TargetingControls_TargetLock = m_TargetingControls.FindAction("Target Lock", throwIfNotFound: true);
         // Camera Controls
         m_CameraControls = asset.FindActionMap("Camera Controls", throwIfNotFound: true);
         m_CameraControls_CycleCameraViewForward = m_CameraControls.FindAction("Cycle Camera View Forward", throwIfNotFound: true);
@@ -695,6 +716,7 @@ public partial class @GeneralInputAsset: IInputActionCollection2, IDisposable
     private readonly InputAction m_TargetingControls_TargetNearest;
     private readonly InputAction m_TargetingControls_TargetFront;
     private readonly InputAction m_TargetingControls_TargetUnderCursor;
+    private readonly InputAction m_TargetingControls_TargetLock;
     public struct TargetingControlsActions
     {
         private @GeneralInputAsset m_Wrapper;
@@ -704,6 +726,7 @@ public partial class @GeneralInputAsset: IInputActionCollection2, IDisposable
         public InputAction @TargetNearest => m_Wrapper.m_TargetingControls_TargetNearest;
         public InputAction @TargetFront => m_Wrapper.m_TargetingControls_TargetFront;
         public InputAction @TargetUnderCursor => m_Wrapper.m_TargetingControls_TargetUnderCursor;
+        public InputAction @TargetLock => m_Wrapper.m_TargetingControls_TargetLock;
         public InputActionMap Get() { return m_Wrapper.m_TargetingControls; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -728,6 +751,9 @@ public partial class @GeneralInputAsset: IInputActionCollection2, IDisposable
             @TargetUnderCursor.started += instance.OnTargetUnderCursor;
             @TargetUnderCursor.performed += instance.OnTargetUnderCursor;
             @TargetUnderCursor.canceled += instance.OnTargetUnderCursor;
+            @TargetLock.started += instance.OnTargetLock;
+            @TargetLock.performed += instance.OnTargetLock;
+            @TargetLock.canceled += instance.OnTargetLock;
         }
 
         private void UnregisterCallbacks(ITargetingControlsActions instance)
@@ -747,6 +773,9 @@ public partial class @GeneralInputAsset: IInputActionCollection2, IDisposable
             @TargetUnderCursor.started -= instance.OnTargetUnderCursor;
             @TargetUnderCursor.performed -= instance.OnTargetUnderCursor;
             @TargetUnderCursor.canceled -= instance.OnTargetUnderCursor;
+            @TargetLock.started -= instance.OnTargetLock;
+            @TargetLock.performed -= instance.OnTargetLock;
+            @TargetLock.canceled -= instance.OnTargetLock;
         }
 
         public void RemoveCallbacks(ITargetingControlsActions instance)
@@ -921,6 +950,7 @@ public partial class @GeneralInputAsset: IInputActionCollection2, IDisposable
         void OnTargetNearest(InputAction.CallbackContext context);
         void OnTargetFront(InputAction.CallbackContext context);
         void OnTargetUnderCursor(InputAction.CallbackContext context);
+        void OnTargetLock(InputAction.CallbackContext context);
     }
     public interface ICameraControlsActions
     {

@@ -50,6 +50,7 @@ namespace VSX.UniversalVehicleCombat
         public UnityEvent onTargetLocked;
         public UnityEvent onTargetLockLost;
 
+        private bool isTrackingEnabled = false;
 
         public override float Speed
         {
@@ -141,6 +142,12 @@ namespace VSX.UniversalVehicleCombat
                 SetLockState(LockState.Locked);
             }
         }
+
+        public void EnableTracking()
+        {
+            isTrackingEnabled = true;
+        }
+
 
 
         /// <summary>
@@ -242,29 +249,44 @@ namespace VSX.UniversalVehicleCombat
             base.Update();
 
             CheckTrigger();
-            
-            if (targetLocker.LockState == LockState.Locked)
+
+            if (isTrackingEnabled && targetLocker.LockState == LockState.Locked)
             {
                 if (engines != null)
                 {
-                    // Steer
+                    // Get target velocity and position
                     Vector3 targetVelocity = targetLocker.Target.Rigidbody != null ? targetLocker.Target.Rigidbody.velocity : Vector3.zero;
                     Vector3 toTarget = targetLocker.Target.transform.position - transform.position;
 
                     Vector3 targetPos = targetLocker.Target.transform.position;
+
+                    // Lead the target if within a certain threshold
                     if (toTarget.magnitude < leadTargetThreshold)
                     {
                         targetPos = TargetLeader.GetLeadPosition(transform.position, Speed, targetLocker.Target.transform.position, targetVelocity);
                     }
 
+                    // Debugging: Log the positions and distance to target
+                    Debug.Log($"Missile Position: {transform.position}, Target Position: {targetLocker.Target.transform.position}");
+                    Debug.Log($"Distance to Target: {toTarget.magnitude}");
+
+
+                    // Turn the missile towards the target position
                     Maneuvring.TurnToward(transform, targetPos, new Vector3(360, 360, 0), steeringPIDController);
-                    engines.SetSteeringInputs(steeringPIDController.GetControlValues());
+
+                    // Log steering inputs for debugging
+                    Vector3 steeringInput = steeringPIDController.GetControlValues();
+                    Debug.Log($"Steering Input: {steeringInput}");
+
+                    // Set engine inputs for missile movement
+                    engines.SetSteeringInputs(steeringInput);
                     engines.SetMovementInputs(new Vector3(0, 0, 1));
                 }
-                
             }
             else
             {
+                Debug.Log("Missile is not tracking the target.");
+
                 // Detonate after lifetime
                 if (locked)
                 {
@@ -278,7 +300,7 @@ namespace VSX.UniversalVehicleCombat
                     engines.SetSteeringInputs(Vector3.zero);
                     engines.SetMovementInputs(new Vector3(0, 0, 1));
                 }
-               
+
             }
         }
 
@@ -292,6 +314,12 @@ namespace VSX.UniversalVehicleCombat
             Gizmos.DrawWireSphere(transform.position, triggerDistance);
 
             Gizmos.color = c;
+
+            if (targetLocker.Target != null)
+            {
+                Gizmos.color = Color.red;
+                Gizmos.DrawLine(transform.position, targetLocker.Target.transform.position);
+            }
         }
 
         protected override void MovementUpdate()

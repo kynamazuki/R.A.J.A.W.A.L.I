@@ -245,6 +245,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Target Lock",
+                    "type": "Button",
+                    "id": "30cc476b-b1bb-49f1-a6f3-8069de7fe387",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -300,6 +309,17 @@
                     "processors": "",
                     "groups": "MouseKeyboard",
                     "action": "Target Under Cursor",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "37cc32eb-5ccf-424e-9c7d-828403ce6dc7",
+                    "path": "<Keyboard>/r",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "MouseKeyboard",
+                    "action": "Target Lock",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
