@@ -12742,7 +12742,6 @@ GameObject:
   - component: {fileID: 152507264578723649}
   - component: {fileID: 152507264578723648}
   - component: {fileID: 152507264578723655}
-  - component: {fileID: 5962071473711431846}
   m_Layer: 0
   m_Name: 'Keris Fighter '
   m_TagString: Untagged
@@ -13899,19 +13898,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &5962071473711431846
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 152507264578723654}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f9f7f253cecd48943a4084d56c047fff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  trackingKey: 114
 --- !u!1 &152507264582518243
 GameObject:
   m_ObjectHideFlags: 0
