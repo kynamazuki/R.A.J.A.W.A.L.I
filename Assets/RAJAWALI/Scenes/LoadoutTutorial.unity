@@ -1204,6 +1204,8 @@ MonoBehaviour:
   vehicleSelectionModeUIHandle: {fileID: 1435427453}
   vehicleInfoUIHandle: {fileID: 227664235}
   fighterStatUI: {fileID: 961231131}
+  selectPreviousVehicleButton: {fileID: 1958897726}
+  selectNextVehicleButton: {fileID: 289084117}
   wrapVehicles: 0
   equipVehicleButton: {fileID: 1575905615}
   goToLoadoutButton: {fileID: 0}
@@ -2896,7 +2898,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &289084118
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2914,7 +2916,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 839, y: 161}
+  m_AnchoredPosition: {x: 835, y: 161}
   m_SizeDelta: {x: 70, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &289084119
@@ -3031,7 +3033,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.84705883, g: 0.972549, b: 1, a: 1}
+  m_Color: {r: 1, g: 0.4392157, b: 0.2627451, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -9129,7 +9131,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 2ea127597ecc5144f875e728847fc272, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.02
+  m_Volume: 0.2
   m_Pitch: 0.85
   Loop: 0
   Mute: 0
@@ -18196,7 +18198,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1958897727
 RectTransform:
   m_ObjectHideFlags: 0
@@ -18214,7 +18216,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1, y: 161}
+  m_AnchoredPosition: {x: -77, y: 161}
   m_SizeDelta: {x: 70, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1958897728
@@ -18331,7 +18333,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.84705883, g: 0.972549, b: 1, a: 1}
+  m_Color: {r: 1, g: 0.4392157, b: 0.2627451, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1

@@ -32,13 +32,13 @@ namespace VSX.UniversalVehicleCombat.Loadout
         [SerializeField]
         protected FighterStatUI fighterStatUI;
 
-        /*  [Tooltip("The button to select the previous vehicle in the loadout.")]
-          [SerializeField]
-          protected GameObject selectPreviousVehicleButton;
+        [Tooltip("The button to select the previous vehicle in the loadout.")]
+        [SerializeField]
+        protected GameObject selectPreviousVehicleButton;
 
-          [Tooltip("The button to select the next vehicle in the loadout.")]
-          [SerializeField]
-          protected GameObject selectNextVehicleButton; */
+        [Tooltip("The button to select the next vehicle in the loadout.")]
+        [SerializeField]
+        protected GameObject selectNextVehicleButton; 
 
         [Tooltip("Whether to wrap through the vehicle selection (go back to beginning when cycle past the end, go to the end when cycling back past beginning).")]
         [SerializeField]
@@ -442,7 +442,7 @@ namespace VSX.UniversalVehicleCombat.Loadout
 
             // Activate/deactivate the next vehicle selection button
 
-        /*    if (selectNextVehicleButton != null)
+            if (selectNextVehicleButton != null)
             {
                 if (loadoutManager.SlotPerVehicle)
                 {
@@ -474,7 +474,7 @@ namespace VSX.UniversalVehicleCombat.Loadout
                                                         (wrapVehicles || loadoutManager.SelectableVehicleIndexes.IndexOf(loadoutManager.WorkingSlot.selectedVehicleIndex) > 0));
 
                 }
-            }*/
+            }
 
 
             // Activate/deactivate the vehicle info
