@@ -4637,7 +4637,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1805236142264902765}
   m_LocalRotation: {x: -0, y: -0, z: 1, w: 0}
-  m_LocalPosition: {x: 2.31, y: -1.4890001, z: 17.09}
+  m_LocalPosition: {x: 0.889, y: -0.921, z: 1.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6390,7 +6390,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3432895089956150853}
   m_LocalRotation: {x: -0, y: -0, z: 1, w: 0}
-  m_LocalPosition: {x: 2.31, y: -1.4890001, z: 17.09}
+  m_LocalPosition: {x: -0.94, y: -0.911, z: 1.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -16781,11 +16781,36 @@ PrefabInstance:
         type: 3}
       propertyPath: moduleMount
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 6910177774627697550}
     - target: {fileID: 1426608326711593935, guid: 19343bde69c10d646b4f20098721f961,
         type: 3}
       propertyPath: m_text
       value: Secondary
+      objectReference: {fileID: 0}
+    - target: {fileID: 4850696443695276036, guid: 19343bde69c10d646b4f20098721f961,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4850696443695276036, guid: 19343bde69c10d646b4f20098721f961,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4850696443695276036, guid: 19343bde69c10d646b4f20098721f961,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4850696443695276036, guid: 19343bde69c10d646b4f20098721f961,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4850696443695276036, guid: 19343bde69c10d646b4f20098721f961,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5046155247229563348, guid: 19343bde69c10d646b4f20098721f961,
         type: 3}
@@ -16931,7 +16956,7 @@ PrefabInstance:
         type: 3}
       propertyPath: moduleMount
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 6910177774627697550}
     - target: {fileID: 8456255174529600162, guid: 19343bde69c10d646b4f20098721f961,
         type: 3}
       propertyPath: m_AnchorMax.y

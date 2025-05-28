@@ -111,7 +111,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2382690253947200555
 Transform:
   m_ObjectHideFlags: 0
@@ -1017,6 +1017,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Ship_LandingGear_L
+      objectReference: {fileID: 0}
+    - target: {fileID: 2622509599556781113, guid: 2796243f056d56e42973f70c44130a9b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3399890315842297475, guid: 2796243f056d56e42973f70c44130a9b,
         type: 3}
@@ -2134,6 +2139,16 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114283027827146016, guid: bfb4e62c148bb074b91ba5ccba7d04a1,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114290421733573952, guid: bfb4e62c148bb074b91ba5ccba7d04a1,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 114290421733573952, guid: bfb4e62c148bb074b91ba5ccba7d04a1,
         type: 3}
       propertyPath: onSetLanded.m_PersistentCalls.m_Calls.Array.size
@@ -2985,6 +3000,16 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2821811052734301140, guid: bfb4e62c148bb074b91ba5ccba7d04a1,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.004
+      objectReference: {fileID: 0}
+    - target: {fileID: 2821811052734301140, guid: bfb4e62c148bb074b91ba5ccba7d04a1,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.175
+      objectReference: {fileID: 0}
     - target: {fileID: 2923480616907757425, guid: bfb4e62c148bb074b91ba5ccba7d04a1,
         type: 3}
       propertyPath: m_SizeDelta.y
@@ -3204,6 +3229,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5692954231531877051, guid: bfb4e62c148bb074b91ba5ccba7d04a1,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.241
+      objectReference: {fileID: 0}
+    - target: {fileID: 5692954231531877051, guid: bfb4e62c148bb074b91ba5ccba7d04a1,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.781
       objectReference: {fileID: 0}
     - target: {fileID: 5880422700867290175, guid: bfb4e62c148bb074b91ba5ccba7d04a1,
         type: 3}
@@ -6526,6 +6561,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Ship_LandingGear_Nose
+      objectReference: {fileID: 0}
+    - target: {fileID: 2622509599556781113, guid: 2796243f056d56e42973f70c44130a9b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3399890315842297475, guid: 2796243f056d56e42973f70c44130a9b,
         type: 3}

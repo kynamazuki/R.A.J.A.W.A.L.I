@@ -700,6 +700,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Missile
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 1f1c69839fef68247b4b0467b1599b0d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 1f1c69839fef68247b4b0467b1599b0d, type: 3}
       propertyPath: m_RootOrder
       value: 0
