@@ -160,6 +160,7 @@ namespace VSX.UniversalVehicleCombat.Loadout
             //loadoutUIController.onVehicleSelectionMode.AddListener(OnVehicleSelectionMode);
             loadoutUIController.onModuleSelectionMode.AddListener(OnModuleSelectionMode);
 
+
             raycastHitComparer = new RaycastHitComparer();
         }
 

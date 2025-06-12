@@ -3,9 +3,12 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using VSX.Utilities.UI;
 using UnityEngine.EventSystems;
+using VSX.UniversalVehicleCombat.Loadout;
 
 public class MissionTutorial : MonoBehaviour
 {
+    public LoadoutManager loadoutManager;
+
     [System.Serializable]
     public class MissionButton
     {
@@ -66,6 +69,8 @@ public class MissionTutorial : MonoBehaviour
     {
         if (!string.IsNullOrEmpty(selectedSceneName))
         {
+            loadoutManager.SavePersistentData();
+
             SceneManager.LoadScene(selectedSceneName);
         }
     }

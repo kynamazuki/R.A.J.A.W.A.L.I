@@ -138,7 +138,7 @@ namespace VSX.UniversalVehicleCombat.Loadout
 
 
         // Called when the loadout items change
-        protected virtual void OnDataLoad()
+        public virtual void OnDataLoad()
         {
             onDataLoad.Invoke();
 
@@ -146,7 +146,7 @@ namespace VSX.UniversalVehicleCombat.Loadout
 
 
         // Called when something on the loadout changes, e.g. a vehicle or module selection occurs
-        protected virtual void OnLoadoutChanged()
+        public virtual void OnLoadoutChanged()
         {
             onLoadoutChanged.Invoke();
         }

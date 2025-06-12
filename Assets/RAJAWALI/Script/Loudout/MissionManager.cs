@@ -91,10 +91,6 @@ public class MissionManager : MonoBehaviour
     }
 
 
-
-
-
-
     public void ResetMission()
     {
         currentMission = MissionParameters.Instance;
