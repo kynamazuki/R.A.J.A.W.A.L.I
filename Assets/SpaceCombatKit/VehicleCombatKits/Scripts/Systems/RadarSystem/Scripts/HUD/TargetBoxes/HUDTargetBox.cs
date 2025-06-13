@@ -57,6 +57,9 @@ namespace VSX.UniversalVehicleCombat.Radar
         [SerializeField]
         protected List<GameObject> unhighlightedUIObjects = new List<GameObject>();
 
+        [SerializeField]
+        protected UVCTextTMProUGUI lockStatusText;
+
         [Header("Settings")]
 
         [SerializeField]
@@ -291,6 +294,20 @@ namespace VSX.UniversalVehicleCombat.Radar
             if (locksController != null)
             {
                 locksController.AddLock(targetLocker);
+            }
+
+            if (lockStatusText != null)
+            {
+                if (targetLocker.LockState == LockState.Locked)
+                {
+                    lockStatusText.text = "Locked";
+                    lockStatusText.enabled = true;
+                }
+                else
+                {
+                    lockStatusText.text = "";
+                    lockStatusText.enabled = false;
+                }
             }
         }
 

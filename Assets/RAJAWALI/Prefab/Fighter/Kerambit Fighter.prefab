@@ -12882,7 +12882,7 @@ MonoBehaviour:
   m_rigidbody: {fileID: 152507264578723666}
   maxMovementForces: {x: 900, y: 900, z: 900}
   maxSteeringForces: {x: 6, y: 6, z: 6}
-  maxBoostForces: {x: 0.3, y: 0.3, z: 0.3}
+  maxBoostForces: {x: 1100, y: 1100, z: 1100}
   movementInputResponseSpeed: 6
   steeringBySpeedCurve:
     serializedVersion: 2

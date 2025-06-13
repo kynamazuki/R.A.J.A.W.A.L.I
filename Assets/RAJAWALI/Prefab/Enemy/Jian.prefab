@@ -1364,7 +1364,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   label: Jian
-  description: Vehicle.
+  description: Multi-Role
   vehicleClass: {fileID: 11400000, guid: a3338a580e5cf9240b73308ecde7dd9b, type: 2}
   bounds:
     m_Center: {x: 0, y: 0, z: 0}
@@ -1846,9 +1846,9 @@ MonoBehaviour:
   movementModulators: []
   boostModulators: []
   m_rigidbody: {fileID: 4955164956416957579}
-  maxMovementForces: {x: 300, y: 300, z: 300}
-  maxSteeringForces: {x: 5, y: 5, z: 7}
-  maxBoostForces: {x: 600, y: 600, z: 600}
+  maxMovementForces: {x: 600, y: 600, z: 600}
+  maxSteeringForces: {x: 4, y: 4, z: 4}
+  maxBoostForces: {x: 800, y: 800, z: 800}
   movementInputResponseSpeed: 5
   steeringBySpeedCurve:
     serializedVersion: 2
@@ -2079,7 +2079,7 @@ MonoBehaviour:
   moduleLayer: Default
   loadExistingChildModules: 1
   defaultModulePrefabs:
-  - {fileID: 1325631859568036413, guid: 58c4bb084a0f1f14c9ae8ef3619b06ff, type: 3}
+  - {fileID: 8717463101626388588, guid: 99f6098ecd2fcff4e868da7b438828e6, type: 3}
   createDefaultModulesAtStart: 1
   onModuleMounted:
     m_PersistentCalls:

@@ -84,7 +84,7 @@ namespace VSX.UniversalVehicleCombat
             if (!spawnInCameraView || viewCamera == null || spawners.Count == 0) return;
 
             // Calculate the spawn position for the wave
-            Vector3 spawnPos = viewCamera.transform.position + viewCamera.transform.forward * spawnDistanceFromCamera;
+            Vector3 baseSpawnPos = viewCamera.transform.position + viewCamera.transform.forward * spawnDistanceFromCamera;
 
             // Get the vertically flattened camera forward vector and turn it around to get the way the wave will be facing.
             Vector3 cameraFlattened = viewCamera.transform.forward;
@@ -99,8 +99,18 @@ namespace VSX.UniversalVehicleCombat
             Vector3 spawnPosDir = Quaternion.Euler(0f, Random.Range(-90, 90), 0f) * -cameraFlattened;
 
             // Position and rotate the spawn parent
-            spawnsParent.position = spawnPos;
+            spawnsParent.position = baseSpawnPos;
             spawnsParent.rotation = Quaternion.LookRotation(spawnPosDir, Vector3.up);
+
+            // ➕ Spread spawners horizontally
+            float spacing = 30f;  // Adjust based on your enemy prefab size
+
+            for (int i = 0; i < spawners.Count; i++)
+            {
+                Vector3 offset = spawnsParent.right * spacing * (i - spawners.Count / 2f);
+                spawners[i].transform.position = baseSpawnPos + offset;
+                spawners[i].transform.rotation = spawnsParent.rotation;
+            }
 
         }
 

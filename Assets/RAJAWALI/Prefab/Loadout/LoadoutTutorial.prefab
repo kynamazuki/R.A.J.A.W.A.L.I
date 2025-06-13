@@ -369,8 +369,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
+      - m_Target: {fileID: 3284494102842818503}
+        m_TargetAssemblyTypeName: VSX.UniversalVehicleCombat.Loadout.LoudoutUIControllerTuto,
+          Assembly-CSharp
         m_MethodName: CycleVehicleSelection
         m_Mode: 6
         m_Arguments:
@@ -10336,8 +10337,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
+      - m_Target: {fileID: 3284494102842818503}
+        m_TargetAssemblyTypeName: VSX.UniversalVehicleCombat.Loadout.LoudoutUIControllerTuto,
+          Assembly-CSharp
         m_MethodName: CycleVehicleSelection
         m_Mode: 6
         m_Arguments:
@@ -11710,8 +11712,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: VSX.UniversalVehicleCombat.Loadout.LoadoutUIController,
+      - m_Target: {fileID: 3284494102842818503}
+        m_TargetAssemblyTypeName: VSX.UniversalVehicleCombat.Loadout.LoudoutUIControllerTuto,
           Assembly-CSharp
         m_MethodName: MainMenu
         m_Mode: 1

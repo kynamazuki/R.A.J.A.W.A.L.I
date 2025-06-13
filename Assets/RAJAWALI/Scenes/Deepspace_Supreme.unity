@@ -10110,7 +10110,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a5b41b8db12ac84c838092c9ddca9b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  description: Destroy the enemy
+  description: Destroy the enemy fighters
   onChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -10579,7 +10579,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a5b41b8db12ac84c838092c9ddca9b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  description: Destroy the enemy
+  description: Destroy the enemy fighters
   onChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -13061,7 +13061,7 @@ MonoBehaviour:
   gunSpawnerPrefab: {fileID: 369400266}
   jianSpawnerPrefab: {fileID: 1494163762}
   spawnerParent: {fileID: 370899534}
-  enemiesPerWave: 3
+  enemiesPerWave: 5
 --- !u!1 &1154131003
 GameObject:
   m_ObjectHideFlags: 0
@@ -23471,7 +23471,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a5b41b8db12ac84c838092c9ddca9b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  description: Destroy the enemy
+  description: Destroy the enemy fighters
   onChanged:
     m_PersistentCalls:
       m_Calls: []

@@ -11582,7 +11582,7 @@ MonoBehaviour:
   canHealAfterDestroyed: 0
   disableGameObjectOnDestroyed: 1
   restoreOnEnable: 1
-  collisionImpulseToDamageFactor: 0.5
+  collisionImpulseToDamageFactor: 6
   collisionHealthModifierType: {fileID: 11400000, guid: 03e326d90c7cda84cbf0ffad37fb024b,
     type: 2}
   collisionContactsLimit: 1
@@ -12882,7 +12882,7 @@ MonoBehaviour:
   m_rigidbody: {fileID: 152507264578723666}
   maxMovementForces: {x: 600, y: 600, z: 600}
   maxSteeringForces: {x: 4, y: 4, z: 4}
-  maxBoostForces: {x: 0.6, y: 0.6, z: 0.6}
+  maxBoostForces: {x: 800, y: 800, z: 800}
   movementInputResponseSpeed: 6
   steeringBySpeedCurve:
     serializedVersion: 2
@@ -76127,7 +76127,7 @@ MonoBehaviour:
   canHealAfterDestroyed: 0
   disableGameObjectOnDestroyed: 1
   restoreOnEnable: 1
-  collisionImpulseToDamageFactor: 0.5
+  collisionImpulseToDamageFactor: 3
   collisionHealthModifierType: {fileID: 11400000, guid: 03e326d90c7cda84cbf0ffad37fb024b,
     type: 2}
   collisionContactsLimit: 1
@@ -79411,7 +79411,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 2c42f3258bae5b24db49508eca917b4d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 47e1343aa8837b44484f1c17c7e3434b, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

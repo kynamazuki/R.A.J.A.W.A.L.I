@@ -285,7 +285,6 @@ namespace VSX.UniversalVehicleCombat
             }
             else
             {
-                Debug.Log("Missile is not tracking the target.");
 
                 // Detonate after lifetime
                 if (locked)
