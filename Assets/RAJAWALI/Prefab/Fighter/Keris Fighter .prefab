@@ -4962,7 +4962,7 @@ MonoBehaviour:
   moduleLayer: Default
   loadExistingChildModules: 1
   defaultModulePrefabs:
-  - {fileID: 3799691527014472684, guid: 6fa040d7eca94e8469b8c976ed50f778, type: 3}
+  - {fileID: 114115692733585616, guid: 90439e2bcadd1d441a50875cfbfc875c, type: 3}
   createDefaultModulesAtStart: 1
   onModuleMounted:
     m_PersistentCalls:
@@ -5190,7 +5190,7 @@ MonoBehaviour:
   UIViewportCoefficients: {x: 1, y: 1}
   targetBoxOffScreenMode: 1
   rotateOffScreenUI: 1
-  offscreenArrowsViewportSpaceRadius: 0.4
+  offscreenArrowsViewportSpaceRadius: 0.2
   offscreenArrowsViewportMinX: 0
   offscreenArrowsViewportMaxX: 1
   offscreenArrowsViewportMinY: 0.35
@@ -12322,7 +12322,7 @@ AudioSource:
     type: 2}
   m_audioClip: {fileID: 8300000, guid: 0b9fd352c884eba419dd59a93618f9fe, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.2
+  m_Volume: 0.4
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -13658,7 +13658,7 @@ MonoBehaviour:
     m_Bits: 4294967295
   ignoreTriggerColliders: 1
   aimPositionMarker: {fileID: 152507265203654541}
-  maxAverageAimAngle: 70
+  maxAverageAimAngle: 100
   gimbalAim: 1
   aimingGimbal: {fileID: 0}
   lockGimbalToTarget: 0
@@ -69442,7 +69442,7 @@ AudioSource:
     type: 2}
   m_audioClip: {fileID: 8300000, guid: 4c56346ee1cbd6f42a019020eb2a3b21, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.217
+  m_Volume: 0.7
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -79411,7 +79411,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 0edb4e7e732bd8b4f89cc67d9c0c314f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2c42f3258bae5b24db49508eca917b4d, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
