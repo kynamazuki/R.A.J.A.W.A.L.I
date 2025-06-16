@@ -3554,7 +3554,7 @@ ParticleSystem:
       maxColor: {r: 1, g: 1, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
-        key0: {r: 0.015686275, g: 0.8509804, b: 1, a: 1}
+        key0: {r: 0.9811321, g: 0.70945024, b: 0.17956562, a: 1}
         key1: {r: 1, g: 1, b: 1, a: 1}
         key2: {r: 0, g: 0, b: 0, a: 0}
         key3: {r: 0, g: 0, b: 0, a: 0}
@@ -4837,7 +4837,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2674597554438418747}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: -2.67, y: -0.5, z: -1.787}
+  m_LocalPosition: {x: 0, y: -0.53, z: -1.5548799}
   m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -5051,6 +5051,7 @@ MonoBehaviour:
           m_NumColorKeys: 2
           m_NumAlphaKeys: 2
       shaderFloatSettings: []
+    animatedTransforms: []
   - mode: 2
     animatedParticles:
     - particleSystem: {fileID: 6753619676406955359}
@@ -5237,6 +5238,7 @@ MonoBehaviour:
           m_NumColorKeys: 2
           m_NumAlphaKeys: 2
       shaderFloatSettings: []
+    animatedTransforms: []
 --- !u!1 &2812773040795230024
 GameObject:
   m_ObjectHideFlags: 0
@@ -15018,7 +15020,7 @@ TrailRenderer:
       m_RotationOrder: 0
     colorGradient:
       serializedVersion: 2
-      key0: {r: 0.015686275, g: 0.8509804, b: 1, a: 1}
+      key0: {r: 0.98039216, g: 0.70980394, b: 0.18039216, a: 1}
       key1: {r: 0.015686275, g: 0.8509804, b: 1, a: 0}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}

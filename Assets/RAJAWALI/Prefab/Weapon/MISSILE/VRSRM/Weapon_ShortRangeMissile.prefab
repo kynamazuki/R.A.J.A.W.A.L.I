@@ -98,7 +98,7 @@ GameObject:
   - component: {fileID: 114808160338533122}
   - component: {fileID: 114655263114597250}
   m_Layer: 0
-  m_Name: Weapon_MediumRangeMissile
+  m_Name: Weapon_ShortRangeMissile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -171,9 +171,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   labels:
-  - Medium Range Missile
-  description: Medium Range Homing missile.
-  m_ID: MissileWeapon
+  - Short Range Missile
+  description: Short Range MIssile
+  m_ID: ShortMissileWeapon
   sprites:
   - {fileID: 21300000, guid: 7d8476e3767de9445a6aaa036e0299a7, type: 3}
   - {fileID: 21300000, guid: 009311518cfd9ec42abfc611dfb6e100, type: 3}
@@ -280,7 +280,7 @@ MonoBehaviour:
   lockingTime: 3
   lockingAngle: 15
   ignoreLockingAngleDistance: 0
-  lockingRange: 1000
+  lockingRange: 500
   lockingReferenceTransform: {fileID: 4474312126080030}
   startingLockStateForNewTarget: 0
   audioEnabled: 1
@@ -332,9 +332,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   resourceType: {fileID: 11400000, guid: 731b4804bae22a64bbdbb02fa3b343e8, type: 2}
-  capacity: 26
+  capacity: 25
   changeRate: 0
-  startAmount: 26
+  startAmount: 25
   emptiedPause: 5
   fillToCapacityAfterEmptiedPause: 1
   filledPause: 0
@@ -534,7 +534,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 44e79f2d7e94bc044a121f2de395af9c, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.7
+  m_Volume: 0.3
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -771,7 +771,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: b9dcedf4d9e318245aefdfaeacc38606, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.7
+  m_Volume: 0.15
   m_Pitch: 0.7
   Loop: 1
   Mute: 0
@@ -951,7 +951,7 @@ PrefabInstance:
         type: 3}
       propertyPath: projectilePrefab
       value: 
-      objectReference: {fileID: 114418243159451540, guid: e5c81a31557258240823af3d3239f3f8,
+      objectReference: {fileID: 114418243159451540, guid: ff9c33c0c1eb6a141a6c5b8267578395,
         type: 3}
     - target: {fileID: 6476608816863404475, guid: 75be99ff88282414597f64874c6a77b7,
         type: 3}

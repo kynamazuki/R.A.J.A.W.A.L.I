@@ -273,7 +273,7 @@ public partial class @GeneralInputAsset: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""3337a3d2-44e0-4a12-be15-43b8c591649c"",
-                    ""path"": ""<Keyboard>/0"",
+                    ""path"": ""<Keyboard>/1"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""MouseKeyboard"",
@@ -284,7 +284,7 @@ public partial class @GeneralInputAsset: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""b84ea82f-e6ea-400f-9f74-29ad7ddb6a17"",
-                    ""path"": ""<Keyboard>/1"",
+                    ""path"": ""<Keyboard>/minus"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""MouseKeyboard"",
@@ -306,7 +306,7 @@ public partial class @GeneralInputAsset: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""8b0abe5b-fb56-493b-9f1e-58442ae09d32"",
-                    ""path"": ""<Keyboard>/minus"",
+                    ""path"": ""<Keyboard>/3"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""MouseKeyboard"",
@@ -317,7 +317,7 @@ public partial class @GeneralInputAsset: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""f8207828-4842-48ca-b6a0-935a7f62b979"",
-                    ""path"": ""<Keyboard>/3"",
+                    ""path"": ""<Keyboard>/4"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""MouseKeyboard"",

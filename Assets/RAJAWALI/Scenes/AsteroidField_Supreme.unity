@@ -10038,7 +10038,7 @@ MonoBehaviour:
   spawnOnEnable: 0
   minSpawnInterval: 0.25
   maxSpawnInterval: 0.5
-  spawnInCameraView: 1
+  spawnInCameraView: 0
   viewCamera: {fileID: 0}
   spawnDistanceFromCamera: 900
   onWaveDestroyed:
@@ -10507,7 +10507,7 @@ MonoBehaviour:
   spawnOnEnable: 0
   minSpawnInterval: 0.25
   maxSpawnInterval: 0.5
-  spawnInCameraView: 1
+  spawnInCameraView: 0
   viewCamera: {fileID: 0}
   spawnDistanceFromCamera: 900
   onWaveDestroyed:
@@ -12970,7 +12970,7 @@ MonoBehaviour:
   gunSpawnerPrefab: {fileID: 369400266}
   jianSpawnerPrefab: {fileID: 1494163762}
   spawnerParent: {fileID: 370899534}
-  enemiesPerWave: 5
+  enemiesPerWave: 4
 --- !u!1 &1154131003
 GameObject:
   m_ObjectHideFlags: 0
@@ -23481,7 +23481,7 @@ MonoBehaviour:
   spawnOnEnable: 0
   minSpawnInterval: 0.25
   maxSpawnInterval: 0.5
-  spawnInCameraView: 1
+  spawnInCameraView: 0
   viewCamera: {fileID: 0}
   spawnDistanceFromCamera: 900
   onWaveDestroyed:
