@@ -31,7 +31,7 @@ namespace VSX.UniversalVehicleCombat
 
             // Link input to functions
             input.TargetingControls.TargetNext.performed += ctx => TargetNext();
-            input.TargetingControls.TargetPrevious.performed += ctx => TargetPrevious();
+           // input.TargetingControls.TargetPrevious.performed += ctx => TargetPrevious();
             input.TargetingControls.TargetNearest.performed += ctx => TargetNearest();
             input.TargetingControls.TargetFront.performed += ctx => TargetFront();
             input.TargetingControls.TargetUnderCursor.performed += ctx => TargetUnderCursor();
@@ -113,12 +113,12 @@ namespace VSX.UniversalVehicleCombat
         /// <summary>
         /// Select the previous target.
         /// </summary>
-        protected virtual void TargetPrevious()
+       /* protected virtual void TargetPrevious()
         {
             if (!CanRunInput()) return;
 
             targetSelector.Cycle(false);           
-        }
+        }*/
 
         /// <summary>
         /// Select the nearest target.

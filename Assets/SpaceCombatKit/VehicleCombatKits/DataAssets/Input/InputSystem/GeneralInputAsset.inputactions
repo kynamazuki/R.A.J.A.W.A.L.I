@@ -211,15 +211,6 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Target Previous",
-                    "type": "Button",
-                    "id": "37a3c2de-4051-4511-878d-2d37e633555b",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
                     "name": "Target Nearest",
                     "type": "Button",
                     "id": "684430e0-f190-4cb4-a76d-2e31fc978424",
@@ -240,7 +231,7 @@
                 {
                     "name": "Target Under Cursor",
                     "type": "Button",
-                    "id": "4e883ade-5345-413c-88b8-78542fc9ba3d",
+                    "id": "3e9d2d9b-d293-4c06-b5cd-2c846172c4de",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -256,17 +247,6 @@
                     "processors": "",
                     "groups": "MouseKeyboard",
                     "action": "Target Next",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "b84ea82f-e6ea-400f-9f74-29ad7ddb6a17",
-                    "path": "<Keyboard>/minus",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "MouseKeyboard",
-                    "action": "Target Previous",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -294,7 +274,7 @@
                 },
                 {
                     "name": "",
-                    "id": "f8207828-4842-48ca-b6a0-935a7f62b979",
+                    "id": "57f034c6-ca3d-4e35-bf69-932916dbc969",
                     "path": "<Keyboard>/4",
                     "interactions": "",
                     "processors": "",

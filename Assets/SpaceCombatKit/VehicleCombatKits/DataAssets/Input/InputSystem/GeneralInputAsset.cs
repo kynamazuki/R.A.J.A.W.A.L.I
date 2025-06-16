@@ -233,15 +233,6 @@ public partial class @GeneralInputAsset: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""Target Previous"",
-                    ""type"": ""Button"",
-                    ""id"": ""37a3c2de-4051-4511-878d-2d37e633555b"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
                     ""name"": ""Target Nearest"",
                     ""type"": ""Button"",
                     ""id"": ""684430e0-f190-4cb4-a76d-2e31fc978424"",
@@ -262,7 +253,7 @@ public partial class @GeneralInputAsset: IInputActionCollection2, IDisposable
                 {
                     ""name"": ""Target Under Cursor"",
                     ""type"": ""Button"",
-                    ""id"": ""4e883ade-5345-413c-88b8-78542fc9ba3d"",
+                    ""id"": ""3e9d2d9b-d293-4c06-b5cd-2c846172c4de"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -278,17 +269,6 @@ public partial class @GeneralInputAsset: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": ""MouseKeyboard"",
                     ""action"": ""Target Next"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""b84ea82f-e6ea-400f-9f74-29ad7ddb6a17"",
-                    ""path"": ""<Keyboard>/minus"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""MouseKeyboard"",
-                    ""action"": ""Target Previous"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -316,7 +296,7 @@ public partial class @GeneralInputAsset: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""f8207828-4842-48ca-b6a0-935a7f62b979"",
+                    ""id"": ""57f034c6-ca3d-4e35-bf69-932916dbc969"",
                     ""path"": ""<Keyboard>/4"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -537,7 +517,6 @@ public partial class @GeneralInputAsset: IInputActionCollection2, IDisposable
         // Targeting Controls
         m_TargetingControls = asset.FindActionMap("Targeting Controls", throwIfNotFound: true);
         m_TargetingControls_TargetNext = m_TargetingControls.FindAction("Target Next", throwIfNotFound: true);
-        m_TargetingControls_TargetPrevious = m_TargetingControls.FindAction("Target Previous", throwIfNotFound: true);
         m_TargetingControls_TargetNearest = m_TargetingControls.FindAction("Target Nearest", throwIfNotFound: true);
         m_TargetingControls_TargetFront = m_TargetingControls.FindAction("Target Front", throwIfNotFound: true);
         m_TargetingControls_TargetUnderCursor = m_TargetingControls.FindAction("Target Under Cursor", throwIfNotFound: true);
@@ -691,7 +670,6 @@ public partial class @GeneralInputAsset: IInputActionCollection2, IDisposable
     private readonly InputActionMap m_TargetingControls;
     private List<ITargetingControlsActions> m_TargetingControlsActionsCallbackInterfaces = new List<ITargetingControlsActions>();
     private readonly InputAction m_TargetingControls_TargetNext;
-    private readonly InputAction m_TargetingControls_TargetPrevious;
     private readonly InputAction m_TargetingControls_TargetNearest;
     private readonly InputAction m_TargetingControls_TargetFront;
     private readonly InputAction m_TargetingControls_TargetUnderCursor;
@@ -700,7 +678,6 @@ public partial class @GeneralInputAsset: IInputActionCollection2, IDisposable
         private @GeneralInputAsset m_Wrapper;
         public TargetingControlsActions(@GeneralInputAsset wrapper) { m_Wrapper = wrapper; }
         public InputAction @TargetNext => m_Wrapper.m_TargetingControls_TargetNext;
-        public InputAction @TargetPrevious => m_Wrapper.m_TargetingControls_TargetPrevious;
         public InputAction @TargetNearest => m_Wrapper.m_TargetingControls_TargetNearest;
         public InputAction @TargetFront => m_Wrapper.m_TargetingControls_TargetFront;
         public InputAction @TargetUnderCursor => m_Wrapper.m_TargetingControls_TargetUnderCursor;
@@ -716,9 +693,6 @@ public partial class @GeneralInputAsset: IInputActionCollection2, IDisposable
             @TargetNext.started += instance.OnTargetNext;
             @TargetNext.performed += instance.OnTargetNext;
             @TargetNext.canceled += instance.OnTargetNext;
-            @TargetPrevious.started += instance.OnTargetPrevious;
-            @TargetPrevious.performed += instance.OnTargetPrevious;
-            @TargetPrevious.canceled += instance.OnTargetPrevious;
             @TargetNearest.started += instance.OnTargetNearest;
             @TargetNearest.performed += instance.OnTargetNearest;
             @TargetNearest.canceled += instance.OnTargetNearest;
@@ -735,9 +709,6 @@ public partial class @GeneralInputAsset: IInputActionCollection2, IDisposable
             @TargetNext.started -= instance.OnTargetNext;
             @TargetNext.performed -= instance.OnTargetNext;
             @TargetNext.canceled -= instance.OnTargetNext;
-            @TargetPrevious.started -= instance.OnTargetPrevious;
-            @TargetPrevious.performed -= instance.OnTargetPrevious;
-            @TargetPrevious.canceled -= instance.OnTargetPrevious;
             @TargetNearest.started -= instance.OnTargetNearest;
             @TargetNearest.performed -= instance.OnTargetNearest;
             @TargetNearest.canceled -= instance.OnTargetNearest;
@@ -917,7 +888,6 @@ public partial class @GeneralInputAsset: IInputActionCollection2, IDisposable
     public interface ITargetingControlsActions
     {
         void OnTargetNext(InputAction.CallbackContext context);
-        void OnTargetPrevious(InputAction.CallbackContext context);
         void OnTargetNearest(InputAction.CallbackContext context);
         void OnTargetFront(InputAction.CallbackContext context);
         void OnTargetUnderCursor(InputAction.CallbackContext context);

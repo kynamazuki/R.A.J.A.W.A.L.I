@@ -103,7 +103,7 @@ namespace VSX.UniversalVehicleCombat
             spawnsParent.rotation = Quaternion.LookRotation(spawnPosDir, Vector3.up);
 
             // ➕ Spread spawners horizontally
-            float spacing = 30f;  // Adjust based on your enemy prefab size
+            float spacing = 50f;  // Adjust based on your enemy prefab size
 
             for (int i = 0; i < spawners.Count; i++)
             {
