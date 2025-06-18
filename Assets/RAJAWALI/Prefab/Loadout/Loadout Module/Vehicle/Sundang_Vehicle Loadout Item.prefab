@@ -1,0 +1,65 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &7237539905162715166
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8115246058976666833}
+  - component: {fileID: 3558731961340264767}
+  m_Layer: 0
+  m_Name: Sundang_Vehicle Loadout Item
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8115246058976666833
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7237539905162715166}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1484, y: 723, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3558731961340264767
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7237539905162715166}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e72ed0136e4a8dd4c8264d2b6f704dbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  vehiclePrefab: {fileID: 152507264578723667, guid: eb847abeab9da0c4cb8059c3d519404c,
+    type: 3}
+  overrideVehicleLabel: 1
+  overrideLabel: Sundang
+  description: "Type: Strike Bomber\t\t\t   Armor: \nPower: 100 AS7-D \t\t\t   Shield:
+    \nAfterburner/Cooldown: 03s/08s\t   Speed: \nLoadout Default : 4 CQC\r   \t\t\t\t\t         
+    Agility: \n\t\t\t  42 MISSILE \n\t\t\t   1 SHIPKILLER"
+  armor: 8000
+  shield: 10000
+  speed: 500
+  agility: 3
+  sprites:
+  - {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  defaultLoadout:
+  - {fileID: 1325631859568036413, guid: b3156ba23cbc08348b9931aacbb3c3b1, type: 3}
+  - {fileID: 114115692733585616, guid: 90439e2bcadd1d441a50875cfbfc875c, type: 3}
+  - {fileID: 9065839429239037063, guid: e030c1405df72174a803f0527f31c243, type: 3}
+  locked: 0
+  moduleMountViewAlignmentOffset: {x: 0, y: 0, z: 0}

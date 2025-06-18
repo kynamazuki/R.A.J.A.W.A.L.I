@@ -12879,12 +12879,9 @@ MonoBehaviour:
   minVisibleSlots: 3
   slotEmptyIcon: {fileID: 21300000, guid: ebc65d7c1c097ec4190973289812ae0e, type: 3}
   slotIconSpriteIndex: 0
-  MissionParameterUIHandle: {fileID: 3444034541096697344}
   mainMenuSceneName: MainMenu
   missionSceneNames:
   - Gunnary & Missile
-  - Piloting
-  - Shipkiller
   onModuleSelectionMode:
     m_PersistentCalls:
       m_Calls: []
@@ -13230,7 +13227,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &3444034541096697345
 RectTransform:
   m_ObjectHideFlags: 0

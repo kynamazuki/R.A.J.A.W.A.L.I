@@ -117,11 +117,11 @@ namespace VSX.UniversalVehicleCombat.Loadout
         [SerializeField]
         protected int slotIconSpriteIndex = 0;
 
-        [Header("Mission Parameters")]
+       /* [Header("Mission Parameters")]
 
         [Tooltip("The gameobject to toggle to enable/disable the vehicle selection mode UI.")]
         [SerializeField]
-        protected GameObject MissionParameterUIHandle;
+        protected GameObject MissionParameterUIHandle; */
 
         [Header("Scene Loading")]
 
@@ -138,6 +138,8 @@ namespace VSX.UniversalVehicleCombat.Loadout
 
         [Tooltip("Event called when the loadout menu goes into the module selection mode.")]
         public UnityEvent onModuleSelectionMode;
+
+
 
 
         public enum UIState
@@ -168,17 +170,8 @@ namespace VSX.UniversalVehicleCombat.Loadout
             EnterVehicleSelection();
             OnLoadoutChanged();
 
-           /* launchButton.onClick.AddListener(() =>
-            {
-                if (MissionManager.Instance != null)
-                {
-                    MissionManager.Instance.StartMission();
-                }
-                else
-                {
-                    Debug.LogError("MissionManager.Instance is null!");
-                }
-            }); */
+
+            
         }
 
 
@@ -191,7 +184,7 @@ namespace VSX.UniversalVehicleCombat.Loadout
             loadoutManager.SelectFirstModuleMount();
 
             moduleButtonsListController.gameObject.SetActive(false);
-            MissionParameterUIHandle.SetActive(true);
+           // MissionParameterUIHandle.SetActive(true);
 
             state = UIState.VehicleSelection;
 
