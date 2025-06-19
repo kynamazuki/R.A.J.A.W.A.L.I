@@ -135,7 +135,7 @@ MonoBehaviour:
   managedLocally: 0
   defaultTriggerIndex: 1
   triggerMode: 0
-  actionInterval: 5
+  actionInterval: 0.5
   burstSize: 0
   repeatBurst: 0
   burstInterval: 0.5
@@ -355,7 +355,7 @@ PrefabInstance:
     - target: {fileID: 9015464727045139873, guid: 9214d9b174f51184882a046d265223b6,
         type: 3}
       propertyPath: healthModifier.defaultDamageValue
-      value: 5000
+      value: 50000
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9214d9b174f51184882a046d265223b6, type: 3}

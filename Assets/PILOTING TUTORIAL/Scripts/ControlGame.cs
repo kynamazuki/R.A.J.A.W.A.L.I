@@ -20,7 +20,7 @@ public class ControlGame : MonoBehaviour
         waktuHabisPanel.SetActive(false);
         ulangiButton.SetActive(false);
         Time.timeScale = 1;
-        ScriptTimer.waktu = 240f; // Reset 4 minit
+        ScriptTimer.waktu = 180f; // Reset 3 minit
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }

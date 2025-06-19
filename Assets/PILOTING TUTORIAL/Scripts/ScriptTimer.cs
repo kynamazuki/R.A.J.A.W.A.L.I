@@ -4,7 +4,7 @@ using UnityEngine.UI;
 public class ScriptTimer : MonoBehaviour
 {
     Text text;
-    public static float waktu = 240f; // 4minit
+    public static float waktu = 180f; // 3minit
 
     void Start()
     {
