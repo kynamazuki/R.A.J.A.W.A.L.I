@@ -46,7 +46,7 @@ namespace VSX.UniversalVehicleCombat
             input = new SCKInputAsset();
 
             // Steering
-            input.SpacefighterControls.LaunchLand.performed += ctx => LaunchLand();
+            //input.SpacefighterControls.LaunchLand.performed += ctx => LaunchLand();
         }
 
 
@@ -74,11 +74,11 @@ namespace VSX.UniversalVehicleCombat
             }
             else
             {
-                if (overridePrompts)
+               /* if (overridePrompts)
                 {
                     hudShipLander.SetPrompts(launchPrompt.Replace("{control}", GetControlDisplayString()),
                                             landPrompt.Replace("{control}", GetControlDisplayString()));
-                }
+                }*/
 
                 if (debugInitialization)
                 {
@@ -90,10 +90,10 @@ namespace VSX.UniversalVehicleCombat
         }
 
 
-        protected virtual string GetControlDisplayString()
+       /* protected virtual string GetControlDisplayString()
         {
             return input.SpacefighterControls.LaunchLand.GetBindingDisplayString();
-        }
+        } */
 
 
         protected virtual void LaunchLand()

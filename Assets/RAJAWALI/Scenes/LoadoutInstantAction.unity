@@ -2524,6 +2524,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5275257842160916819, guid: f53f1559e5a7c3f43a3136605b8f2b89,
         type: 3}
+      propertyPath: exclusiveModules
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5275257842160916819, guid: f53f1559e5a7c3f43a3136605b8f2b89,
+        type: 3}
       propertyPath: onDataLoad.m_PersistentCalls.m_Calls.Array.size
       value: 0
       objectReference: {fileID: 0}

@@ -71,15 +71,6 @@ public partial class @SCKInputAsset: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""Launch Land"",
-                    ""type"": ""Button"",
-                    ""id"": ""ee3371ef-adf0-4017-8c89-fea713956d85"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -423,28 +414,6 @@ public partial class @SCKInputAsset: IInputActionCollection2, IDisposable
                     ""action"": ""Roll"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""5314501b-506a-4fe7-ada6-44781d60e6e6"",
-                    ""path"": ""<Keyboard>/l"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""MouseKeyboard"",
-                    ""action"": ""Launch Land"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""ba3ffa17-6ef3-4226-9e43-9f8591567a71"",
-                    ""path"": ""<Gamepad>/buttonEast"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Gamepad"",
-                    ""action"": ""Launch Land"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
@@ -957,7 +926,6 @@ public partial class @SCKInputAsset: IInputActionCollection2, IDisposable
         m_SpacefighterControls_Boost = m_SpacefighterControls.FindAction("Boost", throwIfNotFound: true);
         m_SpacefighterControls_Throttle = m_SpacefighterControls.FindAction("Throttle", throwIfNotFound: true);
         m_SpacefighterControls_Roll = m_SpacefighterControls.FindAction("Roll", throwIfNotFound: true);
-        m_SpacefighterControls_LaunchLand = m_SpacefighterControls.FindAction("Launch Land", throwIfNotFound: true);
         // Capital Ship Controls
         m_CapitalShipControls = asset.FindActionMap("Capital Ship Controls", throwIfNotFound: true);
         m_CapitalShipControls_Strafe = m_CapitalShipControls.FindAction("Strafe", throwIfNotFound: true);
@@ -1031,7 +999,6 @@ public partial class @SCKInputAsset: IInputActionCollection2, IDisposable
     private readonly InputAction m_SpacefighterControls_Boost;
     private readonly InputAction m_SpacefighterControls_Throttle;
     private readonly InputAction m_SpacefighterControls_Roll;
-    private readonly InputAction m_SpacefighterControls_LaunchLand;
     public struct SpacefighterControlsActions
     {
         private @SCKInputAsset m_Wrapper;
@@ -1041,7 +1008,6 @@ public partial class @SCKInputAsset: IInputActionCollection2, IDisposable
         public InputAction @Boost => m_Wrapper.m_SpacefighterControls_Boost;
         public InputAction @Throttle => m_Wrapper.m_SpacefighterControls_Throttle;
         public InputAction @Roll => m_Wrapper.m_SpacefighterControls_Roll;
-        public InputAction @LaunchLand => m_Wrapper.m_SpacefighterControls_LaunchLand;
         public InputActionMap Get() { return m_Wrapper.m_SpacefighterControls; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1066,9 +1032,6 @@ public partial class @SCKInputAsset: IInputActionCollection2, IDisposable
             @Roll.started += instance.OnRoll;
             @Roll.performed += instance.OnRoll;
             @Roll.canceled += instance.OnRoll;
-            @LaunchLand.started += instance.OnLaunchLand;
-            @LaunchLand.performed += instance.OnLaunchLand;
-            @LaunchLand.canceled += instance.OnLaunchLand;
         }
 
         private void UnregisterCallbacks(ISpacefighterControlsActions instance)
@@ -1088,9 +1051,6 @@ public partial class @SCKInputAsset: IInputActionCollection2, IDisposable
             @Roll.started -= instance.OnRoll;
             @Roll.performed -= instance.OnRoll;
             @Roll.canceled -= instance.OnRoll;
-            @LaunchLand.started -= instance.OnLaunchLand;
-            @LaunchLand.performed -= instance.OnLaunchLand;
-            @LaunchLand.canceled -= instance.OnLaunchLand;
         }
 
         public void RemoveCallbacks(ISpacefighterControlsActions instance)
@@ -1211,7 +1171,6 @@ public partial class @SCKInputAsset: IInputActionCollection2, IDisposable
         void OnBoost(InputAction.CallbackContext context);
         void OnThrottle(InputAction.CallbackContext context);
         void OnRoll(InputAction.CallbackContext context);
-        void OnLaunchLand(InputAction.CallbackContext context);
     }
     public interface ICapitalShipControlsActions
     {
