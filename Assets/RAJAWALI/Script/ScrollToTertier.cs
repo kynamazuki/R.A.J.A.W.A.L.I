@@ -30,7 +30,6 @@ public class ScrollToTertier : MonoBehaviour
                 SecondWeapon.SetActive(true);
             }
 
-            Debug.Log("scrolled Up");
             mouseScrollY = 0; // Reset to prevent multiple logs
         }
         else if (mouseScrollY > 0)
@@ -41,7 +40,6 @@ public class ScrollToTertier : MonoBehaviour
                 SecondWeapon.SetActive(false);
             }
 
-            Debug.Log("scrolled Down");
             mouseScrollY = 0; // Reset to prevent multiple logs
         }
     }

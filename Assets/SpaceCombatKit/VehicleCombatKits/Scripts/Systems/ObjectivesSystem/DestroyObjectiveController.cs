@@ -86,6 +86,12 @@ namespace VSX.ObjectivesSystem
             return true;
         }
 
+        public override void OnObjectiveChanged()
+        {
+            base.OnObjectiveChanged();
+            Debug.Log("Objective Changed: " + NumSubObjectivesCompleted() + " of " + NumSubObjectives());
+        }
+
 
     }
 }

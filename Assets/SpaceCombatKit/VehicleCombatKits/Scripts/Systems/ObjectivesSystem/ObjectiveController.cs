@@ -88,7 +88,7 @@ namespace VSX.ObjectivesSystem
 
 
         // Called when something about the objective changes.
-        protected virtual void OnObjectiveChanged()
+        public virtual void OnObjectiveChanged()
         {
             CheckIsCompleted();
             onChanged.Invoke();

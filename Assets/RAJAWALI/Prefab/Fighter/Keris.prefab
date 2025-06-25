@@ -12896,7 +12896,7 @@ GameObject:
   - component: {fileID: 152507264578723655}
   m_Layer: 0
   m_Name: Keris
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -80841,6 +80841,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5021198261089710322, guid: 3b75570fa6bc1954d9ba9e1e50ae9156,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 5685004648860084808, guid: 3b75570fa6bc1954d9ba9e1e50ae9156,
         type: 3}
