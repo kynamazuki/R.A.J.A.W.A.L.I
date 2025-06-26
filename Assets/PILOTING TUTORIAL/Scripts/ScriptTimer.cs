@@ -1,24 +1,41 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Events;
+using TMPro;
 
 public class ScriptTimer : MonoBehaviour
 {
-    Text text;
-    public static float waktu = 300f; // 3minit
+    public TextMeshProUGUI text;
+    public static float timer = 240f; // 4 minutes
+    private bool gameOverTriggered = false;
+
+    [Header("Game Over Event")]
+    public UnityEvent onGameOver;
 
     void Start()
     {
-        text = GetComponent<Text>();
+        if (text == null)
+        {
+            text = GetComponent<TextMeshProUGUI>();
+        }
     }
 
     void Update()
     {
-        waktu -= Time.deltaTime;
-        if (waktu < 0)
-            waktu = 0;
+        if (timer > 0)
+        {
+            timer -= Time.deltaTime;
 
-        int minit = Mathf.FloorToInt(waktu / 60);
-        int saat = Mathf.FloorToInt(waktu % 60);
-        text.text = "⏳ " + minit.ToString("00") + ":" + saat.ToString("00");
+            if (timer <= 0 && !gameOverTriggered)
+            {
+                timer = 0;
+                gameOverTriggered = true;
+                onGameOver.Invoke();
+            }
+
+            int minit = Mathf.FloorToInt(timer / 60);
+            int saat = Mathf.FloorToInt(timer % 60);
+            text.text = " " + minit.ToString("00") + ":" + saat.ToString("00");
+        }
     }
 }
