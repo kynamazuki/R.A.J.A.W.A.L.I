@@ -2162,6 +2162,31 @@ PrefabInstance:
       propertyPath: m_SizeDelta.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6481710121119427599, guid: fe8973713c9370a41a8b20fbba8b7c50,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6481710121119427599, guid: fe8973713c9370a41a8b20fbba8b7c50,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1383728582}
+    - target: {fileID: 6481710121119427599, guid: fe8973713c9370a41a8b20fbba8b7c50,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: StartMission
+      objectReference: {fileID: 0}
+    - target: {fileID: 6481710121119427599, guid: fe8973713c9370a41a8b20fbba8b7c50,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: VSX.UniversalVehicleCombat.Loadout.LoudoutUIControllerTuto, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7170993684170825400, guid: fe8973713c9370a41a8b20fbba8b7c50,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8059675666880878654, guid: fe8973713c9370a41a8b20fbba8b7c50,
         type: 3}
       propertyPath: m_SizeDelta.x
