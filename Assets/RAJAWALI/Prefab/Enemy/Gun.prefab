@@ -1470,7 +1470,7 @@ MonoBehaviour:
   loadUnmountedModules: 1
   assignToModuleTargetSelectors: 1
   referenceTransform: {fileID: 4902820617515236227}
-  range: 2000
+  range: 10000
   trackableTeams: []
   trackableTypes: []
   updateTargetsEveryFrame: 1
@@ -1547,7 +1547,7 @@ MonoBehaviour:
   aimController: {fileID: 0}
   weaponsTargetSelector: {fileID: 5013224787897304011}
   overrideTurretsMode: 1
-  turretsMode: 1
+  turretsMode: 2
   turretTargetTransform: {fileID: 0}
   snapTurretsToTarget: 0
 --- !u!114 &5013048668149425039
@@ -1846,7 +1846,7 @@ MonoBehaviour:
   movementModulators: []
   boostModulators: []
   m_rigidbody: {fileID: 4955164956416957579}
-  maxMovementForces: {x: 1100, y: 300, z: 300}
+  maxMovementForces: {x: 1100, y: 1100, z: 1100}
   maxSteeringForces: {x: 6, y: 6, z: 6}
   maxBoostForces: {x: 1300, y: 1300, z: 1300}
   movementInputResponseSpeed: 5
@@ -2497,7 +2497,7 @@ MonoBehaviour:
   selectHighestDepthChild: 0
   scanEveryFrame: 1
   defaultToFrontMostTarget: 1
-  frontTargetAngle: 10
+  frontTargetAngle: 50
   frontTargetReference: {fileID: 0}
   callSelectEventOnTarget: 1
   audioEnabled: 1

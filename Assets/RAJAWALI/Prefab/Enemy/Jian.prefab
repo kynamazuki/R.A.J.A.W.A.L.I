@@ -1470,7 +1470,7 @@ MonoBehaviour:
   loadUnmountedModules: 1
   assignToModuleTargetSelectors: 1
   referenceTransform: {fileID: 4902820617515236227}
-  range: 2000
+  range: 10000
   trackableTeams: []
   trackableTypes: []
   updateTargetsEveryFrame: 1
@@ -1547,7 +1547,7 @@ MonoBehaviour:
   aimController: {fileID: 0}
   weaponsTargetSelector: {fileID: 5013224787897304011}
   overrideTurretsMode: 1
-  turretsMode: 1
+  turretsMode: 2
   turretTargetTransform: {fileID: 0}
   snapTurretsToTarget: 0
 --- !u!114 &5013048668149425039
@@ -2497,7 +2497,7 @@ MonoBehaviour:
   selectHighestDepthChild: 0
   scanEveryFrame: 1
   defaultToFrontMostTarget: 1
-  frontTargetAngle: 10
+  frontTargetAngle: 50
   frontTargetReference: {fileID: 0}
   callSelectEventOnTarget: 1
   audioEnabled: 1
