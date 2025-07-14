@@ -6,6 +6,14 @@ using VSX.ResourceSystem;
 
 namespace VSX.UniversalVehicleCombat.Loadout
 {
+    [System.Serializable]
+    public class PredefinedModuleAssignment
+    {
+        public int moduleMountIndex; // Which mount
+        public LoadoutModuleItem moduleItem; // The module to assign
+    }
+
+
     public class LoadoutVehicleItem : MonoBehaviour
     {
         [Tooltip("The vehicle prefab associated with this loadout item.")]
@@ -16,6 +24,9 @@ namespace VSX.UniversalVehicleCombat.Loadout
 
         [Tooltip("The label value to display in the loadout menu when overriding the label on the Vehicle component.")]
         public string overrideLabel = "Label Override";
+
+        [Tooltip("Predefined modules manually assigned for this vehicle.")]
+        public List<PredefinedModuleAssignment> predefinedModules = new List<PredefinedModuleAssignment>();
 
         public virtual string Label
         {
@@ -44,40 +55,6 @@ namespace VSX.UniversalVehicleCombat.Loadout
         [Tooltip("The default module loadout for the vehicle (displayed when no saved data is found).")]
         public List<Module> defaultLoadout = new List<Module>();
 
-       /* [Header("Resource Container")]
-        [Tooltip("The prefab for this resource container (e.g. ammo, fuel).")]
-        public ResourceContainer weaponPrefab;
-
-        [Tooltip("Whether to override the capacity and start amount of the resource container.")]
-        public bool overrideResourceAmmo = false;
-
-        [Tooltip("The overridden capacity value.")]
-        public float overrideCapacityFloat = 15f;
-
-        [Tooltip("The overridden current amount value.")]
-        public float overrideCurrentAmountFloat = 15f;
-
-        public virtual float Capacity
-        {
-            get
-            {
-                if (overrideResourceAmmo)
-                    return overrideCapacityFloat;
-                else
-                    return weaponPrefab != null ? weaponPrefab.CapacityFloat : 0f;
-            }
-        }
-
-        public virtual float StartAmount
-        {
-            get
-            {
-                if (overrideResourceAmmo)
-                    return overrideCurrentAmountFloat;
-                else
-                    return weaponPrefab != null ? weaponPrefab.CurrentAmountFloat : 0f;
-            }
-        } */
 
         [Tooltip("Whether this vehicle is currently locked and unavailable, or is unlocked and available in the loadout.")]
         public bool locked = false;
@@ -85,7 +62,7 @@ namespace VSX.UniversalVehicleCombat.Loadout
         [Tooltip("The offset for the camera from the module mount position when focusing on a module on this vehicle.")]
         public Vector3 moduleMountViewAlignmentOffset = Vector3.zero;
 
-
+       
 
 
     }

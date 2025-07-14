@@ -245,6 +245,9 @@ namespace VSX.UniversalVehicleCombat.Loadout
 
         }
 
+        
+
+
 
         /// <summary>
         /// Select a loadout slot.
@@ -325,40 +328,48 @@ namespace VSX.UniversalVehicleCombat.Loadout
             }
         }
 
-
-        // Get the default module loadout for a vehicle
         protected virtual List<int> GetDefaultModules(int vehicleIndex)
         {
+            Debug.Log("Using GetDefaultModules for vehicle index: " + vehicleIndex);
+
             List<int> defaultModuleIndexes = new List<int>();
-
             LoadoutVehicleItem vehicleItem = items.vehicles[vehicleIndex];
+            int numModuleMounts = vehicleItem.vehiclePrefab.ModuleMounts.Count;
 
-            int numModuleMounts = items.vehicles[vehicleIndex].vehiclePrefab.GetComponentsInChildren<ModuleMount>().Length;
-
-            for(int i = 0; i < numModuleMounts; ++i)
+            for (int i = 0; i < numModuleMounts; ++i)
             {
-                if (i >= items.vehicles[vehicleIndex].defaultLoadout.Count)
+                defaultModuleIndexes.Add(-1);
+            }
+
+            if (vehicleItem.predefinedModules != null && vehicleItem.predefinedModules.Count > 0)
+            {
+                Debug.Log("Using predefined modules for vehicle: " + vehicleItem.Label);
+
+                foreach (PredefinedModuleAssignment assignment in vehicleItem.predefinedModules)
                 {
-                    defaultModuleIndexes.Add(-1);
-                }
-                else
-                {
-                    int index = -1;
-                    for (int j = 0; j < items.modules.Count; ++j)
+                    if (assignment.moduleMountIndex >= 0 && assignment.moduleMountIndex < numModuleMounts)
                     {
-                        if (items.modules[j].modulePrefab == vehicleItem.defaultLoadout[i])
+                        int index = items.modules.IndexOf(assignment.moduleItem);
+                        Debug.Log($"Assigning module {assignment.moduleItem.Label} at mount {assignment.moduleMountIndex}, index {index}");
+
+                        if (index != -1)
                         {
-                            index = j;
-                            break;
+                            defaultModuleIndexes[assignment.moduleMountIndex] = index;
                         }
                     }
-
-                    defaultModuleIndexes.Add(index);
                 }
+            }
+            else
+            {
+                Debug.Log("Falling back to defaultLoadout...");
+                // fallback logic
             }
 
             return defaultModuleIndexes;
         }
+
+
+
 
 
         // Vehicle selection
@@ -618,45 +629,61 @@ namespace VSX.UniversalVehicleCombat.Loadout
         // Update the list of modules that can be selected at the selected module mount
         protected virtual void UpdateSelectableModules()
         {
-
             selectableModuleIndexes.Clear();
 
             if (items == null) return;
 
             ModuleMount selectedModuleMount = GetSelectedModuleMount();
             if (selectedModuleMount == null) return;
-            
 
-            for (int i = 0; i < items.modules.Count; ++i)
+            // Use predefined modules if any
+            LoadoutVehicleItem vehicleItem = items.vehicles[workingSlot.selectedVehicleIndex];
+
+            if (vehicleItem.predefinedModules != null && vehicleItem.predefinedModules.Count > 0)
             {
-                if (!selectedModuleMount.IsCompatible(items.modules[i].modulePrefab)) continue;
-
-                bool used = false;
-                if (exclusiveModules)
+                foreach (var assignment in vehicleItem.predefinedModules)
                 {
-                    foreach (LoadoutSlot slot in loadoutData.Slots)
+                    if (assignment.moduleMountIndex == selectedModuleMountIndex)
                     {
-                        foreach (int usedModuleIndex in slot.selectedModules)
+                        int index = items.modules.IndexOf(assignment.moduleItem);
+
+                        if (index != -1)
                         {
-                            if (slot == loadoutData.SelectedSlot && slot.selectedModules.IndexOf(usedModuleIndex) == selectedModuleMountIndex) continue;
-
-
-                            if (usedModuleIndex == i)
-                            {
-                                used = true;
-                                break;
-                            }
+                            selectableModuleIndexes.Add(index);
                         }
-                        if (used) break;
-
                     }
                 }
+            }
+            else
+            {
+                // Fallback to normal logic if no predefined modules
+                for (int i = 0; i < items.modules.Count; ++i)
+                {
+                    if (!selectedModuleMount.IsCompatible(items.modules[i].modulePrefab)) continue;
 
+                    bool used = false;
+                    if (exclusiveModules)
+                    {
+                        foreach (LoadoutSlot slot in loadoutData.Slots)
+                        {
+                            foreach (int usedModuleIndex in slot.selectedModules)
+                            {
+                                if (slot == loadoutData.SelectedSlot && slot.selectedModules.IndexOf(usedModuleIndex) == selectedModuleMountIndex) continue;
+                                if (usedModuleIndex == i)
+                                {
+                                    used = true;
+                                    break;
+                                }
+                            }
+                            if (used) break;
+                        }
+                    }
 
-                if (!used) selectableModuleIndexes.Add(i);
-
+                    if (!used) selectableModuleIndexes.Add(i);
+                }
             }
         }
+
 
 
         // Module selection
@@ -716,6 +743,24 @@ namespace VSX.UniversalVehicleCombat.Loadout
             SelectModule(selectableModuleIndexes[index]);
         }
 
+        public void ApplyPredefinedModules()
+        {
+            LoadoutVehicleItem vehicleItem = GetSelectedVehicleItem();
+            if (vehicleItem == null) return;
+
+            for (int i = 0; i < vehicleItem.predefinedModules.Count; ++i)
+            {
+                var assignment = vehicleItem.predefinedModules[i];
+                int moduleIndex = items.modules.IndexOf(assignment.moduleItem);
+                if (moduleIndex != -1)
+                {
+                    workingSlot.selectedModules[assignment.moduleMountIndex] = moduleIndex;
+                }
+            }
+
+            SaveWorkingToActiveSlot();
+            OnLoadoutChanged();
+        }
 
 
         // Data saving

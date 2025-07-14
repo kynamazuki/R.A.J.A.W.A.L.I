@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3884726595949782792}
   - component: {fileID: 331220912393201343}
   m_Layer: 0
-  m_Name: Module Loadout Item_Rail Gun
+  m_Name: ALRM15_Module Loadout Item
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -44,10 +44,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e2464cc0fb5b0b43b3452dfd2753547, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  modulePrefab: {fileID: 9065839429239037063, guid: e030c1405df72174a803f0527f31c243,
+  modulePrefab: {fileID: 114115692733585616, guid: 396c71ebfacab144aaf0063cfd5b7ade,
     type: 3}
   overrideModuleLabel: 1
-  overrideLabel: Rail Gun
-  description: Railgun Shipkiller Weapon
+  overrideLabel: ALRM
+  description: ' Visual Range Short Range Missile'
   sprites:
-  - {fileID: 21300000, guid: 76aca44468fe6e04f9f28b23ba0da6aa, type: 3}
+  - {fileID: 21300000, guid: 7d8476e3767de9445a6aaa036e0299a7, type: 3}

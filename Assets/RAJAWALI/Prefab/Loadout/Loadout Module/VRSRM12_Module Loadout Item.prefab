@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3884726595949782792}
   - component: {fileID: 331220912393201343}
   m_Layer: 0
-  m_Name: Module Loadout Item_MRM_Kerambit
+  m_Name: VRSRM12_Module Loadout Item
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -44,10 +44,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e2464cc0fb5b0b43b3452dfd2753547, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  modulePrefab: {fileID: 3799691527014472684, guid: 79a82538b1d79cc41b97358b714d6276,
+  modulePrefab: {fileID: 114115692733585616, guid: b8357ed47c9a11a43bc8000c201eb1a1,
     type: 3}
   overrideModuleLabel: 1
-  overrideLabel: MRM_15
-  description: Mid Ranged Missile
+  overrideLabel: VRSRM
+  description: Advanced Long Range Missile
   sprites:
   - {fileID: 21300000, guid: 7d8476e3767de9445a6aaa036e0299a7, type: 3}

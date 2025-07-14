@@ -98,7 +98,7 @@ GameObject:
   - component: {fileID: 114808160338533122}
   - component: {fileID: 114655263114597250}
   m_Layer: 0
-  m_Name: Weapon_LongRangeMissile
+  m_Name: Weapon_12MediumRangeMissile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -171,9 +171,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   labels:
-  - Long Range Missile
-  description: Long Range Missile
-  m_ID: Missile Weapon
+  - Medium Range Missile
+  description: Medium Range Homing missile.
+  m_ID: MissileWeapon
   sprites:
   - {fileID: 21300000, guid: 7d8476e3767de9445a6aaa036e0299a7, type: 3}
   - {fileID: 21300000, guid: 009311518cfd9ec42abfc611dfb6e100, type: 3}
@@ -280,7 +280,7 @@ MonoBehaviour:
   lockingTime: 1.5
   lockingAngle: 15
   ignoreLockingAngleDistance: 0
-  lockingRange: 1500
+  lockingRange: 1000
   lockingReferenceTransform: {fileID: 4474312126080030}
   startingLockStateForNewTarget: 0
   audioEnabled: 1
@@ -951,7 +951,7 @@ PrefabInstance:
         type: 3}
       propertyPath: projectilePrefab
       value: 
-      objectReference: {fileID: 114418243159451540, guid: 3eac6382a6326514fad22539360de567,
+      objectReference: {fileID: 114418243159451540, guid: e5c81a31557258240823af3d3239f3f8,
         type: 3}
     - target: {fileID: 6476608816863404475, guid: 75be99ff88282414597f64874c6a77b7,
         type: 3}
