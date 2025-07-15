@@ -1547,7 +1547,7 @@ MonoBehaviour:
   aimController: {fileID: 0}
   weaponsTargetSelector: {fileID: 5013224787897304011}
   overrideTurretsMode: 1
-  turretsMode: 2
+  turretsMode: 1
   turretTargetTransform: {fileID: 0}
   snapTurretsToTarget: 0
 --- !u!114 &5013048668149425039
@@ -2079,7 +2079,7 @@ MonoBehaviour:
   moduleLayer: Default
   loadExistingChildModules: 1
   defaultModulePrefabs:
-  - {fileID: 3790688019465602458, guid: 1725b6933e495d648a9a33aa232e1dfa, type: 3}
+  - {fileID: 1325631859568036413, guid: b3156ba23cbc08348b9931aacbb3c3b1, type: 3}
   createDefaultModulesAtStart: 1
   onModuleMounted:
     m_PersistentCalls:
