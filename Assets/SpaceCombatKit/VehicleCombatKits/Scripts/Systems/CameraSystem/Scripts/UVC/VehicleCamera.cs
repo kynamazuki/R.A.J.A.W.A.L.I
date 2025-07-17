@@ -38,6 +38,9 @@ namespace VSX.UniversalVehicleCombat
 
         public OnCameraTargetVehicleChangedEventHandler onTargetVehicleChanged;
 
+        public UnityEvent<CameraView> onCameraViewChanged = new UnityEvent<CameraView>();
+        private CameraView currentView;
+
 
         protected override void Awake()
         {
@@ -138,6 +141,15 @@ namespace VSX.UniversalVehicleCombat
             else
             {
                 return cameraTarget.CameraViewTargets.Count > 0 ? cameraTarget.CameraViewTargets[0] : null;
+            }
+        }
+
+        public void NotifyCameraViewChanged(CameraView newView)
+        {
+            if (newView != currentView)
+            {
+                currentView = newView;
+                onCameraViewChanged.Invoke(currentView);
             }
         }
     }

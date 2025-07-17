@@ -25,6 +25,8 @@ public class MissionDropDown : MonoBehaviour
 
     private ButtonController currentlySelectedOption;
 
+    public ButtonController launchButton;
+
     // Static list to track all dropdowns
     private static List<MissionDropDown> allDropdowns = new List<MissionDropDown>();
 
@@ -36,6 +38,8 @@ public class MissionDropDown : MonoBehaviour
 
     private void Start()
     {
+        launchButton.interactable = false;
+
         // Register this dropdown
         allDropdowns.Add(this);
 
@@ -116,6 +120,7 @@ public class MissionDropDown : MonoBehaviour
                 }
 
                 onOptionSelected.Invoke(value);
+                UpdateLaunchButtonState();
             });
         }
     }
@@ -137,6 +142,24 @@ public class MissionDropDown : MonoBehaviour
         // Clean up
         allDropdowns.Remove(this);
     }
+
+    private void UpdateLaunchButtonState()
+    {
+        if (MissionParameters.Instance != null &&
+            !string.IsNullOrEmpty(MissionParameters.Instance.missionType) &&
+            MissionParameters.Instance.missionTime > 0f &&
+            !string.IsNullOrEmpty(MissionParameters.Instance.enemyType) &&
+            !string.IsNullOrEmpty(MissionParameters.Instance.ammo) &&
+            !string.IsNullOrEmpty(MissionParameters.Instance.location))
+        {
+            launchButton.interactable = true;
+        }
+        else
+        {
+            launchButton.interactable = false;
+        }
+    }
+
 
     private void AddSoundEvents(ButtonController button)
     {

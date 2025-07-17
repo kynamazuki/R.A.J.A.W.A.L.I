@@ -18,6 +18,8 @@ namespace VSX.UniversalVehicleCombat
 
         protected CameraEntity cameraEntity;
 
+        protected VehicleCamera vehicleCamera;
+
 
         protected override void Awake()
         {
@@ -65,6 +67,14 @@ namespace VSX.UniversalVehicleCombat
         protected virtual void OnCameraFollowingVehicle(CameraEntity cameraEntity)
         {
             this.cameraEntity = cameraEntity;
+
+            vehicleCamera = cameraEntity.GetComponent<VehicleCamera>();
+
+            if (vehicleCamera != null)
+            {
+                CameraView currentView = vehicleCamera.CurrentView;  // This property should exist
+
+            }
         }
 
 

@@ -25,4 +25,6 @@ public class MissionParameters : MonoBehaviour
         Instance = this;
         DontDestroyOnLoad(this.gameObject);  
     }
+
+
 }

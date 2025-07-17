@@ -595,7 +595,7 @@ GameObject:
   - component: {fileID: 1269196813272611571}
   - component: {fileID: 1269196813272611570}
   - component: {fileID: 1269196813272611581}
-  - component: {fileID: 1269196813272611569}
+  - component: {fileID: 8384931189172741922}
   - component: {fileID: 5328461564263119704}
   m_Layer: 5
   m_Name: ObjectivesUI
@@ -688,7 +688,7 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &1269196813272611569
+--- !u!114 &8384931189172741922
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -706,7 +706,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1269196813272611580}
-        m_TargetAssemblyTypeName: 
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
         m_Arguments:
@@ -721,7 +721,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1269196813272611580}
-        m_TargetAssemblyTypeName: 
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
         m_Arguments:
