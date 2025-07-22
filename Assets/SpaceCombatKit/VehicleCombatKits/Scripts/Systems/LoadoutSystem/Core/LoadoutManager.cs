@@ -330,7 +330,6 @@ namespace VSX.UniversalVehicleCombat.Loadout
 
         protected virtual List<int> GetDefaultModules(int vehicleIndex)
         {
-            Debug.Log("Using GetDefaultModules for vehicle index: " + vehicleIndex);
 
             List<int> defaultModuleIndexes = new List<int>();
             LoadoutVehicleItem vehicleItem = items.vehicles[vehicleIndex];
@@ -343,14 +342,12 @@ namespace VSX.UniversalVehicleCombat.Loadout
 
             if (vehicleItem.predefinedModules != null && vehicleItem.predefinedModules.Count > 0)
             {
-                Debug.Log("Using predefined modules for vehicle: " + vehicleItem.Label);
 
                 foreach (PredefinedModuleAssignment assignment in vehicleItem.predefinedModules)
                 {
                     if (assignment.moduleMountIndex >= 0 && assignment.moduleMountIndex < numModuleMounts)
                     {
                         int index = items.modules.IndexOf(assignment.moduleItem);
-                        Debug.Log($"Assigning module {assignment.moduleItem.Label} at mount {assignment.moduleMountIndex}, index {index}");
 
                         if (index != -1)
                         {

@@ -174,6 +174,9 @@ namespace VSX.UniversalVehicleCombat.Loadout
             {
                 if (MissionManager.Instance != null)
                 {
+
+                    MissionManager.Instance.currentMission = MissionParameters.Instance;
+
                     MissionManager.Instance.StartMission();
                 }
                 else

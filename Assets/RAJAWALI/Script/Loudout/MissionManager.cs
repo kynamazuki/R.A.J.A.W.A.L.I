@@ -43,11 +43,16 @@ public class MissionManager : MonoBehaviour
 
     public void StartMission()
     {
+        Debug.Log("Launch Button Clicked. Starting mission...");
+
+        currentMission = MissionParameters.Instance;
+
         if (currentMission == null)
         {
             Debug.LogError("Mission not set! Cannot start mission.");
             return;
         }
+
 
         PlayerPrefs.SetFloat("MissionTime", currentMission.missionTime);
 

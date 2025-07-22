@@ -125,11 +125,13 @@ public class MissionDropDown : MonoBehaviour
         }
     }
 
-    private void SetMissionTime(string value)
+    public void SetMissionTime(string value)
     {
-        if (value == "Hardcore (1 Minutes)") MissionParameters.Instance.missionTime = 60f;
-        else if (value == "Normal (3 Minutes)") MissionParameters.Instance.missionTime = 180f;
-        else if (value == "Easy (5 Minutes)") MissionParameters.Instance.missionTime = 300f;
+        if (value == "Hardcore (1 Min)") MissionParameters.Instance.missionTime = 60f;
+        else if (value == "Normal (3 Min)") MissionParameters.Instance.missionTime = 180f;
+        else if (value == "Easy (5 Min)") MissionParameters.Instance.missionTime = 300f;
+
+        Debug.Log("Mission Time Set To: " + MissionParameters.Instance.missionTime);
     }
 
     public void CloseDropdown()
@@ -143,7 +145,7 @@ public class MissionDropDown : MonoBehaviour
         allDropdowns.Remove(this);
     }
 
-    private void UpdateLaunchButtonState()
+    public void UpdateLaunchButtonState()
     {
         if (MissionParameters.Instance != null &&
             !string.IsNullOrEmpty(MissionParameters.Instance.missionType) &&
