@@ -253,7 +253,7 @@ MonoBehaviour:
   disableAfterLifetime: 0
   lifetime: 3
   disableAfterDistanceCovered: 1
-  maxDistance: 3000
+  maxDistance: 10000
   onDetonated:
     m_PersistentCalls:
       m_Calls: []

@@ -131,7 +131,6 @@ public class MissionDropDown : MonoBehaviour
         else if (value == "Normal (3 Min)") MissionParameters.Instance.missionTime = 180f;
         else if (value == "Easy (5 Min)") MissionParameters.Instance.missionTime = 300f;
 
-        Debug.Log("Mission Time Set To: " + MissionParameters.Instance.missionTime);
     }
 
     public void CloseDropdown()
