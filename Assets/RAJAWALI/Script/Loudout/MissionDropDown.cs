@@ -128,8 +128,8 @@ public class MissionDropDown : MonoBehaviour
     public void SetMissionTime(string value)
     {
         if (value == "Hardcore (1 Min)") MissionParameters.Instance.missionTime = 60f;
-        else if (value == "Normal (3 Min)") MissionParameters.Instance.missionTime = 180f;
-        else if (value == "Easy (5 Min)") MissionParameters.Instance.missionTime = 300f;
+        else if (value == "Normal (3 Mins)") MissionParameters.Instance.missionTime = 180f;
+        else if (value == "Easy (5 Mins)") MissionParameters.Instance.missionTime = 300f;
 
     }
 
