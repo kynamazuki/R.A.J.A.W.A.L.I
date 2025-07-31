@@ -391,7 +391,7 @@ MonoBehaviour:
   disableAfterLifetime: 1
   lifetime: 5
   disableAfterDistanceCovered: 0
-  maxDistance: 1000
+  maxDistance: 1500
   onDetonated:
     m_PersistentCalls:
       m_Calls: []
@@ -477,7 +477,7 @@ MonoBehaviour:
   lockingTime: 3
   lockingAngle: 25
   ignoreLockingAngleDistance: 100
-  lockingRange: 1000
+  lockingRange: 1500
   lockingReferenceTransform: {fileID: 4106589916852744}
   startingLockStateForNewTarget: 0
   audioEnabled: 1

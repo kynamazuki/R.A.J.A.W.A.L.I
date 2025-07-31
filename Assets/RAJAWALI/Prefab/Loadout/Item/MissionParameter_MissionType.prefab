@@ -636,7 +636,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.4392157, b: 0.2627451, a: 1}
+  m_Color: {r: 0.36078432, g: 0.90588236, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1479,7 +1479,7 @@ MonoBehaviour:
       sprite: {fileID: 0}
     - image: {fileID: 349124669931965380}
       modifyColor: 1
-      color: {r: 0.9882353, g: 0.3529412, b: 0.007843138, a: 1}
+      color: {r: 0.36078432, g: 0.90588236, b: 1, a: 1}
       modifySprite: 0
       sprite: {fileID: 0}
     textSettings:
@@ -1505,7 +1505,7 @@ MonoBehaviour:
     imageSettings:
     - image: {fileID: 349124671366791915}
       modifyColor: 1
-      color: {r: 0.9254902, g: 0.24313726, b: 0.101960786, a: 0.7490196}
+      color: {r: 0, g: 0.5378837, b: 0.6320754, a: 1}
       modifySprite: 0
       sprite: {fileID: 0}
     - image: {fileID: 8919854908359745288}
@@ -1541,7 +1541,7 @@ MonoBehaviour:
     imageSettings:
     - image: {fileID: 349124671366791915}
       modifyColor: 1
-      color: {r: 0.9882353, g: 0.3529412, b: 0.007843138, a: 1}
+      color: {r: 0.36078432, g: 0.90588236, b: 1, a: 1}
       modifySprite: 0
       sprite: {fileID: 0}
     - image: {fileID: 8919854908359745288}
@@ -1562,12 +1562,12 @@ MonoBehaviour:
     textSettings:
     - text: {fileID: 349124670380873041}
       modifyColor: 1
-      color: {r: 1, g: 1, b: 1, a: 1}
+      color: {r: 0, g: 0, b: 0, a: 1}
       modifyContent: 0
       content: 
     - text: {fileID: 349124670815680614}
       modifyColor: 1
-      color: {r: 1, g: 1, b: 1, a: 1}
+      color: {r: 0, g: 0, b: 0, a: 1}
       modifyContent: 0
       content: 
     onStateActivated:
@@ -2343,8 +2343,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -61.799988, y: 18.799988}
-  m_SizeDelta: {x: 182.24, y: 12.9}
+  m_AnchoredPosition: {x: -61.799988, y: 18.3}
+  m_SizeDelta: {x: 182.24, y: 11}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &9043624809646948167
 CanvasRenderer:
@@ -2374,7 +2374,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: d09d5099f93c25f49936b6a3f18139a3, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 7406632e7bb3f3948b2f98fcb8cd6e95, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2451,7 +2451,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: e0ebb0d6f32816941a4bb68754613d1e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 1e83000cd16b2fa4d86b7867a7da32ea, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
