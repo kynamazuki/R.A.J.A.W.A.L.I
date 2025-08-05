@@ -368,7 +368,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41bf2b5d58b24264f96b6672306f9a0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  managedLocally: 0
+  managedLocally: 1
   defaultTriggerIndex: 0
   triggerMode: 2
   actionInterval: 0.15
@@ -399,8 +399,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15591a8c9ae3e3b40a92f59e15e0fb99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  turretMode: 0
-  lockToTarget: 0
+  turretMode: 2
+  lockToTarget: 1
   aimAssist: 1
   aimAssistAngleThreshold: 3
   gimbalController: {fileID: 777123277128370629}
@@ -470,7 +470,7 @@ MonoBehaviour:
   trackableTypes:
   - {fileID: 11400000, guid: caacad2eeb66570498913e5edae6cf4a, type: 2}
   updateTargetsEveryFrame: 1
-  trackOnScreenTargetsOnly: 0
+  trackOnScreenTargetsOnly: 1
   m_HUDCamera: {fileID: 0}
   rootTransform: {fileID: 988039776634543247}
   lineOfSight: 1
