@@ -47,7 +47,10 @@ namespace VSX.ResourceSystem
         [SerializeField]
         protected Image fillBarImage;
 
-
+        [Header("Refill Countdown")]
+        [Tooltip("Optional: Text display for refill countdown when empty and paused.")]
+        [SerializeField]
+        protected UVCText refillCountdownText;
 
         protected virtual void Start()
         {
@@ -100,20 +103,72 @@ namespace VSX.ResourceSystem
             {
                 if (resourceContainer.ResourceType != null)
                 {
-                    if (resourceLabel != null) resourceLabel.text = displayLongName ? resourceContainer.ResourceType.LongName : resourceContainer.ResourceType.ShortName;
-                    if (resourceIcon != null) resourceIcon.sprite = resourceContainer.ResourceType.Icon;
+                    if (resourceLabel != null)
+                        resourceLabel.text = displayLongName ? resourceContainer.ResourceType.LongName : resourceContainer.ResourceType.ShortName;
+
+                    if (resourceIcon != null)
+                        resourceIcon.sprite = resourceContainer.ResourceType.Icon;
                 }
 
                 if (resourceAmountText != null)
                 {
-                    resourceAmountText.text = displayFraction ? resourceContainer.CurrentAmountInteger.ToString() + "/" + resourceContainer.CapacityInteger.ToString() : resourceContainer.CurrentAmountInteger.ToString();
+                    resourceAmountText.text = displayFraction
+                        ? resourceContainer.CurrentAmountInteger + "/" + resourceContainer.CapacityInteger
+                        : resourceContainer.CurrentAmountInteger.ToString();
                 }
 
                 if (fillBarImage != null)
                 {
                     fillBarImage.fillAmount = resourceContainer.CurrentAmountFloat / resourceContainer.CapacityFloat;
                 }
+
+                // Countdown or ready text
+                if (refillCountdownText != null)
+                {
+                    if (resourceContainer.IsEmpty && resourceContainer.ReloadTimeRemaining > 0)
+                    {
+                        refillCountdownText.gameObject.SetActive(true);
+                        refillCountdownText.text = $"MISSILE LOADING IN {resourceContainer.ReloadTimeRemaining:F1}S";
+                    }
+                    else if (resourceContainer.HasAmount(1))
+                    {
+                        refillCountdownText.gameObject.SetActive(true);
+                        refillCountdownText.text = "MISSILE IS READY";
+                    }
+                    else
+                    {
+                        refillCountdownText.gameObject.SetActive(true);
+                    }
+                }
             }
         }
+
+
+        private void Update()
+        {
+            if (refillCountdownText != null && resourceContainer != null)
+            {
+                if (resourceContainer.IsEmpty && resourceContainer.ReloadTimeRemaining > 0)
+                {
+                    if (!refillCountdownText.gameObject.activeSelf)
+                        refillCountdownText.gameObject.SetActive(true);
+
+                    refillCountdownText.text = $"MISSILE LOADING IN {resourceContainer.ReloadTimeRemaining:F1}S";
+                }
+                else if (resourceContainer.HasAmount(1))
+                {
+                    if (!refillCountdownText.gameObject.activeSelf)
+                        refillCountdownText.gameObject.SetActive(true);
+
+                    refillCountdownText.text = "MISSILE IS READY";
+                }
+                else
+                {
+                    refillCountdownText.gameObject.SetActive(false);
+                }
+            }
+        }
+
+
     }
 }

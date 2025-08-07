@@ -92,6 +92,7 @@ namespace VSX.ResourceSystem
         protected float pauseStartTime;
         protected float pauseTime;
 
+
         public override bool IsFull
         {
             get { return Mathf.Approximately(currentAmount, capacity); }
@@ -212,6 +213,20 @@ namespace VSX.ResourceSystem
             }
         }
 
+        public float ReloadTimeRemaining
+        {
+            get
+            {
+                if (pausing && IsEmpty && fillToCapacityAfterEmptiedPause)
+                {
+                    float timePassed = Time.time - pauseStartTime;
+                    return Mathf.Max(0f, pauseTime - timePassed);
+                }
+
+                return 0f;
+            }
+        }
+
 
         // Called when the container is emptied.
         protected override void OnEmpty()
@@ -314,6 +329,10 @@ namespace VSX.ResourceSystem
             }
         }
 
-        
+
+
+
     }
 }
+
+

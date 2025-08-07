@@ -114,7 +114,7 @@ namespace VSX.UniversalVehicleCombat
             {
                 if (healthRemainingText != null)
                 {
-                    healthRemainingText.text = currentHealth.ToString();
+                    healthRemainingText.text =  currentHealth.ToString();
                 }
 
                 if (fillBar != null)

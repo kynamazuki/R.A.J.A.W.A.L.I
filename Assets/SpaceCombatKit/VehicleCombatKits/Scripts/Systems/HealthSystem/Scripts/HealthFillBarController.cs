@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using VSX.Utilities.UI;
+using TMPro;
 
 namespace VSX.UniversalVehicleCombat
 {
@@ -20,6 +21,9 @@ namespace VSX.UniversalVehicleCombat
         [SerializeField]
         protected Health health;
 
+        [Tooltip("UI text for showing current health amount.")]
+        [SerializeField]
+        private TextMeshProUGUI healthText; // Assign in Inspector
 
         // Called every frame
         protected virtual void Update()
@@ -28,6 +32,12 @@ namespace VSX.UniversalVehicleCombat
             if (health != null)
             {
                 SetFillAmount(health.GetCurrentHealthFractionByType(healthType));
+
+                if (healthText != null)
+                {
+                    float current = health.GetCurrentHealthByType(healthType);
+                    healthText.text = $"{Mathf.CeilToInt(current)} ";
+                }
             }
         }
     }
