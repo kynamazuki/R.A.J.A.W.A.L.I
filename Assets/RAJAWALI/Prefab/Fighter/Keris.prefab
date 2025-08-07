@@ -5822,7 +5822,7 @@ MonoBehaviour:
   resourceLabel: {fileID: 0}
   displayLongName: 0
   resourceIcon: {fileID: 0}
-  resourceAmountText: {fileID: 9046215577211713209}
+  resourceAmountText: {fileID: 0}
   displayFraction: 0
   fillBarImage: {fileID: 152507265588000477}
   refillCountdownText: {fileID: 0}
@@ -5858,16 +5858,16 @@ MonoBehaviour:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 1
-      inSlope: -0.0040500774
-      outSlope: -0.0040500774
+      value: 0
+      inSlope: 0
+      outSlope: 0
       tangentMode: 0
-      weightedMode: 2
+      weightedMode: 0
       inWeight: 0
-      outWeight: 0.99963176
+      outWeight: 0
     - serializedVersion: 3
       time: 1
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -62973,7 +62973,7 @@ MonoBehaviour:
   changeRate: 0.5
   startAmount: 8
   emptiedPause: 1
-  fillToCapacityAfterEmptiedPause: 0
+  fillToCapacityAfterEmptiedPause: 1
   filledPause: 0
   emptyAfterFilledPause: 0
 --- !u!1 &152507265652139940
@@ -79932,7 +79932,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &8635870889930080486
 RectTransform:
   m_ObjectHideFlags: 0

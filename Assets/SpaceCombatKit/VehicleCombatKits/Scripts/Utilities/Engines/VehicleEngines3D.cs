@@ -259,7 +259,27 @@ namespace VSX.UniversalVehicleCombat
         protected virtual void Update()
         {
             // Use resources during boost
-            if (enginesActivated && !Mathf.Approximately(boostInputs.magnitude, 0))
+            /*if (enginesActivated && !Mathf.Approximately(boostInputs.magnitude, 0))
+            {
+                for (int i = 0; i < boostResourceHandlers.Count; ++i)
+                {
+                    boostResourceHandlers[i].Implement();
+                }
+            }*/
+
+            if (!enginesActivated) return;
+
+            // Only consume resource if boost is actually contributing to movement
+            bool isUsingBoost = false;
+
+            if (boostInputs.x > 0.5f && GetCurrentMaxBoostForces().x > maxMovementForces.x)
+                isUsingBoost = true;
+            if (boostInputs.y > 0.5f && GetCurrentMaxBoostForces().y > maxMovementForces.y)
+                isUsingBoost = true;
+            if (boostInputs.z > 0.5f && GetCurrentMaxBoostForces().z > maxMovementForces.z)
+                isUsingBoost = true;
+
+            if (isUsingBoost)
             {
                 for (int i = 0; i < boostResourceHandlers.Count; ++i)
                 {

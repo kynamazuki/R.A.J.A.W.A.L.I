@@ -54655,7 +54655,7 @@ MonoBehaviour:
   changeRate: 0.5
   startAmount: 8
   emptiedPause: 1
-  fillToCapacityAfterEmptiedPause: 0
+  fillToCapacityAfterEmptiedPause: 1
   filledPause: 0
   emptyAfterFilledPause: 0
 --- !u!1 &152507265658656968
@@ -69936,7 +69936,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &6837928868644635109
 RectTransform:
   m_ObjectHideFlags: 0
@@ -77774,7 +77774,7 @@ MonoBehaviour:
   resourceLabel: {fileID: 0}
   displayLongName: 0
   resourceIcon: {fileID: 0}
-  resourceAmountText: {fileID: 8135168499519418695}
+  resourceAmountText: {fileID: 0}
   displayFraction: 0
   fillBarImage: {fileID: 6148737861316710429}
   refillCountdownText: {fileID: 0}
