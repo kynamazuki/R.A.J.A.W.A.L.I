@@ -81,7 +81,10 @@ namespace VSX.UniversalVehicleCombat
         protected virtual void CycleCameraView(bool forward)
         {
             if (!CanRunInput()) return;
-            
+
+            Debug.Log($"[CameraControls] Cycle {(forward ? "Forward" : "Back")} input received!");
+
+
             if (cameraEntity != null)
             {
                 cameraEntity.CycleCameraView(forward);
@@ -92,6 +95,7 @@ namespace VSX.UniversalVehicleCombat
         protected virtual void OnEnable()
         {
             input.Enable();
+            input.CameraControls.Enable();
         }
 
 

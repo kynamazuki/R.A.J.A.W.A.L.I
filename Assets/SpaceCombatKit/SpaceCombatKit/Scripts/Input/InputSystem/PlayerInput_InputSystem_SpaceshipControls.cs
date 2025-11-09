@@ -289,6 +289,10 @@ namespace VSX.UniversalVehicleCombat
             if (!CanRunInput() || !steeringEnabled) return;
 
             lastSteeringInputDevice = input.SpacefighterControls.Steer.activeControl.device;
+
+            // Debug to confirm which device is detected
+            Debug.Log($"[STEER] Device: {lastSteeringInputDevice.displayName} ({lastSteeringInputDevice.layout}) | Value: {steer}");
+
             if (lastSteeringInputDevice is Mouse)
             {
                 MouseSteering(steer);
@@ -297,7 +301,14 @@ namespace VSX.UniversalVehicleCombat
             {
                 GamepadSteering(steer);
             }
+            string layout = lastSteeringInputDevice.layout.ToLower();
+            if (lastSteeringInputDevice is Joystick || layout.Contains("hid"))
+            {
+                // ✅ Treat generic HID joysticks (like Thrustmaster) as joystick input
+                JoystickSteering(steer);
+            }
         }
+
 
 
         protected virtual void MouseSteering(Vector2 steer)
@@ -424,6 +435,36 @@ namespace VSX.UniversalVehicleCombat
 
             spaceVehicleEngines.SetSteeringInputs(steerInputs);
         }
+
+        protected virtual void JoystickSteering(Vector2 steer)
+        {
+            reticleViewportPosition = new Vector3(0.5f, 0.5f, 0);
+
+            if (controlHUDCursor && hudCursor != null)
+            {
+                hudCursor.SetViewportPosition(reticleViewportPosition);
+            }
+
+            Vector3 steerInputs = Vector3.zero;
+            steerInputs.x = -steer.y;   // pitch
+            steerInputs.y = steer.x;    // yaw
+
+            steerInputs.x *= (nonMouseVerticalInverted ? -1 : 1);
+            steerInputs.y *= (nonMouseHorizontalInverted ? -1 : 1);
+
+            // Linked yaw and roll
+            if (linkYawAndRoll)
+            {
+                steerInputs.z = Mathf.Clamp(-steerInputs.y * yawRollRatio, -1f, 1f);
+            }
+            else
+            {
+                steerInputs.z = spaceVehicleEngines.SteeringInputs.z;
+            }
+
+            spaceVehicleEngines.SetSteeringInputs(steerInputs);
+        }
+
 
 
         protected virtual void Strafe(Vector2 strafe)

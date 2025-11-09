@@ -49,6 +49,7 @@ namespace VSX.UniversalVehicleCombat
 
         protected virtual void OnEnable()
         {
+            input.CapitalShipControls.Enable();
             input.Enable();
         }
 
@@ -69,7 +70,14 @@ namespace VSX.UniversalVehicleCombat
             input.CapitalShipControls.Look.performed += Look;
 
             // Steering
-            input.CapitalShipControls.Steer.performed += ctx => steering = ctx.ReadValue<Vector2>();
+            //input.CapitalShipControls.Steer.performed += ctx => steering = ctx.ReadValue<Vector2>();
+            input.CapitalShipControls.Steer.performed += ctx =>
+            {
+                steering = ctx.ReadValue<Vector2>();
+                Debug.Log($"[Joystick] Steering input: {steering}");
+            };
+            //input.CapitalShipControls.Steer.performed += ctx => steering = new Vector2(ctx.ReadValue<float>(), 0f);
+
 
             // Strafing
             input.CapitalShipControls.Strafe.performed += ctx => strafing = ctx.ReadValue<Vector2>();
@@ -141,6 +149,8 @@ namespace VSX.UniversalVehicleCombat
 
             engines.SetSteeringInputs(new Vector3(pitch, yaw, roll));
 
+            Debug.Log($"Steering applied → Pitch:{pitch:F2}  Yaw:{yaw:F2}  Roll:{roll:F2}");
+
         }
 
 
@@ -161,6 +171,9 @@ namespace VSX.UniversalVehicleCombat
             }
 
             SetControlValues();
+
+            Debug.Log($"Steering: {steering}");
         }
+
     }
 }

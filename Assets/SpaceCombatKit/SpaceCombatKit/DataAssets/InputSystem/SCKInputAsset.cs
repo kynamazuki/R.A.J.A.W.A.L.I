@@ -185,6 +185,61 @@ public partial class @SCKInputAsset: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": true
                 },
                 {
+                    ""name"": ""Strafe Joystick"",
+                    ""id"": ""ef0a2670-396c-4208-8ac7-f5a7aca2476a"",
+                    ""path"": ""2DVector(mode=2)"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Strafe"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""6eaa8ff8-8882-4746-8956-1b5ce93d63c9"",
+                    ""path"": ""<AndroidJoystick>/stick/up"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Strafe"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""f8d649c3-df3a-414e-8409-e06c149f2907"",
+                    ""path"": ""<AndroidJoystick>/stick/down"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Strafe"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""fd279827-f597-4b08-a81d-f738c1e379d2"",
+                    ""path"": ""<AndroidJoystick>/stick/left"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Strafe"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""76549565-cdb4-45e2-8491-fe61cd3833ca"",
+                    ""path"": ""<AndroidJoystick>/stick/right"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Strafe"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
                     ""name"": """",
                     ""id"": ""a7623694-a993-439a-9105-9d183c49e253"",
                     ""path"": ""<Keyboard>/tab"",
@@ -202,6 +257,17 @@ public partial class @SCKInputAsset: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
+                    ""action"": ""Boost"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""5706a9b2-ffef-4760-a5e7-de5ac2846b47"",
+                    ""path"": ""<Joystick>/button1"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
                     ""action"": ""Boost"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -383,6 +449,17 @@ public partial class @SCKInputAsset: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": true
                 },
                 {
+                    ""name"": """",
+                    ""id"": ""8cf9ceff-84c5-4c01-a46d-462b2451047f"",
+                    ""path"": ""<Joystick>/stick/y"",
+                    ""interactions"": """",
+                    ""processors"": ""Invert"",
+                    ""groups"": """",
+                    ""action"": ""Throttle"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
                     ""name"": ""RollKeyboard"",
                     ""id"": ""7bb050f5-239e-4d4d-89a8-ef31160df18e"",
                     ""path"": ""1DAxis"",
@@ -422,6 +499,28 @@ public partial class @SCKInputAsset: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""MouseKeyboard"",
+                    ""action"": ""Steer"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""15913006-88cb-4458-bfd2-1135eced4609"",
+                    ""path"": ""<Joystick>/stick/x"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Steer"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""8f16123e-97da-49c6-bfbd-188458a6a0cd"",
+                    ""path"": ""<Joystick>/stick/y"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
                     ""action"": ""Steer"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
