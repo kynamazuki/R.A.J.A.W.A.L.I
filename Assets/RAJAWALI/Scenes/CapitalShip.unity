@@ -21609,7 +21609,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1376330280450907112, guid: 69e4f02c805f4264b8a6a00af5eca06f, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 3255.3
+      value: 1314.7
       objectReference: {fileID: 0}
     - target: {fileID: 1376330280450907112, guid: 69e4f02c805f4264b8a6a00af5eca06f, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -28054,6 +28054,8 @@ MonoBehaviour:
   wavesController: {fileID: 1689504790}
   gunSpawnerPrefab: {fileID: 31846480}
   jianSpawnerPrefab: {fileID: 204906808}
+  capitalShipSpawnerPrefab: {fileID: 0}
+  capitalShipSpawnPoint: {fileID: 0}
   spawnerParent: {fileID: 1689504791}
   enemiesPerWave: 4
 --- !u!1 &1703819983

@@ -161,8 +161,7 @@ AudioSource:
   m_GameObject: {fileID: 1269196811860952161}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: -1485475292089539787, guid: e35fe8c7a90350a4caf2407abfa46cf7,
-    type: 2}
+  OutputAudioMixerGroup: {fileID: -1485475292089539787, guid: e35fe8c7a90350a4caf2407abfa46cf7, type: 2}
   m_audioClip: {fileID: 8300000, guid: 17071ce86c3d15245a96c44ee44495b5, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -520,8 +519,7 @@ MonoBehaviour:
   m_text: MISSION COMPLETE
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2f4ee3895c2586644a1dbacf4f704bdd, type: 2}
-  m_sharedMaterial: {fileID: 8514689293215180755, guid: 2f4ee3895c2586644a1dbacf4f704bdd,
-    type: 2}
+  m_sharedMaterial: {fileID: 8514689293215180755, guid: 2f4ee3895c2586644a1dbacf4f704bdd, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -721,6 +719,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
+  m_VertexColorAlwaysGammaSpace: 0
   m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
   m_SortingOrder: 0
@@ -880,8 +879,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  objectiveUIPrefab: {fileID: 9107776259242820337, guid: 2552424544d59b743a835d008eaa6181,
-    type: 3}
+  objectiveUIPrefab: {fileID: 9107776259242820337, guid: 2552424544d59b743a835d008eaa6181, type: 3}
   objectiveUIParent: {fileID: 1269196811933790378}
 --- !u!1 &3155653599757779537
 GameObject:
@@ -1006,8 +1004,7 @@ AudioSource:
   m_GameObject: {fileID: 3715259994546538123}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: -1485475292089539787, guid: e35fe8c7a90350a4caf2407abfa46cf7,
-    type: 2}
+  OutputAudioMixerGroup: {fileID: -1485475292089539787, guid: e35fe8c7a90350a4caf2407abfa46cf7, type: 2}
   m_audioClip: {fileID: 8300000, guid: a8ee8386f47e43146afe39e6379b77a2, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.1
@@ -1243,8 +1240,7 @@ MonoBehaviour:
   m_text: Objective Completed
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2f4ee3895c2586644a1dbacf4f704bdd, type: 2}
-  m_sharedMaterial: {fileID: 8514689293215180755, guid: 2f4ee3895c2586644a1dbacf4f704bdd,
-    type: 2}
+  m_sharedMaterial: {fileID: 8514689293215180755, guid: 2f4ee3895c2586644a1dbacf4f704bdd, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
