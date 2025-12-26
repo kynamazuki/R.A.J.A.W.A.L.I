@@ -1,4 +1,4 @@
-using UnityEngine;
+/*using UnityEngine;
 
 public class ResolutionManager : MonoBehaviour
 {
@@ -31,3 +31,4 @@ public class ResolutionManager : MonoBehaviour
     }
 
 }
+*/

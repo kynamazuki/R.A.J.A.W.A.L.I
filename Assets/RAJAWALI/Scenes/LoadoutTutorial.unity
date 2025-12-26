@@ -4467,7 +4467,7 @@ MonoBehaviour:
     m_Bits: 0
   defaultVehicleFocusAngles: {x: -18, y: -25, z: 0}
   vehicleFocusCameraHolder: {fileID: 1739814727}
-  vehicleViewportPosition: {x: 0.55, y: 0.68}
+  vehicleViewportPosition: {x: 0.63, y: 0.68}
   maxViewportVehicleDiameter: 0.5
   adjustViewDistanceToVehicleSize: 0
   defaultVehicleViewDistance: 30
@@ -13852,6 +13852,7 @@ GameObject:
   - component: {fileID: 779111192}
   - component: {fileID: 779111191}
   - component: {fileID: 779111190}
+  - component: {fileID: 779111193}
   m_Layer: 5
   m_Name: LogoBg
   m_TagString: Untagged
@@ -13942,6 +13943,32 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!114 &779111193
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 779111188}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30649d3a9faa99c48a7b1166b86bf2a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Padding:
+    m_Left: 0
+    m_Right: 569
+    m_Top: 0
+    m_Bottom: 38
+  m_ChildAlignment: 5
+  m_Spacing: 0
+  m_ChildForceExpandWidth: 1
+  m_ChildForceExpandHeight: 1
+  m_ChildControlWidth: 0
+  m_ChildControlHeight: 0
+  m_ChildScaleWidth: 0
+  m_ChildScaleHeight: 0
+  m_ReverseArrangement: 0
 --- !u!1 &784607971
 GameObject:
   m_ObjectHideFlags: 0
@@ -26502,10 +26529,10 @@ RectTransform:
   m_Father: {fileID: 779111189}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 247, y: 48.000008}
-  m_SizeDelta: {x: 176.8, y: 100}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1384451911
 MonoBehaviour:
@@ -29063,7 +29090,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 2442.6, y: 333.9}
+  m_AnchoredPosition: {x: 511, y: 333.9}
   m_SizeDelta: {x: 300, y: -748.8316}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &1503070576
@@ -37391,7 +37418,7 @@ Light:
   serializedVersion: 10
   m_Type: 1
   m_Shape: 0
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.5568628, g: 0.5568628, b: 0.5568628, a: 1}
   m_Intensity: 1
   m_Range: 200
   m_SpotAngle: 66.2

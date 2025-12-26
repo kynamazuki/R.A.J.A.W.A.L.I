@@ -56,43 +56,35 @@ public class MissionManager : MonoBehaviour
 
         PlayerPrefs.SetFloat("MissionTime", currentMission.missionTime);
 
-        // Format: Location_MissionType
-        string sceneName = "";
+        string sceneName = GetSceneNameByLocation(currentMission.location);
 
-        switch (currentMission.location)
+        if (string.IsNullOrEmpty(sceneName))
+        {
+            Debug.LogError("Invalid mission location!");
+            return;
+        }
+
+        Debug.Log($"Loading Scene: {sceneName} | Mission Type: {currentMission.missionType}");
+        SceneManager.LoadScene(sceneName);
+    }
+
+    private string GetSceneNameByLocation(string location)
+    {
+        switch (location)
         {
             case "Deep Space":
-                sceneName += "DeepSpace_";
-                break;
+                return "DeepSpace";
+
             case "Asteroid Field":
-                sceneName += "AsteroidField_";
-                break;
+                return "AsteroidField";
+
             case "Capital Ship Battle":
-                sceneName += "CapitalShip_";
-                break;
-            default:
-                Debug.LogError("Unknown location: " + currentMission.location);
-                return;
-        }
+                return "CapitalShipBattle";
 
-        switch (currentMission.missionType)
-        {
-            case "Supremacy":
-                sceneName += "Supreme";
-                break;
-            case "Strike":
-                sceneName += "Strike";
-                break;
-            case "Defend":
-                sceneName += "Defend";
-                break;
             default:
-                Debug.LogError("Unknown mission type: " + currentMission.missionType);
-                return;
+                Debug.LogError($"Unknown location: {location}");
+                return null;
         }
-
-        Debug.Log("Loading scene: " + sceneName);
-        SceneManager.LoadScene(sceneName);
     }
 
 

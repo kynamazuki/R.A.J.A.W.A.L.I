@@ -291,7 +291,7 @@ namespace VSX.UniversalVehicleCombat
             lastSteeringInputDevice = input.SpacefighterControls.Steer.activeControl.device;
 
             // Debug to confirm which device is detected
-            Debug.Log($"[STEER] Device: {lastSteeringInputDevice.displayName} ({lastSteeringInputDevice.layout}) | Value: {steer}");
+           // Debug.Log($"[STEER] Device: {lastSteeringInputDevice.displayName} ({lastSteeringInputDevice.layout}) | Value: {steer}");
 
             if (lastSteeringInputDevice is Mouse)
             {
