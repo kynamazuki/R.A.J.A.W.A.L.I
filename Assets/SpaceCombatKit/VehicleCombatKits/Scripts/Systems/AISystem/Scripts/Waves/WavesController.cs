@@ -20,6 +20,9 @@ namespace VSX.UniversalVehicleCombat
         [SerializeField]
         protected bool loopWaves = false;
 
+        [SerializeField, Tooltip("Name of the Loadout scene to return to after mission complete.")]
+        protected string loadoutSceneName = "LoadoutScene";  // <-- assign in inspector
+
         protected int lastSpawnedWaveIndex = -1;
         public int LastSpawnedWaveIndex
         {
@@ -114,8 +117,27 @@ namespace VSX.UniversalVehicleCombat
 
                 if (wavesDestroyed)
                 {
+                    // ===== CAMPAIGN PROGRESS =====
+                    var loadoutManager = FindObjectOfType<VSX.UniversalVehicleCombat.Loadout.LoadoutManager>();
+
+                    if (loadoutManager != null)
+                    {
+                        loadoutManager.LoadoutData.currentMissionIndex++;
+                        loadoutManager.SavePersistentData();
+                    }
+                    // =============================
+
                     onWavesDestroyed.Invoke();
-                    SpawnNextWave();
+
+                    // Return to Loadout Scene
+                    if (!string.IsNullOrEmpty(loadoutSceneName))
+                    {
+                        UnityEngine.SceneManagement.SceneManager.LoadScene(loadoutSceneName);
+                    }
+                    else
+                    {
+                        Debug.LogError("Loadout scene name not set in WavesController!");
+                    }
                 }
             }
         }

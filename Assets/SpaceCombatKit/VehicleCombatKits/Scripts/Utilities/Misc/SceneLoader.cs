@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using VSX.UniversalVehicleCombat.Loadout;
 
 namespace VSX.UniversalVehicleCombat
 {
@@ -10,6 +11,8 @@ namespace VSX.UniversalVehicleCombat
     /// </summary>
     public class SceneLoader : MonoBehaviour
     {
+
+        public LoadoutManager loadoutManager;
 
         [SerializeField]
         protected string sceneName;
@@ -66,7 +69,16 @@ namespace VSX.UniversalVehicleCombat
         public void QuitApplication()
         {
             Application.Quit();
+
+        }
+
+
+
+        public void OnApplicationQuit()
+        {
+            LeaderboardManager.Instance.SaveCurrentSession();
         }
     }
-
 }
+
+

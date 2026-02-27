@@ -17,6 +17,11 @@ namespace VSX.UniversalVehicleCombat.Loadout
         [Tooltip("The loadout slots that are part of this")]
         public List<LoadoutSlot> Slots = new List<LoadoutSlot>();
 
+        // ===== Campaign Data =====
+        public string playerName;
+        public int totalScore;
+        public int currentMissionIndex;
+
         public LoadoutData()
         {
             selectedSlotIndex = -1;
