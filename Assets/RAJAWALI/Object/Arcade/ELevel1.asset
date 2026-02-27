@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afb69a6b35f9e5641898359033c0024b, type: 3}
+  m_Name: ELevel1
+  m_EditorClassIdentifier: 
+  waveName: Level1_Wave1E
+  spawnerPrefabs:
+  - {fileID: 1055518319209008990, guid: 4286eaae00351a94d9573f2727e1bef6, type: 3}
+  unitsPerPrefab: 4
+  spawnOffsets: []
+  horizontalSpacing: 40
+  verticalSpacing: 25
+  unitsPerRow: 2
+  combatRole: 1
+  isEnemy: 1
+  waveInterval: 5

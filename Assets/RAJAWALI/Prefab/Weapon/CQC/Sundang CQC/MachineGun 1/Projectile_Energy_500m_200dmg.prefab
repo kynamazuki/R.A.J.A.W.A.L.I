@@ -51,8 +51,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthModifier:
-    healthModifierType: {fileID: 11400000, guid: cb47aa62db8f0ae41be5b7f28565f7ef,
-      type: 2}
+    healthModifierType: {fileID: 11400000, guid: cb47aa62db8f0ae41be5b7f28565f7ef, type: 2}
     defaultDamageValue: 200
     damageOverrideValues: []
     damageMultiplier: 1
@@ -124,7 +123,7 @@ MonoBehaviour:
   disableAfterLifetime: 0
   lifetime: 3
   disableAfterDistanceCovered: 1
-  maxDistance: 500
+  maxDistance: 5000
   onDetonated:
     m_PersistentCalls:
       m_Calls: []

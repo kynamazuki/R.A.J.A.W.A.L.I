@@ -52,13 +52,13 @@ public class MusicManager : MonoBehaviour
             case "LoadoutTutorial":
                 PlayMusic(mainMenuMusic);
                 break;
-            case "DeepSpace_Supreme":
+            case "DeepSpace":
                 PlayMusic(deepSpaceMusic);
                 break;
-            case "AsteroidField_Supreme":
+            case "AsteroidField":
                 PlayMusic(asteroidFieldMusic);
                 break;
-            case "CapitalShipBattle_Supreme":
+            case "CapitalShipBattle":
                 PlayMusic(capitalShipBattleMusic);
                 break;
         }

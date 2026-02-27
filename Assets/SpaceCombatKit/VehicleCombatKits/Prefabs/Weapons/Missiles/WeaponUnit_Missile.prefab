@@ -78,12 +78,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   aimAssistEnabled: 1
   spawnPoint: {fileID: 169390426340877396}
-  projectilePrefab: {fileID: 8682359113891717750, guid: 0963c625f8e709b42b6466d09cae71ff,
-    type: 3}
+  projectilePrefab: {fileID: 8682359113891717750, guid: 0963c625f8e709b42b6466d09cae71ff, type: 3}
   usePoolManager: 1
   addLauncherVelocityToProjectile: 1
   projectileRelativeImpulseVelocity: {x: 0, y: 0, z: 0}
-  maxInaccuracyAngle: 2
+  maxInaccuracyAngle: 0.1
   accuracy: 1
   onProjectileLaunched:
     m_PersistentCalls:

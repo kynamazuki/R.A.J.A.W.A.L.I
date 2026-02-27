@@ -156,6 +156,40 @@ namespace VSX.UniversalVehicleCombat.Radar
             if (selectedTarget != null) SetSelected(null);
         }
 
+        ///////New method 
+        public virtual void SelectByOrderedTypes(int depth = -1)
+        {
+            foreach (TrackableType type in selectableTypes)
+            {
+                float minDist = float.MaxValue;
+                Trackable best = null;
+
+                for (int i = 0; i < trackables.Count; i++)
+                {
+                    Trackable t = trackables[i];
+                    if (depth != -1 && t.Depth != depth) continue;
+                    if (t.TrackableType != type) continue;
+                    if (!IsSelectable(t)) continue;
+
+                    float dist = Vector3.Distance(transform.position, t.transform.position);
+                    if (dist < minDist)
+                    {
+                        minDist = dist;
+                        best = t;
+                    }
+                }
+
+                if (best != null)
+                {
+                    SetSelected(best);
+                    return;
+                }
+            }
+
+            SetSelected(null);
+        }
+
+
 
         /// <summary>
         /// Get the front most target. This function does not take into account the front target angle limits.
@@ -481,7 +515,9 @@ namespace VSX.UniversalVehicleCombat.Radar
                 }
                 else
                 {
-                    SelectFirstSelectableTarget(defaultDepth);
+                    //SelectFirstSelectableTarget(defaultDepth);
+                    SelectByOrderedTypes(defaultDepth);
+
                 }
             }
         }

@@ -253,8 +253,7 @@ MonoBehaviour:
   ignoreHierarchyCollision: 1
   timeBasedDamageHealing: 1
   healthModifier:
-    healthModifierType: {fileID: 11400000, guid: cb47aa62db8f0ae41be5b7f28565f7ef,
-      type: 2}
+    healthModifierType: {fileID: 11400000, guid: cb47aa62db8f0ae41be5b7f28565f7ef, type: 2}
     defaultDamageValue: 500
     damageOverrideValues: []
     damageMultiplier: 1
@@ -4152,8 +4151,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: db9c6365835e2014aad79d9a779edefc, type: 2}
   - {fileID: 11400000, guid: 8799821b43f226c4fa80c7d344bdbb5b, type: 2}
   selectableTypes:
-  - {fileID: 11400000, guid: caacad2eeb66570498913e5edae6cf4a, type: 2}
-  - {fileID: 11400000, guid: 1304e025fde5b3b41926f03c71239e02, type: 2}
+  - {fileID: 11400000, guid: 51cf8782fc8fdcb4fae6ac149a8e55d7, type: 2}
+  - {fileID: 11400000, guid: 4310868c8eae0ef47921b9d78c5a353b, type: 2}
+  - {fileID: 11400000, guid: 7a33ae41761234d4cb6246d6d5d59807, type: 2}
   defaultDepth: -1
   selectHighestDepthChild: 0
   scanEveryFrame: 1
@@ -4238,8 +4238,7 @@ MonoBehaviour:
     key: Hologram
     variableType: 0
     isLinkedVariable: 0
-    objectValue: {fileID: 8589160642039810721, guid: 02616f1b24920c443855ec96f60cd7dc,
-      type: 3}
+    objectValue: {fileID: 8589160642039810721, guid: 02616f1b24920c443855ec96f60cd7dc, type: 3}
     boolValue: 0
     intValue: 0
     floatValue: 0
@@ -4282,6 +4281,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!114 &8497529232455181994
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5092,9 +5092,9 @@ MonoBehaviour:
   selectableTeams:
   - {fileID: 11400000, guid: db9c6365835e2014aad79d9a779edefc, type: 2}
   selectableTypes:
-  - {fileID: 11400000, guid: caacad2eeb66570498913e5edae6cf4a, type: 2}
-  - {fileID: 11400000, guid: 1304e025fde5b3b41926f03c71239e02, type: 2}
-  - {fileID: 11400000, guid: 948e4d6725f498a4db069416651744d7, type: 2}
+  - {fileID: 11400000, guid: 51cf8782fc8fdcb4fae6ac149a8e55d7, type: 2}
+  - {fileID: 11400000, guid: 4310868c8eae0ef47921b9d78c5a353b, type: 2}
+  - {fileID: 11400000, guid: 7a33ae41761234d4cb6246d6d5d59807, type: 2}
   defaultDepth: -1
   selectHighestDepthChild: 0
   scanEveryFrame: 1
@@ -5179,8 +5179,7 @@ MonoBehaviour:
     key: Hologram
     variableType: 0
     isLinkedVariable: 0
-    objectValue: {fileID: 8589160642039810721, guid: 02616f1b24920c443855ec96f60cd7dc,
-      type: 3}
+    objectValue: {fileID: 8589160642039810721, guid: 02616f1b24920c443855ec96f60cd7dc, type: 3}
     boolValue: 0
     intValue: 0
     floatValue: 0
@@ -5223,6 +5222,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!114 &5909056723235629892
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7072,9 +7072,9 @@ MonoBehaviour:
   selectableTeams:
   - {fileID: 11400000, guid: db9c6365835e2014aad79d9a779edefc, type: 2}
   selectableTypes:
-  - {fileID: 11400000, guid: caacad2eeb66570498913e5edae6cf4a, type: 2}
-  - {fileID: 11400000, guid: 1304e025fde5b3b41926f03c71239e02, type: 2}
-  - {fileID: 11400000, guid: 948e4d6725f498a4db069416651744d7, type: 2}
+  - {fileID: 11400000, guid: 51cf8782fc8fdcb4fae6ac149a8e55d7, type: 2}
+  - {fileID: 11400000, guid: 4310868c8eae0ef47921b9d78c5a353b, type: 2}
+  - {fileID: 11400000, guid: 7a33ae41761234d4cb6246d6d5d59807, type: 2}
   defaultDepth: -1
   selectHighestDepthChild: 0
   scanEveryFrame: 1
@@ -7159,8 +7159,7 @@ MonoBehaviour:
     key: Hologram
     variableType: 0
     isLinkedVariable: 0
-    objectValue: {fileID: 8589160642039810721, guid: 02616f1b24920c443855ec96f60cd7dc,
-      type: 3}
+    objectValue: {fileID: 8589160642039810721, guid: 02616f1b24920c443855ec96f60cd7dc, type: 3}
     boolValue: 0
     intValue: 0
     floatValue: 0
@@ -7203,6 +7202,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!114 &5182087474628549345
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8292,8 +8292,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   aimAssistEnabled: 1
   spawnPoint: {fileID: 8361759839246145152}
-  projectilePrefab: {fileID: 114005359269598024, guid: 2b80c9aedbea8e64991627985b85d647,
-    type: 3}
+  projectilePrefab: {fileID: 114005359269598024, guid: 2b80c9aedbea8e64991627985b85d647, type: 3}
   usePoolManager: 1
   addLauncherVelocityToProjectile: 0
   projectileRelativeImpulseVelocity: {x: 0, y: 0, z: 0}
@@ -8717,8 +8716,7 @@ MonoBehaviour:
   ignoreHierarchyCollision: 1
   timeBasedDamageHealing: 1
   healthModifier:
-    healthModifierType: {fileID: 11400000, guid: cb47aa62db8f0ae41be5b7f28565f7ef,
-      type: 2}
+    healthModifierType: {fileID: 11400000, guid: cb47aa62db8f0ae41be5b7f28565f7ef, type: 2}
     defaultDamageValue: 500
     damageOverrideValues: []
     damageMultiplier: 1
@@ -15842,8 +15840,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: db9c6365835e2014aad79d9a779edefc, type: 2}
   - {fileID: 11400000, guid: 8799821b43f226c4fa80c7d344bdbb5b, type: 2}
   selectableTypes:
-  - {fileID: 11400000, guid: caacad2eeb66570498913e5edae6cf4a, type: 2}
-  - {fileID: 11400000, guid: 1304e025fde5b3b41926f03c71239e02, type: 2}
+  - {fileID: 11400000, guid: 51cf8782fc8fdcb4fae6ac149a8e55d7, type: 2}
+  - {fileID: 11400000, guid: 7a33ae41761234d4cb6246d6d5d59807, type: 2}
+  - {fileID: 11400000, guid: 4310868c8eae0ef47921b9d78c5a353b, type: 2}
   defaultDepth: -1
   selectHighestDepthChild: 0
   scanEveryFrame: 1
@@ -15928,8 +15927,7 @@ MonoBehaviour:
     key: Hologram
     variableType: 0
     isLinkedVariable: 0
-    objectValue: {fileID: 8589160642039810721, guid: 02616f1b24920c443855ec96f60cd7dc,
-      type: 3}
+    objectValue: {fileID: 8589160642039810721, guid: 02616f1b24920c443855ec96f60cd7dc, type: 3}
     boolValue: 0
     intValue: 0
     floatValue: 0
@@ -15972,6 +15970,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!114 &6972904781178897315
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16289,8 +16288,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   aimAssistEnabled: 1
   spawnPoint: {fileID: 1047834677616253808}
-  projectilePrefab: {fileID: 114005359269598024, guid: 2b80c9aedbea8e64991627985b85d647,
-    type: 3}
+  projectilePrefab: {fileID: 114005359269598024, guid: 2b80c9aedbea8e64991627985b85d647, type: 3}
   usePoolManager: 1
   addLauncherVelocityToProjectile: 0
   projectileRelativeImpulseVelocity: {x: 0, y: 0, z: 0}
@@ -16650,8 +16648,7 @@ MonoBehaviour:
     key: Hologram
     variableType: 0
     isLinkedVariable: 0
-    objectValue: {fileID: 6001336418998012513, guid: 70c419193206ec2488ff5a5000bfde8a,
-      type: 3}
+    objectValue: {fileID: 6001336418998012513, guid: 70c419193206ec2488ff5a5000bfde8a, type: 3}
     boolValue: 0
     intValue: 0
     floatValue: 0

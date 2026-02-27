@@ -5799,8 +5799,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 369, y: -164.6}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchoredPosition: {x: 368.2, y: -164.6}
+  m_SizeDelta: {x: 217.1431, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &152507264384895821
 MonoBehaviour:
@@ -5817,7 +5817,7 @@ MonoBehaviour:
   resourceContainer: {fileID: 152507265651072489}
   displayableResourceTypes: []
   UIHandle: {fileID: 0}
-  resourceLabel: {fileID: 0}
+  resourceLabel: {fileID: 5314358182792905811}
   displayLongName: 0
   resourceIcon: {fileID: 0}
   resourceAmountText: {fileID: 0}
@@ -5837,14 +5837,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startOnEnable: 0
-  loop: 1
+  loop: 0
   limitLoopCount: 0
-  loopCount: 1
+  loopCount: 0
   animationLength: 0.4
-  startingAnimationPosition: 0
-  resetToStartingPositionOnEnable: 1
-  resetToStartingPositionOnFinish: 1
-  selfUpdate: 1
+  startingAnimationPosition: 1
+  resetToStartingPositionOnEnable: 0
+  resetToStartingPositionOnFinish: 0
+  selfUpdate: 0
   onAnimationStarted:
     m_PersistentCalls:
       m_Calls: []
@@ -13120,7 +13120,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   loadUnmountedModules: 1
-  aimController: {fileID: 0}
+  aimController: {fileID: 152507264578723660}
   weaponsTargetSelector: {fileID: 152507265733865251}
   overrideTurretsMode: 1
   turretsMode: 1
@@ -13139,7 +13139,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   label: Target
-  trackableType: {fileID: 11400000, guid: caacad2eeb66570498913e5edae6cf4a, type: 2}
+  trackableType: {fileID: 11400000, guid: 51cf8782fc8fdcb4fae6ac149a8e55d7, type: 2}
   team: {fileID: 11400000, guid: db9c6365835e2014aad79d9a779edefc, type: 2}
   trackingBounds:
     m_Center: {x: 0, y: 0, z: 2.01}
@@ -13700,7 +13700,7 @@ MonoBehaviour:
   aimCameraIndex: 0
   aimAssist: 1
   aimAssistAngle: 3.3
-  defaultAimAssistRange: 1000
+  defaultAimAssistRange: 3000
   noAimAssistColor: {r: 1, g: 1, b: 1, a: 1}
   aimAssistColor: {r: 1, g: 0, b: 0, a: 1}
   hudCursorColorManager: {fileID: 152507266275589196}
@@ -40806,18 +40806,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 152507264384895815}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
       - m_Target: {fileID: 152507264394993156}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
@@ -40855,18 +40843,6 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 152507265529899025}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
@@ -62905,7 +62881,7 @@ MonoBehaviour:
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 1
-  m_FillAmount: 0.667
+  m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 1
   m_UseSpriteMesh: 0
@@ -62978,10 +62954,10 @@ MonoBehaviour:
       m_Calls: []
   resourceType: {fileID: 0}
   capacity: 8
-  changeRate: 0.5
+  changeRate: 0
   startAmount: 8
-  emptiedPause: 1
-  fillToCapacityAfterEmptiedPause: 1
+  emptiedPause: 0
+  fillToCapacityAfterEmptiedPause: 0
   filledPause: 0
   emptyAfterFilledPause: 0
 --- !u!1 &152507265652139940
@@ -68682,7 +68658,8 @@ MonoBehaviour:
   selectableTeams:
   - {fileID: 11400000, guid: f6183930511df324ca41846a92df975f, type: 2}
   selectableTypes:
-  - {fileID: 11400000, guid: caacad2eeb66570498913e5edae6cf4a, type: 2}
+  - {fileID: 11400000, guid: 51cf8782fc8fdcb4fae6ac149a8e55d7, type: 2}
+  - {fileID: 11400000, guid: 7a33ae41761234d4cb6246d6d5d59807, type: 2}
   - {fileID: 11400000, guid: 948e4d6725f498a4db069416651744d7, type: 2}
   defaultDepth: -1
   selectHighestDepthChild: 0
@@ -79758,6 +79735,7 @@ GameObject:
   - component: {fileID: 2846956007234240747}
   - component: {fileID: 1644152692349520192}
   - component: {fileID: 3103913129628845786}
+  - component: {fileID: 5314358182792905811}
   m_Layer: 0
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -79882,6 +79860,19 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &5314358182792905811
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3122254768419707258}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15df5dbcf8e0354488c839b3c9508200, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textTMProUGUI: {fileID: 3103913129628845786}
 --- !u!1 &3133571256909575999
 GameObject:
   m_ObjectHideFlags: 0

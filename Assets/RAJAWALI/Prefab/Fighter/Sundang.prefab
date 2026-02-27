@@ -12006,7 +12006,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   label: Target
-  trackableType: {fileID: 11400000, guid: caacad2eeb66570498913e5edae6cf4a, type: 2}
+  trackableType: {fileID: 11400000, guid: 51cf8782fc8fdcb4fae6ac149a8e55d7, type: 2}
   team: {fileID: 11400000, guid: db9c6365835e2014aad79d9a779edefc, type: 2}
   trackingBounds:
     m_Center: {x: 0, y: 0, z: 2.01}
@@ -54260,9 +54260,9 @@ MonoBehaviour:
       m_Calls: []
   resourceType: {fileID: 0}
   capacity: 8
-  changeRate: 0.5
+  changeRate: 0
   startAmount: 8
-  emptiedPause: 1
+  emptiedPause: 0
   fillToCapacityAfterEmptiedPause: 0
   filledPause: 0
   emptyAfterFilledPause: 0
@@ -59732,7 +59732,8 @@ MonoBehaviour:
   selectableTeams:
   - {fileID: 11400000, guid: f6183930511df324ca41846a92df975f, type: 2}
   selectableTypes:
-  - {fileID: 11400000, guid: caacad2eeb66570498913e5edae6cf4a, type: 2}
+  - {fileID: 11400000, guid: 51cf8782fc8fdcb4fae6ac149a8e55d7, type: 2}
+  - {fileID: 11400000, guid: 7a33ae41761234d4cb6246d6d5d59807, type: 2}
   - {fileID: 11400000, guid: 948e4d6725f498a4db069416651744d7, type: 2}
   defaultDepth: -1
   selectHighestDepthChild: 0
@@ -95359,7 +95360,7 @@ MonoBehaviour:
   resourceContainer: {fileID: 152507265651072489}
   displayableResourceTypes: []
   UIHandle: {fileID: 0}
-  resourceLabel: {fileID: 0}
+  resourceLabel: {fileID: 1921234143867636331}
   displayLongName: 0
   resourceIcon: {fileID: 0}
   resourceAmountText: {fileID: 0}
@@ -95379,14 +95380,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startOnEnable: 0
-  loop: 1
+  loop: 0
   limitLoopCount: 0
-  loopCount: 1
+  loopCount: 0
   animationLength: 0.4
-  startingAnimationPosition: 0
-  resetToStartingPositionOnEnable: 1
-  resetToStartingPositionOnFinish: 1
-  selfUpdate: 1
+  startingAnimationPosition: 1
+  resetToStartingPositionOnEnable: 0
+  resetToStartingPositionOnFinish: 0
+  selfUpdate: 0
   onAnimationStarted:
     m_PersistentCalls:
       m_Calls: []
@@ -97241,6 +97242,7 @@ GameObject:
   - component: {fileID: 1222684845195693694}
   - component: {fileID: 4599924318374515883}
   - component: {fileID: 6986825495568127451}
+  - component: {fileID: 1921234143867636331}
   m_Layer: 0
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -97365,6 +97367,19 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &1921234143867636331
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6941222359742699180}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15df5dbcf8e0354488c839b3c9508200, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textTMProUGUI: {fileID: 6986825495568127451}
 --- !u!1 &6964001265888736444
 GameObject:
   m_ObjectHideFlags: 0

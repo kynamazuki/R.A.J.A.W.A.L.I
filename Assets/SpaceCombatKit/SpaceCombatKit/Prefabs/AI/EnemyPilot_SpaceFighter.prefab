@@ -730,11 +730,11 @@ MonoBehaviour:
         integralInfluence: 1
   maxRotationAngles: {x: 45, y: 360, z: 45}
   primaryWeaponsEnabled: 1
-  minPrimaryFiringPeriod: 1
-  maxPrimaryFiringPeriod: 10
+  minPrimaryFiringPeriod: 25
+  maxPrimaryFiringPeriod: 100
   minPrimaryFiringPause: 0.5
   maxPrimaryFiringPause: 1
-  maxFiringAngle: 15
+  maxFiringAngle: 2500
   maxFiringDistance: 2500
   secondaryWeaponsEnabled: 1
   minMaxSecondaryFiringInterval: {x: 20, y: 60}
