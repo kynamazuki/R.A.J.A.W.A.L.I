@@ -274,6 +274,17 @@ public partial class @GeneralInputAsset: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""a0bca64f-0d38-46ed-9d95-3dc9bf348ae9"",
+                    ""path"": ""<HID::Saitek Saitek X52 Flight Control System>/button21"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Target Next"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""0c931802-3f47-47fb-a7e7-a5c4d00e631e"",
                     ""path"": ""<Keyboard>/2"",
                     ""interactions"": """",
@@ -285,11 +296,33 @@ public partial class @GeneralInputAsset: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""4023f45f-765e-4a42-a899-856d5a6b454c"",
+                    ""path"": ""<HID::Saitek Saitek X52 Flight Control System>/button22"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Target Nearest"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""8b0abe5b-fb56-493b-9f1e-58442ae09d32"",
                     ""path"": ""<Keyboard>/3"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""MouseKeyboard"",
+                    ""action"": ""Target Front"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""96b8ffef-fd1b-4882-9ae8-7127c187f995"",
+                    ""path"": ""<HID::Saitek Saitek X52 Flight Control System>/button20"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
                     ""action"": ""Target Front"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -452,6 +485,17 @@ public partial class @GeneralInputAsset: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""eabf63f0-4d83-4c31-a669-3d65dccd4959"",
+                    ""path"": ""<HID::Saitek Saitek X52 Flight Control System>/trigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Fire Primary"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""34b02c37-7f66-4ae7-ad21-99856422b177"",
                     ""path"": ""<Mouse>/rightButton"",
                     ""interactions"": ""Press"",
@@ -474,6 +518,17 @@ public partial class @GeneralInputAsset: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""42901ecc-93bb-48c7-8ac9-42f34789e3aa"",
+                    ""path"": ""<HID::Saitek Saitek X52 Flight Control System>/button2"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Fire Secondary"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""190a2926-ef65-48d7-8714-a161add4e210"",
                     ""path"": ""<Mouse>/scroll/y"",
                     ""interactions"": """",
@@ -486,7 +541,7 @@ public partial class @GeneralInputAsset: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""99795eeb-8d8b-4c46-a4e0-db06e6c956ec"",
-                    ""path"": ""<Joystick>/button3"",
+                    ""path"": ""<HID::Saitek Saitek X52 Flight Control System>/button5"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",

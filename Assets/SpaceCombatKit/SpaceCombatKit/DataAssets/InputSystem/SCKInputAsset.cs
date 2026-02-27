@@ -264,7 +264,7 @@ public partial class @SCKInputAsset: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""5706a9b2-ffef-4760-a5e7-de5ac2846b47"",
-                    ""path"": ""<Joystick>/button1"",
+                    ""path"": ""<HID::Saitek Saitek X52 Flight Control System>/button7"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -383,6 +383,61 @@ public partial class @SCKInputAsset: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": true
                 },
                 {
+                    ""name"": ""Steering Joystick"",
+                    ""id"": ""85b0fd17-1741-4a34-8a11-ce6f246b798b"",
+                    ""path"": ""2DVector(mode=2)"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Steer"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""c1c78e5e-28ba-4f65-be6c-99612f203b6c"",
+                    ""path"": ""<HID::Saitek Saitek X52 Flight Control System>/stick/down"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Steer"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""dca91905-c144-479a-a7d5-750c19076427"",
+                    ""path"": ""<HID::Saitek Saitek X52 Flight Control System>/stick/up"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Steer"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""dd32419a-0e18-49fd-b800-43426e32c3fe"",
+                    ""path"": ""<HID::Saitek Saitek X52 Flight Control System>/stick/left"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Steer"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""49736716-c647-4b0a-b79c-728176f1defc"",
+                    ""path"": ""<HID::Saitek Saitek X52 Flight Control System>/stick/right"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Steer"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
                     ""name"": ""AccelerationKeyboard"",
                     ""id"": ""06670e1e-c493-4952-911d-33b7df766d26"",
                     ""path"": ""1DAxis"",
@@ -450,8 +505,8 @@ public partial class @SCKInputAsset: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""8cf9ceff-84c5-4c01-a46d-462b2451047f"",
-                    ""path"": ""<Joystick>/stick/y"",
+                    ""id"": ""72cd4400-86f7-48ab-a6b6-21c8ee02ccf1"",
+                    ""path"": ""<HID::Saitek Saitek X52 Flight Control System>/z"",
                     ""interactions"": """",
                     ""processors"": ""Invert"",
                     ""groups"": """",
@@ -499,28 +554,6 @@ public partial class @SCKInputAsset: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""MouseKeyboard"",
-                    ""action"": ""Steer"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""15913006-88cb-4458-bfd2-1135eced4609"",
-                    ""path"": ""<Joystick>/stick/x"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Steer"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""8f16123e-97da-49c6-bfbd-188458a6a0cd"",
-                    ""path"": ""<Joystick>/stick/y"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
                     ""action"": ""Steer"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
