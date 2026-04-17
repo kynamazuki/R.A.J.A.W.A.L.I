@@ -11,6 +11,7 @@ namespace VSX.UniversalVehicleCombat.Loadout
     /// </summary>
     public class LoadoutManager : MonoBehaviour
     {
+        public static LoadoutManager Instance;
 
         [Tooltip("The loadout items (vehicles and modules) to add when the scene starts.")]
         [SerializeField]
@@ -88,11 +89,13 @@ namespace VSX.UniversalVehicleCombat.Loadout
         protected LoadoutData loadoutData;
         public LoadoutData LoadoutData { get { return loadoutData; } }
 
+        public bool isNewGameStart = true;
 
         protected virtual void Reset()
         {
             loadoutDataManager = FindObjectOfType<LoadoutDataManager>();
         }
+
 
 
         protected virtual void Awake()
@@ -101,7 +104,19 @@ namespace VSX.UniversalVehicleCombat.Loadout
 
             InitializeWorkingSlot();
 
+            if (Instance == null)
+            {
+                Instance = this;
+                DontDestroyOnLoad(gameObject);
 
+                isNewGameStart = true;
+            }
+            else
+            {
+                Destroy(gameObject);
+            }
+
+            DontDestroyOnLoad(gameObject);
         }
 
 

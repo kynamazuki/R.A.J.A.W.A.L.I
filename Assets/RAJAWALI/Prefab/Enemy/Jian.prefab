@@ -226,9 +226,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   resourceType: {fileID: 0}
-  capacity: 5
+  capacity: 40
   changeRate: 0
-  startAmount: 5
+  startAmount: 40
   emptiedPause: 1
   fillToCapacityAfterEmptiedPause: 1
   filledPause: 0
@@ -986,8 +986,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damageableID: 
   healthType: {fileID: 11400000, guid: 716de87c03e835a46bc33f430efeae91, type: 2}
-  healthCapacity: 7000
-  startingHealth: 7000
+  healthCapacity: 5000
+  startingHealth: 5000
   isDamageable: 1
   isHealable: 1
   canHealAfterDestroyed: 0
@@ -1560,7 +1560,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   label: Enemy Fighter
-  trackableType: {fileID: 11400000, guid: caacad2eeb66570498913e5edae6cf4a, type: 2}
+  trackableType: {fileID: 11400000, guid: 51cf8782fc8fdcb4fae6ac149a8e55d7, type: 2}
   team: {fileID: 11400000, guid: f6183930511df324ca41846a92df975f, type: 2}
   trackingBounds:
     m_Center: {x: 0, y: 0, z: 2.01}
@@ -1841,7 +1841,7 @@ MonoBehaviour:
   movementModulators: []
   boostModulators: []
   m_rigidbody: {fileID: 4955164956416957579}
-  maxMovementForces: {x: 600, y: 600, z: 600}
+  maxMovementForces: {x: 648, y: 648, z: 648}
   maxSteeringForces: {x: 4, y: 4, z: 4}
   maxBoostForces: {x: 800, y: 800, z: 800}
   movementInputResponseSpeed: 5
@@ -2383,8 +2383,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damageableID: 
   healthType: {fileID: 11400000, guid: bce233b00f3b8cf46bcbec887b28cd04, type: 2}
-  healthCapacity: 6000
-  startingHealth: 6000
+  healthCapacity: 4000
+  startingHealth: 4000
   isDamageable: 1
   isHealable: 1
   canHealAfterDestroyed: 0

@@ -1842,7 +1842,7 @@ MonoBehaviour:
   movementModulators: []
   boostModulators: []
   m_rigidbody: {fileID: 4955164956416957579}
-  maxMovementForces: {x: 1100, y: 1100, z: 1100}
+  maxMovementForces: {x: 864, y: 864, z: 864}
   maxSteeringForces: {x: 6, y: 6, z: 6}
   maxBoostForces: {x: 1300, y: 1300, z: 1300}
   movementInputResponseSpeed: 5
@@ -1960,7 +1960,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3cad0976d3cc5d1448e825343ee9c211, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerTeam: {fileID: 11400000, guid: db9c6365835e2014aad79d9a779edefc, type: 2}
 --- !u!1 &4900204538815681175
 GameObject:
   m_ObjectHideFlags: 0
@@ -2397,8 +2396,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damageableID: 
   healthType: {fileID: 11400000, guid: bce233b00f3b8cf46bcbec887b28cd04, type: 2}
-  healthCapacity: 5000
-  startingHealth: 5000
+  healthCapacity: 4500
+  startingHealth: 4500
   isDamageable: 1
   isHealable: 1
   canHealAfterDestroyed: 0

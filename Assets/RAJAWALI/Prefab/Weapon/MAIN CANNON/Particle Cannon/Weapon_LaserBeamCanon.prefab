@@ -85,7 +85,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   labels:
-  - EMP Cannon
+  - Particle Cannon
   description: Laser beam Canon ShipKiller weapons.
   m_ID: Energy Beam Weapon Constant
   sprites:
@@ -173,9 +173,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   resourceType: {fileID: 11400000, guid: 731b4804bae22a64bbdbb02fa3b343e8, type: 2}
-  capacity: 6
-  changeRate: 12
-  startAmount: 6
+  capacity: 99
+  changeRate: 9
+  startAmount: 99
   emptiedPause: 1
   fillToCapacityAfterEmptiedPause: 0
   filledPause: 1
@@ -319,11 +319,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9015464727045139873, guid: 9214d9b174f51184882a046d265223b6, type: 3}
       propertyPath: range
-      value: 500
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 9015464727045139873, guid: 9214d9b174f51184882a046d265223b6, type: 3}
       propertyPath: healthModifier.defaultDamageValue
-      value: 50000
+      value: 75000
       objectReference: {fileID: 0}
     - target: {fileID: 9015464727045139873, guid: 9214d9b174f51184882a046d265223b6, type: 3}
       propertyPath: onHit.m_PersistentCalls.m_Calls.Array.size

@@ -4,46 +4,49 @@ using VSX.UniversalVehicleCombat.Loadout;
 
 public class ScoreOnDeath : MonoBehaviour
 {
-    [SerializeField] private Team playerTeam;
-
     private GameAgent agent;
-    private Vehicle vehicle;
+    private Damageable damageable;
 
     private void Awake()
     {
-        agent = GetComponent<GameAgent>();
+        damageable = GetComponentInChildren<Damageable>();
+
+        if (damageable == null)
+        {
+            Debug.LogError("No Damageable found: " + gameObject.name);
+        }
     }
 
     private void Start()
     {
-        if (agent != null && agent.Vehicle != null)
+        if (damageable != null)
         {
-            vehicle = agent.Vehicle;
-            vehicle.onDestroyed.AddListener(OnDestroyed);
+            damageable.onDestroyed.AddListener(OnDestroyed);
         }
     }
 
-    private void OnDestroyed()
+    public void OnDestroyed()
     {
-        if (agent.Team != null && agent.Team != playerTeam)
+        Vehicle vehicle = GetComponent<Vehicle>();
+
+        if (vehicle == null) return;
+        if (vehicle.Occupants == null || vehicle.Occupants.Count == 0) return;
+
+        GameAgent agent = vehicle.Occupants[0];
+
+        if (agent == null || agent.IsPlayer) return;
+
+        // ADD SCORE HERE
+        LeaderboardManager.Instance.currentScore += 1;
+
+        // Update HUD
+        if (ScoreHUD.Instance != null)
         {
-            LoadoutManager lm = FindObjectOfType<LoadoutManager>();
-            if (lm != null)
-            {
-                lm.LoadoutData.totalScore += 1;
-                lm.SavePersistentData(); // Save current score to JSON
-
-                // Update live leaderboard
-                LeaderboardManager.Instance.UpdateCurrentScore(lm.LoadoutData.totalScore);
-
-                LeaderboardUI.Instance.Refresh();
-
-                // Update HUD if you have a reference to it
-                if (ScoreHUD.Instance != null)
-                {
-                    ScoreHUD.Instance.UpdateScoreDisplay(lm.LoadoutData.totalScore);
-                }
-            }
+            ScoreHUD.Instance.UpdateScoreDisplay(
+                LeaderboardManager.Instance.currentScore
+            );
         }
+
+        Debug.Log(" SCORE ADDED: " + LeaderboardManager.Instance.currentScore);
     }
 }

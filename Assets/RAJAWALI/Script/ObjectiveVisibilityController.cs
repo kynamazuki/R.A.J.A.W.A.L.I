@@ -23,7 +23,7 @@ public class ObjectiveVisibilityController : MonoBehaviour
 
     private void OnCameraViewChanged(CameraView view)
     {
-        Debug.Log("Camera View Changed to: " + view.ID);
+        //Debug.Log("Camera View Changed to: " + view.ID);
 
         if (view == firstPersonView)
         {

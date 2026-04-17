@@ -273,6 +273,17 @@ public partial class @SCKInputAsset: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 },
                 {
+                    ""name"": """",
+                    ""id"": ""e3bd690e-eaf2-48f1-9119-232ff2ca5caa"",
+                    ""path"": ""<HID::Thrustmaster TWCS Throttle>/trigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Boost"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
                     ""name"": ""Steering Keyboard"",
                     ""id"": ""ccc79a62-338a-4d2b-9189-6173fbedfa83"",
                     ""path"": ""2DVector"",
@@ -405,9 +416,31 @@ public partial class @SCKInputAsset: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": true
                 },
                 {
+                    ""name"": ""up"",
+                    ""id"": ""510fe745-b25c-4829-80ce-f97427f13503"",
+                    ""path"": ""<HID::Thrustmaster T.16000M>/stick/down"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Steer"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
                     ""name"": ""down"",
                     ""id"": ""dca91905-c144-479a-a7d5-750c19076427"",
                     ""path"": ""<HID::Saitek Saitek X52 Flight Control System>/stick/up"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Steer"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""843f771f-a206-4c31-8c32-4c35036504f5"",
+                    ""path"": ""<HID::Thrustmaster T.16000M>/stick/up"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -427,9 +460,31 @@ public partial class @SCKInputAsset: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": true
                 },
                 {
+                    ""name"": ""left"",
+                    ""id"": ""fea4bce3-e144-4d0e-84a6-fe446e76a7ee"",
+                    ""path"": ""<HID::Thrustmaster T.16000M>/stick/left"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Steer"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
                     ""name"": ""right"",
                     ""id"": ""49736716-c647-4b0a-b79c-728176f1defc"",
                     ""path"": ""<HID::Saitek Saitek X52 Flight Control System>/stick/right"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Steer"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""fd116618-48e2-4aaf-8a50-156003cfe5ca"",
+                    ""path"": ""<HID::Thrustmaster T.16000M>/stick/right"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -515,6 +570,17 @@ public partial class @SCKInputAsset: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 },
                 {
+                    ""name"": """",
+                    ""id"": ""76c8a12f-a10c-4238-8572-98bb1775b61f"",
+                    ""path"": ""<HID::Thrustmaster TWCS Throttle>/z"",
+                    ""interactions"": """",
+                    ""processors"": ""Invert"",
+                    ""groups"": """",
+                    ""action"": ""Throttle"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
                     ""name"": ""RollKeyboard"",
                     ""id"": ""7bb050f5-239e-4d4d-89a8-ef31160df18e"",
                     ""path"": ""1DAxis"",
@@ -546,6 +612,17 @@ public partial class @SCKInputAsset: IInputActionCollection2, IDisposable
                     ""action"": ""Roll"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f6cceb53-ef7b-4b85-b6a8-eacadf107abe"",
+                    ""path"": ""<HID::Thrustmaster TWCS Throttle>/rz"",
+                    ""interactions"": """",
+                    ""processors"": ""AxisDeadzone(min=0.5,max=1)"",
+                    ""groups"": """",
+                    ""action"": ""Roll"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",

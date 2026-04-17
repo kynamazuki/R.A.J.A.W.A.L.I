@@ -37,8 +37,37 @@ namespace VSX.UniversalVehicleCombat.Loadout
 
         protected virtual void Awake()
         {
+            //loadoutManager.onDataLoad.AddListener(AddDisplayVehicles);
+         //   loadoutManager.onLoadoutChanged.AddListener(ShowVehicle);
+        }
+
+        protected virtual void Start()
+        {
+            //  Get LoadoutManager
+            if (LoadoutManager.Instance != null)
+            {
+                loadoutManager = LoadoutManager.Instance;
+            }
+            else
+            {
+                loadoutManager = FindObjectOfType<LoadoutManager>();
+            }
+
+            if (loadoutManager == null)
+            {
+                Debug.LogError(" LoadoutManager NOT FOUND in DisplayManager!");
+                return;
+            }
+
+            Debug.Log("DisplayManager connected to LoadoutManager");
+
+            //  NOW register events
             loadoutManager.onDataLoad.AddListener(AddDisplayVehicles);
             loadoutManager.onLoadoutChanged.AddListener(ShowVehicle);
+
+            // IMPORTANT: manually trigger once
+            AddDisplayVehicles();
+            ShowVehicle();
         }
 
 
@@ -170,29 +199,26 @@ namespace VSX.UniversalVehicleCombat.Loadout
 
             int vehicleIndex = loadoutManager.WorkingSlot.selectedVehicleIndex;
 
-
-            if (vehicleIndex == -1 || !displayVehicles[vehicleIndex].gameObject.activeSelf)
+            // ALWAYS disable ALL vehicles first
+            for (int i = 0; i < displayVehicles.Count; ++i)
             {
-                for (int i = 0; i < displayVehicles.Count; ++i)
-                {
-                    displayVehicles[i].gameObject.SetActive(false);
-                }
+                displayVehicles[i].gameObject.SetActive(false);
             }
 
-            List<LoadoutVehicleItem> vehicleItems = loadoutManager.Items.vehicles;
+            // Safety check (only ONE needed)
+            if (vehicleIndex < 0 || vehicleIndex >= displayVehicles.Count) return;
+
+            // Activate ONLY selected vehicle
+            Vehicle currentVehicle = displayVehicles[vehicleIndex];
+            currentVehicle.gameObject.SetActive(true);
+
             List<LoadoutModuleItem> moduleItems = loadoutManager.Items.modules;
 
-            if (vehicleIndex < 0 || vehicleIndex >= vehicleItems.Count) return;
+            // Remove old modules (prevent stacking)
+            RemoveModules(currentVehicle);
 
-            displayVehicles[vehicleIndex].gameObject.SetActive(true);
-
-            // Remove modules
-
-            RemoveModules(displayVehicles[vehicleIndex]);
-
-            // Add modules
-
-            for (int i = 0; i < displayVehicles[vehicleIndex].ModuleMounts.Count; ++i)
+            //  Add modules
+            for (int i = 0; i < currentVehicle.ModuleMounts.Count; ++i)
             {
                 if (loadoutManager.WorkingSlot.selectedModules.Count <= i) break;
 
@@ -200,21 +226,21 @@ namespace VSX.UniversalVehicleCombat.Loadout
 
                 if (moduleIndex != -1)
                 {
-                    if (displayVehicles[vehicleIndex].ModuleMounts[i].IsCompatible(moduleItems[moduleIndex].modulePrefab))
+                    if (currentVehicle.ModuleMounts[i].IsCompatible(moduleItems[moduleIndex].modulePrefab))
                     {
                         Module module = GetModule(moduleItems[moduleIndex].modulePrefab);
-                        displayVehicles[vehicleIndex].ModuleMounts[i].AddModule(module, true);
+                        currentVehicle.ModuleMounts[i].AddModule(module, true);
                         displayModules.Add(module);
                     }
                     else
                     {
-                        Debug.LogWarning(moduleItems[moduleIndex].modulePrefab.name + " Module is not compatible with the " +
-                                            displayVehicles[vehicleIndex].ModuleMounts[i].name + " Module Mount on the " + displayVehicles[vehicleIndex].name + " vehicle.");
+                        Debug.LogWarning(moduleItems[moduleIndex].modulePrefab.name + " not compatible with " +
+                            currentVehicle.ModuleMounts[i].name + " on " + currentVehicle.name);
                     }
                 }
                 else
                 {
-                    displayVehicles[vehicleIndex].ModuleMounts[i].UnmountActiveModule();
+                    currentVehicle.ModuleMounts[i].UnmountActiveModule();
                 }
             }
         }

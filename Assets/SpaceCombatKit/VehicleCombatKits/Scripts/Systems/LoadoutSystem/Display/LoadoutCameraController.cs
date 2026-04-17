@@ -158,10 +158,40 @@ namespace VSX.UniversalVehicleCombat.Loadout
         protected virtual void Awake()
         {
             //loadoutUIController.onVehicleSelectionMode.AddListener(OnVehicleSelectionMode);
-            loadoutUIController.onModuleSelectionMode.AddListener(OnModuleSelectionMode);
+            //loadoutUIController.onModuleSelectionMode.AddListener(OnModuleSelectionMode);
 
 
             raycastHitComparer = new RaycastHitComparer();
+        }
+
+        protected virtual void Start()
+        {
+            //  LoadoutManager
+            if (LoadoutManager.Instance != null)
+                loadoutManager = LoadoutManager.Instance;
+            else
+                loadoutManager = FindObjectOfType<LoadoutManager>();
+
+            //  DisplayManager (scene object)
+            if (displayManager == null)
+                displayManager = FindObjectOfType<LoadoutDisplayManager>();
+
+            //  UI Controller (scene object)
+            if (loadoutUIController == null)
+                loadoutUIController = FindObjectOfType<LoadoutUIController>();
+
+
+            //  Safety check
+            if (loadoutManager == null || displayManager == null || loadoutUIController == null)
+            {
+                Debug.LogError(" CameraController missing references!");
+                return;
+            }
+
+            Debug.Log(" CameraController initialized");
+
+            //  NOW safe to use
+            loadoutUIController.onModuleSelectionMode.AddListener(OnModuleSelectionMode);
         }
 
 

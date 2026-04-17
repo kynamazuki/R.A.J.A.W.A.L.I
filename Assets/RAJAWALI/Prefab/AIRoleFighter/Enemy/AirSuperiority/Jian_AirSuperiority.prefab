@@ -226,9 +226,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   resourceType: {fileID: 0}
-  capacity: 5
+  capacity: 40
   changeRate: 0
-  startAmount: 5
+  startAmount: 40
   emptiedPause: 1
   fillToCapacityAfterEmptiedPause: 1
   filledPause: 0
@@ -986,8 +986,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damageableID: 
   healthType: {fileID: 11400000, guid: 716de87c03e835a46bc33f430efeae91, type: 2}
-  healthCapacity: 7000
-  startingHealth: 7000
+  healthCapacity: 5000
+  startingHealth: 5000
   isDamageable: 1
   isHealable: 1
   canHealAfterDestroyed: 0
@@ -1842,7 +1842,7 @@ MonoBehaviour:
   movementModulators: []
   boostModulators: []
   m_rigidbody: {fileID: 4955164956416957579}
-  maxMovementForces: {x: 600, y: 600, z: 600}
+  maxMovementForces: {x: 648, y: 648, z: 648}
   maxSteeringForces: {x: 4, y: 4, z: 4}
   maxBoostForces: {x: 800, y: 800, z: 800}
   movementInputResponseSpeed: 5
@@ -1960,7 +1960,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3cad0976d3cc5d1448e825343ee9c211, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerTeam: {fileID: 11400000, guid: db9c6365835e2014aad79d9a779edefc, type: 2}
 --- !u!1 &4900204538815681175
 GameObject:
   m_ObjectHideFlags: 0
@@ -2397,8 +2396,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damageableID: 
   healthType: {fileID: 11400000, guid: bce233b00f3b8cf46bcbec887b28cd04, type: 2}
-  healthCapacity: 6000
-  startingHealth: 6000
+  healthCapacity: 4000
+  startingHealth: 4000
   isDamageable: 1
   isHealable: 1
   canHealAfterDestroyed: 0
@@ -2434,6 +2433,18 @@ MonoBehaviour:
       - m_Target: {fileID: 5013588106213289073}
         m_TargetAssemblyTypeName: 
         m_MethodName: Destroy
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: -4978270613694365434}
+        m_TargetAssemblyTypeName: ScoreOnDeath, Assembly-CSharp
+        m_MethodName: OnDestroyed
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

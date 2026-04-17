@@ -226,9 +226,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   resourceType: {fileID: 0}
-  capacity: 5
+  capacity: 60
   changeRate: 0
-  startAmount: 5
+  startAmount: 60
   emptiedPause: 1
   fillToCapacityAfterEmptiedPause: 1
   filledPause: 0
@@ -839,7 +839,7 @@ Transform:
   - {fileID: 4905629962712694877}
   - {fileID: 4901297882401891517}
   m_Father: {fileID: 4906083076958676793}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!64 &4963253411442172363
 MeshCollider:
@@ -986,8 +986,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damageableID: 
   healthType: {fileID: 11400000, guid: 716de87c03e835a46bc33f430efeae91, type: 2}
-  healthCapacity: 2000
-  startingHealth: 2000
+  healthCapacity: 500
+  startingHealth: 500
   isDamageable: 1
   isHealable: 1
   canHealAfterDestroyed: 0
@@ -1842,7 +1842,7 @@ MonoBehaviour:
   movementModulators: []
   boostModulators: []
   m_rigidbody: {fileID: 4955164956416957579}
-  maxMovementForces: {x: 1100, y: 1100, z: 1100}
+  maxMovementForces: {x: 972, y: 972, z: 972}
   maxSteeringForces: {x: 6, y: 6, z: 6}
   maxBoostForces: {x: 1300, y: 1300, z: 1300}
   movementInputResponseSpeed: 5
@@ -1960,7 +1960,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3cad0976d3cc5d1448e825343ee9c211, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerTeam: {fileID: 11400000, guid: db9c6365835e2014aad79d9a779edefc, type: 2}
 --- !u!1 &4900204538815681175
 GameObject:
   m_ObjectHideFlags: 0
@@ -2198,8 +2197,8 @@ Transform:
   m_LocalScale: {x: 1.3, y: 1.3, z: 1.3}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 4905578347375863919}
   - {fileID: 4906101077702134473}
+  - {fileID: 4905578347375863919}
   m_Father: {fileID: 3186851074139768646}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2381,7 +2380,7 @@ Transform:
   - {fileID: 4905945618966616863}
   - {fileID: 1186178747144402476}
   m_Father: {fileID: 4906083076958676793}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &4514407650591614532
 MonoBehaviour:
@@ -2397,8 +2396,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damageableID: 
   healthType: {fileID: 11400000, guid: bce233b00f3b8cf46bcbec887b28cd04, type: 2}
-  healthCapacity: 3000
-  startingHealth: 3000
+  healthCapacity: 1000
+  startingHealth: 1000
   isDamageable: 1
   isHealable: 1
   canHealAfterDestroyed: 0

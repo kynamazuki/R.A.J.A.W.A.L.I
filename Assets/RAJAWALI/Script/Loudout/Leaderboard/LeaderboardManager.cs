@@ -15,8 +15,12 @@ public class LeaderboardManager : MonoBehaviour
 
     private string FilePath => Application.persistentDataPath + "/" + leaderboardFileName;
 
+    public int currentScore;
+
     private void Awake()
     {
+        Debug.Log("Manager Awake ID: " + this.GetInstanceID());
+
         if (Instance == null)
         {
             Instance = this;
@@ -48,13 +52,23 @@ public class LeaderboardManager : MonoBehaviour
 
     public void SaveCurrentSession()
     {
-        if (currentSession == null) return;
+        if (currentSession == null)
+        {
+            Debug.LogError(" currentSession is NULL!");
+            return;
+        }
+
+        Debug.Log(" Saving: " + currentSession.playerName);
 
         sessionHistory.Add(currentSession);
+
+        Debug.Log(" New Count: " + sessionHistory.Count);
+
         SaveLeaderboard();
         currentSession = null;
     }
 
+    [ContextMenu("Delete All Sessions")]
     public void DeleteAllSessions()
     {
         sessionHistory.Clear();
@@ -101,6 +115,7 @@ public class LeaderboardManager : MonoBehaviour
             LeaderboardUI.Instance.Refresh();
         }
     }
+
 }
 
 // -------------------

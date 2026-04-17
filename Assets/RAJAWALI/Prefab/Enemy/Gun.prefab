@@ -226,9 +226,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   resourceType: {fileID: 0}
-  capacity: 5
+  capacity: 60
   changeRate: 0
-  startAmount: 5
+  startAmount: 60
   emptiedPause: 1
   fillToCapacityAfterEmptiedPause: 1
   filledPause: 0
@@ -986,8 +986,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damageableID: 
   healthType: {fileID: 11400000, guid: 716de87c03e835a46bc33f430efeae91, type: 2}
-  healthCapacity: 2000
-  startingHealth: 2000
+  healthCapacity: 500
+  startingHealth: 500
   isDamageable: 1
   isHealable: 1
   canHealAfterDestroyed: 0
@@ -1841,7 +1841,7 @@ MonoBehaviour:
   movementModulators: []
   boostModulators: []
   m_rigidbody: {fileID: 4955164956416957579}
-  maxMovementForces: {x: 1100, y: 1100, z: 1100}
+  maxMovementForces: {x: 972, y: 972, z: 972}
   maxSteeringForces: {x: 6, y: 6, z: 6}
   maxBoostForces: {x: 1300, y: 1300, z: 1300}
   movementInputResponseSpeed: 5
@@ -2383,8 +2383,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damageableID: 
   healthType: {fileID: 11400000, guid: bce233b00f3b8cf46bcbec887b28cd04, type: 2}
-  healthCapacity: 3000
-  startingHealth: 3000
+  healthCapacity: 1000
+  startingHealth: 1000
   isDamageable: 1
   isHealable: 1
   canHealAfterDestroyed: 0

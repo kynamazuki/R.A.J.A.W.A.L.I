@@ -267,8 +267,8 @@ namespace VSX.UniversalVehicleCombat
                     }
 
                     // Debugging: Log the positions and distance to target
-                    Debug.Log($"Missile Position: {transform.position}, Target Position: {targetLocker.Target.transform.position}");
-                    Debug.Log($"Distance to Target: {toTarget.magnitude}");
+                   // Debug.Log($"Missile Position: {transform.position}, Target Position: {targetLocker.Target.transform.position}");
+                    //Debug.Log($"Distance to Target: {toTarget.magnitude}");
 
 
                     // Turn the missile towards the target position
@@ -276,7 +276,7 @@ namespace VSX.UniversalVehicleCombat
 
                     // Log steering inputs for debugging
                     Vector3 steeringInput = steeringPIDController.GetControlValues();
-                    Debug.Log($"Steering Input: {steeringInput}");
+                    //Debug.Log($"Steering Input: {steeringInput}");
 
                     // Set engine inputs for missile movement
                     engines.SetSteeringInputs(steeringInput);

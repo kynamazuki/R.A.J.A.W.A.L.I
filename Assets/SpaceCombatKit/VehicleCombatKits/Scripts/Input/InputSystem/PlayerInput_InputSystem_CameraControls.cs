@@ -82,7 +82,7 @@ namespace VSX.UniversalVehicleCombat
         {
             if (!CanRunInput()) return;
 
-            Debug.Log($"[CameraControls] Cycle {(forward ? "Forward" : "Back")} input received!");
+            //Debug.Log($"[CameraControls] Cycle {(forward ? "Forward" : "Back")} input received!");
 
 
             if (cameraEntity != null)

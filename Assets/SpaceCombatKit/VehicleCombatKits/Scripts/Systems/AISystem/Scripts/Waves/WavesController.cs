@@ -20,6 +20,8 @@ namespace VSX.UniversalVehicleCombat
         [SerializeField]
         protected bool loopWaves = false;
 
+        [SerializeField] private int totalLevels = 5;
+
         [SerializeField, Tooltip("Name of the Loadout scene to return to after mission complete.")]
         protected string loadoutSceneName = "LoadoutScene";  // <-- assign in inspector
 
@@ -123,22 +125,62 @@ namespace VSX.UniversalVehicleCombat
                     if (loadoutManager != null)
                     {
                         loadoutManager.LoadoutData.currentMissionIndex++;
+                        loadoutManager.isNewGameStart = false;
+                        Debug.Log("IsNewGameStart: " + loadoutManager.isNewGameStart);
+
+                        Debug.Log("MISSION COMPLETE → NEW INDEX: " + loadoutManager.LoadoutData.currentMissionIndex);
+
                         loadoutManager.SavePersistentData();
+                    }
+                    else
+                    {
+                        Debug.LogError("LOADOUT MANAGER NOT FOUND!");
                     }
                     // =============================
 
                     onWavesDestroyed.Invoke();
 
-                    // Return to Loadout Scene
-                    if (!string.IsNullOrEmpty(loadoutSceneName))
+                    // CHECK IF FINAL LEVEL
+
+
+                    if (loadoutManager != null)
                     {
-                        UnityEngine.SceneManagement.SceneManager.LoadScene(loadoutSceneName);
+                        int currentIndex = loadoutManager.LoadoutData.currentMissionIndex;
+
+                        if (currentIndex >= totalLevels)
+                        {
+                            Debug.Log(" FINAL LEVEL COMPLETE");
+
+                            //  Start delayed leaderboard instead of instant
+                            StartCoroutine(ShowFinalLeaderboardAfterDelay());
+
+                            return;
+                        }
                     }
-                    else
-                    {
-                        Debug.LogError("Loadout scene name not set in WavesController!");
-                    }
+
+                    // Otherwise → normal flow
+                    StartCoroutine(ReturnToLoadoutAfterDelay());
                 }
+            }
+        }
+
+        IEnumerator ReturnToLoadoutAfterDelay()
+        {
+            // Wait time (you can change this)
+            yield return new WaitForSeconds(3f);
+
+            UnityEngine.SceneManagement.SceneManager.LoadScene(loadoutSceneName);
+        }
+
+        IEnumerator ShowFinalLeaderboardAfterDelay()
+        {
+            //  Wait same time as your "Mission Complete" UI
+            yield return new WaitForSeconds(3f);
+
+            //  Now show leaderboard
+            if (PlayerProfileUI.Instance != null)
+            {
+                PlayerProfileUI.Instance.ShowAfterDeath();
             }
         }
     }

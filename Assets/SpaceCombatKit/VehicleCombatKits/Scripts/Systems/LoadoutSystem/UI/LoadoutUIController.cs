@@ -156,7 +156,7 @@ namespace VSX.UniversalVehicleCombat.Loadout
 
         protected virtual void Awake()
         {
-            loadoutManager.onLoadoutChanged.AddListener(OnLoadoutChanged);
+
 
             slotButtonsListController.onButtonClicked.AddListener(OnSlotClicked);
             moduleButtonsListController.onButtonClicked.AddListener(OnModuleClicked);
@@ -166,6 +166,29 @@ namespace VSX.UniversalVehicleCombat.Loadout
 
         protected virtual void Start()
         {
+            //  FIRST: Try Instance (best way)
+            if (LoadoutManager.Instance != null)
+            {
+                loadoutManager = LoadoutManager.Instance;
+            }
+            else
+            {
+                //  fallback (in case Instance not ready)
+                loadoutManager = FindObjectOfType<LoadoutManager>();
+            }
+
+            //  FINAL check
+            if (loadoutManager == null)
+            {
+                Debug.LogError("LoadoutManager NOT FOUND!");
+                return;
+            }
+
+            Debug.Log(" LoadoutManager FOUND: " + loadoutManager.name);
+
+            //  NOW SAFE
+            loadoutManager.onLoadoutChanged.AddListener(OnLoadoutChanged);
+
             EnterVehicleSelection();
             OnLoadoutChanged();
 

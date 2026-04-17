@@ -31,6 +31,12 @@ namespace VSX.UniversalVehicleCombat
         /// <param name="sceneName">The name of the scene.</param>
         public void LoadScene(string sceneName)
         {
+
+            if (LeaderboardUI.Instance != null)
+            {
+                LeaderboardUI.Instance.HideLeaderboard();
+            }
+
             SceneManager.LoadScene(sceneName);
         }
 
@@ -74,10 +80,10 @@ namespace VSX.UniversalVehicleCombat
 
 
 
-        public void OnApplicationQuit()
+        /*public void OnApplicationQuit()
         {
             LeaderboardManager.Instance.SaveCurrentSession();
-        }
+        }*/
     }
 }
 

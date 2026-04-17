@@ -16,5 +16,6 @@ namespace VSX.UniversalVehicleCombat.Loadout
 
         [Tooltip("The selected module indexes (within an associated Loadout Items component's Modules list) for each module mount.")]
         public List<int> selectedModules = new List<int>();
+        //public List<List<int>> selectedModules;
     }
 }

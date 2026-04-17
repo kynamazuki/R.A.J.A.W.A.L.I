@@ -319,7 +319,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthModifier:
     healthModifierType: {fileID: 11400000, guid: 377cadcf2927dcb49ad15f2c64982d47, type: 2}
-    defaultDamageValue: 5000
+    defaultDamageValue: 3000
     damageOverrideValues: []
     damageMultiplier: 1
     defaultHealingValue: 0
@@ -385,12 +385,12 @@ MonoBehaviour:
   checkLineOfSight: 1
   collisionScanner: {fileID: 5461742785237716284}
   detonator: {fileID: 114499931625191688}
-  speed: 1000
+  speed: 1500
   movementUpdateMode: 1
   disableAfterLifetime: 1
   lifetime: 5
   disableAfterDistanceCovered: 0
-  maxDistance: 1000
+  maxDistance: 1500
   onDetonated:
     m_PersistentCalls:
       m_Calls: []
@@ -473,10 +473,10 @@ MonoBehaviour:
   lockingFillBar: {fileID: 0}
   disableBarOnNoLock: 0
   lockingEnabled: 0
-  lockingTime: 3
+  lockingTime: 2
   lockingAngle: 25
   ignoreLockingAngleDistance: 100
-  lockingRange: 1000
+  lockingRange: 1500
   lockingReferenceTransform: {fileID: 4106589916852744}
   startingLockStateForNewTarget: 0
   audioEnabled: 1

@@ -15,6 +15,7 @@ public class ScoreHUD : MonoBehaviour
 
     public void UpdateScoreDisplay(int score)
     {
+
         if (scoreText != null)
             scoreText.text = "Score: " + score;
     }

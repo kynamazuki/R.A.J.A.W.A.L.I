@@ -14,7 +14,7 @@ namespace VSX.UniversalVehicleCombat.Loadout
 
         [Tooltip("The loadout UI controller.")]
         [SerializeField]
-        protected LoudoutUIControllerTuto loudoutUIControllerTuto;
+        protected LoadoutUIControllerArcade loadoutUIControllerArcade;
 
         [Tooltip("The loadout manager.")]
         [SerializeField]
@@ -148,7 +148,7 @@ namespace VSX.UniversalVehicleCombat.Loadout
         protected virtual void Reset()
         {
             loadoutManager = FindAnyObjectByType<LoadoutManager>();
-            loudoutUIControllerTuto = FindAnyObjectByType<LoudoutUIControllerTuto>();
+            loadoutUIControllerArcade = FindAnyObjectByType<LoadoutUIControllerArcade>();
             displayManager = FindAnyObjectByType<LoadoutDisplayManager>();
 
             viewRotationBlockingLayers = LayerMask.GetMask("UI");
@@ -158,10 +158,40 @@ namespace VSX.UniversalVehicleCombat.Loadout
         protected virtual void Awake()
         {
             //loadoutUIController.onVehicleSelectionMode.AddListener(OnVehicleSelectionMode);
-            loudoutUIControllerTuto.onModuleSelectionMode.AddListener(OnModuleSelectionMode);
+            //loadoutUIControllerArcade.onModuleSelectionMode.AddListener(OnModuleSelectionMode);
 
 
             raycastHitComparer = new RaycastHitComparer();
+        }
+
+        protected virtual void Start()
+        {
+            //  LoadoutManager
+            if (LoadoutManager.Instance != null)
+                loadoutManager = LoadoutManager.Instance;
+            else
+                loadoutManager = FindObjectOfType<LoadoutManager>();
+
+            //  DisplayManager (scene object)
+            if (displayManager == null)
+                displayManager = FindObjectOfType<LoadoutDisplayManager>();
+
+            //  UI Controller (scene object)
+            if (loadoutUIControllerArcade == null)
+                loadoutUIControllerArcade = FindObjectOfType<LoadoutUIControllerArcade>();
+
+
+            //  Safety check
+            if (loadoutManager == null || displayManager == null || loadoutUIControllerArcade == null)
+            {
+                Debug.LogError(" CameraController missing references!");
+                return;
+            }
+
+            Debug.Log(" CameraController initialized");
+
+            //  NOW safe to use
+            loadoutUIControllerArcade.onModuleSelectionMode.AddListener(OnModuleSelectionMode);
         }
 
 
@@ -370,7 +400,7 @@ namespace VSX.UniversalVehicleCombat.Loadout
                 targetGimbalRotationInput = Vector2.zero;
             }
 
-            if (loudoutUIControllerTuto.State == LoudoutUIControllerTuto.UIState.ModuleSelection) return;
+            if (loadoutUIControllerArcade.State == LoadoutUIControllerArcade.UIState.ModuleSelection) return;
 
             currentGimbalRotationInput = Vector2.Lerp(currentGimbalRotationInput, targetGimbalRotationInput, viewRotationLerpSpeed * Time.deltaTime);
             Vector2 rotation = viewRotationSpeed * currentGimbalRotationInput * Time.deltaTime;
@@ -392,7 +422,7 @@ namespace VSX.UniversalVehicleCombat.Loadout
         // Called every frame
         protected virtual void Update()
         {
-            if (loudoutUIControllerTuto.State == LoudoutUIControllerTuto.UIState.ModuleSelection)
+            if (loadoutUIControllerArcade.State == LoadoutUIControllerArcade.UIState.ModuleSelection)
             {
                 ModuleFocusUpdate();
             }

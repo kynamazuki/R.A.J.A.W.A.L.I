@@ -180,9 +180,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthModifier:
-    healthModifierType: {fileID: 11400000, guid: cb47aa62db8f0ae41be5b7f28565f7ef,
-      type: 2}
-    defaultDamageValue: 8000
+    healthModifierType: {fileID: 11400000, guid: cb47aa62db8f0ae41be5b7f28565f7ef, type: 2}
+    defaultDamageValue: 100000
     damageOverrideValues: []
     damageMultiplier: 1
     defaultHealingValue: 0
@@ -248,12 +247,12 @@ MonoBehaviour:
   checkLineOfSight: 1
   collisionScanner: {fileID: 114357639931892348}
   detonator: {fileID: 114118760066047198}
-  speed: 800
+  speed: 1200
   movementUpdateMode: 1
   disableAfterLifetime: 0
   lifetime: 3
   disableAfterDistanceCovered: 1
-  maxDistance: 10000
+  maxDistance: 1500
   onDetonated:
     m_PersistentCalls:
       m_Calls: []

@@ -285,6 +285,17 @@ public partial class @GeneralInputAsset: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""b2270e5a-bbd0-489a-ace6-7e067b3dbfb1"",
+                    ""path"": ""<HID::Thrustmaster T.16000M>/hat/left"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Target Next"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""0c931802-3f47-47fb-a7e7-a5c4d00e631e"",
                     ""path"": ""<Keyboard>/2"",
                     ""interactions"": """",
@@ -307,6 +318,17 @@ public partial class @GeneralInputAsset: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""7d2c6286-249d-4978-a75f-d921bead6867"",
+                    ""path"": ""<HID::Thrustmaster T.16000M>/hat/right"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Target Nearest"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""8b0abe5b-fb56-493b-9f1e-58442ae09d32"",
                     ""path"": ""<Keyboard>/3"",
                     ""interactions"": """",
@@ -320,6 +342,17 @@ public partial class @GeneralInputAsset: IInputActionCollection2, IDisposable
                     ""name"": """",
                     ""id"": ""96b8ffef-fd1b-4882-9ae8-7127c187f995"",
                     ""path"": ""<HID::Saitek Saitek X52 Flight Control System>/button20"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Target Front"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""6dbceec2-9237-463c-a2a8-8e3ff4898d10"",
+                    ""path"": ""<HID::Thrustmaster T.16000M>/hat/up"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -496,6 +529,17 @@ public partial class @GeneralInputAsset: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""638ce8ae-e35e-4cc0-a611-ce75baf5e590"",
+                    ""path"": ""<HID::Thrustmaster T.16000M>/trigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Fire Primary"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""34b02c37-7f66-4ae7-ad21-99856422b177"",
                     ""path"": ""<Mouse>/rightButton"",
                     ""interactions"": ""Press"",
@@ -529,6 +573,17 @@ public partial class @GeneralInputAsset: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""d3df5c18-5c89-4c20-9353-cb772e035791"",
+                    ""path"": ""<HID::Thrustmaster T.16000M>/button2"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Fire Secondary"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""190a2926-ef65-48d7-8714-a161add4e210"",
                     ""path"": ""<Mouse>/scroll/y"",
                     ""interactions"": """",
@@ -542,6 +597,17 @@ public partial class @GeneralInputAsset: IInputActionCollection2, IDisposable
                     ""name"": """",
                     ""id"": ""99795eeb-8d8b-4c46-a4e0-db06e6c956ec"",
                     ""path"": ""<HID::Saitek Saitek X52 Flight Control System>/button5"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SwitchWeapon"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""77dbe522-bcda-4ceb-b229-73b6bf59f627"",
+                    ""path"": ""<HID::Thrustmaster T.16000M>/button4"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",

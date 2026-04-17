@@ -44,35 +44,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e72ed0136e4a8dd4c8264d2b6f704dbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vehiclePrefab: {fileID: 152507264578723667, guid: 6581164012be15047a445271f486a324,
-    type: 3}
+  vehiclePrefab: {fileID: 152507264578723667, guid: 6581164012be15047a445271f486a324, type: 3}
   overrideVehicleLabel: 1
   overrideLabel: Kerambit
   predefinedModules:
   - moduleMountIndex: 0
-    moduleItem: {fileID: 331220912393201343, guid: 7fe745175f9f6b447a6880e834c8a2fc,
-      type: 3}
+    moduleItem: {fileID: 331220912393201343, guid: 7fe745175f9f6b447a6880e834c8a2fc, type: 3}
   - moduleMountIndex: 0
-    moduleItem: {fileID: 331220912393201343, guid: 2fb4ea0dec60c1d4098c083c47806c15,
-      type: 3}
+    moduleItem: {fileID: 331220912393201343, guid: 2fb4ea0dec60c1d4098c083c47806c15, type: 3}
   - moduleMountIndex: 0
-    moduleItem: {fileID: 331220912393201343, guid: 5cb103fd87fd20b458cbdeef0c0343bd,
-      type: 3}
+    moduleItem: {fileID: 331220912393201343, guid: 5cb103fd87fd20b458cbdeef0c0343bd, type: 3}
   - moduleMountIndex: 1
-    moduleItem: {fileID: 331220912393201343, guid: be4cc0f717c049544b800c82bd9aaed0,
-      type: 3}
+    moduleItem: {fileID: 331220912393201343, guid: be4cc0f717c049544b800c82bd9aaed0, type: 3}
   - moduleMountIndex: 1
-    moduleItem: {fileID: 331220912393201343, guid: e5c4d963e912ff44b9a899156c6fed90,
-      type: 3}
+    moduleItem: {fileID: 331220912393201343, guid: e5c4d963e912ff44b9a899156c6fed90, type: 3}
   - moduleMountIndex: 1
-    moduleItem: {fileID: 331220912393201343, guid: 76901247d5e380a42b10db3817ef0b0e,
-      type: 3}
+    moduleItem: {fileID: 331220912393201343, guid: 76901247d5e380a42b10db3817ef0b0e, type: 3}
   description: "Type: Interceptor\t\t\t   Armor: \nPower: 35 VLK-QA\t\t\t   Shield:
-    \nAfterburner/Cooldown: 03s/03s\t   Speed: \nLoadout Default : 2 CQC\r   \t\t\t\t\t         
+    \nAfterburner/Cooldown: 60s\t   Speed: \nLoadout Default : 2 CQC\r   \t\t\t\t\t         
     Agility: \n\t\t\t  15 MISSILE \n\t\t\t   "
-  armor: 3000
-  shield: 3000
-  speed: 900
+  armor: 2000
+  shield: 2500
+  speed: 972
   agility: 6
   sprites:
   - {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}

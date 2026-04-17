@@ -5195,7 +5195,7 @@ MonoBehaviour:
   moduleLayer: Default
   loadExistingChildModules: 1
   defaultModulePrefabs:
-  - {fileID: 114115692733585616, guid: 90439e2bcadd1d441a50875cfbfc875c, type: 3}
+  - {fileID: 114115692733585616, guid: ddf17bad8b45ba842a279651636fe010, type: 3}
   createDefaultModulesAtStart: 1
   onModuleMounted:
     m_PersistentCalls:
@@ -11478,11 +11478,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 152507264471883871}
+  - component: {fileID: 152507264471883867}
+  - component: {fileID: 152507264471883876}
   - component: {fileID: 152507264471883879}
   - component: {fileID: 152507264471883878}
   - component: {fileID: 152507264471883877}
-  - component: {fileID: 152507264471883876}
-  - component: {fileID: 152507264471883867}
   - component: {fileID: 152507264471883866}
   - component: {fileID: 152507264471883865}
   - component: {fileID: 152507264471883864}
@@ -11508,8 +11508,105 @@ Transform:
   - {fileID: 152507264569610568}
   - {fileID: 152507264495761697}
   m_Father: {fileID: 152507265999634786}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0.887, y: 0, z: 0}
+--- !u!114 &152507264471883867
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 152507264471883870}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8aeac1c5ca143e46b2071439cfb9deb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageableID: 
+  healthType: {fileID: 11400000, guid: 716de87c03e835a46bc33f430efeae91, type: 2}
+  healthCapacity: 5500
+  startingHealth: 5500
+  isDamageable: 1
+  isHealable: 1
+  canHealAfterDestroyed: 0
+  disableGameObjectOnDestroyed: 1
+  restoreOnEnable: 1
+  collisionImpulseToDamageFactor: 9
+  collisionHealthModifierType: {fileID: 11400000, guid: 03e326d90c7cda84cbf0ffad37fb024b, type: 2}
+  collisionContactsLimit: 1
+  onCollision:
+    m_PersistentCalls:
+      m_Calls: []
+  onDamaged:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 152507265566693461}
+        m_TargetAssemblyTypeName: VSX.Utilities.AnimationController, Assembly-CSharp
+        m_MethodName: StartAnimation
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2840486114606591604}
+        m_TargetAssemblyTypeName: VSX.Utilities.AnimationController, Assembly-CSharp
+        m_MethodName: StartAnimation
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onHealed:
+    m_PersistentCalls:
+      m_Calls: []
+  onDestroyed:
+    m_PersistentCalls:
+      m_Calls: []
+  onRestored:
+    m_PersistentCalls:
+      m_Calls: []
+  onHealthChanged:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &152507264471883876
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 152507264471883870}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55a02bc56ef76a84eb9912465a09b49c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageable: {fileID: 152507264471883867}
+  disableCollidersOnDamageableDestroyed: 1
+  rootTransform: {fileID: 152507264578723676}
+  surfaceType: {fileID: 0}
+  onDamaged:
+    m_PersistentCalls:
+      m_Calls: []
+  onHealed:
+    m_PersistentCalls:
+      m_Calls: []
+  onCollision:
+    m_PersistentCalls:
+      m_Calls: []
+  onActivated:
+    m_PersistentCalls:
+      m_Calls: []
+  onDeactivated:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!64 &152507264471883879
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -11574,103 +11671,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 152507264471883870}
   m_Mesh: {fileID: 4300000, guid: f6121bcae9b4aac4fa07e42f789de156, type: 3}
---- !u!114 &152507264471883876
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 152507264471883870}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 55a02bc56ef76a84eb9912465a09b49c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damageable: {fileID: 152507264471883867}
-  disableCollidersOnDamageableDestroyed: 1
-  rootTransform: {fileID: 152507264578723676}
-  surfaceType: {fileID: 0}
-  onDamaged:
-    m_PersistentCalls:
-      m_Calls: []
-  onHealed:
-    m_PersistentCalls:
-      m_Calls: []
-  onCollision:
-    m_PersistentCalls:
-      m_Calls: []
-  onActivated:
-    m_PersistentCalls:
-      m_Calls: []
-  onDeactivated:
-    m_PersistentCalls:
-      m_Calls: []
---- !u!114 &152507264471883867
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 152507264471883870}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e8aeac1c5ca143e46b2071439cfb9deb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damageableID: 
-  healthType: {fileID: 11400000, guid: 716de87c03e835a46bc33f430efeae91, type: 2}
-  healthCapacity: 6000
-  startingHealth: 6000
-  isDamageable: 1
-  isHealable: 1
-  canHealAfterDestroyed: 0
-  disableGameObjectOnDestroyed: 1
-  restoreOnEnable: 1
-  collisionImpulseToDamageFactor: 9
-  collisionHealthModifierType: {fileID: 11400000, guid: 03e326d90c7cda84cbf0ffad37fb024b, type: 2}
-  collisionContactsLimit: 1
-  onCollision:
-    m_PersistentCalls:
-      m_Calls: []
-  onDamaged:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 152507265566693461}
-        m_TargetAssemblyTypeName: VSX.Utilities.AnimationController, Assembly-CSharp
-        m_MethodName: StartAnimation
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 2840486114606591604}
-        m_TargetAssemblyTypeName: VSX.Utilities.AnimationController, Assembly-CSharp
-        m_MethodName: StartAnimation
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  onHealed:
-    m_PersistentCalls:
-      m_Calls: []
-  onDestroyed:
-    m_PersistentCalls:
-      m_Calls: []
-  onRestored:
-    m_PersistentCalls:
-      m_Calls: []
-  onHealthChanged:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!114 &152507264471883866
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12797,6 +12797,7 @@ GameObject:
   - component: {fileID: 152507264578723649}
   - component: {fileID: 152507264578723648}
   - component: {fileID: 152507264578723655}
+  - component: {fileID: 9041022274521541543}
   m_Layer: 0
   m_Name: Keris
   m_TagString: Player
@@ -12932,7 +12933,7 @@ MonoBehaviour:
   boostModulators:
   - {fileID: 152507264725041762}
   m_rigidbody: {fileID: 152507264578723666}
-  maxMovementForces: {x: 600, y: 600, z: 600}
+  maxMovementForces: {x: 640, y: 640, z: 640}
   maxSteeringForces: {x: 4, y: 4, z: 4}
   maxBoostForces: {x: 800, y: 800, z: 800}
   movementInputResponseSpeed: 6
@@ -13953,6 +13954,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &9041022274521541543
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 152507264578723654}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca51edab1c76f154aac267ce10bcb392, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &152507264582518243
 GameObject:
   m_ObjectHideFlags: 0
@@ -62953,9 +62966,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   resourceType: {fileID: 0}
-  capacity: 8
+  capacity: 40
   changeRate: 0
-  startAmount: 8
+  startAmount: 40
   emptiedPause: 0
   fillToCapacityAfterEmptiedPause: 0
   filledPause: 0
@@ -74931,8 +74944,8 @@ Transform:
   m_LocalScale: {x: 1.3, y: 1.3, z: 1.3}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 152507264471883871}
   - {fileID: 152507266181742905}
+  - {fileID: 152507264471883871}
   m_Father: {fileID: 152507265770395270}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -75268,7 +75281,7 @@ Transform:
   - {fileID: 152507265060587277}
   - {fileID: 152507265081399930}
   m_Father: {fileID: 152507265999634786}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &152507266181742907
 MonoBehaviour:
@@ -75284,8 +75297,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damageableID: 
   healthType: {fileID: 11400000, guid: bce233b00f3b8cf46bcbec887b28cd04, type: 2}
-  healthCapacity: 6000
-  startingHealth: 6000
+  healthCapacity: 5000
+  startingHealth: 5000
   isDamageable: 1
   isHealable: 0
   canHealAfterDestroyed: 0
@@ -78272,8 +78285,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0.0000038146973}
-  m_SizeDelta: {x: 650, y: 100}
+  m_AnchoredPosition: {x: 0, y: -1}
+  m_SizeDelta: {x: 650, y: 95.1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6480511280469560100
 CanvasRenderer:
@@ -79132,7 +79145,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8fef8ba6d6f1c14cb2234280e8dc5fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  label: SHIPKILLER
+  label: MAIN CANNON
   m_ID: Module Mount
   mountableTypes:
   - {fileID: 11400000, guid: 4a607c4174f18364cb7ffcdf3b61c099, type: 2}
@@ -80785,7 +80798,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 82, y: -128.6}
+  m_AnchoredPosition: {x: 82, y: -128}
   m_SizeDelta: {x: 250, y: 146}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &2761702410964757662

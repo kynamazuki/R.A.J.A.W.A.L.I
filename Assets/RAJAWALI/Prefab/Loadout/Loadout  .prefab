@@ -16658,7 +16658,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   UIHandle: {fileID: 5275257841743599952}
-  loadoutManager: {fileID: 5275257842160916819}
+  loadoutManager: {fileID: 0}
   labelText: {fileID: 5275257841433517689}
   descriptionText: {fileID: 5275257842662494751}
   iconImage: {fileID: 5275257841814664189}
@@ -18144,8 +18144,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5275257842160916780}
-  - component: {fileID: 5275257842160916819}
-  - component: {fileID: 5275257842160916818}
   - component: {fileID: 5275257842160916817}
   - component: {fileID: 5275257842160916816}
   - component: {fileID: 5275257842160916823}
@@ -18177,47 +18175,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5275257842160916819
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5275257842160916822}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a33b2db10e3efdb4e88c814d168b5be5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  startingItems: {fileID: 8847646001290686924, guid: 7445943793b2f204b9326d1368940fc4, type: 3}
-  exclusiveVehicles: 0
-  exclusiveModules: 0
-  slotPerVehicle: 1
-  numSlots: 0
-  applyVehicleSelection: 1
-  applyModuleSelection: 0
-  loadoutDataManager: {fileID: 5275257842160916818}
-  loadSelectedSlot: 1
-  onDataLoad:
-    m_PersistentCalls:
-      m_Calls: []
-  onLoadoutChanged:
-    m_PersistentCalls:
-      m_Calls: []
---- !u!114 &5275257842160916818
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5275257842160916822}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b3249157cf369c14baa01412ecc542a8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fileName: SCKLoadout
-  debug: 0
 --- !u!114 &5275257842160916817
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18230,7 +18187,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5972add9e5e0454689d398bae120fd2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  loadoutManager: {fileID: 5275257842160916819}
+  loadoutManager: {fileID: 0}
   vehicleSelectionModeUIHandle: {fileID: 5275257842479220010}
   vehicleInfoUIHandle: {fileID: 5275257842536373205}
   fighterStatUI: {fileID: 8590716044312754061}
@@ -25044,7 +25001,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1efd7d94ac346d5449d896fac21a1f1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  loadoutManager: {fileID: 5275257842160916819}
+  loadoutManager: {fileID: 0}
   vehicleHolder: {fileID: 5275257840743415805}
 --- !u!114 &5275257842701619516
 MonoBehaviour:
@@ -25059,7 +25016,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   loadoutUIController: {fileID: 5275257842160916817}
-  loadoutManager: {fileID: 5275257842160916819}
+  loadoutManager: {fileID: 0}
   displayManager: {fileID: 5275257842701619517}
   m_Camera: {fileID: 5275257842164025889}
   snapPositionAndRotation: 1
@@ -27234,7 +27191,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   UIHandle: {fileID: 5275257840978441163}
-  loadoutManager: {fileID: 5275257842160916819}
+  loadoutManager: {fileID: 0}
   labelText: {fileID: 5275257841657270999}
   descriptionText: {fileID: 5275257841121727850}
   iconImage: {fileID: 0}

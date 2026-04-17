@@ -11124,8 +11124,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damageableID: 
   healthType: {fileID: 11400000, guid: 716de87c03e835a46bc33f430efeae91, type: 2}
-  healthCapacity: 5000
-  startingHealth: 5000
+  healthCapacity: 5500
+  startingHealth: 5500
   isDamageable: 1
   isHealable: 1
   canHealAfterDestroyed: 0
@@ -12181,7 +12181,7 @@ MonoBehaviour:
   boostModulators:
   - {fileID: 152507264725041762}
   m_rigidbody: {fileID: 152507264578723666}
-  maxMovementForces: {x: 800, y: 800, z: 800}
+  maxMovementForces: {x: 864, y: 864, z: 864}
   maxSteeringForces: {x: 5, y: 5, z: 5}
   maxBoostForces: {x: 1000, y: 1000, z: 1000}
   movementInputResponseSpeed: 6
@@ -54641,9 +54641,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   resourceType: {fileID: 0}
-  capacity: 8
+  capacity: 40
   changeRate: 0
-  startAmount: 8
+  startAmount: 40
   emptiedPause: 0
   fillToCapacityAfterEmptiedPause: 0
   filledPause: 0
@@ -69483,7 +69483,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8fef8ba6d6f1c14cb2234280e8dc5fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  label: SHIPKILLER
+  label: MAIN CANNON
   m_ID: Module Mount
   mountableTypes:
   - {fileID: 11400000, guid: 4a607c4174f18364cb7ffcdf3b61c099, type: 2}

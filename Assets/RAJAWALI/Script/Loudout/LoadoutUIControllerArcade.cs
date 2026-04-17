@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using VSX.Utilities.UI;
 using UnityEngine.Events;
+using TMPro;
 
 
 namespace VSX.UniversalVehicleCombat.Loadout
@@ -133,6 +134,13 @@ namespace VSX.UniversalVehicleCombat.Loadout
         [SerializeField]
         protected List<string> missionSceneNames = new List<string>();
 
+        [Header("Start Menu UI")]
+        [SerializeField] private GameObject continueButton;
+        [SerializeField] private TMP_Text continueText;
+
+        [SerializeField] GameObject startMenuPanel;   // NewGame + Continue buttons
+        [SerializeField] GameObject loadoutPanel;     // Your normal loadout UI
+
         /*  [Tooltip("Event called when the loadout menu goes into the vehicle selection mode.")]
           public UnityEvent onVehicleSelectionMode; */
 
@@ -157,7 +165,7 @@ namespace VSX.UniversalVehicleCombat.Loadout
 
         protected virtual void Awake()
         {
-            loadoutManager.onLoadoutChanged.AddListener(OnLoadoutChanged);
+           
 
             slotButtonsListController.onButtonClicked.AddListener(OnSlotClicked);
             moduleButtonsListController.onButtonClicked.AddListener(OnModuleClicked);
@@ -167,12 +175,38 @@ namespace VSX.UniversalVehicleCombat.Loadout
 
         protected virtual void Start()
         {
+            //  FIRST: Try Instance (best way)
+            if (LoadoutManager.Instance != null)
+            {
+                loadoutManager = LoadoutManager.Instance;
+            }
+            else
+            {
+                //  fallback (in case Instance not ready)
+                loadoutManager = FindObjectOfType<LoadoutManager>();
+            }
+
+            //  FINAL check
+            if (loadoutManager == null)
+            {
+                Debug.LogError("LoadoutManager NOT FOUND!");
+                return;
+            }
+
+            Debug.Log(" LoadoutManager FOUND: " + loadoutManager.name);
+
+            //  NOW SAFE
+            loadoutManager.onLoadoutChanged.AddListener(OnLoadoutChanged);
+
+            SetupStartUI();
+
             EnterVehicleSelection();
             OnLoadoutChanged();
 
-
-
+            SetupContinueButton();
         }
+
+
 
 
         /// <summary>
@@ -551,18 +585,109 @@ namespace VSX.UniversalVehicleCombat.Loadout
         /// <param name="index">The mission index in the Mission Scene Names list.</param>
         public virtual void StartMission()
         {
+
+            
             int missionIndex = loadoutManager.LoadoutData.currentMissionIndex;
 
             if (missionSceneNames.Count > missionIndex)
             {
                 loadoutManager.SavePersistentData();
                 SceneManager.LoadScene(missionSceneNames[missionIndex]);
+                Debug.Log("Loading mission index: " + missionIndex);
             }
             else
             {
                 Debug.Log("Campaign Finished!");
             }
         }
+
+        public void ContinueGame()
+        {
+            // Do nothing, just start mission normally
+
+            loadoutManager.isNewGameStart = false;
+            Debug.Log("IsNewGameStart: " + loadoutManager.isNewGameStart);
+            StartMission();
+        }
+
+        void SetupContinueButton()
+        {
+            int missionIndex = loadoutManager.LoadoutData.currentMissionIndex;
+
+            // CASE 1: Player finished ALL levels
+            if (missionIndex >= missionSceneNames.Count)
+            {
+                Debug.Log("Campaign Completed");
+
+                // Hide Continue button
+                continueButton.SetActive(false);
+
+                // Optional: change text to completed
+                if (continueText != null)
+                {
+                    continueText.text = "Campaign Completed";
+                }
+
+                return;
+            }
+
+            //  CASE 2: Player has progress
+            if (missionIndex > 0)
+            {
+                continueButton.SetActive(true);
+
+                if (continueText != null)
+                {
+                    continueText.text = "Continue (Level " + (missionIndex + 1) + ")";
+                }
+            }
+            //  CASE 3: New player
+            else
+            {
+                continueButton.SetActive(false);
+            }
+        }
+
+        public void NewGame()
+        {
+            loadoutManager.LoadoutData.currentMissionIndex = 0;
+            LeaderboardManager.Instance.currentScore = 0;
+            loadoutManager.SavePersistentData();
+
+            loadoutManager.isNewGameStart = false;
+            Debug.Log("IsNewGameStart: " + loadoutManager.isNewGameStart);
+
+            Debug.Log(" New Game Started");
+
+            startMenuPanel.SetActive(false);
+            loadoutPanel.SetActive(true);
+        }
+
+        void SetupStartUI()
+        {
+            if (loadoutManager.isNewGameStart)
+            {
+                //  FIRST TIME
+                startMenuPanel.SetActive(true);
+                loadoutPanel.SetActive(false);
+
+                SetupContinueButton(); // optional (your logic)
+            }
+            else
+            {
+                //  BETWEEN LEVELS
+                startMenuPanel.SetActive(false);
+                loadoutPanel.SetActive(true);
+            }
+        }
+
+        public void QuitApplication()
+        {
+            Application.Quit();
+
+        }
     }
+
+
 }
 
