@@ -67,7 +67,25 @@ namespace VSX.UniversalVehicleCombat.Loadout
 
         protected virtual void Awake()
         {
-            overrideControllers = new List<LoadoutItemInfoOverrideController>(transform.GetComponentsInChildren<LoadoutItemInfoOverrideController>());
+            // FIX: Always get correct instance
+            if (LoadoutManager.Instance != null)
+            {
+                loadoutManager = LoadoutManager.Instance;
+            }
+            else
+            {
+                loadoutManager = FindObjectOfType<LoadoutManager>();
+            }
+
+            if (loadoutManager == null)
+            {
+                Debug.LogError("LoadoutManager not found in LoadoutItemInfoController!");
+                return;
+            }
+
+            overrideControllers = new List<LoadoutItemInfoOverrideController>(
+                transform.GetComponentsInChildren<LoadoutItemInfoOverrideController>());
+
             foreach (LoadoutItemInfoOverrideController overrideController in overrideControllers)
             {
                 overrideController.ItemInfoController = this;

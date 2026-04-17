@@ -16,7 +16,7 @@ namespace VSX.UniversalVehicleCombat.Loadout
     {
         [Tooltip("The loadout manager to display UI for.")]
         [SerializeField]
-        protected LoadoutManager loadoutManager;
+        private LoadoutManager loadoutManager;
 
 
         [Header("Vehicle Selection")]
@@ -194,6 +194,9 @@ namespace VSX.UniversalVehicleCombat.Loadout
             }
 
             Debug.Log(" LoadoutManager FOUND: " + loadoutManager.name);
+
+            loadoutManager.SetItems(loadoutManager.Items);
+            loadoutManager.onDataLoad.AddListener(OnLoadoutChanged);
 
             //  NOW SAFE
             loadoutManager.onLoadoutChanged.AddListener(OnLoadoutChanged);
@@ -517,10 +520,27 @@ namespace VSX.UniversalVehicleCombat.Loadout
                 {
                     LoadoutVehicleItem selectedVehicle = loadoutManager.Items.vehicles[selectedIndex];
 
+                    int progress = loadoutManager.LoadoutData.currentMissionIndex;
+                    bool unlocked = selectedIndex <= progress;
+
+                    // --- STATS DISPLAY ---
                     if (fighterStatUI != null)
                     {
-                        fighterStatUI.DisplayStats(selectedVehicle);
+                        if (unlocked)
+                        {
+                            fighterStatUI.DisplayStats(selectedVehicle);
+                        }
+                        else
+                        {
+                            fighterStatUI.DisplayLocked(selectedIndex + 1);
+                        }
                     }
+
+                    // --- EQUIP BUTTON ---
+                    /*if (equipVehicleButton != null)
+                    {
+                        equipVehicleButton.SetActive(unlocked);
+                    }*/
                 }
             }
 
@@ -585,19 +605,25 @@ namespace VSX.UniversalVehicleCombat.Loadout
         /// <param name="index">The mission index in the Mission Scene Names list.</param>
         public virtual void StartMission()
         {
+            int selectedIndex = loadoutManager.LoadoutData.SelectedSlot.selectedVehicleIndex;
 
-            
+            if (loadoutManager.useVehicleUnlockSystem)
+            {
+                int progress = loadoutManager.LoadoutData.currentMissionIndex;
+
+                if (selectedIndex > progress)
+                {
+                    Debug.Log("Cannot start mission with locked vehicle!");
+                    return;
+                }
+            }
+
             int missionIndex = loadoutManager.LoadoutData.currentMissionIndex;
 
             if (missionSceneNames.Count > missionIndex)
             {
                 loadoutManager.SavePersistentData();
                 SceneManager.LoadScene(missionSceneNames[missionIndex]);
-                Debug.Log("Loading mission index: " + missionIndex);
-            }
-            else
-            {
-                Debug.Log("Campaign Finished!");
             }
         }
 

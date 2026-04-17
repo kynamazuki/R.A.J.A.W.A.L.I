@@ -1,6 +1,7 @@
-﻿using UnityEngine;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.Events;
 
 
@@ -90,6 +91,7 @@ namespace VSX.UniversalVehicleCombat.Loadout
         public LoadoutData LoadoutData { get { return loadoutData; } }
 
         public bool isNewGameStart = true;
+        [SerializeField] public bool useVehicleUnlockSystem = true;
 
         protected virtual void Reset()
         {
@@ -209,14 +211,33 @@ namespace VSX.UniversalVehicleCombat.Loadout
             if (items == null) return;
 
 
+
             // Fill the slots with data
 
             if (items != null)
             {
                 for (int i = 0; i < loadoutData.Slots.Count; ++i)
                 {
-                    loadoutData.Slots[i].selectedVehicleIndex = i < items.vehicles.Count ? i : -1;
+                    if (useVehicleUnlockSystem)
+                    {
+                        int progress = loadoutData.currentMissionIndex;
 
+                        if (i < items.vehicles.Count)
+                        {
+                            loadoutData.Slots[i].selectedVehicleIndex = i; // ALWAYS assign
+                        }
+                        else
+                        {
+                            loadoutData.Slots[i].selectedVehicleIndex = -1;
+                        }
+                    }
+                    else
+                    {
+                        // No lock system → allow all
+                        loadoutData.Slots[i].selectedVehicleIndex = i < items.vehicles.Count ? i : -1;
+                    }
+
+                    // 🚨 KEEP THIS PART (modules setup)
                     if (loadoutData.Slots[i].selectedVehicleIndex != -1)
                     {
                         List<int> defaultModules = GetDefaultModules(loadoutData.Slots[i].selectedVehicleIndex);
@@ -393,6 +414,17 @@ namespace VSX.UniversalVehicleCombat.Loadout
         /// <param name="index">The index of the vehicle to select.</param>
         public virtual void SelectVehicle(int vehicleIndex)
         {
+            if (useVehicleUnlockSystem)
+            {
+                int progress = loadoutData.currentMissionIndex;
+
+                if (vehicleIndex > progress)
+                {
+                    Debug.Log("Vehicle Locked!");
+                    return;
+                }
+            }
+
             if (selectableVehicleIndexes.IndexOf(vehicleIndex) == -1) return;
             if (vehicleIndex == workingSlot.selectedVehicleIndex) return;
            
@@ -504,9 +536,24 @@ namespace VSX.UniversalVehicleCombat.Loadout
         {
             if (loadoutData == null) return null;
             if (loadoutData.SelectedSlot == null) return null;
-            if (loadoutData.SelectedSlot.selectedVehicleIndex == -1) return null;
 
-            return items.vehicles[loadoutData.Slots[loadoutData.selectedSlotIndex].selectedVehicleIndex];
+            int index = loadoutData.SelectedSlot.selectedVehicleIndex;
+
+            if (index == -1) return null;
+
+            // LOCK CHECK
+            if (useVehicleUnlockSystem)
+            {
+                int progress = loadoutData.currentMissionIndex;
+
+                if (index > progress)
+                {
+                    Debug.Log("Using locked vehicle blocked!");
+                    return null;
+                }
+            }
+
+            return items.vehicles[index];
         }
 
 
@@ -533,8 +580,32 @@ namespace VSX.UniversalVehicleCombat.Loadout
                         }
                     }
                 }
+                //if (!used) selectableVehicleIndexes.Add(i);
 
-                if (!used) selectableVehicleIndexes.Add(i);
+                if (useVehicleUnlockSystem)
+                {
+                    int progress = loadoutData.currentMissionIndex;
+
+                    bool unlocked = false;
+
+                    if (i == 0) unlocked = true;
+                    else if (i == 1 && progress >= 1) unlocked = true;
+                    else if (i == 2 && progress >= 2) unlocked = true;
+                    else if (i == 3 && progress >= 3) unlocked = true;
+
+                    if (!used && unlocked)
+                    {
+                        selectableVehicleIndexes.Add(i);
+                    }
+                }
+                else
+                {
+                    // NO LOCK SYSTEM → allow all
+                    if (!used)
+                    {
+                        selectableVehicleIndexes.Add(i);
+                    }
+                }
             }
 
 
@@ -859,6 +930,8 @@ namespace VSX.UniversalVehicleCombat.Loadout
                             }
                             else
                             {
+                               
+
                                 // Check exclusivity
                                 if (exclusiveVehicles)
                                 {
