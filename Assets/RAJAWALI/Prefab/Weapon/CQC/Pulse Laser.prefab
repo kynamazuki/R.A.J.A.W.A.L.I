@@ -344,7 +344,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9015464727045139873, guid: 0263bddc0d9bfc34890c97870aefb0c1, type: 3}
       propertyPath: healthModifier.defaultDamageValue
-      value: 40
+      value: 100
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0263bddc0d9bfc34890c97870aefb0c1, type: 3}
@@ -461,7 +461,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9015464727045139873, guid: 0263bddc0d9bfc34890c97870aefb0c1, type: 3}
       propertyPath: healthModifier.defaultDamageValue
-      value: 40
+      value: 100
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0263bddc0d9bfc34890c97870aefb0c1, type: 3}

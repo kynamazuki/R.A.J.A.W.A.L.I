@@ -32,8 +32,10 @@ public class PlayerDeathHandler : MonoBehaviour
     {
         Debug.Log("PLAYER DESTROYED (Damageable)");
 
+
         if (PlayerProfileUI.Instance != null)
         {
+
             PlayerProfileUI.Instance.ShowAfterDeath();
         }
     }

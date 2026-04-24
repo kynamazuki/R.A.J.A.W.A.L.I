@@ -1,79 +1,82 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using VSX.UniversalVehicleCombat;
 
 public class ScrollToTertier : MonoBehaviour
 {
-    [Header("Weapons")]
-    public GameObject FirstWeapon;
-    public GameObject SecondWeapon;
+    [Header("Weapon Mounts")]
+    public GameObject CQC_Mount;
+    public GameObject Cannon_Mount;
+
+    public TriggerablesManager triggerablesManager;
 
     private GeneralInputAsset defaultControl;
-    private float mouseScrollY;
-
-    // Tracks whether the joystick button was pressed
+    private bool switchToFirst;
+    private bool switchToSecond;
     private bool switchPressed;
 
     private void Awake()
     {
-        SecondWeapon.SetActive(false); // Ensure the secondary weapon is inactive initially
-
         defaultControl = new GeneralInputAsset();
 
-        // Scroll wheel input
-        defaultControl.WeaponControls.ScrollToTertier.performed += ctx => mouseScrollY = ctx.ReadValue<float>();
+        // Mouse4 → CQC
+        defaultControl.WeaponControls.SwitchToFirst.performed += ctx => switchToFirst = true;
 
-        // Joystick button input
+        // Mouse5 → Cannon
+        defaultControl.WeaponControls.SwitchToSecond.performed += ctx => switchToSecond = true;
+
+        // Joystick toggle
         defaultControl.WeaponControls.SwitchWeapon.performed += ctx => switchPressed = true;
+    }
+
+    private void Start()
+    {
+        ActivateCQC(); // default weapon
     }
 
     private void Update()
     {
-        // Scroll down ? switch to second weapon
-        if (mouseScrollY < 0)
+        if (switchToFirst)
         {
-            SwitchToSecondWeapon();
-            mouseScrollY = 0;
-        }
-        // Scroll up ? switch back to first weapon
-        else if (mouseScrollY > 0)
-        {
-            SwitchToFirstWeapon();
-            mouseScrollY = 0;
+            ActivateCQC();
+            switchToFirst = false;
         }
 
-        // Joystick button pressed ? toggle weapons
+        if (switchToSecond)
+        {
+            ActivateCannon();
+            switchToSecond = false;
+        }
+
         if (switchPressed)
         {
-            if (FirstWeapon.activeSelf)
-                SwitchToSecondWeapon();
+            if (CQC_Mount.activeSelf)
+                ActivateCannon();
             else
-                SwitchToFirstWeapon();
+                ActivateCQC();
 
             switchPressed = false;
         }
     }
 
-    private void SwitchToFirstWeapon()
+    // ✅ FIXED FUNCTIONS
+    private void ActivateCQC()
     {
-        FirstWeapon.SetActive(true);
-        SecondWeapon.SetActive(false);
+        CQC_Mount.SetActive(true);
+        Cannon_Mount.SetActive(false);
+
     }
 
-    private void SwitchToSecondWeapon()
+    private void ActivateCannon()
     {
-        FirstWeapon.SetActive(false);
-        SecondWeapon.SetActive(true);
+        CQC_Mount.SetActive(false);
+        Cannon_Mount.SetActive(true);
+
+
     }
 
-    private void OnEnable()
-    {
-        defaultControl.Enable();
-    }
-
-    private void OnDisable()
-    {
-        defaultControl.Disable();
-    }
+    private void OnEnable() => defaultControl.Enable();
+    private void OnDisable() => defaultControl.Disable();
 }

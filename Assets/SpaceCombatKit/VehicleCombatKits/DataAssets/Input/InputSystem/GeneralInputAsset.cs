@@ -475,10 +475,28 @@ public partial class @GeneralInputAsset: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""ScrollToTertier"",
+                    ""name"": ""ScrollMissile"",
                     ""type"": ""PassThrough"",
                     ""id"": ""81959899-5edd-4d13-b175-1775ff0828d1"",
                     ""expectedControlType"": ""Axis"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""SwitchToFirst"",
+                    ""type"": ""Button"",
+                    ""id"": ""6bc9f131-78c9-434e-9514-0512b3795954"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""SwitchToSecond"",
+                    ""type"": ""Button"",
+                    ""id"": ""618726ca-a498-43b8-80ce-022ff04e59b2"",
+                    ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
@@ -589,7 +607,18 @@ public partial class @GeneralInputAsset: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""MouseKeyboard"",
-                    ""action"": ""ScrollToTertier"",
+                    ""action"": ""ScrollMissile"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""44f6500b-d2fd-4e11-b42d-05efd5543a45"",
+                    ""path"": ""<Keyboard>/m"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""MouseKeyboard"",
+                    ""action"": ""ScrollMissile"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -612,6 +641,50 @@ public partial class @GeneralInputAsset: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""SwitchWeapon"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d8a28339-f3ae-4bd1-bfba-a8312691195e"",
+                    ""path"": ""<Mouse>/backButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""MouseKeyboard"",
+                    ""action"": ""SwitchToFirst"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""011aaee0-f6f3-474a-83eb-f32b1a74d28a"",
+                    ""path"": ""<Keyboard>/g"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""MouseKeyboard"",
+                    ""action"": ""SwitchToFirst"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""765c422e-7820-4a05-832f-741c575a07e3"",
+                    ""path"": ""<Mouse>/forwardButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""MouseKeyboard"",
+                    ""action"": ""SwitchToSecond"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""4c34f020-600e-43ef-8dcb-e93ca10d7d7a"",
+                    ""path"": ""<Keyboard>/g"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""MouseKeyboard"",
+                    ""action"": ""SwitchToSecond"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -670,7 +743,9 @@ public partial class @GeneralInputAsset: IInputActionCollection2, IDisposable
         m_WeaponControls = asset.FindActionMap("Weapon Controls", throwIfNotFound: true);
         m_WeaponControls_FirePrimary = m_WeaponControls.FindAction("Fire Primary", throwIfNotFound: true);
         m_WeaponControls_FireSecondary = m_WeaponControls.FindAction("Fire Secondary", throwIfNotFound: true);
-        m_WeaponControls_ScrollToTertier = m_WeaponControls.FindAction("ScrollToTertier", throwIfNotFound: true);
+        m_WeaponControls_ScrollMissile = m_WeaponControls.FindAction("ScrollMissile", throwIfNotFound: true);
+        m_WeaponControls_SwitchToFirst = m_WeaponControls.FindAction("SwitchToFirst", throwIfNotFound: true);
+        m_WeaponControls_SwitchToSecond = m_WeaponControls.FindAction("SwitchToSecond", throwIfNotFound: true);
         m_WeaponControls_SwitchWeapon = m_WeaponControls.FindAction("SwitchWeapon", throwIfNotFound: true);
     }
 
@@ -945,7 +1020,9 @@ public partial class @GeneralInputAsset: IInputActionCollection2, IDisposable
     private List<IWeaponControlsActions> m_WeaponControlsActionsCallbackInterfaces = new List<IWeaponControlsActions>();
     private readonly InputAction m_WeaponControls_FirePrimary;
     private readonly InputAction m_WeaponControls_FireSecondary;
-    private readonly InputAction m_WeaponControls_ScrollToTertier;
+    private readonly InputAction m_WeaponControls_ScrollMissile;
+    private readonly InputAction m_WeaponControls_SwitchToFirst;
+    private readonly InputAction m_WeaponControls_SwitchToSecond;
     private readonly InputAction m_WeaponControls_SwitchWeapon;
     public struct WeaponControlsActions
     {
@@ -953,7 +1030,9 @@ public partial class @GeneralInputAsset: IInputActionCollection2, IDisposable
         public WeaponControlsActions(@GeneralInputAsset wrapper) { m_Wrapper = wrapper; }
         public InputAction @FirePrimary => m_Wrapper.m_WeaponControls_FirePrimary;
         public InputAction @FireSecondary => m_Wrapper.m_WeaponControls_FireSecondary;
-        public InputAction @ScrollToTertier => m_Wrapper.m_WeaponControls_ScrollToTertier;
+        public InputAction @ScrollMissile => m_Wrapper.m_WeaponControls_ScrollMissile;
+        public InputAction @SwitchToFirst => m_Wrapper.m_WeaponControls_SwitchToFirst;
+        public InputAction @SwitchToSecond => m_Wrapper.m_WeaponControls_SwitchToSecond;
         public InputAction @SwitchWeapon => m_Wrapper.m_WeaponControls_SwitchWeapon;
         public InputActionMap Get() { return m_Wrapper.m_WeaponControls; }
         public void Enable() { Get().Enable(); }
@@ -970,9 +1049,15 @@ public partial class @GeneralInputAsset: IInputActionCollection2, IDisposable
             @FireSecondary.started += instance.OnFireSecondary;
             @FireSecondary.performed += instance.OnFireSecondary;
             @FireSecondary.canceled += instance.OnFireSecondary;
-            @ScrollToTertier.started += instance.OnScrollToTertier;
-            @ScrollToTertier.performed += instance.OnScrollToTertier;
-            @ScrollToTertier.canceled += instance.OnScrollToTertier;
+            @ScrollMissile.started += instance.OnScrollMissile;
+            @ScrollMissile.performed += instance.OnScrollMissile;
+            @ScrollMissile.canceled += instance.OnScrollMissile;
+            @SwitchToFirst.started += instance.OnSwitchToFirst;
+            @SwitchToFirst.performed += instance.OnSwitchToFirst;
+            @SwitchToFirst.canceled += instance.OnSwitchToFirst;
+            @SwitchToSecond.started += instance.OnSwitchToSecond;
+            @SwitchToSecond.performed += instance.OnSwitchToSecond;
+            @SwitchToSecond.canceled += instance.OnSwitchToSecond;
             @SwitchWeapon.started += instance.OnSwitchWeapon;
             @SwitchWeapon.performed += instance.OnSwitchWeapon;
             @SwitchWeapon.canceled += instance.OnSwitchWeapon;
@@ -986,9 +1071,15 @@ public partial class @GeneralInputAsset: IInputActionCollection2, IDisposable
             @FireSecondary.started -= instance.OnFireSecondary;
             @FireSecondary.performed -= instance.OnFireSecondary;
             @FireSecondary.canceled -= instance.OnFireSecondary;
-            @ScrollToTertier.started -= instance.OnScrollToTertier;
-            @ScrollToTertier.performed -= instance.OnScrollToTertier;
-            @ScrollToTertier.canceled -= instance.OnScrollToTertier;
+            @ScrollMissile.started -= instance.OnScrollMissile;
+            @ScrollMissile.performed -= instance.OnScrollMissile;
+            @ScrollMissile.canceled -= instance.OnScrollMissile;
+            @SwitchToFirst.started -= instance.OnSwitchToFirst;
+            @SwitchToFirst.performed -= instance.OnSwitchToFirst;
+            @SwitchToFirst.canceled -= instance.OnSwitchToFirst;
+            @SwitchToSecond.started -= instance.OnSwitchToSecond;
+            @SwitchToSecond.performed -= instance.OnSwitchToSecond;
+            @SwitchToSecond.canceled -= instance.OnSwitchToSecond;
             @SwitchWeapon.started -= instance.OnSwitchWeapon;
             @SwitchWeapon.performed -= instance.OnSwitchWeapon;
             @SwitchWeapon.canceled -= instance.OnSwitchWeapon;
@@ -1052,7 +1143,9 @@ public partial class @GeneralInputAsset: IInputActionCollection2, IDisposable
     {
         void OnFirePrimary(InputAction.CallbackContext context);
         void OnFireSecondary(InputAction.CallbackContext context);
-        void OnScrollToTertier(InputAction.CallbackContext context);
+        void OnScrollMissile(InputAction.CallbackContext context);
+        void OnSwitchToFirst(InputAction.CallbackContext context);
+        void OnSwitchToSecond(InputAction.CallbackContext context);
         void OnSwitchWeapon(InputAction.CallbackContext context);
     }
 }

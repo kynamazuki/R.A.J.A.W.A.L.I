@@ -140,6 +140,7 @@ namespace VSX.UniversalVehicleCombat.Loadout
 
         [SerializeField] GameObject startMenuPanel;   // NewGame + Continue buttons
         [SerializeField] GameObject loadoutPanel;     // Your normal loadout UI
+        [SerializeField] private TMP_Text launchButtonText;
 
         /*  [Tooltip("Event called when the loadout menu goes into the vehicle selection mode.")]
           public UnityEvent onVehicleSelectionMode; */
@@ -205,6 +206,7 @@ namespace VSX.UniversalVehicleCombat.Loadout
 
             EnterVehicleSelection();
             OnLoadoutChanged();
+            UpdateLaunchButtonText();
 
             SetupContinueButton();
         }
@@ -543,7 +545,7 @@ namespace VSX.UniversalVehicleCombat.Loadout
                     }*/
                 }
             }
-
+            UpdateLaunchButtonText();
 
             // Activate/deactivate the module info
             /*
@@ -627,6 +629,22 @@ namespace VSX.UniversalVehicleCombat.Loadout
             }
         }
 
+        void UpdateLaunchButtonText()
+        {
+            if (launchButtonText == null || loadoutManager == null) return;
+
+            int missionIndex = loadoutManager.LoadoutData.currentMissionIndex;
+
+            // If all levels finished
+            if (missionIndex >= missionSceneNames.Count)
+            {
+                launchButtonText.text = "All Levels Complete";
+                return;
+            }
+
+            launchButtonText.text = "Launch Level " + (missionIndex + 1);
+        }
+
         public void ContinueGame()
         {
             // Do nothing, just start mission normally
@@ -687,6 +705,7 @@ namespace VSX.UniversalVehicleCombat.Loadout
 
             startMenuPanel.SetActive(false);
             loadoutPanel.SetActive(true);
+            UpdateLaunchButtonText();
         }
 
         void SetupStartUI()

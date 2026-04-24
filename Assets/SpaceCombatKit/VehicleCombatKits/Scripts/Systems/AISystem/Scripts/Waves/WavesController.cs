@@ -124,11 +124,19 @@ namespace VSX.UniversalVehicleCombat
 
                     if (loadoutManager != null)
                     {
-                        loadoutManager.LoadoutData.currentMissionIndex++;
-                        loadoutManager.isNewGameStart = false;
-                        Debug.Log("IsNewGameStart: " + loadoutManager.isNewGameStart);
+                        var data = loadoutManager.LoadoutData;
 
-                        Debug.Log("MISSION COMPLETE → NEW INDEX: " + loadoutManager.LoadoutData.currentMissionIndex);
+                        // STORE RESULT BEFORE increment
+                        data.showUnlockPopup = true;
+                        data.lastCompletedMissionIndex = data.currentMissionIndex;
+                        
+
+                        //  NOW increase progress
+                        data.currentMissionIndex++;
+
+                        loadoutManager.isNewGameStart = false;
+
+                        Debug.Log("MISSION COMPLETE → NEW INDEX: " + data.currentMissionIndex);
 
                         loadoutManager.SavePersistentData();
                     }
@@ -166,8 +174,13 @@ namespace VSX.UniversalVehicleCombat
 
         IEnumerator ReturnToLoadoutAfterDelay()
         {
-            // Wait time (you can change this)
-            yield return new WaitForSeconds(3f);
+            yield return new WaitForSeconds(2f); // short pause after win
+
+            // Fade out
+            if (ScreenFader.Instance != null)
+            {
+                yield return ScreenFader.Instance.FadeOut();
+            }
 
             UnityEngine.SceneManagement.SceneManager.LoadScene(loadoutSceneName);
         }

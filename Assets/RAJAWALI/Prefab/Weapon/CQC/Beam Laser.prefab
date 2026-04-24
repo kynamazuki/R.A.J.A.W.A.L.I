@@ -332,6 +332,10 @@ PrefabInstance:
       propertyPath: range
       value: 1000
       objectReference: {fileID: 0}
+    - target: {fileID: 9015464727045139873, guid: 9214d9b174f51184882a046d265223b6, type: 3}
+      propertyPath: healthModifier.defaultDamageValue
+      value: 300
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9214d9b174f51184882a046d265223b6, type: 3}
 --- !u!120 &4762163205480138716 stripped
@@ -585,6 +589,10 @@ PrefabInstance:
     - target: {fileID: 7876167353978964090, guid: 9214d9b174f51184882a046d265223b6, type: 3}
       propertyPath: m_Parameters.widthMultiplier
       value: 0.33
+      objectReference: {fileID: 0}
+    - target: {fileID: 9015464727045139873, guid: 9214d9b174f51184882a046d265223b6, type: 3}
+      propertyPath: healthModifier.defaultDamageValue
+      value: 300
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9214d9b174f51184882a046d265223b6, type: 3}

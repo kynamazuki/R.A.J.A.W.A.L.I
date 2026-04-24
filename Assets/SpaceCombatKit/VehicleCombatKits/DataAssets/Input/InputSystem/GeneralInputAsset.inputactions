@@ -453,10 +453,28 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "ScrollToTertier",
+                    "name": "ScrollMissile",
                     "type": "PassThrough",
                     "id": "81959899-5edd-4d13-b175-1775ff0828d1",
                     "expectedControlType": "Axis",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "SwitchToFirst",
+                    "type": "Button",
+                    "id": "6bc9f131-78c9-434e-9514-0512b3795954",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "SwitchToSecond",
+                    "type": "Button",
+                    "id": "618726ca-a498-43b8-80ce-022ff04e59b2",
+                    "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
@@ -567,7 +585,18 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "MouseKeyboard",
-                    "action": "ScrollToTertier",
+                    "action": "ScrollMissile",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "44f6500b-d2fd-4e11-b42d-05efd5543a45",
+                    "path": "<Keyboard>/m",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "MouseKeyboard",
+                    "action": "ScrollMissile",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -590,6 +619,50 @@
                     "processors": "",
                     "groups": "",
                     "action": "SwitchWeapon",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "d8a28339-f3ae-4bd1-bfba-a8312691195e",
+                    "path": "<Mouse>/backButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "MouseKeyboard",
+                    "action": "SwitchToFirst",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "011aaee0-f6f3-474a-83eb-f32b1a74d28a",
+                    "path": "<Keyboard>/g",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "MouseKeyboard",
+                    "action": "SwitchToFirst",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "765c422e-7820-4a05-832f-741c575a07e3",
+                    "path": "<Mouse>/forwardButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "MouseKeyboard",
+                    "action": "SwitchToSecond",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "4c34f020-600e-43ef-8dcb-e93ca10d7d7a",
+                    "path": "<Keyboard>/g",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "MouseKeyboard",
+                    "action": "SwitchToSecond",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

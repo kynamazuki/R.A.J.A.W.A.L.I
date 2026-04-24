@@ -12,6 +12,9 @@ public class PlayerProfileUI : MonoBehaviour
     public GameObject namePanel;
     public LoadoutManager loadoutManager;
 
+    public CanvasGroup canvasGroup;
+    [SerializeField] private float fadeDuration = 3f;
+
     private void Awake()
     {
         Instance = this;
@@ -56,6 +59,11 @@ public class PlayerProfileUI : MonoBehaviour
         namePanel.SetActive(false);
     }
 
+    public void HideNameInput()
+    {
+        namePanel.SetActive(false);
+    }
+
     public void ShowAfterDeath()
     {
         StartCoroutine(ShowUIRoutine());
@@ -69,5 +77,27 @@ public class PlayerProfileUI : MonoBehaviour
 
         if (LeaderboardUI.Instance != null)
             LeaderboardUI.Instance.ShowLeaderboard();
+
+        StartCoroutine(FadeIn());
+    }
+
+    IEnumerator FadeIn()
+    {
+        canvasGroup.alpha = 0;
+        canvasGroup.interactable = false;
+        canvasGroup.blocksRaycasts = false;
+
+        float t = 0;
+
+        while (t < fadeDuration)
+        {
+            t += Time.deltaTime;
+            canvasGroup.alpha = t / fadeDuration;
+            yield return null;
+        }
+
+        canvasGroup.alpha = 1;
+        canvasGroup.interactable = true;
+        canvasGroup.blocksRaycasts = true;
     }
 }

@@ -110,6 +110,7 @@ public class LeaderboardUI : MonoBehaviour
         }
 
         HideLeaderboard();
+        PlayerProfileUI.Instance.HideNameInput();
 
         SceneManager.LoadScene(loadoutSceneName);
     }

@@ -56,15 +56,15 @@ MonoBehaviour:
     moduleItem: {fileID: 331220912393201343, guid: 98995d4c7c64d884894b93ac7dd52161, type: 3}
   - moduleMountIndex: 1
     moduleItem: {fileID: 331220912393201343, guid: fb3c60dce5c2d0f438d0e7cd818efbbf, type: 3}
-  - moduleMountIndex: 1
+  - moduleMountIndex: 2
     moduleItem: {fileID: 331220912393201343, guid: ea3b5b920b6566442b9edc2e8b9542d9, type: 3}
-  - moduleMountIndex: 1
+  - moduleMountIndex: 3
     moduleItem: {fileID: 331220912393201343, guid: 71b81a23917732346b4528be28fe7458, type: 3}
-  - moduleMountIndex: 2
+  - moduleMountIndex: 4
     moduleItem: {fileID: 7939946379041729886, guid: bad62af6dc8e16a4b9354acac4c0b49b, type: 3}
-  - moduleMountIndex: 2
+  - moduleMountIndex: 4
     moduleItem: {fileID: 7449292546808003860, guid: 239d16f7f7a8ab447aa51fce00c40342, type: 3}
-  - moduleMountIndex: 2
+  - moduleMountIndex: 4
     moduleItem: {fileID: 331220912393201343, guid: 73ff50e2a9ccc4b43b811cd32718d5d0, type: 3}
   description: "Type: Strike Bomber\t\t\t   Armor: \nPower: 100 AS7-D \t\t\t   Shield:
     \nAfterburner/Cooldown: 30s\t   Speed: \nLoadout Default : 4 CQC\r   \t\t\t\t\t         
@@ -77,7 +77,9 @@ MonoBehaviour:
   - {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
   defaultLoadout:
   - {fileID: 1325631859568036413, guid: b3156ba23cbc08348b9931aacbb3c3b1, type: 3}
+  - {fileID: 114115692733585616, guid: 0c3a3266b33b61a43a0295feff4c9a7d, type: 3}
   - {fileID: 114115692733585616, guid: 2ff5cd326cd79da4b940f9d7c9255f70, type: 3}
+  - {fileID: 114115692733585616, guid: 1ab812e1888142d488931f6db459c70e, type: 3}
   - {fileID: 9065839429239037063, guid: e030c1405df72174a803f0527f31c243, type: 3}
   locked: 0
   moduleMountViewAlignmentOffset: {x: 0, y: 0, z: 0}

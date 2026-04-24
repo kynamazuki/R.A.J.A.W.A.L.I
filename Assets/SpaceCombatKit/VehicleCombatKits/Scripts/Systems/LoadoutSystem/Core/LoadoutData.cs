@@ -22,6 +22,10 @@ namespace VSX.UniversalVehicleCombat.Loadout
         public int totalScore;
         public int currentMissionIndex;
 
+        public bool showUnlockPopup;
+        public int lastCompletedMissionIndex;
+        public int lastScore;
+
         public LoadoutData()
         {
             selectedSlotIndex = -1;
