@@ -9,12 +9,16 @@ public class MissileGroupController : MonoBehaviour
     private int currentIndex = 0;
     private GeneralInputAsset controls;
     private float scrollValue;
+    private bool switchPressed;
 
     private void Awake()
     {
         controls = new GeneralInputAsset();
 
         controls.WeaponControls.ScrollMissile.performed += ctx => scrollValue = ctx.ReadValue<float>();
+
+        //Joysticks
+        controls.WeaponControls.SwitchMissile.performed += ctx => switchPressed = true;
     }
 
     void Start()
@@ -24,6 +28,7 @@ public class MissileGroupController : MonoBehaviour
 
     void Update()
     {
+        // Mouse scroll
         if (scrollValue > 0)
         {
             PreviousMissile();
@@ -33,6 +38,13 @@ public class MissileGroupController : MonoBehaviour
         {
             NextMissile();
             scrollValue = 0;
+        }
+
+        //Joystick button (toggle next missile)
+        if (switchPressed)
+        {
+            NextMissile();
+            switchPressed = false;
         }
     }
 

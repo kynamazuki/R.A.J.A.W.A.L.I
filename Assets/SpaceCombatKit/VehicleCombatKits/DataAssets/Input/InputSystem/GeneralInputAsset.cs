@@ -509,6 +509,15 @@ public partial class @GeneralInputAsset: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""SwitchMissile"",
+                    ""type"": ""Button"",
+                    ""id"": ""4fd8de0d-f34b-474d-81ff-1e810207816c"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -687,6 +696,17 @@ public partial class @GeneralInputAsset: IInputActionCollection2, IDisposable
                     ""action"": ""SwitchToSecond"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""6edab7ab-4f97-4ef7-bbcb-4d659bd059ad"",
+                    ""path"": ""<HID::Saitek Saitek X52 Flight Control System>/button4"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SwitchMissile"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -747,6 +767,7 @@ public partial class @GeneralInputAsset: IInputActionCollection2, IDisposable
         m_WeaponControls_SwitchToFirst = m_WeaponControls.FindAction("SwitchToFirst", throwIfNotFound: true);
         m_WeaponControls_SwitchToSecond = m_WeaponControls.FindAction("SwitchToSecond", throwIfNotFound: true);
         m_WeaponControls_SwitchWeapon = m_WeaponControls.FindAction("SwitchWeapon", throwIfNotFound: true);
+        m_WeaponControls_SwitchMissile = m_WeaponControls.FindAction("SwitchMissile", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -1024,6 +1045,7 @@ public partial class @GeneralInputAsset: IInputActionCollection2, IDisposable
     private readonly InputAction m_WeaponControls_SwitchToFirst;
     private readonly InputAction m_WeaponControls_SwitchToSecond;
     private readonly InputAction m_WeaponControls_SwitchWeapon;
+    private readonly InputAction m_WeaponControls_SwitchMissile;
     public struct WeaponControlsActions
     {
         private @GeneralInputAsset m_Wrapper;
@@ -1034,6 +1056,7 @@ public partial class @GeneralInputAsset: IInputActionCollection2, IDisposable
         public InputAction @SwitchToFirst => m_Wrapper.m_WeaponControls_SwitchToFirst;
         public InputAction @SwitchToSecond => m_Wrapper.m_WeaponControls_SwitchToSecond;
         public InputAction @SwitchWeapon => m_Wrapper.m_WeaponControls_SwitchWeapon;
+        public InputAction @SwitchMissile => m_Wrapper.m_WeaponControls_SwitchMissile;
         public InputActionMap Get() { return m_Wrapper.m_WeaponControls; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1061,6 +1084,9 @@ public partial class @GeneralInputAsset: IInputActionCollection2, IDisposable
             @SwitchWeapon.started += instance.OnSwitchWeapon;
             @SwitchWeapon.performed += instance.OnSwitchWeapon;
             @SwitchWeapon.canceled += instance.OnSwitchWeapon;
+            @SwitchMissile.started += instance.OnSwitchMissile;
+            @SwitchMissile.performed += instance.OnSwitchMissile;
+            @SwitchMissile.canceled += instance.OnSwitchMissile;
         }
 
         private void UnregisterCallbacks(IWeaponControlsActions instance)
@@ -1083,6 +1109,9 @@ public partial class @GeneralInputAsset: IInputActionCollection2, IDisposable
             @SwitchWeapon.started -= instance.OnSwitchWeapon;
             @SwitchWeapon.performed -= instance.OnSwitchWeapon;
             @SwitchWeapon.canceled -= instance.OnSwitchWeapon;
+            @SwitchMissile.started -= instance.OnSwitchMissile;
+            @SwitchMissile.performed -= instance.OnSwitchMissile;
+            @SwitchMissile.canceled -= instance.OnSwitchMissile;
         }
 
         public void RemoveCallbacks(IWeaponControlsActions instance)
@@ -1147,5 +1176,6 @@ public partial class @GeneralInputAsset: IInputActionCollection2, IDisposable
         void OnSwitchToFirst(InputAction.CallbackContext context);
         void OnSwitchToSecond(InputAction.CallbackContext context);
         void OnSwitchWeapon(InputAction.CallbackContext context);
+        void OnSwitchMissile(InputAction.CallbackContext context);
     }
 }

@@ -487,6 +487,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "SwitchMissile",
+                    "type": "Button",
+                    "id": "4fd8de0d-f34b-474d-81ff-1e810207816c",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -663,6 +672,17 @@
                     "processors": "",
                     "groups": "MouseKeyboard",
                     "action": "SwitchToSecond",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "6edab7ab-4f97-4ef7-bbcb-4d659bd059ad",
+                    "path": "<HID::Saitek Saitek X52 Flight Control System>/button4",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SwitchMissile",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
