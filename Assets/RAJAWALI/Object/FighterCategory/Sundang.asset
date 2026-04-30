@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03b8e510a7493c84eb13402dace54d88, type: 3}
+  m_Name: Sundang
+  m_EditorClassIdentifier: 
+  categoryName: Sundang
+  categoryIcon: {fileID: 0}
+  fighterVariants:
+  - {fileID: 3558731961340264767, guid: ae67a8673a0eea84b9b1f2e3cac960ad, type: 3}
+  - {fileID: 3558731961340264767, guid: 7a3ea053f654f964abdcc585a9811d9f, type: 3}
+  - {fileID: 3558731961340264767, guid: 9f49662acfc5e9449917c10d0270e221, type: 3}
+  - {fileID: 3558731961340264767, guid: f89c9c9acf5c26a479b62fbc4f551665, type: 3}

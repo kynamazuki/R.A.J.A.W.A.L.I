@@ -169,6 +169,7 @@ namespace VSX.UniversalVehicleCombat.Loadout
            
 
             slotButtonsListController.onButtonClicked.AddListener(OnSlotClicked);
+
             moduleButtonsListController.onButtonClicked.AddListener(OnModuleClicked);
             moduleMountButtonsListController.onButtonClicked.AddListener(OnModuleMountClicked);
         }
@@ -203,12 +204,18 @@ namespace VSX.UniversalVehicleCombat.Loadout
             loadoutManager.onLoadoutChanged.AddListener(OnLoadoutChanged);
 
             SetupStartUI();
+            if (!loadoutManager.isNewGameStart)
+            {
+                loadoutPanel.SetActive(true);
+            }
+
 
             EnterVehicleSelection();
             OnLoadoutChanged();
             UpdateLaunchButtonText();
-
+            loadoutManager.SelectArcadeVisibleVehicle(0);
             SetupContinueButton();
+           
         }
 
 
@@ -248,7 +255,7 @@ namespace VSX.UniversalVehicleCombat.Loadout
         /// Cycle vehicle selection forward or back.
         /// </summary>
         /// <param name="forward">Whether to cycle forward.</param>
-        public virtual void CycleVehicleSelection(bool forward)
+        /*public virtual void CycleVehicleSelection(bool forward)
         {
             if (loadoutManager.SlotPerVehicle)
             {
@@ -258,6 +265,11 @@ namespace VSX.UniversalVehicleCombat.Loadout
             {
                 loadoutManager.CycleVehicleSelection(forward, wrapVehicles);
             }
+        }*/
+
+        public virtual void CycleVehicleSelection(bool forward)
+        {
+            loadoutManager.CycleArcadeVisibleVehicle(forward, wrapVehicles);
         }
 
 
@@ -472,7 +484,7 @@ namespace VSX.UniversalVehicleCombat.Loadout
 
             // Activate/deactivate the next vehicle selection button
 
-            if (selectNextVehicleButton != null)
+            /*if (selectNextVehicleButton != null)
             {
                 if (loadoutManager.SlotPerVehicle)
                 {
@@ -504,6 +516,19 @@ namespace VSX.UniversalVehicleCombat.Loadout
                                                         (wrapVehicles || loadoutManager.SelectableVehicleIndexes.IndexOf(loadoutManager.WorkingSlot.selectedVehicleIndex) > 0));
 
                 }
+            }*/
+
+            int arcadeIndex = loadoutManager.GetCurrentArcadeDisplayIndex();
+            int arcadeCount = loadoutManager.GetArcadeVisibleCount();
+
+            if (selectNextVehicleButton != null)
+            {
+                selectNextVehicleButton.SetActive(arcadeCount > 1 && (wrapVehicles || arcadeIndex < arcadeCount - 1));
+            }
+
+            if (selectPreviousVehicleButton != null)
+            {
+                selectPreviousVehicleButton.SetActive(arcadeCount > 1 && (wrapVehicles || arcadeIndex > 0));
             }
 
 
@@ -523,7 +548,8 @@ namespace VSX.UniversalVehicleCombat.Loadout
                     LoadoutVehicleItem selectedVehicle = loadoutManager.Items.vehicles[selectedIndex];
 
                     int progress = loadoutManager.LoadoutData.currentMissionIndex;
-                    bool unlocked = selectedIndex <= progress;
+                    int arcadeTier = loadoutManager.GetArcadeTierFromVehicleIndex(selectedIndex);
+                    bool unlocked = arcadeTier <= progress;
 
                     // --- STATS DISPLAY ---
                     if (fighterStatUI != null)
@@ -534,7 +560,10 @@ namespace VSX.UniversalVehicleCombat.Loadout
                         }
                         else
                         {
-                            fighterStatUI.DisplayLocked(selectedIndex + 1);
+                            int unlockLevel = arcadeTier + 1;
+                            fighterStatUI.DisplayLocked(unlockLevel);
+
+                         
                         }
                     }
 
@@ -598,6 +627,7 @@ namespace VSX.UniversalVehicleCombat.Loadout
         public virtual void MainMenu()
         {
             SceneManager.LoadScene(mainMenuSceneName);
+            LoadoutManager.Instance.OnDestroy();
         }
 
 
@@ -609,15 +639,13 @@ namespace VSX.UniversalVehicleCombat.Loadout
         {
             int selectedIndex = loadoutManager.LoadoutData.SelectedSlot.selectedVehicleIndex;
 
-            if (loadoutManager.useVehicleUnlockSystem)
-            {
-                int progress = loadoutManager.LoadoutData.currentMissionIndex;
+            int arcadeTier = loadoutManager.GetArcadeTierFromVehicleIndex(selectedIndex);
+            int progress = loadoutManager.LoadoutData.currentMissionIndex;
 
-                if (selectedIndex > progress)
-                {
-                    Debug.Log("Cannot start mission with locked vehicle!");
-                    return;
-                }
+            if (arcadeTier > progress)
+            {
+                Debug.Log("Cannot start mission with locked vehicle!");
+                return;
             }
 
             int missionIndex = loadoutManager.LoadoutData.currentMissionIndex;

@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03b8e510a7493c84eb13402dace54d88, type: 3}
+  m_Name: Badik
+  m_EditorClassIdentifier: 
+  categoryName: Badik
+  categoryIcon: {fileID: 0}
+  fighterVariants:
+  - {fileID: 3558731961340264767, guid: cf84040fb3232c542b761c8f2b3dc8ed, type: 3}
+  - {fileID: 3558731961340264767, guid: 1d539df6958f7c54ea7725eb42febfa7, type: 3}
+  - {fileID: 3558731961340264767, guid: 505d6f48145ee0647a89310dec3061db, type: 3}
+  - {fileID: 3558731961340264767, guid: e06b7b501a9dbd44f9ae3465695be96f, type: 3}

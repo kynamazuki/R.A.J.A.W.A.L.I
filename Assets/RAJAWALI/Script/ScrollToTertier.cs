@@ -17,6 +17,8 @@ public class ScrollToTertier : MonoBehaviour
     private bool switchToSecond;
     private bool switchPressed;
 
+    private bool usingCQC = true;   // ✅ track current mode ourselves
+
     private void Awake()
     {
         defaultControl = new GeneralInputAsset();
@@ -27,13 +29,16 @@ public class ScrollToTertier : MonoBehaviour
         // Mouse5 → Cannon
         defaultControl.WeaponControls.SwitchToSecond.performed += ctx => switchToSecond = true;
 
-        // Joystick toggle
+        // G key + joystick toggle
         defaultControl.WeaponControls.SwitchWeapon.performed += ctx => switchPressed = true;
     }
 
     private void Start()
     {
-        ActivateCQC(); // default weapon
+        ActivateCQC();
+        switchPressed = false;
+        switchToFirst = false;
+        switchToSecond = false;
     }
 
     private void Update()
@@ -43,16 +48,14 @@ public class ScrollToTertier : MonoBehaviour
             ActivateCQC();
             switchToFirst = false;
         }
-
-        if (switchToSecond)
+        else if (switchToSecond)
         {
             ActivateCannon();
             switchToSecond = false;
         }
-
-        if (switchPressed)
+        else if (switchPressed)
         {
-            if (CQC_Mount.activeSelf)
+            if (usingCQC)
                 ActivateCannon();
             else
                 ActivateCQC();
@@ -61,12 +64,12 @@ public class ScrollToTertier : MonoBehaviour
         }
     }
 
-    // ✅ FIXED FUNCTIONS
     private void ActivateCQC()
     {
         CQC_Mount.SetActive(true);
         Cannon_Mount.SetActive(false);
 
+        usingCQC = true;
     }
 
     private void ActivateCannon()
@@ -74,7 +77,7 @@ public class ScrollToTertier : MonoBehaviour
         CQC_Mount.SetActive(false);
         Cannon_Mount.SetActive(true);
 
-
+        usingCQC = false;
     }
 
     private void OnEnable() => defaultControl.Enable();

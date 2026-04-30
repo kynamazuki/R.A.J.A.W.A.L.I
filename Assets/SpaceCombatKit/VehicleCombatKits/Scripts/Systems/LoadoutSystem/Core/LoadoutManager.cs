@@ -92,6 +92,22 @@ namespace VSX.UniversalVehicleCombat.Loadout
 
         public bool isNewGameStart = true;
         [SerializeField] public bool useVehicleUnlockSystem = true;
+        [Header("Arcade Visible Fighters Only")]
+        [SerializeField]
+        private List<int> arcadeVisibleVehicleIndexes = new List<int>() { 0, 4, 8, 12 };
+
+        private int arcadeCurrentDisplayIndex = 0;
+
+        [Header("Fighter Category System")]
+        public List<FighterCategory> fighterCategories = new List<FighterCategory>();
+
+        private int selectedCategoryIndex = -1;
+        public int SelectedCategoryIndex => selectedCategoryIndex;
+
+        private List<int> selectableVariantIndexes = new List<int>();
+        public List<int> SelectableVariantIndexes => selectableVariantIndexes;
+
+        
 
         protected virtual void Reset()
         {
@@ -109,16 +125,21 @@ namespace VSX.UniversalVehicleCombat.Loadout
             if (Instance == null)
             {
                 Instance = this;
-                DontDestroyOnLoad(gameObject);
-
                 isNewGameStart = true;
             }
             else
             {
                 Destroy(gameObject);
+                return;
             }
 
             DontDestroyOnLoad(gameObject);
+        }
+
+        public void OnDestroy()
+        {
+            if (Instance == this)
+                Instance = null;
         }
 
 
@@ -417,8 +438,9 @@ namespace VSX.UniversalVehicleCombat.Loadout
             if (useVehicleUnlockSystem)
             {
                 int progress = loadoutData.currentMissionIndex;
+                int arcadeTier = GetArcadeTierFromVehicleIndex(vehicleIndex);
 
-                if (vehicleIndex > progress)
+                if (arcadeTier > progress)
                 {
                     Debug.Log("Vehicle Locked!");
                     return;
@@ -586,12 +608,9 @@ namespace VSX.UniversalVehicleCombat.Loadout
                 {
                     int progress = loadoutData.currentMissionIndex;
 
-                    bool unlocked = false;
+                    int arcadeTier = GetArcadeTierFromVehicleIndex(i);
 
-                    if (i == 0) unlocked = true;
-                    else if (i == 1 && progress >= 1) unlocked = true;
-                    else if (i == 2 && progress >= 2) unlocked = true;
-                    else if (i == 3 && progress >= 3) unlocked = true;
+                    bool unlocked = arcadeTier != -1 && arcadeTier <= progress;
 
                     if (!used && unlocked)
                     {
@@ -600,7 +619,6 @@ namespace VSX.UniversalVehicleCombat.Loadout
                 }
                 else
                 {
-                    // NO LOCK SYSTEM → allow all
                     if (!used)
                     {
                         selectableVehicleIndexes.Add(i);
@@ -902,6 +920,120 @@ namespace VSX.UniversalVehicleCombat.Loadout
                 return;
             }
 
+        }
+
+        public void SelectFighterCategory(int categoryIndex)
+        {
+            if (categoryIndex < 0 || categoryIndex >= fighterCategories.Count) return;
+
+            selectedCategoryIndex = categoryIndex;
+
+            selectableVariantIndexes.Clear();
+
+            FighterCategory category = fighterCategories[categoryIndex];
+
+            for (int i = 0; i < category.fighterVariants.Count; i++)
+            {
+                int vehicleIndex = items.vehicles.IndexOf(category.fighterVariants[i]);
+
+                if (vehicleIndex != -1)
+                {
+                    selectableVariantIndexes.Add(vehicleIndex);
+                }
+            }
+
+            OnLoadoutChanged();
+        }
+
+        public void SelectVehicleVariant(int variantButtonIndex)
+        {
+            if (variantButtonIndex < 0 || variantButtonIndex >= selectableVariantIndexes.Count) return;
+
+            int vehicleIndex = selectableVariantIndexes[variantButtonIndex];
+
+            SelectVehicle(vehicleIndex);
+        }
+
+        public void SelectArcadeVisibleVehicle(int displayIndex)
+        {
+            if (arcadeVisibleVehicleIndexes.Count == 0) return;
+
+            arcadeCurrentDisplayIndex = Mathf.Clamp(displayIndex, 0, arcadeVisibleVehicleIndexes.Count - 1);
+
+            int realVehicleIndex = arcadeVisibleVehicleIndexes[arcadeCurrentDisplayIndex];
+
+            // force bypass normal unlock index check
+            workingSlot.selectedVehicleIndex = realVehicleIndex;
+
+            List<int> defaultModules = GetDefaultModules(realVehicleIndex);
+            workingSlot.selectedModules = new List<int>(defaultModules);
+
+            SaveWorkingToActiveSlot();
+            SelectModuleMount(0);
+            OnLoadoutChanged();
+        }
+
+        public void CycleArcadeVisibleVehicle(bool forward, bool wrap = false)
+        {
+            if (arcadeVisibleVehicleIndexes.Count == 0) return;
+
+            if (forward)
+                arcadeCurrentDisplayIndex++;
+            else
+                arcadeCurrentDisplayIndex--;
+
+            if (wrap)
+            {
+                if (arcadeCurrentDisplayIndex < 0)
+                    arcadeCurrentDisplayIndex = arcadeVisibleVehicleIndexes.Count - 1;
+
+                if (arcadeCurrentDisplayIndex >= arcadeVisibleVehicleIndexes.Count)
+                    arcadeCurrentDisplayIndex = 0;
+            }
+            else
+            {
+                arcadeCurrentDisplayIndex = Mathf.Clamp(arcadeCurrentDisplayIndex, 0, arcadeVisibleVehicleIndexes.Count - 1);
+            }
+
+            SelectArcadeVisibleVehicle(arcadeCurrentDisplayIndex);
+        }
+
+        public int GetCurrentArcadeRealVehicleIndex()
+        {
+            if (arcadeVisibleVehicleIndexes.Count == 0) return -1;
+
+            return arcadeVisibleVehicleIndexes[arcadeCurrentDisplayIndex];
+        }
+
+        public int GetCurrentArcadeDisplayIndex()
+        {
+            return arcadeCurrentDisplayIndex;
+        }
+
+        public int GetArcadeVisibleCount()
+        {
+            return arcadeVisibleVehicleIndexes.Count;
+        }
+
+        public int GetArcadeVehicleIndexByDisplay(int displayIndex)
+        {
+            if (displayIndex < 0 || displayIndex >= arcadeVisibleVehicleIndexes.Count) return -1;
+            return arcadeVisibleVehicleIndexes[displayIndex];
+        }
+
+        public int GetArcadeTierFromVehicleIndex(int vehicleIndex)
+        {
+            return arcadeVisibleVehicleIndexes.IndexOf(vehicleIndex);
+        }
+
+        public int GetArcadeUnlockVehicleFromCompletedLevel(int completedLevel)
+        {
+            int unlockDisplayIndex = completedLevel + 1;
+
+            if (unlockDisplayIndex < 0 || unlockDisplayIndex >= arcadeVisibleVehicleIndexes.Count)
+                return -1;
+
+            return arcadeVisibleVehicleIndexes[unlockDisplayIndex];
         }
 
         /// <summary>

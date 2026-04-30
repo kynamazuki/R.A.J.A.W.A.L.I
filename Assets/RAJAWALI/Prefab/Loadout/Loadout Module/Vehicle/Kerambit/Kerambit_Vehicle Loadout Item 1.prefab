@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8115246058976666833}
   - component: {fileID: 3558731961340264767}
   m_Layer: 0
-  m_Name: Kerambit_Vehicle Loadout Item
+  m_Name: Kerambit_Vehicle Loadout Item 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -46,7 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   vehiclePrefab: {fileID: 152507264578723667, guid: 6581164012be15047a445271f486a324, type: 3}
   overrideVehicleLabel: 1
-  overrideLabel: Kerambit
+  overrideLabel: Kerambit II
   predefinedModules:
   - moduleMountIndex: 0
     moduleItem: {fileID: 331220912393201343, guid: 7fe745175f9f6b447a6880e834c8a2fc, type: 3}

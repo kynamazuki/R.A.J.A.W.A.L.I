@@ -38,6 +38,8 @@ namespace VSX.UniversalVehicleCombat
             }
 
             SceneManager.LoadScene(sceneName);
+
+            LoadoutManager.Instance.OnDestroy();
         }
 
         /// <summary>

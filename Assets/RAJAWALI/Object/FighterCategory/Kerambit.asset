@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03b8e510a7493c84eb13402dace54d88, type: 3}
+  m_Name: Kerambit
+  m_EditorClassIdentifier: 
+  categoryName: Kerambit
+  categoryIcon: {fileID: 0}
+  fighterVariants:
+  - {fileID: 3558731961340264767, guid: a937b9cd9d25b854897372d6e749d6a7, type: 3}
+  - {fileID: 3558731961340264767, guid: 898875a36300ca147aeaf40ba35ded58, type: 3}
+  - {fileID: 3558731961340264767, guid: 66e4b3ba029dc1244b2d39e622ff7c64, type: 3}
+  - {fileID: 3558731961340264767, guid: 2a7b63fd4dae0dc48ab5b3b93ea2f0da, type: 3}

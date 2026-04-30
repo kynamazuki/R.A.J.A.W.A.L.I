@@ -117,6 +117,14 @@ namespace VSX.UniversalVehicleCombat.Loadout
         [SerializeField]
         protected int slotIconSpriteIndex = 0;
 
+        [Header("Fighter Category Main Selection")]
+        [SerializeField] protected ButtonsListController fighterCategoryButtonsListController;
+
+        [Header("Fighter Variant Selection")]
+
+        [SerializeField] protected ButtonsListController fighterVariantButtonsListController;
+        [SerializeField] protected GameObject fighterVariantPanel;
+
         [Header("Mission Parameters")]
 
         [Tooltip("The gameobject to toggle to enable/disable the vehicle selection mode UI.")]
@@ -159,6 +167,9 @@ namespace VSX.UniversalVehicleCombat.Loadout
 
 
             slotButtonsListController.onButtonClicked.AddListener(OnSlotClicked);
+            if (fighterCategoryButtonsListController != null)
+                fighterCategoryButtonsListController.onButtonClicked.AddListener(OnFighterCategoryClicked);
+            fighterVariantButtonsListController.onButtonClicked.AddListener(OnVariantClicked);
             moduleButtonsListController.onButtonClicked.AddListener(OnModuleClicked);
             moduleMountButtonsListController.onButtonClicked.AddListener(OnModuleMountClicked);
         }
@@ -190,6 +201,8 @@ namespace VSX.UniversalVehicleCombat.Loadout
             loadoutManager.onLoadoutChanged.AddListener(OnLoadoutChanged);
 
             EnterVehicleSelection();
+            UpdateFighterCategoryUI();
+            fighterVariantPanel.SetActive(false);
             OnLoadoutChanged();
 
             launchButton.onClick.RemoveAllListeners(); // Clear old ones
@@ -577,6 +590,7 @@ namespace VSX.UniversalVehicleCombat.Loadout
         public virtual void MainMenu()
         {
             SceneManager.LoadScene(mainMenuSceneName);
+            LoadoutManager.Instance.OnDestroy();
         }
 
 
@@ -591,6 +605,48 @@ namespace VSX.UniversalVehicleCombat.Loadout
                 loadoutManager.SavePersistentData();
                 SceneManager.LoadScene(missionSceneNames[index]);
             }
+        }
+
+        public void OnFighterCategoryClicked(int categoryID)
+        {
+            loadoutManager.SelectFighterCategory(categoryID);
+            UpdateVariantUI();
+        }
+
+        void UpdateFighterCategoryUI()
+        {
+            if (fighterCategoryButtonsListController == null) return;
+
+            fighterCategoryButtonsListController.SetNumButtons(loadoutManager.fighterCategories.Count);
+
+            for (int i = 0; i < loadoutManager.fighterCategories.Count; i++)
+            {
+                FighterCategory cat = loadoutManager.fighterCategories[i];
+
+                fighterCategoryButtonsListController.ButtonControllers[i].SetText(0, cat.categoryName);
+                fighterCategoryButtonsListController.ButtonControllers[i].SetImage(0, cat.categoryIcon);
+            }
+        }
+
+        void UpdateVariantUI()
+        {
+            fighterVariantButtonsListController.SetNumButtons(loadoutManager.SelectableVariantIndexes.Count);
+
+            for (int i = 0; i < loadoutManager.SelectableVariantIndexes.Count; i++)
+            {
+                LoadoutVehicleItem vehicle = loadoutManager.Items.vehicles[loadoutManager.SelectableVariantIndexes[i]];
+
+                fighterVariantButtonsListController.ButtonControllers[i].SetText(0, vehicle.Label);
+                fighterVariantButtonsListController.ButtonControllers[i].SetImage(0, vehicle.sprites.Count > 0 ? vehicle.sprites[0] : null);
+            }
+
+            fighterVariantPanel.SetActive(true);
+        }
+
+        public void OnVariantClicked(int ID)
+        {
+            loadoutManager.SelectVehicleVariant(ID);
+            fighterVariantPanel.SetActive(false);
         }
     }
 }

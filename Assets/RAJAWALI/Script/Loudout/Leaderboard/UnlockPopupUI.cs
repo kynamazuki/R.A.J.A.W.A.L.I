@@ -19,22 +19,31 @@ public class UnlockPopupUI : MonoBehaviour
 
         if (!loadout.showUnlockPopup) return;
 
-        int unlockedIndex = loadout.lastCompletedMissionIndex + 1;
+        int completedLevel = loadout.lastCompletedMissionIndex;
 
-        string fighterName = "Unknown";
 
-        if (LoadoutManager.Instance.Items != null &&
+
+        // Arcade visible fighter unlock mapping
+        int unlockedIndex = LoadoutManager.Instance.GetArcadeUnlockVehicleFromCompletedLevel(loadout.lastCompletedMissionIndex);
+
+        string fighterName = "";
+
+        if (unlockedIndex != -1 &&
+            LoadoutManager.Instance.Items != null &&
             unlockedIndex < LoadoutManager.Instance.Items.vehicles.Count)
         {
             fighterName = LoadoutManager.Instance.Items.vehicles[unlockedIndex].Label;
+            unlockText.text = fighterName + " Fighter Unlocked!";
+        }
+        else
+        {
+            unlockText.text = "Mission Complete!";
         }
 
-        unlockText.text = fighterName + " Fighter Unlocked!";
         scoreText.text = "Score: " + LeaderboardManager.Instance.currentScore;
 
         panel.SetActive(true);
 
-        // ❗ IMPORTANT: reset so it doesn't show again
         loadout.showUnlockPopup = false;
         LoadoutManager.Instance.SavePersistentData();
     }

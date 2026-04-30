@@ -1,0 +1,78 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &7237539905162715166
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8115246058976666833}
+  - component: {fileID: 3558731961340264767}
+  m_Layer: 0
+  m_Name: Kerambit_Vehicle Loadout Item 3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8115246058976666833
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7237539905162715166}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1484, y: 723, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3558731961340264767
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7237539905162715166}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e72ed0136e4a8dd4c8264d2b6f704dbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  vehiclePrefab: {fileID: 152507264578723667, guid: 6581164012be15047a445271f486a324, type: 3}
+  overrideVehicleLabel: 1
+  overrideLabel: Kerambit IV
+  predefinedModules:
+  - moduleMountIndex: 0
+    moduleItem: {fileID: 331220912393201343, guid: 7fe745175f9f6b447a6880e834c8a2fc, type: 3}
+  - moduleMountIndex: 0
+    moduleItem: {fileID: 331220912393201343, guid: 2fb4ea0dec60c1d4098c083c47806c15, type: 3}
+  - moduleMountIndex: 0
+    moduleItem: {fileID: 331220912393201343, guid: 5cb103fd87fd20b458cbdeef0c0343bd, type: 3}
+  - moduleMountIndex: 1
+    moduleItem: {fileID: 331220912393201343, guid: be4cc0f717c049544b800c82bd9aaed0, type: 3}
+  - moduleMountIndex: 2
+    moduleItem: {fileID: 331220912393201343, guid: e5c4d963e912ff44b9a899156c6fed90, type: 3}
+  - moduleMountIndex: 3
+    moduleItem: {fileID: 331220912393201343, guid: 76901247d5e380a42b10db3817ef0b0e, type: 3}
+  description: "Type: Interceptor\t\t\t   Armor: \nPower: 35 VLK-QA\t\t\t   Shield:
+    \nAfterburner/Cooldown: 60s\t   Speed: \nLoadout Default : 2 CQC\r   \t\t\t\t\t         
+    Agility: \n\t\t\t  15 MISSILE \n\t\t\t   "
+  armor: 2000
+  shield: 2500
+  speed: 972
+  agility: 6
+  sprites:
+  - {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  defaultLoadout:
+  - {fileID: 8717463101626388588, guid: 99f6098ecd2fcff4e868da7b438828e6, type: 3}
+  - {fileID: 114115692733585616, guid: b8357ed47c9a11a43bc8000c201eb1a1, type: 3}
+  - {fileID: 114115692733585616, guid: c8657db71a2c8324ca2bbd513f08644f, type: 3}
+  - {fileID: 114115692733585616, guid: 833de77780342854695f66df74475b9a, type: 3}
+  locked: 0
+  moduleMountViewAlignmentOffset: {x: 0, y: 0, z: 0}
