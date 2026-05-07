@@ -56,7 +56,7 @@ public class PlayerProfileUI : MonoBehaviour
             LeaderboardUI.Instance.Refresh();
         }
 
-        namePanel.SetActive(false);
+        //namePanel.SetActive(false);
     }
 
     public void HideNameInput()

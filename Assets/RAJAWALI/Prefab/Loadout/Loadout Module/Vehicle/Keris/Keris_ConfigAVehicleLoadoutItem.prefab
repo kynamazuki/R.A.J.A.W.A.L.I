@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8115246058976666833}
   - component: {fileID: 3558731961340264767}
   m_Layer: 0
-  m_Name: Keris_Vehicle Loadout Item 2
+  m_Name: Keris_ConfigAVehicleLoadoutItem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e72ed0136e4a8dd4c8264d2b6f704dbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vehiclePrefab: {fileID: 152507264578723667, guid: 5b084759cedabbb44a1f87e17f29b77c, type: 3}
+  vehiclePrefab: {fileID: 152507264578723667, guid: e9c1bdb72dbf8a9498a2e8e07051412e, type: 3}
   overrideVehicleLabel: 1
   overrideLabel: Keris III
   predefinedModules:

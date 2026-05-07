@@ -211,15 +211,10 @@ namespace VSX.UniversalVehicleCombat.Loadout
         /// <param name="forward">Whether to cycle forward.</param>
         public virtual void CycleVehicleSelection(bool forward)
         {
-            if (loadoutManager.SlotPerVehicle)
-            {
-                loadoutManager.CycleSlot(forward, wrapVehicles);
-            }
-            else
-            {
-                loadoutManager.CycleVehicleSelection(forward, wrapVehicles);
-            }
+            loadoutManager.CycleFighterCategory(forward);
+            //UpdateVariantUI();
         }
+
 
 
         public virtual void CycleModuleSelection(bool forward)

@@ -34,7 +34,7 @@ namespace VSX.UniversalVehicleCombat
            // input.TargetingControls.TargetPrevious.performed += ctx => TargetPrevious();
             input.TargetingControls.TargetNearest.performed += ctx => TargetNearest();
             input.TargetingControls.TargetFront.performed += ctx => TargetFront();
-            input.TargetingControls.TargetUnderCursor.performed += ctx => TargetUnderCursor();
+            //input.TargetingControls.TargetUnderCursor.performed += ctx => TargetUnderCursor();
         }
 
 
@@ -87,7 +87,7 @@ namespace VSX.UniversalVehicleCombat
         /// <summary>
         /// Select the next target.
         /// </summary>
-        protected virtual void TargetUnderCursor()
+        /*protected virtual void TargetUnderCursor()
         {
             if (CanRunInput())
             {
@@ -96,7 +96,7 @@ namespace VSX.UniversalVehicleCombat
                     targetSelector.SelectFront(cameraTarget.CameraEntity.transform.position, cursor.AimDirection);
                 }
             }
-        }
+        }*/
 
 
         /// <summary>

@@ -16,7 +16,7 @@ public class PlayerDeathHandler : MonoBehaviour
         }
         else
         {
-            Debug.Log(" Damageable found: " + damageable.name);
+            //Debug.Log(" Damageable found: " + damageable.name);
         }
     }
 

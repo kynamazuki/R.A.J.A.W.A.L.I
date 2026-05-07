@@ -30,7 +30,7 @@ public class MissionDropDown : MonoBehaviour
     // Static list to track all dropdowns
     private static List<MissionDropDown> allDropdowns = new List<MissionDropDown>();
 
-    public enum MissionParameterType { MissionType, MissionTime, EnemyType, Ammo, Location }
+    public enum MissionParameterType { MissionType, MissionTime, EnemyType, Location }
     public MissionParameterType parameterType;
 
     public MissionParameters missionParameters;
@@ -105,14 +105,8 @@ public class MissionDropDown : MonoBehaviour
                     case MissionParameterType.MissionType:
                         MissionParameters.Instance.missionType = value;
                         break;
-                    case MissionParameterType.MissionTime:
-                        SetMissionTime(value);
-                        break;
                     case MissionParameterType.EnemyType:
                         MissionParameters.Instance.enemyType = value;
-                        break;
-                    case MissionParameterType.Ammo:
-                        MissionParameters.Instance.ammo = value;
                         break;
                     case MissionParameterType.Location:
                         MissionParameters.Instance.location = value;
@@ -125,13 +119,7 @@ public class MissionDropDown : MonoBehaviour
         }
     }
 
-    public void SetMissionTime(string value)
-    {
-        if (value == "Hardcore (1 Min)") MissionParameters.Instance.missionTime = 60f;
-        else if (value == "Normal (3 Mins)") MissionParameters.Instance.missionTime = 180f;
-        else if (value == "Easy (5 Mins)") MissionParameters.Instance.missionTime = 300f;
 
-    }
 
     public void CloseDropdown()
     {
@@ -148,9 +136,7 @@ public class MissionDropDown : MonoBehaviour
     {
         if (MissionParameters.Instance != null &&
             !string.IsNullOrEmpty(MissionParameters.Instance.missionType) &&
-            MissionParameters.Instance.missionTime > 0f &&
             !string.IsNullOrEmpty(MissionParameters.Instance.enemyType) &&
-            !string.IsNullOrEmpty(MissionParameters.Instance.ammo) &&
             !string.IsNullOrEmpty(MissionParameters.Instance.location))
         {
             launchButton.interactable = true;

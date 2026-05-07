@@ -13,6 +13,10 @@ namespace VSX.UniversalVehicleCombat.Loadout
     /// </summary>
     public class LoadoutUIController : MonoBehaviour
     {
+        [Header("Screen UI Sets")]
+        [SerializeField] private LoadoutUIScreenSet normalUI;
+        [SerializeField] private LoadoutUIScreenSet tripleUI;
+
         [Tooltip("The loadout manager to display UI for.")]
         [SerializeField]
         protected LoadoutManager loadoutManager;
@@ -39,6 +43,13 @@ namespace VSX.UniversalVehicleCombat.Loadout
         [Tooltip("The button to select the next vehicle in the loadout.")]
         [SerializeField]
         protected GameObject selectNextVehicleButton; 
+        [Tooltip("The button to select the previous vehicle in the loadout.")]
+        [SerializeField]
+        protected GameObject selectPreviousVariantButton;
+
+        [Tooltip("The button to select the next vehicle in the loadout.")]
+        [SerializeField]
+        protected GameObject selectNextVariantButton; 
 
         [Tooltip("Whether to wrap through the vehicle selection (go back to beginning when cycle past the end, go to the end when cycling back past beginning).")]
         [SerializeField]
@@ -164,7 +175,7 @@ namespace VSX.UniversalVehicleCombat.Loadout
 
         protected virtual void Awake()
         {
-
+            ApplyUIScreenSet();
 
             slotButtonsListController.onButtonClicked.AddListener(OnSlotClicked);
             if (fighterCategoryButtonsListController != null)
@@ -200,10 +211,7 @@ namespace VSX.UniversalVehicleCombat.Loadout
             //  NOW SAFE
             loadoutManager.onLoadoutChanged.AddListener(OnLoadoutChanged);
 
-            EnterVehicleSelection();
-            UpdateFighterCategoryUI();
-            fighterVariantPanel.SetActive(false);
-            OnLoadoutChanged();
+            StartCoroutine(InitializeLoadoutUI());
 
             launchButton.onClick.RemoveAllListeners(); // Clear old ones
             launchButton.onClick.AddListener(() =>
@@ -220,6 +228,20 @@ namespace VSX.UniversalVehicleCombat.Loadout
                     Debug.LogError("MissionManager.Instance is null!");
                 }
             });
+        }
+
+        IEnumerator InitializeLoadoutUI()
+        {
+            yield return null; // wait one frame so LoadoutManager.Start finishes
+
+            EnterVehicleSelection();
+            UpdateFighterCategoryUI();
+
+            if (loadoutManager.fighterCategories.Count > 0)
+                loadoutManager.SelectFighterCategory(0);
+
+            fighterVariantPanel.SetActive(false);
+            OnLoadoutChanged();
         }
 
 
@@ -257,7 +279,7 @@ namespace VSX.UniversalVehicleCombat.Loadout
         /// Cycle vehicle selection forward or back.
         /// </summary>
         /// <param name="forward">Whether to cycle forward.</param>
-        public virtual void CycleVehicleSelection(bool forward)
+        /*public virtual void CycleVehicleSelection(bool forward)
         {
             if (loadoutManager.SlotPerVehicle)
             {
@@ -267,6 +289,12 @@ namespace VSX.UniversalVehicleCombat.Loadout
             {
                 loadoutManager.CycleVehicleSelection(forward, wrapVehicles);
             }
+        }*/
+
+        public virtual void CycleVehicleSelection(bool forward)
+        {
+            loadoutManager.CycleFighterCategory(forward);
+            UpdateVariantUI();
         }
 
 
@@ -481,38 +509,48 @@ namespace VSX.UniversalVehicleCombat.Loadout
 
             // Activate/deactivate the next vehicle selection button
 
+            /* if (selectNextVehicleButton != null)
+             {
+                 if (loadoutManager.SlotPerVehicle)
+                 {
+                     selectNextVehicleButton.SetActive(loadoutManager.LoadoutData.Slots.Count > 1 &&
+                                                         (wrapVehicles || loadoutManager.LoadoutData.selectedSlotIndex < loadoutManager.LoadoutData.Slots.Count - 1));
+
+                 }
+                 else
+                 {
+                     selectNextVehicleButton.SetActive(loadoutManager.SelectableVehicleIndexes.Count > 1 &&
+                                                         (wrapVehicles || loadoutManager.SelectableVehicleIndexes.IndexOf(loadoutManager.WorkingSlot.selectedVehicleIndex) < loadoutManager.SelectableVehicleIndexes.Count - 1));
+
+                 }
+             } 
+
+
+             // Activate/deactivate the previous vehicle selection button
+
+             if (selectPreviousVehicleButton != null)
+             {
+                 if (loadoutManager.SlotPerVehicle)
+                 {
+                     selectPreviousVehicleButton.SetActive(loadoutManager.LoadoutData.Slots.Count > 1 &&
+                                                         (wrapVehicles || loadoutManager.LoadoutData.selectedSlotIndex > 0));
+                 }
+                 else
+                 {
+                     selectPreviousVehicleButton.SetActive(loadoutManager.SelectableVehicleIndexes.Count > 1 &&
+                                                         (wrapVehicles || loadoutManager.SelectableVehicleIndexes.IndexOf(loadoutManager.WorkingSlot.selectedVehicleIndex) > 0));
+
+                 }
+             }*/
+
             if (selectNextVehicleButton != null)
             {
-                if (loadoutManager.SlotPerVehicle)
-                {
-                    selectNextVehicleButton.SetActive(loadoutManager.LoadoutData.Slots.Count > 1 &&
-                                                        (wrapVehicles || loadoutManager.LoadoutData.selectedSlotIndex < loadoutManager.LoadoutData.Slots.Count - 1));
-
-                }
-                else
-                {
-                    selectNextVehicleButton.SetActive(loadoutManager.SelectableVehicleIndexes.Count > 1 &&
-                                                        (wrapVehicles || loadoutManager.SelectableVehicleIndexes.IndexOf(loadoutManager.WorkingSlot.selectedVehicleIndex) < loadoutManager.SelectableVehicleIndexes.Count - 1));
-
-                }
-            } 
-
-
-            // Activate/deactivate the previous vehicle selection button
+                selectNextVehicleButton.SetActive(loadoutManager.fighterCategories.Count > 1);
+            }
 
             if (selectPreviousVehicleButton != null)
             {
-                if (loadoutManager.SlotPerVehicle)
-                {
-                    selectPreviousVehicleButton.SetActive(loadoutManager.LoadoutData.Slots.Count > 1 &&
-                                                        (wrapVehicles || loadoutManager.LoadoutData.selectedSlotIndex > 0));
-                }
-                else
-                {
-                    selectPreviousVehicleButton.SetActive(loadoutManager.SelectableVehicleIndexes.Count > 1 &&
-                                                        (wrapVehicles || loadoutManager.SelectableVehicleIndexes.IndexOf(loadoutManager.WorkingSlot.selectedVehicleIndex) > 0));
-
-                }
+                selectPreviousVehicleButton.SetActive(loadoutManager.fighterCategories.Count > 1);
             }
 
 
@@ -523,9 +561,9 @@ namespace VSX.UniversalVehicleCombat.Loadout
                 vehicleInfoUIHandle.SetActive(loadoutManager.WorkingSlot.selectedVehicleIndex != -1);
             }
 
-            if (loadoutManager.LoadoutData != null && loadoutManager.LoadoutData.SelectedSlot != null)
+            if (loadoutManager != null && loadoutManager.WorkingSlot != null)
             {
-                int selectedIndex = loadoutManager.LoadoutData.SelectedSlot.selectedVehicleIndex;
+                int selectedIndex = loadoutManager.WorkingSlot.selectedVehicleIndex;
 
                 if (selectedIndex >= 0 && selectedIndex < loadoutManager.Items.vehicles.Count)
                 {
@@ -590,7 +628,7 @@ namespace VSX.UniversalVehicleCombat.Loadout
         public virtual void MainMenu()
         {
             SceneManager.LoadScene(mainMenuSceneName);
-            LoadoutManager.Instance.OnDestroy();
+       
         }
 
 
@@ -647,6 +685,44 @@ namespace VSX.UniversalVehicleCombat.Loadout
         {
             loadoutManager.SelectVehicleVariant(ID);
             fighterVariantPanel.SetActive(false);
+        }
+
+        public void CycleVariantSelection(bool forward)
+        {
+            loadoutManager.CycleVariant(forward);
+        }
+
+        void ApplyUIScreenSet()
+        {
+            float ratio = (float)Screen.width / Screen.height;
+
+            LoadoutUIScreenSet selectedSet = ratio > 4.0f ? tripleUI : normalUI;
+
+            normalUI.rootCanvas.SetActive(selectedSet == normalUI);
+            tripleUI.rootCanvas.SetActive(selectedSet == tripleUI);
+
+            vehicleSelectionModeUIHandle = selectedSet.vehicleSelectionModeUIHandle;
+            vehicleInfoUIHandle = selectedSet.vehicleInfoUIHandle;
+            selectPreviousVehicleButton = selectedSet.selectPreviousVehicleButton;
+            selectNextVehicleButton = selectedSet.selectNextVehicleButton;
+            equipVehicleButton = selectedSet.equipVehicleButton;
+            goToLoadoutButton = selectedSet.goToLoadoutButton;
+
+            moduleSelectionModeUIHandle = selectedSet.moduleSelectionModeUIHandle;
+            moduleOptionsUIHandle = selectedSet.moduleOptionsUIHandle;
+            moduleButtonsListController = selectedSet.moduleButtonsListController;
+
+            moduleMountButtonsListController = selectedSet.moduleMountButtonsListController;
+            moduleMountOptionsUIHandle = selectedSet.moduleMountOptionsUIHandle;
+
+            slotButtonsListController = selectedSet.slotButtonsListController;
+            slotSelectionUIHandle = selectedSet.slotSelectionUIHandle;
+
+            fighterCategoryButtonsListController = selectedSet.fighterCategoryButtonsListController;
+            fighterVariantButtonsListController = selectedSet.fighterVariantButtonsListController;
+            fighterVariantPanel = selectedSet.fighterVariantPanel;
+
+            MissionParameterUIHandle = selectedSet.MissionParameterUIHandle;
         }
     }
 }

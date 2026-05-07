@@ -4451,7 +4451,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84ebfd29f4e85ec4bbd75d3a84d3d4c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  loudoutUIControllerTuto: {fileID: 1545010172}
+  loadoutUIControllerArcade: {fileID: 0}
   loadoutManager: {fileID: 1545010174}
   displayManager: {fileID: 222658830}
   m_Camera: {fileID: 458791159}
@@ -14160,6 +14160,8 @@ MonoBehaviour:
   shieldSlider: {fileID: 841106498}
   speedSlider: {fileID: 705412798}
   agilitySlider: {fileID: 17220442}
+  nameText: {fileID: 0}
+  descriptionText: {fileID: 0}
 --- !u!1 &797608397 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 204725308849106593, guid: ca7d76fe18384894aaa8437613d9fc5f, type: 3}
@@ -21876,7 +21878,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 38.999878, y: -9}
+  m_AnchoredPosition: {x: 39, y: -9}
   m_SizeDelta: {x: 0, y: 50}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1214002705
@@ -29722,6 +29724,10 @@ MonoBehaviour:
   onLoadoutChanged:
     m_PersistentCalls:
       m_Calls: []
+  isNewGameStart: 1
+  useVehicleUnlockSystem: 1
+  arcadeVisibleVehicleIndexes: 0000000004000000080000000c000000
+  fighterCategories: []
 --- !u!4 &1545010175
 Transform:
   m_ObjectHideFlags: 0
@@ -34225,7 +34231,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 80.1, y: -134}
+  m_AnchoredPosition: {x: 80.1001, y: -134}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &1873236821

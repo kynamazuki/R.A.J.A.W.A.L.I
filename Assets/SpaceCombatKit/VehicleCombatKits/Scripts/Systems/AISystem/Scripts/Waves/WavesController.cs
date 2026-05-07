@@ -20,7 +20,7 @@ namespace VSX.UniversalVehicleCombat
         [SerializeField]
         protected bool loopWaves = false;
 
-        [SerializeField] private int totalLevels = 5;
+        [SerializeField] private int totalLevels = 2;
 
         [SerializeField, Tooltip("Name of the Loadout scene to return to after mission complete.")]
         protected string loadoutSceneName = "LoadoutScene";  // <-- assign in inspector
@@ -120,29 +120,30 @@ namespace VSX.UniversalVehicleCombat
                 if (wavesDestroyed)
                 {
                     // ===== CAMPAIGN PROGRESS =====
-                    var loadoutManager = FindObjectOfType<VSX.UniversalVehicleCombat.Loadout.LoadoutManager>();
+                    var dataManager = FindObjectOfType<VSX.UniversalVehicleCombat.Loadout.LoadoutDataManagerJSON>();
 
-                    if (loadoutManager != null)
+                    if (dataManager != null)
                     {
-                        var data = loadoutManager.LoadoutData;
+                        var data = dataManager.LoadData();
 
-                        // STORE RESULT BEFORE increment
+                        if (data == null)
+                            data = new VSX.UniversalVehicleCombat.Loadout.LoadoutData();
+
+                        // store popup info before increment
                         data.showUnlockPopup = true;
                         data.lastCompletedMissionIndex = data.currentMissionIndex;
-                        
 
-                        //  NOW increase progress
+                        // progress++
                         data.currentMissionIndex++;
-
-                        loadoutManager.isNewGameStart = false;
+                        data.campaignScore = LeaderboardManager.Instance.currentScore;
 
                         Debug.Log("MISSION COMPLETE → NEW INDEX: " + data.currentMissionIndex);
 
-                        loadoutManager.SavePersistentData();
+                        dataManager.SaveData(data);
                     }
                     else
                     {
-                        Debug.LogError("LOADOUT MANAGER NOT FOUND!");
+                        Debug.LogError("LoadoutDataManagerJSON NOT FOUND IN MISSION SCENE!");
                     }
                     // =============================
 
@@ -151,17 +152,22 @@ namespace VSX.UniversalVehicleCombat
                     // CHECK IF FINAL LEVEL
 
 
-                    if (loadoutManager != null)
+                    var dataManager2 = FindObjectOfType<VSX.UniversalVehicleCombat.Loadout.LoadoutDataManagerJSON>();
+
+                    if (dataManager2 != null)
                     {
-                        int currentIndex = loadoutManager.LoadoutData.currentMissionIndex;
+                        var data2 = dataManager2.LoadData();
 
-                        if (currentIndex >= totalLevels)
+                        if (data2.currentMissionIndex >= totalLevels)
                         {
-                            Debug.Log(" FINAL LEVEL COMPLETE");
+                            Debug.Log("FINAL LEVEL COMPLETE");
 
-                            //  Start delayed leaderboard instead of instant
-                            StartCoroutine(ShowFinalLeaderboardAfterDelay());
+                            data2.showFinalLeaderboard = true;
+                            data2.showUnlockPopup = false;
 
+                            dataManager2.SaveData(data2);
+
+                            StartCoroutine(ReturnToLoadoutAfterDelay());
                             return;
                         }
                     }
@@ -187,10 +193,15 @@ namespace VSX.UniversalVehicleCombat
 
         IEnumerator ShowFinalLeaderboardAfterDelay()
         {
-            //  Wait same time as your "Mission Complete" UI
-            yield return new WaitForSeconds(3f);
+            yield return new WaitForSeconds(2f);
 
-            //  Now show leaderboard
+            if (ScreenFader.Instance != null)
+                yield return ScreenFader.Instance.FadeOut();
+
+            UnityEngine.SceneManagement.SceneManager.LoadScene(loadoutSceneName);
+
+            yield return new WaitForSeconds(1f);
+
             if (PlayerProfileUI.Instance != null)
             {
                 PlayerProfileUI.Instance.ShowAfterDeath();

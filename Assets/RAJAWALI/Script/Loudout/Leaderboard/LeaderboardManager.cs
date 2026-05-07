@@ -81,6 +81,27 @@ public class LeaderboardManager : MonoBehaviour
         if (debug) Debug.Log("Deleted all leaderboard data.");
     }
 
+    public void RestoreCampaignScore()
+    {
+        var dataManager = FindObjectOfType<VSX.UniversalVehicleCombat.Loadout.LoadoutDataManagerJSON>();
+
+        if (dataManager != null)
+        {
+            var data = dataManager.LoadData();
+
+            if (data != null)
+            {
+                currentScore = data.campaignScore;
+                Debug.Log("LeaderboardManager restored campaign score: " + currentScore);
+
+                if (ScoreHUD.Instance != null)
+                {
+                    ScoreHUD.Instance.UpdateScoreDisplay(currentScore);
+                }
+            }
+        }
+    }
+
     // -------------------
     // JSON PERSISTENCE
     // -------------------

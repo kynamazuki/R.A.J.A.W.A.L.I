@@ -17,6 +17,12 @@ public class MusicManager : MonoBehaviour
     public AudioClip deepSpaceMusic;
     public AudioClip asteroidFieldMusic;
     public AudioClip capitalShipBattleMusic;
+    public AudioClip loadoutArcadeMusic;
+    public AudioClip level1Music;
+    public AudioClip level2Music;
+    public AudioClip level3Music;
+    public AudioClip level4Music;
+    public AudioClip level5Music;
 
     private void Awake()
     {
@@ -60,6 +66,24 @@ public class MusicManager : MonoBehaviour
                 break;
             case "CapitalShipBattle":
                 PlayMusic(capitalShipBattleMusic);
+                break;
+            case "LoadoutArcade":
+                PlayMusic(loadoutArcadeMusic);
+                break;
+            case "Level1":
+                PlayMusic(level1Music);
+                break;
+            case "Level2":
+                PlayMusic(level2Music);
+                break;
+            case "Level3":
+                PlayMusic(level3Music);
+                break;
+            case "Level4":
+                PlayMusic(level4Music);
+                break;
+            case "Level5":
+                PlayMusic(level5Music);
                 break;
         }
 

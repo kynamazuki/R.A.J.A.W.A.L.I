@@ -33,7 +33,11 @@ public class LeaderboardUI : MonoBehaviour
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        panel.SetActive(false);
+        // Only auto hide during gameplay scenes, not LoadoutArcade
+        if (scene.name != loadoutSceneName)
+        {
+            panel.SetActive(false);
+        }
     }
 
     public void HideLeaderboard()

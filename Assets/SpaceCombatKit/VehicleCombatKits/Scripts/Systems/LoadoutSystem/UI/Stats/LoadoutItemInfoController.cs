@@ -11,54 +11,26 @@ namespace VSX.UniversalVehicleCombat.Loadout
     /// </summary>
     public class LoadoutItemInfoController : MonoBehaviour
     {
-        [Tooltip("The UI handle to activate (to show the info UI) or deactivate (to hide the info UI).")]
-        [SerializeField]
-        protected GameObject UIHandle;
+        [Header("UI Screen Sets")]
+        [SerializeField] protected LoadoutItemInfoUIScreenSet normalUI;
+        [SerializeField] protected LoadoutItemInfoUIScreenSet tripleUI;
 
-        [Tooltip("The loadout manager to display info for.")]
+        protected GameObject UIHandle;
+        protected UVCText labelText;
+        protected UVCText descriptionText;
+        protected Image iconImage;
+        protected Transform statsInstanceParent;
+
         [SerializeField]
         protected LoadoutManager loadoutManager;
 
         protected List<LoadoutItemInfoOverrideController> overrideControllers = new List<LoadoutItemInfoOverrideController>();
 
         [Header("Stats Controller")]
-
-        [Tooltip("The loadout item label.")]
-        [SerializeField]
-        protected UVCText labelText;
-        public UVCText LabelText
-        {
-            get { return labelText; }
-            set { labelText = value; }
-        }
-
-        [Tooltip("The loadout item description.")]
-        [SerializeField]
-        protected UVCText descriptionText;
-        public UVCText DescriptionText
-        {
-            get { return descriptionText; }
-            set { descriptionText = value; }
-        }
-
-        [Tooltip("The icon image for the loadout item.")]
-        [SerializeField]
-        protected Image iconImage;
-        public Image IconImage
-        {
-            get { return iconImage; }
-            set { iconImage = value; }
-        }
-
-        [Tooltip("The prefab for displaying a stat about the loadout item.")]
         [SerializeField]
         protected StatsInstance statsInstancePrefab;
+
         protected List<StatsInstance> statsInstances = new List<StatsInstance>();
-
-        [Tooltip("The parent for stats UI.")]
-        [SerializeField]
-        protected Transform statsInstanceParent;
-
 
         protected virtual void Reset()
         {
@@ -67,15 +39,12 @@ namespace VSX.UniversalVehicleCombat.Loadout
 
         protected virtual void Awake()
         {
-            // FIX: Always get correct instance
+            ApplyUIScreenSet();
+
             if (LoadoutManager.Instance != null)
-            {
                 loadoutManager = LoadoutManager.Instance;
-            }
             else
-            {
                 loadoutManager = FindObjectOfType<LoadoutManager>();
-            }
 
             if (loadoutManager == null)
             {
@@ -97,13 +66,14 @@ namespace VSX.UniversalVehicleCombat.Loadout
 
         protected virtual void Show()
         {
-            UIHandle.SetActive(true);
+            if (UIHandle != null)
+                UIHandle.SetActive(true);
         }
-
 
         protected virtual void Hide()
         {
-            UIHandle.SetActive(false);
+            if (UIHandle != null)
+                UIHandle.SetActive(false);
         }
 
 
@@ -178,6 +148,25 @@ namespace VSX.UniversalVehicleCombat.Loadout
         public virtual void SetIcon(Sprite icon)
         {
             if (iconImage != null) iconImage.sprite = icon;
+        }
+
+        void ApplyUIScreenSet()
+        {
+            float ratio = (float)Screen.width / Screen.height;
+
+            LoadoutItemInfoUIScreenSet selectedSet = ratio > 4.0f ? tripleUI : normalUI;
+
+            if (selectedSet == null)
+            {
+                Debug.LogError("LoadoutItemInfoUIScreenSet not assigned!");
+                return;
+            }
+
+            UIHandle = selectedSet.UIHandle;
+            labelText = selectedSet.labelText;
+            descriptionText = selectedSet.descriptionText;
+            iconImage = selectedSet.iconImage;
+            statsInstanceParent = selectedSet.statsInstanceParent;
         }
     }
 }

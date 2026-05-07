@@ -107,7 +107,10 @@ namespace VSX.UniversalVehicleCombat.Loadout
         private List<int> selectableVariantIndexes = new List<int>();
         public List<int> SelectableVariantIndexes => selectableVariantIndexes;
 
-        
+        private int selectedVariantLocalIndex = 0;
+        public int SelectedVariantLocalIndex => selectedVariantLocalIndex;
+
+        public static bool EnterArcadeFromMainMenu = false;
 
         protected virtual void Reset()
         {
@@ -119,24 +122,12 @@ namespace VSX.UniversalVehicleCombat.Loadout
         protected virtual void Awake()
         {
             loadoutData = new LoadoutData();
-
             InitializeWorkingSlot();
-
-            if (Instance == null)
-            {
-                Instance = this;
-                isNewGameStart = true;
-            }
-            else
-            {
-                Destroy(gameObject);
-                return;
-            }
-
-            DontDestroyOnLoad(gameObject);
+            Instance = this;
         }
 
-        public void OnDestroy()
+
+        private void OnDestroy()
         {
             if (Instance == this)
                 Instance = null;
@@ -447,9 +438,9 @@ namespace VSX.UniversalVehicleCombat.Loadout
                 }
             }
 
-            if (selectableVehicleIndexes.IndexOf(vehicleIndex) == -1) return;
+            if (vehicleIndex < 0 || vehicleIndex >= items.vehicles.Count) return;
             if (vehicleIndex == workingSlot.selectedVehicleIndex) return;
-           
+
             workingSlot.selectedVehicleIndex = vehicleIndex;
 
             // Update the working slot
@@ -513,7 +504,7 @@ namespace VSX.UniversalVehicleCombat.Loadout
         /// </summary>
         /// <param name="forward">Whether to cycle forward (back if false)</param>
         /// <param name="wrap">Whether to wrap around to beginning when cycling past the end, or wrap to the end when cycling back past the beginning.</param>
-        public virtual void CycleVehicleSelection(bool forward, bool wrap = false)
+       /* public virtual void CycleVehicleSelection(bool forward, bool wrap = false)
         {
 
             if (selectableVehicleIndexes.Count == 0) return;
@@ -551,7 +542,7 @@ namespace VSX.UniversalVehicleCombat.Loadout
             // Select the new vehicle
             if (index != -1) SelectVehicle(selectableVehicleIndexes[index]);
 
-        }
+        }*/
 
 
         public virtual LoadoutVehicleItem GetSelectedVehicleItem()
@@ -924,35 +915,85 @@ namespace VSX.UniversalVehicleCombat.Loadout
 
         public void SelectFighterCategory(int categoryIndex)
         {
+            if (items == null)
+            {
+                Debug.LogError("Loadout items not initialized yet!");
+                return;
+            }
+
             if (categoryIndex < 0 || categoryIndex >= fighterCategories.Count) return;
 
             selectedCategoryIndex = categoryIndex;
+            selectedVariantLocalIndex = 0;
 
             selectableVariantIndexes.Clear();
 
             FighterCategory category = fighterCategories[categoryIndex];
+            if (category == null) return;
+            if (category.fighterVariants == null) return;
 
             for (int i = 0; i < category.fighterVariants.Count; i++)
             {
                 int vehicleIndex = items.vehicles.IndexOf(category.fighterVariants[i]);
 
                 if (vehicleIndex != -1)
-                {
                     selectableVariantIndexes.Add(vehicleIndex);
-                }
             }
 
+            if (selectableVariantIndexes.Count > 0)
+                SelectVehicle(selectableVariantIndexes[0]);
+
             OnLoadoutChanged();
+        }
+
+        public void CycleVariant(bool forward)
+        {
+            if (selectableVariantIndexes.Count == 0) return;
+
+            if (forward)
+                selectedVariantLocalIndex++;
+            else
+                selectedVariantLocalIndex--;
+
+            if (selectedVariantLocalIndex < 0)
+                selectedVariantLocalIndex = selectableVariantIndexes.Count - 1;
+
+            if (selectedVariantLocalIndex >= selectableVariantIndexes.Count)
+                selectedVariantLocalIndex = 0;
+
+            SelectVehicle(selectableVariantIndexes[selectedVariantLocalIndex]);
+        }
+
+        public void CycleFighterCategory(bool forward)
+        {
+            if (fighterCategories.Count == 0) return;
+
+            if (forward)
+                selectedCategoryIndex++;
+            else
+                selectedCategoryIndex--;
+
+            if (selectedCategoryIndex < 0)
+                selectedCategoryIndex = fighterCategories.Count - 1;
+
+            if (selectedCategoryIndex >= fighterCategories.Count)
+                selectedCategoryIndex = 0;
+
+            SelectFighterCategory(selectedCategoryIndex);
         }
 
         public void SelectVehicleVariant(int variantButtonIndex)
         {
             if (variantButtonIndex < 0 || variantButtonIndex >= selectableVariantIndexes.Count) return;
 
+            selectedVariantLocalIndex = variantButtonIndex;
+
             int vehicleIndex = selectableVariantIndexes[variantButtonIndex];
 
             SelectVehicle(vehicleIndex);
         }
+
+
 
         public void SelectArcadeVisibleVehicle(int displayIndex)
         {

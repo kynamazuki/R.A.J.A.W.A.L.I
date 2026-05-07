@@ -14,6 +14,10 @@ namespace VSX.UniversalVehicleCombat.Loadout
     /// </summary>
     public class LoadoutUIControllerArcade : MonoBehaviour
     {
+        [Header("Screen UI Sets")]
+        [SerializeField] private LoadoutUIScreenSet normalUI;
+        [SerializeField] private LoadoutUIScreenSet tripleUI;
+
         [Tooltip("The loadout manager to display UI for.")]
         [SerializeField]
         private LoadoutManager loadoutManager;
@@ -198,17 +202,18 @@ namespace VSX.UniversalVehicleCombat.Loadout
             Debug.Log(" LoadoutManager FOUND: " + loadoutManager.name);
 
             loadoutManager.SetItems(loadoutManager.Items);
+
+            if (LeaderboardManager.Instance != null)
+            {
+                LeaderboardManager.Instance.RestoreCampaignScore();
+            }
             loadoutManager.onDataLoad.AddListener(OnLoadoutChanged);
 
             //  NOW SAFE
             loadoutManager.onLoadoutChanged.AddListener(OnLoadoutChanged);
 
             SetupStartUI();
-            if (!loadoutManager.isNewGameStart)
-            {
-                loadoutPanel.SetActive(true);
-            }
-
+            LoadoutManager.EnterArcadeFromMainMenu = false;
 
             EnterVehicleSelection();
             OnLoadoutChanged();
@@ -627,7 +632,7 @@ namespace VSX.UniversalVehicleCombat.Loadout
         public virtual void MainMenu()
         {
             SceneManager.LoadScene(mainMenuSceneName);
-            LoadoutManager.Instance.OnDestroy();
+           
         }
 
 
@@ -675,11 +680,20 @@ namespace VSX.UniversalVehicleCombat.Loadout
 
         public void ContinueGame()
         {
-            // Do nothing, just start mission normally
+            if (LeaderboardManager.Instance != null)
+            {
+                LeaderboardManager.Instance.currentScore = loadoutManager.LoadoutData.campaignScore;
 
-            loadoutManager.isNewGameStart = false;
-            Debug.Log("IsNewGameStart: " + loadoutManager.isNewGameStart);
-            StartMission();
+                if (ScoreHUD.Instance != null)
+                {
+                    ScoreHUD.Instance.UpdateScoreDisplay(LeaderboardManager.Instance.currentScore);
+                }
+
+                Debug.Log("CONTINUE SCORE RESTORED: " + LeaderboardManager.Instance.currentScore);
+            }
+
+            startMenuPanel.SetActive(false);
+            loadoutPanel.SetActive(true);
         }
 
         void SetupContinueButton()
@@ -723,13 +737,15 @@ namespace VSX.UniversalVehicleCombat.Loadout
         public void NewGame()
         {
             loadoutManager.LoadoutData.currentMissionIndex = 0;
-            LeaderboardManager.Instance.currentScore = 0;
+            loadoutManager.LoadoutData.campaignScore = 0;
+
+            if (LeaderboardManager.Instance != null)
+                LeaderboardManager.Instance.currentScore = 0;
+
+            if (ScoreHUD.Instance != null)
+                ScoreHUD.Instance.UpdateScoreDisplay(0);
+
             loadoutManager.SavePersistentData();
-
-            loadoutManager.isNewGameStart = false;
-            Debug.Log("IsNewGameStart: " + loadoutManager.isNewGameStart);
-
-            Debug.Log(" New Game Started");
 
             startMenuPanel.SetActive(false);
             loadoutPanel.SetActive(true);
@@ -738,20 +754,26 @@ namespace VSX.UniversalVehicleCombat.Loadout
 
         void SetupStartUI()
         {
-            if (loadoutManager.isNewGameStart)
+            if (loadoutManager.LoadoutData.currentMissionIndex > 0 && LeaderboardManager.Instance != null)
             {
-                //  FIRST TIME
+                LeaderboardManager.Instance.currentScore = loadoutManager.LoadoutData.campaignScore;
+            }
+            int missionIndex = loadoutManager.LoadoutData.currentMissionIndex;
+
+            if (LoadoutManager.EnterArcadeFromMainMenu && missionIndex > 0)
+            {
                 startMenuPanel.SetActive(true);
                 loadoutPanel.SetActive(false);
 
-                SetupContinueButton(); // optional (your logic)
+                SetupContinueButton();
             }
             else
             {
-                //  BETWEEN LEVELS
                 startMenuPanel.SetActive(false);
                 loadoutPanel.SetActive(true);
             }
+
+            LoadoutManager.EnterArcadeFromMainMenu = false;
         }
 
         public void QuitApplication()

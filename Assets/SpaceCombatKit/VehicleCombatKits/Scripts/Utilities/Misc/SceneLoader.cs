@@ -39,7 +39,18 @@ namespace VSX.UniversalVehicleCombat
 
             SceneManager.LoadScene(sceneName);
 
-            LoadoutManager.Instance.OnDestroy();
+            
+        }
+
+
+        public void ToArcade(string sceneName)
+        {
+            LoadoutManager.EnterArcadeFromMainMenu = true;
+
+            if (LeaderboardUI.Instance != null)
+                LeaderboardUI.Instance.HideLeaderboard();
+
+            SceneManager.LoadScene(sceneName);
         }
 
         /// <summary>
