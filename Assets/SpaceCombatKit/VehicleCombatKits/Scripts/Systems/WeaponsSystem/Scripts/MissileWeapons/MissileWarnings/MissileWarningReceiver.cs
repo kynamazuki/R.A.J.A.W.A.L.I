@@ -20,7 +20,11 @@ namespace VSX.UniversalVehicleCombat
 
         public AnimationCurve distanceWarningIntervalCurve;
 
-        public CanvasGroupFader textWarning;
+        [Header("Missile Warning UI")]
+        public CanvasGroupFader textWarningNormal;
+        public CanvasGroupFader textWarningTriple;
+
+        private CanvasGroupFader textWarning;
 
         bool warningActive = false;
         protected float minDist = 0;
@@ -33,6 +37,11 @@ namespace VSX.UniversalVehicleCombat
         private void Awake()
         {
             audioClipLength = warningAudio.clip.length;
+
+            if (Screen.width >= 5000)
+                textWarning = textWarningTriple;
+            else
+                textWarning = textWarningNormal;
         }
 
 

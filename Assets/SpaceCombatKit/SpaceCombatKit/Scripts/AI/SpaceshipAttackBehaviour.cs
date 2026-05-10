@@ -76,7 +76,10 @@ namespace VSX.UniversalVehicleCombat
 
         [Tooltip("If false, will fire a missile immediately upon engaging, otherwise, upon engaging a target, will wait sometime between 0 and 'Min Max Secondary Firing Interval' y-value to fire the first shot.")]
         [SerializeField]
-        protected bool randomizeFirstSecondaryFiringTime = false;
+        protected bool randomizeFirstSecondaryFiringTime = true;
+
+        [SerializeField]
+        protected Vector2 firstSecondaryFiringDelay = new Vector2(4f, 8f);
 
         protected bool hasFiredFirstMissile = false;
 
@@ -116,6 +119,17 @@ namespace VSX.UniversalVehicleCombat
             hasFiredFirstMissile = false;
             secondaryWeaponActionStartTime = Time.time;
 
+            if (randomizeFirstSecondaryFiringTime)
+            {
+                secondaryWeaponActionPeriod = Random.Range(
+                    firstSecondaryFiringDelay.x,
+                    firstSecondaryFiringDelay.y
+                );
+            }
+            else
+            {
+                secondaryWeaponActionPeriod = firstSecondaryFiringDelay.x;
+            }
         }
 
 
@@ -240,13 +254,7 @@ namespace VSX.UniversalVehicleCombat
             if (targetLocker == null || targetLocker.LockState != LockState.Locked)
                 return;
 
-            // 🚀 Fire immediately on first lock
-            if (!hasFiredFirstMissile)
-            {
-                FireSecondaryWeapon();
-                return;
-            }
-
+            // Wait before first missile too
             if (Time.time - secondaryWeaponActionStartTime >= secondaryWeaponActionPeriod)
             {
                 FireSecondaryWeapon();
@@ -259,6 +267,7 @@ namespace VSX.UniversalVehicleCombat
 
             hasFiredFirstMissile = true;
             secondaryWeaponActionStartTime = Time.time;
+
             secondaryWeaponActionPeriod = Random.Range(
                 minMaxSecondaryFiringInterval.x,
                 minMaxSecondaryFiringInterval.y

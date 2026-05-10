@@ -14325,7 +14325,8 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  textWarning: {fileID: 152507265796515858}
+  textWarningNormal: {fileID: 152507265796515858}
+  textWarningTriple: {fileID: 5962036111647502909}
   onWarningStarted:
     m_PersistentCalls:
       m_Calls: []
@@ -14336,6 +14337,18 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 152507264356589893}
+        m_TargetAssemblyTypeName: VSX.Utilities.AnimationController, Assembly-CSharp
+        m_MethodName: StartAnimation
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 3103719400030567737}
         m_TargetAssemblyTypeName: VSX.Utilities.AnimationController, Assembly-CSharp
         m_MethodName: StartAnimation
         m_Mode: 1
