@@ -30,4 +30,6 @@ public class LoadoutUIScreenSet
     public GameObject fighterVariantPanel;
 
     public GameObject MissionParameterUIHandle;
+
+    [SerializeField] public ButtonController launchButton;
 }

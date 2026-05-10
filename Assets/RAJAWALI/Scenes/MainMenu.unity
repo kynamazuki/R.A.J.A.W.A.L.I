@@ -27144,8 +27144,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0a1bd420e7d4ff4fb13850a8a3a822e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvasNormal: {fileID: 1016431671}
-  canvasTriple: {fileID: 1116919566}
+  canvasNormalObject: {fileID: 1016431671}
+  canvasTripleObject: {fileID: 1116919566}
+  canvasNormalHUD: {fileID: 0}
+  canvasTripleHUD: {fileID: 0}
 --- !u!4 &1357988723
 Transform:
   m_ObjectHideFlags: 0

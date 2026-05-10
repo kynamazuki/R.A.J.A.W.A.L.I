@@ -1017,6 +1017,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 2014292972}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
   onTimerFinished:
     m_PersistentCalls:
       m_Calls:
@@ -1044,10 +1056,34 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 2014292972}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   onTimerDisplayUpdated:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 53622439}
+        m_TargetAssemblyTypeName: TMPro.TMP_Text, Unity.TextMeshPro
+        m_MethodName: set_text
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 4278295}
         m_TargetAssemblyTypeName: TMPro.TMP_Text, Unity.TextMeshPro
         m_MethodName: set_text
         m_Mode: 0
@@ -31536,8 +31572,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0a1bd420e7d4ff4fb13850a8a3a822e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvasNormal: {fileID: 771165315}
-  canvasTriple: {fileID: 1424557600}
+  canvasNormalObject: {fileID: 1269196812159336309}
+  canvasTripleObject: {fileID: 1526232743}
+  canvasNormalHUD: {fileID: 0}
+  canvasTripleHUD: {fileID: 0}
 --- !u!114 &1753388887
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31550,8 +31588,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0a1bd420e7d4ff4fb13850a8a3a822e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvasNormal: {fileID: 1269196812159336309}
-  canvasTriple: {fileID: 1526232743}
+  canvasNormalObject: {fileID: 771165315}
+  canvasTripleObject: {fileID: 1424557600}
+  canvasNormalHUD: {fileID: 0}
+  canvasTripleHUD: {fileID: 0}
 --- !u!4 &1753388888
 Transform:
   m_ObjectHideFlags: 0

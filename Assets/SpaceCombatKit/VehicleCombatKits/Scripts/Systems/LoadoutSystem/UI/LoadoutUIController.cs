@@ -723,6 +723,8 @@ namespace VSX.UniversalVehicleCombat.Loadout
             fighterVariantPanel = selectedSet.fighterVariantPanel;
 
             MissionParameterUIHandle = selectedSet.MissionParameterUIHandle;
+
+            launchButton = selectedSet.launchButton;
         }
     }
 }

@@ -31471,7 +31471,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1281880460}
+  - {fileID: 1705463447}
   m_Father: {fileID: 1968352441}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -31492,7 +31492,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3b79ed9c6f2ec24481505c114a77dae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  headerButton: {fileID: 1281880461}
+  headerButton: {fileID: 0}
   optionsContainer: {fileID: 333847569}
   optionButtons:
   - {fileID: 1210433448}
@@ -42426,20 +42426,9 @@ PrefabInstance:
   m_SourcePrefab: {fileID: 100100000, guid: 787d0789a907b4545b691cc3c4e5f816, type: 3}
 --- !u!224 &1060813867 stripped
 RectTransform:
-  m_CorrespondingSourceObject: {fileID: 349124671192217145, guid: 787d0789a907b4545b691cc3c4e5f816, type: 3}
+  m_CorrespondingSourceObject: {fileID: 1614357276263632702, guid: 787d0789a907b4545b691cc3c4e5f816, type: 3}
   m_PrefabInstance: {fileID: 1060813866}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1060813868 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 349124671192217147, guid: 787d0789a907b4545b691cc3c4e5f816, type: 3}
-  m_PrefabInstance: {fileID: 1060813866}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62127c034182e654ea279e93c2f80213, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1065758464
 GameObject:
   m_ObjectHideFlags: 0
@@ -52506,22 +52495,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 7853046487282397852, guid: cc13d35bc152f2448aece47af3317be1, type: 3}
   m_PrefabInstance: {fileID: 1280464625}
   m_PrefabAsset: {fileID: 0}
---- !u!224 &1281880460 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 349124671192217145, guid: 787d0789a907b4545b691cc3c4e5f816, type: 3}
-  m_PrefabInstance: {fileID: 1705463446}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1281880461 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 349124671192217147, guid: 787d0789a907b4545b691cc3c4e5f816, type: 3}
-  m_PrefabInstance: {fileID: 1705463446}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62127c034182e654ea279e93c2f80213, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1286728607
 GameObject:
   m_ObjectHideFlags: 0
@@ -64047,6 +64020,7 @@ MonoBehaviour:
     fighterVariantButtonsListController: {fileID: 0}
     fighterVariantPanel: {fileID: 0}
     MissionParameterUIHandle: {fileID: 0}
+    launchButton: {fileID: 0}
   tripleUI:
     rootCanvas: {fileID: 236176790}
     vehicleSelectionModeUIHandle: {fileID: 664917257}
@@ -64068,6 +64042,7 @@ MonoBehaviour:
     fighterVariantButtonsListController: {fileID: 0}
     fighterVariantPanel: {fileID: 0}
     MissionParameterUIHandle: {fileID: 0}
+    launchButton: {fileID: 0}
   loadoutManager: {fileID: 214016662}
   vehicleSelectionModeUIHandle: {fileID: 1104758269}
   vehicleInfoUIHandle: {fileID: 1994621171}
@@ -69050,7 +69025,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3b79ed9c6f2ec24481505c114a77dae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  headerButton: {fileID: 1060813868}
+  headerButton: {fileID: 0}
   optionsContainer: {fileID: 178103995}
   optionButtons:
   - {fileID: 931028833}
@@ -69251,8 +69226,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0a1bd420e7d4ff4fb13850a8a3a822e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvasNormal: {fileID: 557862594}
-  canvasTriple: {fileID: 236176790}
+  canvasNormalObject: {fileID: 222658828}
+  canvasTripleObject: {fileID: 2032863473}
+  canvasNormalHUD: {fileID: 0}
+  canvasTripleHUD: {fileID: 0}
 --- !u!114 &1688664459
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -69265,8 +69242,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0a1bd420e7d4ff4fb13850a8a3a822e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvasNormal: {fileID: 222658828}
-  canvasTriple: {fileID: 2032863473}
+  canvasNormalObject: {fileID: 1616679772}
+  canvasTripleObject: {fileID: 11413438}
+  canvasNormalHUD: {fileID: 0}
+  canvasTripleHUD: {fileID: 0}
 --- !u!4 &1688664460
 Transform:
   m_ObjectHideFlags: 0
@@ -69294,8 +69273,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0a1bd420e7d4ff4fb13850a8a3a822e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvasNormal: {fileID: 1616679772}
-  canvasTriple: {fileID: 11413438}
+  canvasNormalObject: {fileID: 557862594}
+  canvasTripleObject: {fileID: 236176790}
+  canvasNormalHUD: {fileID: 0}
+  canvasTripleHUD: {fileID: 0}
 --- !u!1 &1690077178
 GameObject:
   m_ObjectHideFlags: 0
@@ -69926,6 +69907,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 787d0789a907b4545b691cc3c4e5f816, type: 3}
+--- !u!224 &1705463447 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 1614357276263632702, guid: 787d0789a907b4545b691cc3c4e5f816, type: 3}
+  m_PrefabInstance: {fileID: 1705463446}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1708989298
 GameObject:
   m_ObjectHideFlags: 0

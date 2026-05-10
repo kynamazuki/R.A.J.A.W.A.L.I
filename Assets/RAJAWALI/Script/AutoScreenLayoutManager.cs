@@ -1,9 +1,15 @@
 using UnityEngine;
+using VSX.UniversalVehicleCombat;
 
 public class AutoScreenLayoutManager : MonoBehaviour
 {
-    public GameObject canvasNormal;
-    public GameObject canvasTriple;
+    [Header("Canvas Objects")]
+    public GameObject canvasNormalObject;
+    public GameObject canvasTripleObject;
+
+    [Header("HUD Components - Optional")]
+    public HUDComponent canvasNormalHUD;
+    public HUDComponent canvasTripleHUD;
 
     void Start()
     {
@@ -17,19 +23,21 @@ public class AutoScreenLayoutManager : MonoBehaviour
 
         Debug.Log("Detected Resolution: " + w + " x " + h);
 
-        if (w >= 5000) // surround monitor
-        {
-            canvasNormal.SetActive(false);
-            canvasTriple.SetActive(true);
+        bool isTripleMonitor = w >= 5000;
 
-            Debug.Log("Triple Monitor UI Activated");
-        }
-        else
-        {
-            canvasNormal.SetActive(true);
-            canvasTriple.SetActive(false);
+        if (canvasNormalObject != null)
+            canvasNormalObject.SetActive(!isTripleMonitor);
 
-            Debug.Log("Normal UI Activated");
-        }
+        if (canvasTripleObject != null)
+            canvasTripleObject.SetActive(isTripleMonitor);
+
+        // Only use Unplugged if this canvas has HUDComponent
+        if (canvasNormalHUD != null)
+            canvasNormalHUD.Unplugged = isTripleMonitor;
+
+        if (canvasTripleHUD != null)
+            canvasTripleHUD.Unplugged = !isTripleMonitor;
+
+        Debug.Log(isTripleMonitor ? "Triple Monitor UI Activated" : "Normal UI Activated");
     }
 }

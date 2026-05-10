@@ -4,6 +4,7 @@ using UnityEngine.Audio;
 using System.Collections.Generic;
 using System.Collections;
 
+
 public class MusicManager : MonoBehaviour
 {
     public static MusicManager Instance;
@@ -58,7 +59,7 @@ public class MusicManager : MonoBehaviour
             case "LoadoutTutorial":
                 PlayMusic(mainMenuMusic);
                 break;
-            case "DeepSpace":
+            case "Deepspace":
                 PlayMusic(deepSpaceMusic);
                 break;
             case "AsteroidField":
@@ -91,15 +92,53 @@ public class MusicManager : MonoBehaviour
         audioMixer.SetFloat("Music", Mathf.Log10(musicVolume) * 20);
     }
 
+    private Coroutine fadeRoutine;
+
     public void PlayMusic(AudioClip newMusic)
     {
+        if (newMusic == null) return;
         if (musicSource.clip == newMusic) return;
 
+        if (fadeRoutine != null)
+            StopCoroutine(fadeRoutine);
+
+        fadeRoutine = StartCoroutine(FadeMusic(newMusic));
+    }
+
+    private IEnumerator FadeMusic(AudioClip newMusic)
+    {
+        float fadeOutTime = 1f;
+        float fadeInTime = 1f;
+        float targetVolume = 1f;
+
+        // Fade out current song
+        for (float t = 0; t < fadeOutTime; t += Time.deltaTime)
+        {
+            musicSource.volume = Mathf.Lerp(targetVolume, 0, t / fadeOutTime);
+            yield return null;
+        }
+
+        musicSource.volume = 0;
+        musicSource.Stop();
+
+        // Change song
         musicSource.clip = newMusic;
         musicSource.loop = true;
-        musicSource.outputAudioMixerGroup = audioMixer.FindMatchingGroups("Music")[0];
+
+        AudioMixerGroup[] groups = audioMixer.FindMatchingGroups("Music");
+        if (groups.Length > 0)
+            musicSource.outputAudioMixerGroup = groups[0];
+
         musicSource.Play();
-        StartCoroutine(FadeMusic(newMusic));
+
+        // Fade in new song
+        for (float t = 0; t < fadeInTime; t += Time.deltaTime)
+        {
+            musicSource.volume = Mathf.Lerp(0, targetVolume, t / fadeInTime);
+            yield return null;
+        }
+
+        musicSource.volume = targetVolume;
     }
 
     public void UpdateMusicVolume(float volume)
@@ -107,30 +146,5 @@ public class MusicManager : MonoBehaviour
         audioMixer.SetFloat("Music", Mathf.Log10(volume) * 20);
     }
 
-    private IEnumerator FadeMusic(AudioClip newMusic)
-    {
-        float fadeOutTime = 1f; // seconds
-        float fadeInTime = 1f;
-        float startVolume = musicSource.volume;
-
-        // Fade out
-        for (float t = 0; t < fadeOutTime; t += Time.deltaTime)
-        {
-            musicSource.volume = Mathf.Lerp(startVolume, 0, t / fadeOutTime);
-            yield return null;
-        }
-
-        musicSource.Stop();
-        musicSource.clip = newMusic;
-        musicSource.Play();
-
-        // Fade in
-        for (float t = 0; t < fadeInTime; t += Time.deltaTime)
-        {
-            musicSource.volume = Mathf.Lerp(0, startVolume, t / fadeInTime);
-            yield return null;
-        }
-
-        musicSource.volume = startVolume;
-    }
+    
 }

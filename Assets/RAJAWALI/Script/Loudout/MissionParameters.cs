@@ -5,9 +5,9 @@ public class MissionParameters : MonoBehaviour
     public static MissionParameters Instance { get; private set; }
 
     public string missionType;
-    public float missionTime;
+    public float missionTime = 300f; // Default 5 minutes
+    public bool timerEnabled = true;
     public string enemyType;
-    public string ammo;
     public string location;
 
     public string selectedFighter;

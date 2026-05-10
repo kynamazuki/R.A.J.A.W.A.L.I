@@ -33,6 +33,13 @@ public class TimeManager : MonoBehaviour
 
     void Update()
     {
+        // Unlimited mode
+        if (remainingTime < 0)
+        {
+            missionTimeText.text = "?";
+            return;
+        }
+
         if (remainingTime > 0)
         {
             remainingTime -= Time.deltaTime;

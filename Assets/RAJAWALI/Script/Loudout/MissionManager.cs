@@ -53,6 +53,14 @@ public class MissionManager : MonoBehaviour
             return;
         }
 
+        if (loadoutManager == null)
+            loadoutManager = FindObjectOfType<LoadoutManager>();
+
+        if (loadoutManager != null)
+        {
+            loadoutManager.SaveWorkingToActiveSlot();
+            loadoutManager.SavePersistentData();
+        }
 
         PlayerPrefs.SetFloat("MissionTime", currentMission.missionTime);
 
@@ -95,7 +103,6 @@ public class MissionManager : MonoBehaviour
         if (currentMission != null)
         {
             currentMission.enemyType = null;
-            currentMission.ammo = null;
             currentMission.location = null;
             currentMission.missionType = null;
             currentMission.missionTime = 0;

@@ -99089,8 +99089,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0a1bd420e7d4ff4fb13850a8a3a822e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvasNormal: {fileID: 152507265420883835}
-  canvasTriple: {fileID: 1503336876838069438}
+  canvasNormalObject: {fileID: 152507265420883835}
+  canvasTripleObject: {fileID: 1503336876838069438}
+  canvasNormalHUD: {fileID: 152507265420883719}
+  canvasTripleHUD: {fileID: 9021030513479056175}
 --- !u!1 &6715044623740523472
 GameObject:
   m_ObjectHideFlags: 0
